@@ -109,11 +109,7 @@
     <header>
       <div class="gift-card__price">
         <h1>
-          {% if settings.currency_code_enabled %}
-            {{ gift_card.balance | money_with_currency }}
-          {% else %}
-            {{ gift_card.balance | money }}
-          {% endif %}
+          {{ gift_card.balance | money }}
         </h1>
         {%- if gift_card.enabled == false or gift_card.expired -%}
           <p class="badge badge--expired">{{ 'gift_cards.issued.expired' | t }}</p>
