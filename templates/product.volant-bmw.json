@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "reels_insta_XcjfRh": {
@@ -250,10 +259,6 @@
           "type": "title",
           "settings": {}
         },
-        "judge_me_reviews_preview_badge_VE96VM": {
-          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "settings": {}
-        },
         "custom_liquid_DgUmcq": {
           "type": "custom_liquid",
           "settings": {
@@ -270,7 +275,7 @@
           "type": "popup",
           "settings": {
             "text": "Guide de compatibilité pour votre volant",
-            "page": "compatibilite-volants-bmw"
+            "page": "bmw-steering-wheel-compatibility"
           }
         },
         "custom_liquid_xB6RWw": {
@@ -308,7 +313,6 @@
       },
       "block_order": [
         "title",
-        "judge_me_reviews_preview_badge_VE96VM",
         "custom_liquid_DgUmcq",
         "custom_liquid_36VBYW",
         "popup_wN7yFd",
@@ -737,20 +741,6 @@
     },
     "17452778107ddc7743": {
       "type": "apps",
-      "blocks": {
-        "judge_me_reviews_review_widget_ydyrjk": {
-          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "settings": {
-            "review_data": "sample_data",
-            "max_width": 1200,
-            "show_shop_reviews": false,
-            "empty_state": "empty_widget"
-          }
-        }
-      },
-      "block_order": [
-        "judge_me_reviews_review_widget_ydyrjk"
-      ],
       "settings": {
         "include_margins": true
       }
