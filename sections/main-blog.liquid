@@ -316,7 +316,7 @@
               &nbsp;· {{ featured.author }}
             {%- endif -%}
           </div>
-          <a href="{{ featured.url }}" class="blog-hero__cta">Lire l'article →</a>
+          <a href="{{ featured.url }}" class="blog-hero__cta">Read article →</a>
         </div>
       </div>
     </div>
@@ -329,15 +329,15 @@
         <input
           type="text"
           id="blog-search-input"
-          placeholder="Rechercher un article…"
-          aria-label="Rechercher"
+          placeholder="Search articles…"
+          aria-label="Search"
           oninput="blogFilterArticles()"
         >
       </div>
       {%- if all_tags_arr.size > 0 -%}
         <div class="blog-toolbar__tags">
-          <span class="blog-toolbar__tags-label">Catégories</span>
-          <button class="blog-tag-btn is-active" data-tag="all" onclick="blogFilterByTag('all', this)">Tout</button>
+          <span class="blog-toolbar__tags-label">Categories</span>
+          <button class="blog-tag-btn is-active" data-tag="all" onclick="blogFilterByTag('all', this)">All</button>
           {%- for tag in all_tags_arr limit: 12 -%}
             {%- if tag != '' -%}
               <button class="blog-tag-btn" data-tag="{{ tag | handle }}" onclick="blogFilterByTag('{{ tag | handle }}', this)">{{ tag }}</button>
@@ -376,7 +376,7 @@
 
       {%- if blog.articles.size == 0 -%}
         <div class="blog-no-results">
-          <p>Aucun article pour le moment. Revenez bientôt !</p>
+          <p>No articles yet. Check back soon!</p>
         </div>
       {%- endif -%}
     </div>
@@ -409,7 +409,7 @@ function blogFilterArticles() {
     if (!nr) {
       nr = document.createElement('div');
       nr.className = 'blog-no-results blog-no-results-dynamic';
-      nr.innerHTML = '<p>Aucun article ne correspond à votre recherche.</p>';
+      nr.innerHTML = '<p>No articles match your search.</p>';
       grid.appendChild(nr);
     }
     nr.style.display = '';
@@ -448,7 +448,7 @@ function blogFilterByTag(tag, btn) {
     if (!nr) {
       nr = document.createElement('div');
       nr.className = 'blog-no-results blog-no-results-dynamic';
-      nr.innerHTML = '<p>Aucun article dans cette catégorie.</p>';
+      nr.innerHTML = '<p>No articles in this category.</p>';
       grid.appendChild(nr);
     }
     nr.style.display = '';
@@ -485,7 +485,7 @@ function blogFilterByTag(tag, btn) {
       "type": "checkbox",
       "id": "show_image",
       "default": true,
-      "label": "Afficher les images des articles"
+      "label": "Show article images"
     },
     {
       "type": "select",
@@ -520,7 +520,7 @@ function blogFilterByTag(tag, btn) {
       "type": "checkbox",
       "id": "show_hero",
       "default": true,
-      "label": "Afficher l'article en hero (grand format)"
+      "label": "Show hero article (large)"
     },
     {
       "type": "checkbox",
@@ -537,16 +537,16 @@ function blogFilterByTag(tag, btn) {
     {
       "type": "textarea",
       "id": "blog_description",
-      "default": "Actualités, conseils et inspirations pour personnaliser votre volant et votre habitacle.",
+      "default": "News, tips and inspiration to customise your steering wheel and interior.",
       "label": "Description du blog",
-      "info": "Utilisé si aucun metafield description n'est défini sur le blog"
+      "info": "Used if no description metafield is set on the blog"
     },
     {
       "type": "select",
       "id": "blog_title_align",
       "options": [
         { "value": "left", "label": "Gauche" },
-        { "value": "center", "label": "Centré" }
+        { "value": "center", "label": "Centred" }
       ],
       "default": "center",
       "label": "Alignement du titre"
@@ -555,7 +555,7 @@ function blogFilterByTag(tag, btn) {
       "type": "checkbox",
       "id": "show_toolbar",
       "default": true,
-      "label": "Afficher la barre de recherche et les filtres par tags"
+      "label": "Show toolbar (search + filters)"
     },
     {
       "type": "paragraph",

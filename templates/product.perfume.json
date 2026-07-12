@@ -1,1 +1,155 @@
-{"sections":{"main":{"type":"main-product","blocks":{"title":{"type":"title","settings":{}},"price":{"type":"price","settings":{}},"variant_picker":{"type":"variant_picker","settings":{"picker_type":"button","swatch_shape":"circle"}},"quantity_selector":{"type":"quantity_selector","settings":{}},"custom_liquid_G4Tq4i":{"type":"custom_liquid","settings":{"custom_liquid":"{% assign ns = 'custom' %}\n\n{%- if product.metafields[ns].notes_tete.value != blank \n   or product.metafields[ns].notes_coeur.value != blank \n   or product.metafields[ns].notes_fond.value != blank -%}\n\n<div style=\"margin: 3rem 0; padding: 2.2rem; max-width: 920px; margin-left: auto; margin-right: auto;\n            background: linear-gradient(180deg, #fdfcfb 0%, #f8f7f5 100%);  \/* Fond subtil blanc cassé → gris très clair (monochrome luxe) *\/\n            border: 1px solid #e8e6e2; border-radius: 10px; \n            box-shadow: 0 6px 24px rgba(0,0,0,0.04); \/* Ombre discrète pour profondeur *\/\n            \">\n\n  <div style=\"display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; text-align: center;\">\n    \n    <!-- TÊTE -->\n    {%- if product.metafields[ns].notes_tete.value != blank -%}\n    <div>\n      <strong style=\"display: block; font-size: 1.18rem; font-weight: 600; color: #2a2a2a; margin-bottom: 0.9rem; text-transform: uppercase; letter-spacing: 0.8px;\">\n        Tête\n      <\/strong>\n      <p style=\"margin: 0; font-size: 1.02rem; line-height: 1.6; color: #444444;\">\n        {{ product.metafields[ns].notes_tete.value }}\n      <\/p>\n    <\/div>\n    {%- endif -%}\n    \n    <!-- CŒUR -->\n    {%- if product.metafields[ns].notes_coeur.value != blank -%}\n    <div>\n      <strong style=\"display: block; font-size: 1.18rem; font-weight: 600; color: #2a2a2a; margin-bottom: 0.9rem; text-transform: uppercase; letter-spacing: 0.8px;\">\n        Cœur\n      <\/strong>\n      <p style=\"margin: 0; font-size: 1.02rem; line-height: 1.6; color: #444444;\">\n        {{ product.metafields[ns].notes_coeur.value }}\n      <\/p>\n    <\/div>\n    {%- endif -%}\n    \n    <!-- FOND -->\n    {%- if product.metafields[ns].notes_fond.value != blank -%}\n    <div>\n      <strong style=\"display: block; font-size: 1.18rem; font-weight: 600; color: #2a2a2a; margin-bottom: 0.9rem; text-transform: uppercase; letter-spacing: 0.8px;\">\n        Fond\n      <\/strong>\n      <p style=\"margin: 0; font-size: 1.02rem; line-height: 1.6; color: #444444;\">\n        {{ product.metafields[ns].notes_fond.value }}\n      <\/p>\n    <\/div>\n    {%- endif -%}\n    \n  <\/div>\n<\/div>\n\n<style>\n  @media (max-width: 768px) {\n    div[style*=\"grid-template-columns\"] { grid-template-columns: 1fr !important; gap: 2rem !important; }\n  }\n<\/style>\n\n{%- endif -%}"}},"buy_buttons":{"type":"buy_buttons","settings":{"show_dynamic_checkout":true,"show_gift_card_recipient":true}},"description":{"type":"description","settings":{}}},"block_order":["title","price","variant_picker","quantity_selector","custom_liquid_G4Tq4i","buy_buttons","description"],"settings":{"enable_sticky_info":true,"color_scheme":"scheme-1","media_size":"small","constrain_to_viewport":true,"media_fit":"contain","gallery_layout":"thumbnail_slider","media_position":"left","image_zoom":"lightbox","mobile_thumbnails":"show","hide_variants":true,"enable_video_looping":false,"padding_top":36,"padding_bottom":12}},"1773325639b398b93e":{"type":"_blocks","blocks":{"ai_gen_block_f0ed5da_WkJtbq":{"type":"ai_gen_block_f0ed5da","settings":{"section_title":"NOTES OLFACTIVES","background_color":"#ffffff","max_width":1150,"section_padding_top":60,"section_padding_bottom":60,"title_size":1.7,"title_letter_spacing":1.5,"title_color":"#000000","title_margin_bottom":50,"grid_gap":40,"mobile_gap":50,"column_title_size":1.1,"column_title_color":"#000000","column_title_margin":20,"image_size":110,"image_margin_bottom":20,"image_shadow":"0 2px 8px rgba(0, 0, 0, 0.07)","main_text_size":1,"main_text_color":"#333333","main_text_margin":16,"chip_font_size":0.9,"chip_bg_color":"#f8f8f8","chip_border_color":"#e5e5e5","chip_text_color":"#444444","chip_padding_vertical":0.5,"chip_padding_horizontal":0.9,"chip_border_radius":20,"chips_gap":8,"tete_title":"NOTES DE TÊTE","tete_chips":"","coeur_title":"NOTES DE CŒUR","coeur_chips":"","fond_title":"NOTES DE FOND","fond_chips":""},"blocks":{}}},"block_order":["ai_gen_block_f0ed5da_WkJtbq"],"settings":{}},"related-products":{"type":"related-products","settings":{"heading":"Tu devrais aimer","heading_size":"h2","products_to_show":4,"columns_desktop":4,"color_scheme":"scheme-1","image_ratio":"square","image_shape":"default","show_secondary_image":true,"show_vendor":false,"show_rating":false,"columns_mobile":"2","padding_top":36,"padding_bottom":28}},"gp_shopify_original_section_560221159740671066":{"type":"gp-section-560221159740671066","disabled":true,"settings":{"section_preload":"false","checksum":"adb4e2cdb7afa5bf8afd615340255a9f9b80c84bd383fe01eb1c12bcf1518282_1_1","ggyb3YLjnvU_customContent_prefix":"-","ggyb3YLjnvU_customContent_suffix":"off","gg4VaBn7Rxi_label":"Add to Cart","gg4VaBn7Rxi_outOfStockLabel":"Out of stock","gg4VaBn7Rxi_unavailableLabel":"Unavailable"}}},"order":["main","1773325639b398b93e","related-products","gp_shopify_original_section_560221159740671066"]}
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "custom_liquid_G4Tq4i": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "{% assign ns = 'custom' %}\n\n{%- if product.metafields[ns].notes_tete.value != blank \n   or product.metafields[ns].notes_coeur.value != blank \n   or product.metafields[ns].notes_fond.value != blank -%}\n\n<div style=\"margin: 3rem 0; padding: 2.2rem; max-width: 920px; margin-left: auto; margin-right: auto;\n            background: linear-gradient(180deg, #fdfcfb 0%, #f8f7f5 100%);  /* Base Notes subtil blanc cassé → gris très clair (monochrome luxe) */\n            border: 1px solid #e8e6e2; border-radius: 10px; \n            box-shadow: 0 6px 24px rgba(0,0,0,0.04); /* Ombre discrète pour profondeur */\n            \">\n\n  <div style=\"display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; text-align: center;\">\n    \n    <!-- TÊTE -->\n    {%- if product.metafields[ns].notes_tete.value != blank -%}\n    <div>\n      <strong style=\"display: block; font-size: 1.18rem; font-weight: 600; color: #2a2a2a; margin-bottom: 0.9rem; text-transform: uppercase; letter-spacing: 0.8px;\">\n        Top Notes\n      </strong>\n      <p style=\"margin: 0; font-size: 1.02rem; line-height: 1.6; color: #444444;\">\n        {{ product.metafields[ns].notes_tete.value }}\n      </p>\n    </div>\n    {%- endif -%}\n    \n    <!-- CŒUR -->\n    {%- if product.metafields[ns].notes_coeur.value != blank -%}\n    <div>\n      <strong style=\"display: block; font-size: 1.18rem; font-weight: 600; color: #2a2a2a; margin-bottom: 0.9rem; text-transform: uppercase; letter-spacing: 0.8px;\">\n        Heart Notes\n      </strong>\n      <p style=\"margin: 0; font-size: 1.02rem; line-height: 1.6; color: #444444;\">\n        {{ product.metafields[ns].notes_coeur.value }}\n      </p>\n    </div>\n    {%- endif -%}\n    \n    <!-- FOND -->\n    {%- if product.metafields[ns].notes_fond.value != blank -%}\n    <div>\n      <strong style=\"display: block; font-size: 1.18rem; font-weight: 600; color: #2a2a2a; margin-bottom: 0.9rem; text-transform: uppercase; letter-spacing: 0.8px;\">\n        Base Notes\n      </strong>\n      <p style=\"margin: 0; font-size: 1.02rem; line-height: 1.6; color: #444444;\">\n        {{ product.metafields[ns].notes_fond.value }}\n      </p>\n    </div>\n    {%- endif -%}\n    \n  </div>\n</div>\n\n<style>\n  @media (max-width: 768px) {\n    div[style*=\"grid-template-columns\"] { grid-template-columns: 1fr !important; gap: 2rem !important; }\n  }\n</style>\n\n{%- endif -%}"
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "title",
+        "price",
+        "variant_picker",
+        "quantity_selector",
+        "custom_liquid_G4Tq4i",
+        "buy_buttons",
+        "description"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "color_scheme": "scheme-1",
+        "media_size": "small",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "gallery_layout": "thumbnail_slider",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "mobile_thumbnails": "show",
+        "hide_variants": true,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 12
+      }
+    },
+    "1773325639b398b93e": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_f0ed5da_WkJtbq": {
+          "type": "ai_gen_block_f0ed5da",
+          "settings": {
+            "section_title": "NOTES OLFACTIVES",
+            "background_color": "#ffffff",
+            "max_width": 1150,
+            "section_padding_top": 60,
+            "section_padding_bottom": 60,
+            "title_size": 1.7,
+            "title_letter_spacing": 1.5,
+            "title_color": "#000000",
+            "title_margin_bottom": 50,
+            "grid_gap": 40,
+            "mobile_gap": 50,
+            "column_title_size": 1.1,
+            "column_title_color": "#000000",
+            "column_title_margin": 20,
+            "image_size": 110,
+            "image_margin_bottom": 20,
+            "image_shadow": "0 2px 8px rgba(0, 0, 0, 0.07)",
+            "main_text_size": 1,
+            "main_text_color": "#333333",
+            "main_text_margin": 16,
+            "chip_font_size": 0.9,
+            "chip_bg_color": "#f8f8f8",
+            "chip_border_color": "#e5e5e5",
+            "chip_text_color": "#444444",
+            "chip_padding_vertical": 0.5,
+            "chip_padding_horizontal": 0.9,
+            "chip_border_radius": 20,
+            "chips_gap": 8,
+            "tete_title": "TOP NOTES",
+            "tete_chips": "",
+            "coeur_title": "HEART NOTES",
+            "coeur_chips": "",
+            "fond_title": "BASE NOTES",
+            "fond_chips": ""
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_f0ed5da_WkJtbq"
+      ],
+      "settings": {}
+    },
+    "related-products": {
+      "type": "related-products",
+      "settings": {
+        "heading": "You Might Also Like",
+        "heading_size": "h2",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "color_scheme": "scheme-1",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "columns_mobile": "2",
+        "padding_top": 36,
+        "padding_bottom": 28
+      }
+    },
+    "gp_shopify_original_section_560221159740671066": {
+      "type": "gp-section-560221159740671066",
+      "disabled": true,
+      "settings": {
+        "section_preload": "false",
+        "checksum": "adb4e2cdb7afa5bf8afd615340255a9f9b80c84bd383fe01eb1c12bcf1518282_1_1",
+        "ggyb3YLjnvU_customContent_prefix": "-",
+        "ggyb3YLjnvU_customContent_suffix": "off",
+        "gg4VaBn7Rxi_label": "Add to Cart",
+        "gg4VaBn7Rxi_outOfStockLabel": "Out of stock",
+        "gg4VaBn7Rxi_unavailableLabel": "Unavailable"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "1773325639b398b93e",
+    "related-products",
+    "gp_shopify_original_section_560221159740671066"
+  ]
+}

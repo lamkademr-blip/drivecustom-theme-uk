@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
           .then(response => response.json())
           .then(data => {
             if (data && data.address && data.address.city) {
-              shippingMessage.textContent = `Livraison offerte à ${data.address.city}`;
+              shippingMessage.textContent = `Free shipping to ${data.address.city}`;
             }
           })
           .catch(error => {

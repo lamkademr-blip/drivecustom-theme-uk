@@ -2,7 +2,7 @@
   assign position = 1
   assign shop_url = shop.url | default: canonical_url | default: request.origin
   assign items = ''
-  assign items = items | append: '{"@type":"ListItem","position":1,"name":"Accueil","item":"' | append: shop_url | append: '"}'
+  assign items = items | append: '{"@type":"ListItem","position":1,"name":"Home","item":"' | append: shop_url | append: '"}'
   assign position = 2
 
   case request.page_type

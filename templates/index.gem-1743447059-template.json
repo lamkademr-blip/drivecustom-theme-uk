@@ -14,7 +14,7 @@
         "content_alignment": "text-center",
         "content_position": "center",
         "title_tag": "h1",
-        "title": "Les As du Volant - Prenez le contrôle de votre passion",
+        "title": "Drive Custom - Take Control of Your Passion",
         "title_color": "#ffffff",
         "title_size": 40,
         "text": "",
@@ -35,13 +35,13 @@
         "change_slides_speed": 5,
         "image_behavior": "none",
         "show_text_below": true,
-        "accessibility_info": "Diaporama sur votre marque"
+        "accessibility_info": "Slideshow about your brand"
       }
     },
     "titre_7xhXj8": {
       "type": "Titre",
       "settings": {
-        "title": "Pour Chaque Pilote, Un Volant d'Exception",
+        "title": "For Every Driver, An Exceptional Steering Wheel",
         "title_color": "#000000",
         "title_size": 36,
         "text_align": "center",
@@ -234,7 +234,7 @@
         "show_collection_title": true,
         "show_collection_description": false,
         "show_view_all": true,
-        "view_all_text": "Voir toutes les collections",
+        "view_all_text": "View all collections",
         "view_all_link": "",
         "image_ratio": 1,
         "image_overlay": "gradient",
@@ -249,9 +249,9 @@
     "texte_PKkatY": {
       "type": "texte",
       "settings": {
-        "heading": "VOUS NE TROUVEZ PAS LE CONFIGURATEUR POUR VOTRE VOLANT ?",
-        "text": "<p>Pas d'inquiétude, nous pouvons nous adapter à vos besoins spécifiques et créer une solution personnalisée pour vous.<\/p>",
-        "button_label": "Contactez-nous",
+        "heading": "CAN'T FIND THE CONFIGURATOR FOR YOUR STEERING WHEEL?",
+        "text": "<p>Don't worry, we can adapt to your specific needs and create a custom solution for you.<\/p>",
+        "button_label": "Contact us",
         "button_link": "",
         "transparent_background": true,
         "background_color": "#f5f5f5",
@@ -268,29 +268,29 @@
         "step_1_GjYt8k": {
           "type": "step_1",
           "settings": {
-            "title": "1. PERSONNALISATION",
-            "description": "Créez votre volant sur mesure, du design à la prise en main, pour une expérience de conduite qui vous ressemble."
+            "title": "1. CUSTOMISATION",
+            "description": "Create your custom steering wheel, from design to grip, for a driving experience that truly reflects you."
           }
         },
         "step_2_d7FQfw": {
           "type": "step_2",
           "settings": {
-            "title": "2. FABRICATION",
-            "description": "Nos artisans conçoivent votre volant avec des matériaux premium et une finition impeccable, digne des plus grands pilotes."
+            "title": "2. CRAFTSMANSHIP",
+            "description": "Our artisans craft your steering wheel with premium materials and an impeccable finish, worthy of the greatest drivers."
           }
         },
         "step_3_t4cBfi": {
           "type": "step_3",
           "settings": {
-            "title": "3. LIVRAISON OFFERTE",
-            "description": "Votre volant personnalisé livré gratuitement et soigneusement emballé directement chez vous."
+            "title": "3. FREE DELIVERY",
+            "description": "Your custom steering wheel delivered free and carefully packaged straight to your door."
           }
         },
         "step_4_GX3PXt": {
           "type": "step_4",
           "settings": {
-            "title": "4. GARANTIE 5 ANS",
-            "description": "Prenez la route en toute confiance avec une garantie complète contre tout défaut de fabrication."
+            "title": "4. 5-YEAR WARRANTY",
+            "description": "Hit the road with confidence with a complete warranty against any manufacturing defect."
           }
         }
       },
@@ -301,7 +301,7 @@
         "step_4_GX3PXt"
       ],
       "settings": {
-        "title": "NOTRE ACCOMPAGNEMENT",
+        "title": "OUR PROCESS",
         "gradient_preset": "transparent",
         "text_color": "#121212",
         "icon_color": "#36c2ec",
@@ -313,7 +313,7 @@
       "type": "before",
       "settings": {
         "show_top_title": true,
-        "top_title": "Vivez un Changement Radical",
+        "top_title": "Experience a Radical Transformation",
         "top_title_color": "#000000",
         "bf_image": "shopify:\/\/shop_images\/Capture_d_ecran_2025-03-06_181933.png",
         "af_image": "shopify:\/\/shop_images\/O1CN01vMxi3A24ubvEHDeER__2210127451_jpg.webp",
@@ -477,8 +477,8 @@
           "settings": {
             "image": "shopify:\/\/shop_images\/volant_voiture.svg",
             "caption": "",
-            "heading": "Personnalisation Volant : Quelles Options Existent",
-            "text": "<ul><li>Insertions carbone ou jantes en alliage design<\/li><li>Palettes de changement de vitesses rétroéclairées<\/li><li>Surpiqûres contrastées personnalisables<\/li><li>Boutons multimédias compatibles avec les systèmes MMI ou Virtual Cockpit<\/li><\/ul>",
+            "heading": "Steering Wheel Customisation: What Options Are Available",
+            "text": "<ul><li>Carbon fibre inserts or design alloy rims<\/li><li>Backlit paddle shifters<\/li><li>Custom contrast stitching<\/li><li>Multimedia buttons compatible with MMI or Virtual Cockpit systems<\/li><\/ul>",
             "button_label": "Texte du bouton",
             "button_link": ""
           }
@@ -488,8 +488,8 @@
           "settings": {
             "image": "shopify:\/\/shop_images\/volant_voiture_sport.svg",
             "caption": "",
-            "heading": "Quelle Différence entre un volant sport et un volant voiture basique ?",
-            "text": "<p>Avec son diamètre réduit et ses <strong>poignées alvéolées<\/strong> , le volant voiture sport optimise la réactivité. Les matériaux premium (cuir Nappa, alcantara) résistent à l'usure tout en gardant un grip ferme – idéal pour les accélérations en sortie de virage. Compatible avec la plupart des <strong>boîtes automatiques <\/strong>et manuelles.<\/p>",
+            "heading": "What's the Difference Between a Sport Steering Wheel and a Basic Steering Wheel?",
+            "text": "<p>With its reduced diameter and <strong>contoured grips<\/strong>, the sport steering wheel optimises responsiveness. Premium materials (Nappa leather, Alcantara) resist wear while maintaining a firm grip \u2014 ideal for corner exit acceleration. Compatible with most <strong>automatic<\/strong> and manual gearboxes.<\/p>",
             "button_label": "Texte du bouton",
             "button_link": ""
           }
@@ -521,14 +521,14 @@
         "heading_PbznYU": {
           "type": "heading",
           "settings": {
-            "heading": "Comment Savoir Si un Volant Convient à Ma Voiture ?",
+            "heading": "How to Know If a Steering Wheel Fits Your Car?",
             "heading_size": "h1"
           }
         },
         "text_jKFxzy": {
           "type": "text",
           "settings": {
-            "text": "<p>Vérifiez l'année de fabrication, le type de direction assistée et la connectique de l'airbag. Nos kits incluent un adaptateur universel pour les BMW Série récentes, Mercedes Classe A (après 2018) et Volkswagen Golf VII+.<\/p>"
+            "text": "<p>Check the year of manufacture, type of power steering and airbag connector. Our kits include a universal adapter for recent BMW series, Mercedes A-Class (after 2018) and VW Golf VII+.<\/p>"
           }
         }
       },

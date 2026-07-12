@@ -1,17 +1,17 @@
 {% schema %}
 {
-  "name": "Vidéo avec contenu",
+  "name": "Video with content",
   "tag": "section",
   "class": "section video-banner-section",
   "settings": [
     {
       "type": "header",
-      "content": "Vidéo"
+      "content": "Video"
     },
     {
       "type": "select",
       "id": "video_source",
-      "label": "Source de la vidéo",
+      "label": "Video source",
       "options": [
         {
           "value": "youtube",
@@ -31,15 +31,15 @@
     {
       "type": "text",
       "id": "video_id",
-      "label": "ID de la vidéo YouTube ou Vimeo",
+      "label": "YouTube or Vimeo video ID",
       "info": "Par exemple: 9YffrCViTVk pour YouTube ou 369893972 pour Vimeo",
       "default": "dQw4w9WgXcQ"
     },
     {
       "type": "text",
       "id": "video_url",
-      "label": "URL de la vidéo MP4",
-      "info": "Utilisé si la source est 'Fichier MP4'",
+      "label": "MP4 video URL",
+      "info": "Used if source is 'MP4 File'",
       "default": "https://cdn.shopify.com/s/files/1/0000/0000/files/example.mp4"
     },
     {
@@ -49,7 +49,7 @@
       "max": 1000,
       "step": 50,
       "unit": "px",
-      "label": "Hauteur de la vidéo",
+      "label": "Video height",
       "default": 600
     },
     {
@@ -57,7 +57,7 @@
       "id": "autoplay",
       "label": "Lecture automatique",
       "default": true,
-      "info": "La vidéo sera en sourdine si la lecture automatique est activée"
+      "info": "Video will be muted if autoplay is enabled"
     },
     {
       "type": "checkbox",
@@ -72,7 +72,7 @@
       "max": 100,
       "step": 5,
       "unit": "%",
-      "label": "Opacité de l'overlay",
+      "label": "Overlay opacity",
       "default": 50
     },
     {
@@ -83,7 +83,7 @@
     },
     {
       "type": "header",
-      "content": "Contenu superposé"
+      "content": "Overlay content"
     },
     {
       "type": "select",
@@ -235,8 +235,8 @@
   ],
   "presets": [
     {
-      "name": "Vidéo avec contenu",
-      "category": "Vidéo"
+      "name": "Video with content",
+      "category": "Video"
     }
   ]
 }
@@ -266,7 +266,7 @@
             {% if section.settings.loop %}loop{% endif %} 
             playsinline>
             <source src="{{ section.settings.video_url }}" type="video/mp4">
-            Votre navigateur ne prend pas en charge les vidéos HTML5.
+            Your browser does not support HTML5 videos.
           </video>
       {% endcase %}
     </div>

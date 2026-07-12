@@ -1,7 +1,7 @@
 {% comment %}
   SECTION : media-text-card.liquid
-  Description : Section responsive simple avec média (image ou vidéo via URL) + texte et puces.
-  Auteur : Votre nom
+  Description : Simple responsive section with media (image or video via URL) + text and bullets.
+  Author : Your name
 {% endcomment %}
 
 <div class="media-text-card-section" style="background-color: {{ section.settings.section_bg_color }};">
@@ -15,7 +15,7 @@
     padding: {{ section.settings.section_padding_vertical_desktop }}px {{ section.settings.section_padding_horizontal_desktop }}px;
   ">
 
-    <!-- Conteneur Média -->
+    <!-- Media Container -->
     <div class="media-container" style="
       flex: 0 0 auto;
       max-width: {{ section.settings.media_width_desktop }}%;
@@ -27,13 +27,13 @@
              style="width: 100%; height: auto; display: block;" 
              loading="lazy">
       {% elsif section.settings.media_type == 'video' and section.settings.video_url != blank %}
-        <!-- Affiche une vidéo MP4 à partir de son URL -->
+        <!-- Display MP4 video from URL -->
         <video autoplay loop muted playsinline preload="metadata" style="width: 100%; height: auto; display: block;">
           <source src="{{ section.settings.video_url }}" type="video/mp4">
-          Votre navigateur ne supporte pas la balise vidéo.
+          Your browser does not support the video tag.
         </video>
       {% elsif section.settings.media_type == 'youtube' and section.settings.youtube_url != blank %}
-        <!-- Affiche une vidéo YouTube -->
+        <!-- Display YouTube video -->
         <div class="video-container" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
           <iframe 
             style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
@@ -44,7 +44,7 @@
           </iframe>
         </div>
       {% elsif section.settings.media_type == 'vimeo' and section.settings.vimeo_url != blank %}
-        <!-- Affiche une vidéo Vimeo -->
+        <!-- Display Vimeo video -->
         <div class="video-container" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
           <iframe 
             style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
@@ -57,7 +57,7 @@
       {% endif %}
     </div>
 
-    <!-- Conteneur Texte -->
+    <!-- Text Container -->
     <div class="text-card" style="
       flex: 1;
       background-color: {{ section.settings.card_bg_color }};
@@ -84,14 +84,14 @@
         {{ section.settings.content | raw }}
         
         {% if section.settings.embed_video and section.settings.video_embed_code != blank %}
-          <!-- Vidéo embarquée dans le contenu -->
+          <!-- Embedded video inside content -->
           <div class="embedded-video-container" style="margin-top: 20px; position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
             {{ section.settings.video_embed_code | raw }}
           </div>
         {% endif %}
       </div>
 
-      <!-- Liste de puces -->
+      <!-- Bullet list -->
       <ul class="bullets-list">
         {% if section.settings.bullet1_text or section.settings.bullet1_html %}
           <li class="bullet-item">
@@ -117,7 +117,7 @@
 </div>
 
 <style>
-  /* Liste de puces : on aligne globalement la colonne (left, center, right) */
+  /* Bullet list: globally align the column (left, center, right) */
   .bullets-list {
     display: flex;
     flex-direction: column; /* empile chaque puce verticalement */
@@ -133,15 +133,15 @@
     list-style: none;
   }
 
-  /* Chaque puce : icône et texte en ligne, l'icône reste à gauche */
+  /* Each bullet: icon and text inline, icon stays on the left */
   .bullet-item {
     display: flex;
     align-items: center;
-    justify-content: flex-start; /* force l'icône et le texte à gauche l'un de l'autre */
+    justify-content: flex-start; /* force icon and text next to each other */
     margin-bottom: 10px;
   }
 
-  /* L'icône a une largeur fixe de 24px pour former une colonne */
+  /* Icon has a fixed width of 24px to form a column */
   .bullet-icon {
     display: inline-block;
     width: 24px;
@@ -149,12 +149,12 @@
     text-align: center;
   }
   
-  /* Style du texte des puces */
+  /* Bullet text styling */
   .bullet-text {
     font-weight: {% if section.settings.bullets_bold %}600{% else %}400{% endif %};
   }
 
-  /* Style pour la vidéo embarquée */
+  /* Embedded video styling */
   .embedded-video-container iframe {
     position: absolute;
     top: 0;
@@ -206,12 +206,12 @@
 
 {% schema %}
 {
-  "name": "Media + Texte",
+  "name": "Media + Text",
   "settings": [
     {
       "type": "color",
       "id": "section_bg_color",
-      "label": "Couleur fond",
+      "label": "Background colour",
       "default": "#f8f8f8"
     },
     {
@@ -253,7 +253,7 @@
     {
       "type": "range",
       "id": "mobile_gap",
-      "label": "Gap mobile (px)",
+      "label": "Mobile gap (px)",
       "min": 0,
       "max": 100,
       "step": 5,
@@ -262,10 +262,10 @@
     {
       "type": "select",
       "id": "media_type",
-      "label": "Type de média",
+      "label": "Media type",
       "options": [
         { "value": "image", "label": "Image/GIF" },
-        { "value": "video", "label": "Vidéo (MP4)" },
+        { "value": "video", "label": "Video (MP4)" },
         { "value": "youtube", "label": "YouTube" },
         { "value": "vimeo", "label": "Vimeo" }
       ],
@@ -279,34 +279,34 @@
     {
       "type": "text",
       "id": "video_url",
-      "label": "URL vidéo (MP4)",
+      "label": "Video URL (MP4)",
       "default": "https://example.com/video.mp4",
-      "info": "Utilisé uniquement si le type de média est 'Vidéo (MP4)'"
+      "info": "Used only if media type is 'Video (MP4)'"
     },
     {
       "type": "text",
       "id": "youtube_url",
-      "label": "URL vidéo YouTube",
+      "label": "YouTube video URL",
       "default": "https://www.youtube.com/embed/XXXXXXXXXXX",
       "info": "Format: https://www.youtube.com/embed/ID_VIDEO"
     },
     {
       "type": "text",
       "id": "vimeo_url",
-      "label": "URL vidéo Vimeo",
+      "label": "Vimeo video URL",
       "default": "https://player.vimeo.com/video/XXXXXXXXX",
       "info": "Format: https://player.vimeo.com/video/ID_VIDEO"
     },
     {
       "type": "text",
       "id": "alt_text",
-      "label": "Texte alternatif",
-      "default": "Description du média"
+      "label": "Alt text",
+      "default": "Media description"
     },
     {
       "type": "range",
       "id": "media_width_desktop",
-      "label": "Largeur média desktop (%)",
+      "label": "Media width desktop (%)",
       "min": 20,
       "max": 80,
       "step": 5,
@@ -315,33 +315,33 @@
     {
       "type": "select",
       "id": "media_position",
-      "label": "Position média desktop",
+      "label": "Media position desktop",
       "options": [
-        { "value": "left", "label": "Gauche" },
-        { "value": "right", "label": "Droite" }
+        { "value": "left", "label": "Left" },
+        { "value": "right", "label": "Right" },
       ],
       "default": "left"
     },
     {
       "type": "select",
       "id": "mobile_media_order",
-      "label": "Ordre mobile",
+      "label": "Mobile order",
       "options": [
-        { "value": "media-first", "label": "Média avant texte" },
-        { "value": "media-last", "label": "Média après texte" }
+        { "value": "media-first", "label": "Media before text" },
+        { "value": "media-last", "label": "Media after text" }
       ],
       "default": "media-first"
     },
     {
       "type": "color",
       "id": "card_bg_color",
-      "label": "Couleur bloc texte",
+      "label": "Text card colour",
       "default": "#ffffff"
     },
     {
       "type": "range",
       "id": "card_padding_vertical",
-      "label": "Padding vertical bloc texte (px)",
+      "label": "Text card vertical padding (px)",
       "min": 0,
       "max": 100,
       "step": 5,
@@ -350,7 +350,7 @@
     {
       "type": "range",
       "id": "card_padding_horizontal",
-      "label": "Padding horizontal bloc texte (px)",
+      "label": "Text card horizontal padding (px)",
       "min": 0,
       "max": 100,
       "step": 5,
@@ -359,51 +359,51 @@
     {
       "type": "text",
       "id": "heading",
-      "label": "Titre (H2)",
-      "default": "Installation Rapide, Zéro Stress !"
+      "label": "Heading (H2)",
+      "default": "Quick Installation, Zero Stress!"
     },
     {
       "type": "checkbox",
       "id": "title_bold",
-      "label": "Titre en gras",
+      "label": "Bold heading",
       "default": true
     },
     {
       "type": "textarea",
       "id": "content",
-      "label": "Contenu",
-      "default": "<p>Plus besoin de passer des heures à assembler. L'installation se fait en quelques minutes, sans outils complexes.</p>",
-      "info": "Vous pouvez utiliser les balises HTML comme <strong> pour mettre en gras ou <em> pour l'italique."
+      "label": "Content",
+      "default": "<p>No need to spend hours assembling. Installation takes just minutes, with no complex tools.</p>",
+      "info": "You can use HTML tags like <strong> for bold or <em> for italic."
     },
     {
       "type": "checkbox", 
       "id": "content_bold",
-      "label": "Contenu en gras",
+      "label": "Bold content",
       "default": false
     },
     {
       "type": "checkbox",
       "id": "embed_video",
-      "label": "Ajouter une vidéo dans le contenu",
+      "label": "Add video inside content",
       "default": false
     },
     {
       "type": "textarea",
       "id": "video_embed_code",
-      "label": "Code d'intégration vidéo",
+      "label": "Video embed code",
       "default": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/XXXXXXXXXXX\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
-      "info": "Collez ici le code d'intégration fourni par YouTube, Vimeo ou autre service vidéo."
+      "info": "Paste the embed code provided by YouTube, Vimeo or other video service."
     },
     {
       "type": "color",
       "id": "title_color",
-      "label": "Couleur titre",
+      "label": "Heading colour",
       "default": "#e67e22"
     },
     {
       "type": "range",
       "id": "title_font_size_desktop",
-      "label": "Taille titre desktop (px)",
+      "label": "Heading size desktop (px)",
       "min": 16,
       "max": 50,
       "step": 1,
@@ -412,7 +412,7 @@
     {
       "type": "range",
       "id": "title_font_size_mobile",
-      "label": "Taille titre mobile (px)",
+      "label": "Heading size mobile (px)",
       "min": 16,
       "max": 50,
       "step": 1,
@@ -421,7 +421,7 @@
     {
       "type": "range",
       "id": "title_letter_spacing_desktop",
-      "label": "Espacement lettres titre desktop (px)",
+      "label": "Heading letter spacing desktop (px)",
       "min": 0,
       "max": 10,
       "step": 0.5,
@@ -430,7 +430,7 @@
     {
       "type": "range",
       "id": "title_letter_spacing_mobile",
-      "label": "Espacement lettres titre mobile (px)",
+      "label": "Heading letter spacing mobile (px)",
       "min": 0,
       "max": 10,
       "step": 0.5,
@@ -439,13 +439,13 @@
     {
       "type": "color",
       "id": "text_color",
-      "label": "Couleur texte",
+      "label": "Text colour",
       "default": "#4a4a4a"
     },
     {
       "type": "range",
       "id": "text_font_size_desktop",
-      "label": "Taille texte desktop (px)",
+      "label": "Text size desktop (px)",
       "min": 12,
       "max": 30,
       "step": 1,
@@ -454,7 +454,7 @@
     {
       "type": "range",
       "id": "text_font_size_mobile",
-      "label": "Taille texte mobile (px)",
+      "label": "Text size mobile (px)",
       "min": 12,
       "max": 30,
       "step": 1,
@@ -463,7 +463,7 @@
     {
       "type": "range",
       "id": "text_letter_spacing_desktop",
-      "label": "Espacement lettres texte desktop (px)",
+      "label": "Text letter spacing desktop (px)",
       "min": 0,
       "max": 10,
       "step": 0.5,
@@ -472,7 +472,7 @@
     {
       "type": "range",
       "id": "text_letter_spacing_mobile",
-      "label": "Espacement lettres texte mobile (px)",
+      "label": "Text letter spacing mobile (px)",
       "min": 0,
       "max": 10,
       "step": 0.5,
@@ -481,83 +481,83 @@
     {
       "type": "select",
       "id": "text_alignment_desktop",
-      "label": "Alignement texte desktop",
+      "label": "Text alignment desktop",
       "options": [
-        { "value": "left", "label": "Gauche" },
-        { "value": "center", "label": "Centré" },
-        { "value": "right", "label": "Droite" }
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Centred" },
+        { "value": "right", "label": "Right" },
       ],
       "default": "center"
     },
     {
       "type": "select",
       "id": "text_alignment_mobile",
-      "label": "Alignement texte mobile",
+      "label": "Text alignment mobile",
       "options": [
-        { "value": "left", "label": "Gauche" },
-        { "value": "center", "label": "Centré" },
-        { "value": "right", "label": "Droite" }
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Centred" },
+        { "value": "right", "label": "Right" },
       ],
       "default": "center"
     },
     {
       "type": "select",
       "id": "bullet_alignment",
-      "label": "Alignement puces",
+      "label": "Bullet alignment",
       "options": [
-        { "value": "left", "label": "Gauche" },
-        { "value": "center", "label": "Centré" },
-        { "value": "right", "label": "Droite" }
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Centred" },
+        { "value": "right", "label": "Right" },
       ],
       "default": "center"
     },
     {
       "type": "checkbox",
       "id": "bullets_bold",
-      "label": "Puces en gras",
+      "label": "Bold bullets",
       "default": false
     },
     {
       "type": "textarea",
       "id": "bullet1_html",
-      "label": "HTML puce 1",
+      "label": "Bullet 1 HTML",
       "default": "<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" style=\"fill: #4CAF50;\"><path d=\"M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z\"/></svg>"
     },
     {
       "type": "textarea",
       "id": "bullet1_text",
-      "label": "Texte puce 1",
-      "default": "Fixation sécurisée"
+      "label": "Bullet 1 text",
+      "default": "Secure mounting"
     },
     {
       "type": "textarea",
       "id": "bullet2_html",
-      "label": "HTML puce 2",
+      "label": "Bullet 2 HTML",
       "default": "<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" style=\"fill: #4CAF50;\"><path d=\"M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z\"/></svg>"
     },
     {
       "type": "textarea",
       "id": "bullet2_text",
-      "label": "Texte puce 2",
-      "default": "Assemblage intuitif"
+      "label": "Bullet 2 text",
+      "default": "Intuitive assembly"
     },
     {
       "type": "textarea",
       "id": "bullet3_html",
-      "label": "HTML puce 3",
+      "label": "Bullet 3 HTML",
       "default": "<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" style=\"fill: #4CAF50;\"><path d=\"M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z\"/></svg>"
     },
     {
       "type": "textarea",
       "id": "bullet3_text",
-      "label": "Texte puce 3",
-      "default": "Aucun perçage"
+      "label": "Bullet 3 text",
+      "default": "No drilling"
     }
   ],
   "presets": [
     {
-      "name": "Media + Texte",
-      "category": "Sections persos"
+      "name": "Media + Text",
+      "category": "Custom sections"
     }
   ]
 }

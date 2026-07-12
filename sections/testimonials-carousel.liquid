@@ -1,5 +1,5 @@
 {% comment %}
-  Section : Carrousel d'avis clients vérifiés avec défilement infini et images optionnelles
+  Section: Verified customer reviews carousel with infinite scroll and optional images
 {% endcomment %}
 
 <style>
@@ -45,7 +45,7 @@
   position: relative;
 }
 
-/* Carte sans image - alignement centré */
+/* Card without image - centred alignment */
 .testimonial-card--no-image {
   justify-content: center;
 }
@@ -280,7 +280,7 @@
                   {% if block.settings.verified or section.settings.all_verified %}
                     <span class="testimonial-verified-badge">
                       <span class="verified-icon"></span>
-                      {{ section.settings.verified_label | default: 'Avis vérifié' }}
+                      {{ section.settings.verified_label | default: 'Verified review' }}
                     </span>
                   {% endif %}
                 </p>
@@ -290,13 +290,13 @@
         </div>
       </div>
       
-      <button type="button" class="testimonial-nav testimonial-nav--prev" aria-label="Avis précédents">
+      <button type="button" class="testimonial-nav testimonial-nav--prev" aria-label="Previous reviews">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <polyline points="15 18 9 12 15 6"></polyline>
         </svg>
       </button>
       
-      <button type="button" class="testimonial-nav testimonial-nav--next" aria-label="Avis suivants">
+      <button type="button" class="testimonial-nav testimonial-nav--next" aria-label="Next reviews">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <polyline points="9 18 15 12 9 6"></polyline>
         </svg>
@@ -315,7 +315,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const prevButton = document.querySelector('.testimonial-nav--prev');
   const nextButton = document.querySelector('.testimonial-nav--next');
   
-  // Si aucun avis, ne rien faire
+  // If no reviews, do nothing
   if (cards.length === 0) return;
   
   // Variables
@@ -326,16 +326,16 @@ document.addEventListener('DOMContentLoaded', function() {
   const autoplayDelay = {{ section.settings.autoplay_speed | default: 5000 }};
   const autoplayEnabled = {{ section.settings.autoplay | default: true }};
   
-  // Cloner des cartes pour l'effet infini
+  // Clone cards for infinite scroll effect
   function setupInfiniteScroll() {
-    // Ne rien faire s'il n'y a qu'une seule carte
+    // Do nothing if there's only one card
     if (cardCount <= 1) return;
     
-    // Cloner quelques cartes au début et à la fin pour créer l'illusion d'un défilement infini
+    // Clone some cards at the start and end to create an infinite scroll illusion
     const visibleCards = calculateVisibleCards();
     const cloneCount = Math.min(visibleCards, cardCount);
     
-    // Ajouter des clones à la fin
+    // Add clones at the end
     for (let i = 0; i < cloneCount; i++) {
       const clone = cards[i].cloneNode(true);
       clone.setAttribute('aria-hidden', 'true');
@@ -343,7 +343,7 @@ document.addEventListener('DOMContentLoaded', function() {
       track.appendChild(clone);
     }
     
-    // Ajouter des clones au début
+    // Add clones at the beginning
     for (let i = cardCount - 1; i >= Math.max(0, cardCount - cloneCount); i--) {
       const clone = cards[i].cloneNode(true);
       clone.setAttribute('aria-hidden', 'true');
@@ -351,29 +351,29 @@ document.addEventListener('DOMContentLoaded', function() {
       track.insertBefore(clone, track.firstChild);
     }
     
-    // Positionner le track pour que la première carte originale soit visible
+    // Position the track so the first original card is visible
     track.style.transform = `translateX(-${cloneCount * cardWidth}px)`;
     currentIndex = 0;
   }
   
-  // Fonction pour calculer le nombre de cartes visibles
+  // Function to calculate the number of visible cards
   function calculateVisibleCards() {
     const containerWidth = track.parentElement.offsetWidth;
     return Math.max(1, Math.floor(containerWidth / cardWidth));
   }
   
-  // Créer les points de navigation
+  // Create navigation dots
   function createDots() {
     dotsContainer.innerHTML = '';
     
-    // Ne pas afficher de dots s'il n'y a qu'une carte
+    // Don't show dots if there's only one card
     if (cardCount <= 1) return;
     
     for (let i = 0; i < cardCount; i++) {
       const dot = document.createElement('button');
       dot.classList.add('testimonial-dot');
       if (i === 0) dot.classList.add('testimonial-dot--active');
-      dot.setAttribute('aria-label', `Page d'avis ${i + 1}`);
+      dot.setAttribute('aria-label', `Review page ${i + 1}`);
       dot.addEventListener('click', () => {
         goToSlide(i);
       });
@@ -381,12 +381,12 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
   
-  // Mettre à jour la position du track avec animation
+  // Update track position with animation
   function updateTrackPosition(animate = true) {
     const allCards = track.querySelectorAll('.testimonial-card');
     const cloneCount = (allCards.length - cardCount) / 2;
     
-    // Calcul de la nouvelle position
+    // Calculate new position
     let newPosition = (currentIndex + cloneCount) * cardWidth;
     
     // Appliquer la transformation avec ou sans animation
@@ -398,16 +398,16 @@ document.addEventListener('DOMContentLoaded', function() {
     
     track.style.transform = `translateX(-${newPosition}px)`;
     
-    // Mettre à jour les dots
+    // Update dots
     updateActiveDot();
     
-    // Réinitialiser l'autoplay si activé
+    // Reset autoplay if enabled
     if (autoplayEnabled) {
       resetAutoplay();
     }
   }
   
-  // Mettre à jour le dot actif
+  // Update active dot
   function updateActiveDot() {
     const dots = dotsContainer.querySelectorAll('.testimonial-dot');
     const normalizedIndex = (currentIndex % cardCount + cardCount) % cardCount;
@@ -421,35 +421,35 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
   
-  // Navigation vers la diapo suivante
+  // Navigate to next slide
   function nextSlide() {
     currentIndex++;
     updateTrackPosition();
     
-    // Gestion de la transition infinie
+    // Handle infinite transition
     if (currentIndex >= cardCount) {
       setTimeout(() => {
         currentIndex = 0;
         updateTrackPosition(false);
-      }, 500); // Attendre la fin de l'animation
+      }, 500); // Wait for animation to finish
     }
   }
   
-  // Navigation vers la diapo précédente
+  // Navigate to previous slide
   function prevSlide() {
     currentIndex--;
     updateTrackPosition();
     
-    // Gestion de la transition infinie
+    // Handle infinite transition
     if (currentIndex < 0) {
       setTimeout(() => {
         currentIndex = cardCount - 1;
         updateTrackPosition(false);
-      }, 500); // Attendre la fin de l'animation
+      }, 500); // Wait for animation to finish
     }
   }
   
-  // Aller à une diapo spécifique
+  // Go to a specific slide
   function goToSlide(index) {
     currentIndex = index;
     updateTrackPosition();
@@ -468,13 +468,13 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
   
-  // Gestion des événements
+  // Event handling
   prevButton.addEventListener('click', prevSlide);
   nextButton.addEventListener('click', nextSlide);
   
-  // Gestion de la transition infinie
+  // Handle infinite scroll transition
   track.addEventListener('transitionend', function() {
-    // Réactiver la transition si elle a été désactivée
+    // Re-enable transition if it was disabled
     if (track.style.transition === 'none') {
       setTimeout(() => {
         track.style.transition = 'transform 0.5s ease';
@@ -482,16 +482,16 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
   
-  // Initialisation
+  // Initialization
   createDots();
   setupInfiniteScroll();
   
-  // Commencer l'autoplay si activé
+  // Start autoplay if enabled
   if (autoplayEnabled && cardCount > 1) {
     startAutoplay();
   }
   
-  // Pause de l'autoplay au survol
+  // Pause autoplay on hover
   const container = document.querySelector('.testimonials-container');
   container.addEventListener('mouseenter', () => {
     if (autoplayTimer) clearInterval(autoplayTimer);
@@ -505,12 +505,12 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // Responsive
   window.addEventListener('resize', () => {
-    // Recalculer la taille des cartes
+    // Recalculate card size
     const newCardWidth = cards[0].offsetWidth + 20;
     
-    // Si la taille a changé, réinitialiser le carrousel
+    // If size changed, reset carousel
     if (newCardWidth !== cardWidth) {
-      location.reload(); // Solution simple pour reconfigurer le carrousel
+      location.reload(); // Simple solution to reconfigure the carousel
     }
   });
 });
@@ -518,18 +518,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
 {% schema %}
 {
-  "name": "Avis en ligne",
+  "name": "Customer Reviews",
   "settings": [
     {
       "type": "text",
       "id": "title",
-      "label": "Titre",
-      "default": "Ce que les clients en pensent"
+      "label": "Title",
+      "default": "What our customers say",
     },
     {
       "type": "checkbox",
       "id": "autoplay",
-      "label": "Activer le défilement automatique",
+      "label": "Enable auto-scroll",
       "default": true
     },
     {
@@ -539,32 +539,32 @@ document.addEventListener('DOMContentLoaded', function() {
       "max": 9000,
       "step": 1000,
       "unit": "ms",
-      "label": "Vitesse de défilement",
+      "label": "Scroll speed",
       "default": 5000
     },
     {
       "type": "checkbox",
       "id": "all_verified",
-      "label": "Marquer tous les avis comme vérifiés",
+      "label": "Mark all reviews as verified",
       "default": true
     },
     {
       "type": "text",
       "id": "verified_label",
-      "label": "Texte du badge de vérification",
-      "default": "Avis vérifié"
+      "label": "Verification badge text",
+      "default": "Verified review",
     }
   ],
   "blocks": [
     {
       "type": "testimonial",
-      "name": "Avis client",
+      "name": "Customer review",
       "settings": [
         {
           "type": "text",
           "id": "customer_name",
-          "label": "Nom du client",
-          "default": "Nom du client"
+          "label": "Customer name",
+          "default": "Customer name"
         },
         {
           "type": "range",
@@ -572,45 +572,45 @@ document.addEventListener('DOMContentLoaded', function() {
           "min": 1,
           "max": 5,
           "step": 1,
-          "label": "Note (étoiles)",
+          "label": "Rating (stars)",
           "default": 5
         },
         {
           "type": "textarea",
           "id": "testimonial_text",
-          "label": "Texte de l'avis",
-          "default": "Partagez l'expérience de votre client avec votre produit."
+          "label": "Review text",
+          "default": "Share your customer's experience with your product.",
         },
         {
           "type": "checkbox",
           "id": "verified",
-          "label": "Avis vérifié",
-          "info": "Affiche un badge d'avis vérifié",
+          "label": "Verified review",
+          "info": "Shows a verified review badge",
           "default": true
         },
         {
           "type": "checkbox",
           "id": "show_image",
-          "label": "Afficher l'image du produit",
+          "label": "Show product image",
           "default": true
         },
         {
           "type": "image_picker",
           "id": "product_image",
-          "label": "Image du produit"
+          "label": "Product image"
         },
         {
           "type": "text",
           "id": "product_name",
-          "label": "Nom du produit",
-          "default": "Nom du produit"
+          "label": "Product name",
+          "default": "Product name"
         }
       ]
     }
   ],
   "presets": [
     {
-      "name": "Avis en ligne",
+      "name": "Customer Reviews",
       "blocks": [
         {
           "type": "testimonial"

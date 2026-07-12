@@ -1,1 +1,403 @@
-{"sections":{"blocks_dV4yzj":{"type":"_blocks","blocks":{"ai_gen_block_d305d1b_RBtkcX":{"type":"ai_gen_block_d305d1b","settings":{"home_text":"Accueil","show_home_icon":true,"separator":"\/","font":"assistant_n4","font_size":14,"spacing":8,"background_color":"#ffffff","link_color":"#666666","link_hover_color":"#000000","separator_color":"#cccccc","current_color":"#000000","container_width":1200,"padding_top":60,"padding_bottom":0},"blocks":{}}},"block_order":["ai_gen_block_d305d1b_RBtkcX"],"name":"Fil d'Ariane","settings":{}},"main":{"type":"main-product","blocks":{"title":{"type":"title","settings":{}},"custom_liquid_rQeeJg":{"type":"custom_liquid","settings":{"custom_liquid":"<!-- Avis clients - SKINNY + Poppins 12px #000 -->\n<div class=\"reviews-banner-skinny\">\n  <div class=\"reviews-slider swiper\">\n    <div class=\"swiper-wrapper\">\n\n      <!-- Avis 1 -->\n      <div class=\"swiper-slide\">\n        <div class=\"review-item\">\n          <div class=\"review-photo\">\n            <img src=\"{{ 'kkk.png' | file_img_url }}\" alt=\"Florian K.\" loading=\"lazy\">\n          <\/div>\n          <div class=\"review-content\">\n            <div class=\"review-header\">\n              <strong class=\"review-name\">Karim<\/strong>\n              <div class=\"review-stars\"><span>★★★★★<\/span><\/div>\n            <\/div>\n            <p class=\"review-text\">Le volant est trop beau ! Il marche direct en le branchant, zéro programmation, et je l'ai monté en deux minutes à peine.<\/p>\n          <\/div>\n        <\/div>\n      <\/div>\n\n      <!-- Avis 2 -->\n      <div class=\"swiper-slide\">\n        <div class=\"review-item\">\n          <div class=\"review-photo\">\n            <img src=\"{{ 'VOICE_CONTROLLED_ddJELLYFISH_LA_The_touch_foot_of_the_colored_light_is_movable.png' | file_img_url }}\" alt=\"Sarah\" loading=\"lazy\">\n          <\/div>\n          <div class=\"review-content\">\n            <div class=\"review-header\">\n              <strong class=\"review-name\">Sarah<\/strong>\n              <div class=\"review-stars\"><span>★★★★★<\/span><\/div>\n            <\/div>\n            <p class=\"review-text\">Le nouveau volant, waw, ça fait trop chic direct ! J’suis trop contente, ça change tout !<\/p>\n          <\/div>\n        <\/div>\n      <\/div>\n\n      <!-- Avis 3 -->\n      <div class=\"swiper-slide\">\n        <div class=\"review-item\">\n          <div class=\"review-photo\">\n            <img src=\"{{ 'ouioui.png' | file_img_url }}\" alt=\"Julien D.\" loading=\"lazy\">\n          <\/div>\n          <div class=\"review-content\">\n            <div class=\"review-header\">\n              <strong class=\"review-name\">Julien<\/strong>\n              <div class=\"review-stars\"><span>★★★★☆<\/span><\/div>\n            <\/div>\n            <p class=\"review-text\">les détail nickel, sa fait grave quali ! Vous pouvez foncer les yeux fermés<\/p>\n          <\/div>\n        <\/div>\n      <\/div>\n\n      <!-- Avis 4 -->\n      <div class=\"swiper-slide\">\n        <div class=\"review-item\">\n          <div class=\"review-photo\">\n            <img src=\"{{ 'kakai.png' | file_img_url }}\" alt=\"Tom.\" loading=\"lazy\">\n          <\/div>\n          <div class=\"review-content\">\n            <div class=\"review-header\">\n              <strong class=\"review-name\">Clara B.<\/strong>\n              <div class=\"review-stars\"><span>★★★★★<\/span><\/div>\n            <\/div>\n            <p class=\"review-text\">Qualité au top, bien lourd, ça fait solide et rend beau ! L’intérieur il monte d’un cran.<\/p>\n          <\/div>\n        <\/div>\n      <\/div>\n\n      <!-- Avis 5 -->\n      <div class=\"swiper-slide\">\n        <div class=\"review-item\">\n          <div class=\"review-photo\">\n            <img src=\"{{ 'zzzz.png' | file_img_url }}\" alt=\"Nicolas R.\" loading=\"lazy\">\n          <\/div>\n          <div class=\"review-content\">\n            <div class=\"review-header\">\n              <strong class=\"review-name\">Nicolas<\/strong>\n              <div class=\"review-stars\"><span>★★★★★<\/span><\/div>\n            <\/div>\n            <p class=\"review-text\">Wow ! Le volant il est encore plus quali que j’imaginais 😍 Le cuir tout doux, les coutures propres. Le SAV est top.<\/p>\n          <\/div>\n        <\/div>\n      <\/div>\n    <\/div>\n  <\/div>\n\n  <!-- Flèches navigation avec SVG -->\n  <div class=\"swiper-button-prev\">\n    <svg xmlns=\"http:\/\/www.w3.org\/2000\/svg\" fill=\"currentColor\" viewBox=\"0 0 24 24\">\n      <path d=\"m13.172 12-4.95-4.95 1.414-1.414L16 12l-6.364 6.364-1.414-1.414 4.95-4.95Z\"><\/path>\n    <\/svg>\n  <\/div>\n  <div class=\"swiper-button-next\">\n    <svg xmlns=\"http:\/\/www.w3.org\/2000\/svg\" fill=\"currentColor\" viewBox=\"0 0 24 24\">\n      <path d=\"m13.172 12-4.95-4.95 1.414-1.414L16 12l-6.364 6.364-1.414-1.414 4.95-4.95Z\"><\/path>\n    <\/svg>\n  <\/div>\n<\/div>\n\n<!-- Google Font: Poppins -->\n<link href=\"https:\/\/fonts.googleapis.com\/css2?family=Poppins:wght@400;600&display=swap\" rel=\"stylesheet\">\n\n<!-- Swiper -->\n<link rel=\"stylesheet\" href=\"https:\/\/cdn.jsdelivr.net\/npm\/swiper@11\/swiper-bundle.min.css\" \/>\n<script src=\"https:\/\/cdn.jsdelivr.net\/npm\/swiper@11\/swiper-bundle.min.js\"><\/script>\n\n<style>\n.reviews-banner-skinny {\n  background: #fff;\n  border-radius: 16px;\n  padding: 12px 16px;\n  margin: 20px auto;\n  max-width: 580px;\n  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);\n  font-family: 'Poppins', sans-serif;\n  position: relative;\n  font-size: 12px;\n  color: #000;\n}\n\n.review-item {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n}\n\n.review-photo img {\n  width: 48px;\n  height: 48px;\n  border-radius: 12px;\n  object-fit: cover;\n  flex-shrink: 0;\n  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);\n}\n\n.review-content {\n  flex: 1;\n  min-width: 0;\n}\n\n.review-header {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  margin-bottom: 4px;\n  gap: 8px;\n}\n\n.review-name {\n  font-size: 12px;\n  font-weight: 600;\n  color: #000;\n  margin: 0;\n}\n\n.review-stars span {\n  color: #28a745;\n  font-size: 12px;\n  letter-spacing: 1.5px;\n}\n\n.review-text {\n  margin: 0;\n  font-size: 12px;\n  line-height: 1.35;\n  color: #000;\n  font-weight: 400;\n}\n\n\/* Flèches avec SVG *\/\n.swiper-button-prev,\n.swiper-button-next {\n  width: 40px;\n  height: 40px;\n  background: transparent;\n  position: absolute;\n  top: 50%;\n  transform: translateY(-50%);\n  z-index: 20;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n\n.swiper-button-prev { left: -50px; }\n.swiper-button-next { right: -50px; }\n\n.swiper-button-prev svg {\n  transform: rotate(180deg);\n}\n\n.swiper-button-prev svg,\n.swiper-button-next svg {\n  width: 40px;\n  height: 40px;\n  color: #000;\n}\n\n.swiper-button-prev:hover,\n.swiper-button-next:hover {\n  transform: translateY(-50%) scale(1.15);\n}\n\n\/* Masquer les icônes par défaut de Swiper *\/\n.swiper-button-prev::after,\n.swiper-button-next::after {\n  display: none;\n}\n\n\/* Mobile *\/\n@media (max-width: 480px) {\n  .reviews-banner-skinny { \n    padding: 10px 12px; \n    margin: 16px 10px; \n    border-radius: 14px; \n    font-size: 11.5px;\n  }\n  .review-photo img { width: 42px; height: 42px; border-radius: 10px; }\n  .review-name, .review-text, .review-stars span { font-size: 11.5px; }\n  .swiper-button-prev,\n  .swiper-button-next {\n    width: 32px;\n    height: 32px;\n  }\n  .swiper-button-prev { left: -40px; }\n  .swiper-button-next { right: -40px; }\n  .swiper-button-prev svg,\n  .swiper-button-next svg {\n    width: 32px;\n    height: 32px;\n  }\n}\n<\/style>\n\n<script>\ndocument.addEventListener(\"DOMContentLoaded\", function () {\n  const swiper = new Swiper(\".reviews-slider\", {\n    loop: true,\n    autoplay: { \n      delay: 4000, \n      disableOnInteraction: false \n    },\n    speed: 600,\n    navigation: {\n      nextEl: \".reviews-banner-skinny .swiper-button-next\",\n      prevEl: \".reviews-banner-skinny .swiper-button-prev\",\n    },\n    slidesPerView: 1,\n    spaceBetween: 0,\n    grabCursor: true,\n    allowTouchMove: true,\n  });\n  \n  \/\/ Debug: vérifier que Swiper est initialisé\n  console.log('Swiper initialized:', swiper);\n});\n<\/script>"}},"custom_liquid_LiWgrf":{"type":"custom_liquid","settings":{"custom_liquid":"{%- assign phone_number = \"+33767422570\" -%}\n<div class=\"phone-banner-compact\">\n  <div class=\"phone-banner-compact__wrapper\">\n    <div class=\"phone-banner-compact__info\">\n      <svg xmlns=\"http:\/\/www.w3.org\/2000\/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\">\n        <path d=\"M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z\"><\/path>\n      <\/svg>\n      <div>\n        <span class=\"phone-banner-compact__label\">Besoin d'un aperçu du volant ?<\/span>\n        <a href=\"tel:{{ phone_number }}\" class=\"phone-banner-compact__number\">{{ phone_number }}<\/a>\n      <\/div>\n    <\/div>\n    <button class=\"phone-banner-compact__copy js-copy-phone-compact\" title=\"Copier le numéro\">\n      <svg xmlns=\"http:\/\/www.w3.org\/2000\/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\">\n        <rect x=\"9\" y=\"9\" width=\"13\" height=\"13\" rx=\"2\" ry=\"2\"><\/rect>\n        <path d=\"M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1\"><\/path>\n      <\/svg>\n    <\/button>\n  <\/div>\n<\/div>\n\n<script>\ndocument.addEventListener('DOMContentLoaded', function() {\n  const copyBtn = document.querySelector('.js-copy-phone-compact');\n  if (copyBtn) {\n    copyBtn.addEventListener('click', function() {\n      navigator.clipboard.writeText('{{ phone_number }}').then(function() {\n        const originalHTML = copyBtn.innerHTML;\n        copyBtn.innerHTML = '<svg xmlns=\"http:\/\/www.w3.org\/2000\/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\"><path d=\"M20 6L9 17l-5-5\"><\/path><\/svg>';\n        copyBtn.classList.add('copied');\n        setTimeout(function() {\n          copyBtn.innerHTML = originalHTML;\n          copyBtn.classList.remove('copied');\n        }, 2000);\n      });\n    });\n  }\n});\n<\/script>\n\n<style>\n.phone-banner-compact {\n  width: 100%;\n  max-width: 500px;\n  margin: 1.5rem auto;\n}\n\n.phone-banner-compact__wrapper {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  gap: 1rem;\n  padding: 1rem 1.25rem;\n  background: linear-gradient(45deg, #1e3a8a, #3b82f6, #1e3a8a, #3b82f6);\n  background-size: 300% 300%;\n  animation: gradient-shift 4s ease infinite;\n  border-radius: 12px;\n  box-shadow: 0 4px 12px rgba(30, 58, 138, 0.25);\n}\n\n.phone-banner-compact__info {\n  display: flex;\n  align-items: center;\n  gap: 0.875rem;\n  color: white;\n}\n\n.phone-banner-compact__info > svg {\n  flex-shrink: 0;\n}\n\n.phone-banner-compact__label {\n  display: block;\n  font-size: 0.9rem;\n  color: #e0e7ff;\n  font-weight: 600;\n  margin-bottom: 0.25rem;\n  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);\n}\n\n.phone-banner-compact__number {\n  display: block;\n  font-size: 1.25rem;\n  font-weight: 700;\n  color: white;\n  text-decoration: none;\n  letter-spacing: 0.025em;\n  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);\n}\n\n.phone-banner-compact__number:hover {\n  text-decoration: underline;\n}\n\n.phone-banner-compact__copy {\n  flex-shrink: 0;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 40px;\n  height: 40px;\n  background: rgba(255, 255, 255, 0.2);\n  border: none;\n  border-radius: 8px;\n  color: white;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  backdrop-filter: blur(10px);\n}\n\n.phone-banner-compact__copy:hover {\n  background: rgba(255, 255, 255, 0.3);\n  transform: scale(1.05);\n}\n\n.phone-banner-compact__copy.copied {\n  background: rgba(16, 185, 129, 0.9);\n}\n\n@media screen and (max-width: 640px) {\n  .phone-banner-compact {\n    margin: 1rem auto;\n  }\n  \n  .phone-banner-compact__wrapper {\n    padding: 0.875rem 1rem;\n  }\n  \n  .phone-banner-compact__label {\n    font-size: 0.85rem;\n  }\n  \n  .phone-banner-compact__number {\n    font-size: 1.125rem;\n  }\n}\n<\/style>"}},"custom_liquid_EWAHka":{"type":"custom_liquid","settings":{"custom_liquid":"<!-- Clickroad — Stories avec animation \"Zoom depuis la bulle\" -->\n{%- assign s1_url = \"https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/2aa2b579a75b4686bada4306d5ca5134.mp4\" -%}\n{%- assign s1_txt = \"Presentation\" -%}\n{%- assign s1_img = \"https:\/\/cdn.shopify.com\/s\/files\/1\/0929\/1530\/2785\/files\/WhatsApp_Image_2026-03-29_at_19.29.32_1.jpg?v=1774806338\" -%}\n\n{%- assign s2_url = \"https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/e87c1bf1159748e69460b4bf16b27041.mp4\" -%}\n{%- assign s2_txt = \"FAQ\" -%}\n{%- assign s2_img = \"https:\/\/cdn.shopify.com\/s\/files\/1\/0929\/1530\/2785\/files\/WhatsApp_Image_2026-03-29_at_19.29.32.jpg?v=1774806337\" -%}\n\n{%- assign urls_arr = s1_url | append: \"||\" | append: s2_url | split: \"||\" -%}\n{%- assign txts_arr = s1_txt | append: \"||\" | append: s2_txt | split: \"||\" -%}\n{%- assign imgs_arr = s1_img | append: \"||\" | append: s2_img | split: \"||\" -%}"}},"price":{"type":"price","settings":{}},"variant_picker":{"type":"variant_picker","settings":{"picker_type":"button","swatch_shape":"circle"}},"quantity_selector":{"type":"quantity_selector","settings":{}},"buy_buttons":{"type":"buy_buttons","settings":{"show_dynamic_checkout":false,"show_gift_card_recipient":true}},"description":{"type":"description","settings":{}}},"block_order":["title","custom_liquid_rQeeJg","custom_liquid_LiWgrf","custom_liquid_EWAHka","price","variant_picker","quantity_selector","buy_buttons","description"],"settings":{"enable_sticky_info":true,"color_scheme":"scheme-4","media_size":"large","constrain_to_viewport":true,"media_fit":"contain","gallery_layout":"thumbnail_slider","media_position":"left","image_zoom":"lightbox","mobile_thumbnails":"show","hide_variants":true,"enable_video_looping":false,"padding_top":36,"padding_bottom":12}},"testimonials_carousel_bkQKaq":{"type":"testimonials-carousel","blocks":{"testimonial_D3cmdG":{"type":"testimonial","settings":{"customer_name":"Sofiane","rating":5,"testimonial_text":"Top","verified":true,"show_image":false,"product_name":""}},"testimonial_JRUwLa":{"type":"testimonial","settings":{"customer_name":"Denis","rating":5,"testimonial_text":"C’est incroyable, c’est magnifique merci beaucoup (livrée en Martinique)","verified":true,"show_image":true,"product_image":"shopify:\/\/shop_images\/ihugyfut.png","product_name":""}},"testimonial_phPpw9":{"type":"testimonial","settings":{"customer_name":"Gabriel","rating":4,"testimonial_text":"je suis très ravi jai reçu mon nouveau volant en fibre de carbone pour ma RCZ le fabricant est très courtois et sympathique si vous voulez donner un nouveau look à votre peugeot RCZ faite lui confiance","verified":true,"show_image":true,"product_image":"shopify:\/\/shop_images\/ihugyf.png","product_name":""}},"testimonial_b3DAXa":{"type":"testimonial","settings":{"customer_name":"Karim","rating":5,"testimonial_text":"La qualité du volant est très bon, il est très beau et s'adapte parfaitement, également le service fournisseur son très réactif et rapide.","verified":true,"show_image":false,"product_name":"Nom du produit"}}},"block_order":["testimonial_D3cmdG","testimonial_JRUwLa","testimonial_phPpw9","testimonial_b3DAXa"],"settings":{"title":"Ce que nos clients disent","autoplay":true,"autoplay_speed":5000,"all_verified":true,"verified_label":"Avis vérifié"}},"image_texte_Q73pcQ":{"type":"image-texte","settings":{"section_bg_color":"#f8f8f8","section_padding_vertical_desktop":40,"section_padding_horizontal_desktop":20,"section_padding_vertical_mobile":40,"section_padding_horizontal_mobile":20,"mobile_gap":20,"media_type":"video","video_url":"https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/c45658011b7c40f183d2b37d3a3a9b2d.mp4","youtube_url":"https:\/\/www.youtube.com\/embed\/XXXXXXXXXXX","vimeo_url":"https:\/\/player.vimeo.com\/video\/XXXXXXXXX","alt_text":"Description du média","media_width_desktop":40,"media_position":"left","mobile_media_order":"media-first","card_bg_color":"#ffffff","card_padding_vertical":20,"card_padding_horizontal":35,"heading":"Personnalisation Ultime de votre Volant Renault, Unique à Chaque Conducteur !","title_bold":true,"content":"Nos volants sont entièrement <strong>adaptables individuellement<\/strong> pour correspondre à votre style de conduite.","content_bold":false,"embed_video":false,"video_embed_code":"<iframe width=\"560\" height=\"315\" src=\"https:\/\/www.youtube.com\/embed\/XXXXXXXXXXX\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen><\/iframe>","title_color":"#45497a","title_font_size_desktop":28,"title_font_size_mobile":24,"title_letter_spacing_desktop":0,"title_letter_spacing_mobile":0,"text_color":"#4a4a4a","text_font_size_desktop":16,"text_font_size_mobile":14,"text_letter_spacing_desktop":0,"text_letter_spacing_mobile":0,"text_alignment_desktop":"center","text_alignment_mobile":"center","bullet_alignment":"center","bullets_bold":false,"bullet1_html":"<svg width=\"24\" height=\"24\" viewbox=\"0 0 24 24\" style=\"fill: #4CAF50;\"><path d=\"M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z\"><\/path><\/svg>","bullet1_text":"<strong>Personnalisation complète<\/strong> des matériaux et finitions","bullet2_html":"<svg width=\"24\" height=\"24\" viewbox=\"0 0 24 24\" style=\"fill: #4CAF50;\"><path d=\"M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z\"><\/path><\/svg>","bullet2_text":"<strong>Large choix de revêtements<\/strong> : alcantara, cuir, carbone, etc","bullet3_html":"<svg width=\"24\" height=\"24\" viewbox=\"0 0 24 24\" style=\"fill: #4CAF50;\"><path d=\"M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z\"><\/path><\/svg>","bullet3_text":"Configuration sur-mesure pour votre modèle Renault"}},"image_texte_xNWrnm":{"type":"image-texte","settings":{"section_bg_color":"#f8f8f8","section_padding_vertical_desktop":40,"section_padding_horizontal_desktop":20,"section_padding_vertical_mobile":40,"section_padding_horizontal_mobile":20,"mobile_gap":20,"media_type":"video","video_url":"https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/2bb04805a8fa4da6bc83e0aaceb3d55d.mp4","youtube_url":"https:\/\/www.youtube.com\/embed\/XXXXXXXXXXX","vimeo_url":"https:\/\/player.vimeo.com\/video\/XXXXXXXXX","alt_text":"Description du média","media_width_desktop":40,"media_position":"right","mobile_media_order":"media-first","card_bg_color":"#ffffff","card_padding_vertical":20,"card_padding_horizontal":35,"heading":"Installation Simplifiée et Personnalisée, Entre Autonomie et Expertise !","title_bold":true,"content":"Un volant qui s'installe <strong>rapidement et facilement<\/strong> sur votre Renault, avec montage possible en autonomie ou par un professionnel, et <strong>support technique<\/strong> permanent.","content_bold":false,"embed_video":false,"video_embed_code":"<iframe width=\"560\" height=\"315\" src=\"https:\/\/www.youtube.com\/embed\/XXXXXXXXXXX\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen><\/iframe>","title_color":"#45497a","title_font_size_desktop":29,"title_font_size_mobile":22,"title_letter_spacing_desktop":0,"title_letter_spacing_mobile":0,"text_color":"#4a4a4a","text_font_size_desktop":16,"text_font_size_mobile":14,"text_letter_spacing_desktop":0,"text_letter_spacing_mobile":0,"text_alignment_desktop":"center","text_alignment_mobile":"center","bullet_alignment":"center","bullets_bold":false,"bullet1_html":"<svg width=\"24\" height=\"24\" viewbox=\"0 0 24 24\" style=\"fill: #4CAF50;\"><path d=\"M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z\"><\/path><\/svg>","bullet1_text":"Kit complet <strong>adapté à l'auto-installation<\/strong>","bullet2_html":"<svg width=\"24\" height=\"24\" viewbox=\"0 0 24 24\" style=\"fill: #4CAF50;\"><path d=\"M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z\"><\/path><\/svg>","bullet2_text":"Support <strong>technique détaillé<\/strong> pour les bricoleurs","bullet3_html":"<svg width=\"24\" height=\"24\" viewbox=\"0 0 24 24\" style=\"fill: #4CAF50;\"><path d=\"M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z\"><\/path><\/svg>","bullet3_text":"Possibilité de montage par un <strong>professionnel proche de chez vous<\/strong>"}},"image_texte_J3QAVV":{"type":"image-texte","settings":{"section_bg_color":"#f8f8f8","section_padding_vertical_desktop":40,"section_padding_horizontal_desktop":20,"section_padding_vertical_mobile":40,"section_padding_horizontal_mobile":20,"mobile_gap":20,"media_type":"image","image":"shopify:\/\/shop_images\/eufyty.png","video_url":"https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/afd6123f22eb4e7a98a70ee0cbd9f1f9.mp4","youtube_url":"https:\/\/www.youtube.com\/embed\/XXXXXXXXXXX","vimeo_url":"https:\/\/player.vimeo.com\/video\/XXXXXXXXX","alt_text":"Description du média","media_width_desktop":40,"media_position":"left","mobile_media_order":"media-first","card_bg_color":"#ffffff","card_padding_vertical":20,"card_padding_horizontal":35,"heading":"Toutes les Fonctions Électroniques de votre Volant Préservées !","title_bold":true,"content":"Un volant qui conserve <strong>l'intégralité des fonctions<\/strong> électroniques de votre Mercedes d'origine.","content_bold":false,"embed_video":false,"video_embed_code":"<iframe width=\"560\" height=\"315\" src=\"https:\/\/www.youtube.com\/embed\/XXXXXXXXXXX\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen><\/iframe>","title_color":"#45497a","title_font_size_desktop":28,"title_font_size_mobile":24,"title_letter_spacing_desktop":0,"title_letter_spacing_mobile":0,"text_color":"#4a4a4a","text_font_size_desktop":16,"text_font_size_mobile":14,"text_letter_spacing_desktop":0,"text_letter_spacing_mobile":0,"text_alignment_desktop":"center","text_alignment_mobile":"center","bullet_alignment":"center","bullets_bold":false,"bullet1_html":"<svg width=\"24\" height=\"24\" viewbox=\"0 0 24 24\" style=\"fill: #4CAF50;\"><path d=\"M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z\"><\/path><\/svg>","bullet1_text":"Maintien des <strong>commandes au volant<\/strong> d'origine","bullet2_html":"<svg width=\"24\" height=\"24\" viewbox=\"0 0 24 24\" style=\"fill: #4CAF50;\"><path d=\"M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z\"><\/path><\/svg>","bullet2_text":"Compatibilité totale avec les <strong>systèmes embarqués<\/strong>","bullet3_html":"<svg width=\"24\" height=\"24\" viewbox=\"0 0 24 24\" style=\"fill: #4CAF50;\"><path d=\"M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z\"><\/path><\/svg>","bullet3_text":"Conservation des fonctionnalités de <strong>régulation et assistance<\/strong>"}},"product_faq_EYPp3w":{"type":"product-faq","blocks":{"faq_cBDXnd":{"type":"faq","settings":{"title":"Airbag - Le volant est-il compatible avec le système d'airbag d'origine ?","answer":"<p>Oui, les volants sont entièrement compatibles avec le système d'airbag d'origine. Ils sont conçus pour s'adapter parfaitement au mécanisme d'airbag de votre voiture, garantissant ainsi votre sécurité sur la route tout en profitant d'un design unique. L'installation peut être réalisée par un professionnel pour assurer le bon fonctionnement du système de sécurité.<\/p>"}},"faq_aPN6Je":{"type":"faq","settings":{"title":"Homologation - Le volant est-il homologué pour un usage sur route ?","answer":"<p>Oui, tous nos volants sont homologués pour un usage sur route ouverte. Ils respectent les normes et réglementations en vigueur pour être utilisés légalement sur les voies publiques. Chaque volant est livré avec son certificat d'homologation que vous pourrez présenter en cas de contrôle. Notre priorité est de vous proposer des produits à la fois esthétiques et conformes aux exigences légales.<\/p>"}},"faq_kJYARQ":{"type":"faq","settings":{"title":"Livraison - Quels sont les délais et frais de livraison ?","answer":"<p>Un volant sur mesure prend entre 3 et 5 semaines à être conçu et livré dans le monde entier. La fabrication artisanale et le soin apporté à chaque détail nécessitent ce délai pour garantir une qualité irréprochable. Les frais de livraison sont offerts pour toutes les commandes, quel que soit le pays de destination. Chaque volant est soigneusement emballé pour assurer une protection optimale pendant le transport.<\/p>"}},"faq_pHjYzB":{"type":"faq","settings":{"title":"Garantie - Quelle est la durée exacte de la garantie et que couvre-t-elle ?","answer":"<p>Tous nos volants bénéficient d'une garantie de 5 ans contre tout défaut de fabrication. Cette garantie couvre les problèmes liés à la structure du volant, aux coutures, aux matériaux et aux finitions. Elle ne couvre pas l'usure normale, les dommages dus à une mauvaise utilisation, les accidents ou les modifications apportées au produit. En cas de problème couvert par la garantie, nous assurons la réparation ou le remplacement du volant selon notre évaluation.<\/p>"}},"faq_VWGLYK":{"type":"faq","settings":{"title":"Installation - L'installation nécessite-t-elle des compétences techniques particulières ?","answer":"<p>Le processus d'installation d'un volant personnalisé comporte plusieurs étapes techniques qui peuvent être réalisées par un amateur averti ou un professionnel :<\/p><ul><li>Mise en sécurité du véhicule (déconnexion de la batterie)<\/li><li>Démontage des éléments du volant d'origine (airbag, commandes, vis centrale)<\/li><li>Extraction du volant existant<\/li><li>Transfert des composants électroniques et commandes sur le nouveau volant<\/li><li>Mise en place du volant personnalisé<\/li><li>Fixation et reconnexion des différents éléments<\/li><li>Vérification du fonctionnement et remise en service<\/li><\/ul><p>Chaque volant est fourni avec son manuel d'installation détaillé. Pour plus de sécurité, il est recommandé de confier cette opération à un garage spécialisé qui maîtrise les systèmes d'airbag. Une assistance technique est également disponible si vous rencontrez des difficultés pendant le montage.<\/p>"}}},"block_order":["faq_cBDXnd","faq_aPN6Je","faq_kJYARQ","faq_pHjYzB","faq_VWGLYK"],"settings":{"heading":"Questions fréquentes","background":"#ffffff","text_color":"#333333","accent_color":"#2c5364"}},"related-products":{"type":"related-products","settings":{"heading":"Tu devrais aimer","heading_size":"h2","products_to_show":4,"columns_desktop":4,"color_scheme":"scheme-1","image_ratio":"square","image_shape":"default","show_secondary_image":true,"show_vendor":false,"show_rating":false,"columns_mobile":"2","padding_top":36,"padding_bottom":28}}},"order":["blocks_dV4yzj","main","testimonials_carousel_bkQKaq","image_texte_Q73pcQ","image_texte_xNWrnm","image_texte_J3QAVV","product_faq_EYPp3w","related-products"]}
+{
+  "sections": {
+    "blocks_dV4yzj": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_d305d1b_RBtkcX": {
+          "type": "ai_gen_block_d305d1b",
+          "settings": {
+            "home_text": "Home",
+            "show_home_icon": true,
+            "separator": "/",
+            "font": "assistant_n4",
+            "font_size": 14,
+            "spacing": 8,
+            "background_color": "#ffffff",
+            "link_color": "#666666",
+            "link_hover_color": "#000000",
+            "separator_color": "#cccccc",
+            "current_color": "#000000",
+            "container_width": 1200,
+            "padding_top": 60,
+            "padding_bottom": 0
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_d305d1b_RBtkcX"
+      ],
+      "name": "Breadcrumb",
+      "settings": {}
+    },
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "custom_liquid_rQeeJg": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<!-- Avis clients - SKINNY + Poppins 12px #000 -->\n<div class=\"reviews-banner-skinny\">\n  <div class=\"reviews-slider swiper\">\n    <div class=\"swiper-wrapper\">\n\n      <!-- Avis 1 -->\n      <div class=\"swiper-slide\">\n        <div class=\"review-item\">\n          <div class=\"review-photo\">\n            <img src=\"{{ 'kkk.png' | file_img_url }}\" alt=\"Florian K.\" loading=\"lazy\">\n          </div>\n          <div class=\"review-content\">\n            <div class=\"review-header\">\n              <strong class=\"review-name\">Karim</strong>\n              <div class=\"review-stars\"><span>★★★★★</span></div>\n            </div>\n            <p class=\"review-text\">Le volant est trop beau ! Il marche direct en le branchant, zéro programmation, et je l'ai monté en deux minutes à peine.</p>\n          </div>\n        </div>\n      </div>\n\n      <!-- Avis 2 -->\n      <div class=\"swiper-slide\">\n        <div class=\"review-item\">\n          <div class=\"review-photo\">\n            <img src=\"{{ 'VOICE_CONTROLLED_ddJELLYFISH_LA_The_touch_foot_of_the_colored_light_is_movable.png' | file_img_url }}\" alt=\"Sarah\" loading=\"lazy\">\n          </div>\n          <div class=\"review-content\">\n            <div class=\"review-header\">\n              <strong class=\"review-name\">Sarah</strong>\n              <div class=\"review-stars\"><span>★★★★★</span></div>\n            </div>\n            <p class=\"review-text\">Le nouveau volant, waw, ça fait trop chic direct ! J’suis trop contente, ça change tout !</p>\n          </div>\n        </div>\n      </div>\n\n      <!-- Avis 3 -->\n      <div class=\"swiper-slide\">\n        <div class=\"review-item\">\n          <div class=\"review-photo\">\n            <img src=\"{{ 'ouioui.png' | file_img_url }}\" alt=\"Julien D.\" loading=\"lazy\">\n          </div>\n          <div class=\"review-content\">\n            <div class=\"review-header\">\n              <strong class=\"review-name\">Julien</strong>\n              <div class=\"review-stars\"><span>★★★★☆</span></div>\n            </div>\n            <p class=\"review-text\">les détail nickel, sa fait grave quali ! Vous pouvez foncer les yeux fermés</p>\n          </div>\n        </div>\n      </div>\n\n      <!-- Avis 4 -->\n      <div class=\"swiper-slide\">\n        <div class=\"review-item\">\n          <div class=\"review-photo\">\n            <img src=\"{{ 'kakai.png' | file_img_url }}\" alt=\"Tom.\" loading=\"lazy\">\n          </div>\n          <div class=\"review-content\">\n            <div class=\"review-header\">\n              <strong class=\"review-name\">Clara B.</strong>\n              <div class=\"review-stars\"><span>★★★★★</span></div>\n            </div>\n            <p class=\"review-text\">Qualité au top, bien lourd, ça fait solide et rend beau ! L’intérieur il monte d’un cran.</p>\n          </div>\n        </div>\n      </div>\n\n      <!-- Avis 5 -->\n      <div class=\"swiper-slide\">\n        <div class=\"review-item\">\n          <div class=\"review-photo\">\n            <img src=\"{{ 'zzzz.png' | file_img_url }}\" alt=\"Nicolas R.\" loading=\"lazy\">\n          </div>\n          <div class=\"review-content\">\n            <div class=\"review-header\">\n              <strong class=\"review-name\">Nicolas</strong>\n              <div class=\"review-stars\"><span>★★★★★</span></div>\n            </div>\n            <p class=\"review-text\">Wow ! Le volant il est encore plus quali que j’imaginais 😍 Le cuir tout doux, les coutures propres. Le SAV est top.</p>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n\n  <!-- Flèches navigation avec SVG -->\n  <div class=\"swiper-button-prev\">\n    <svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"currentColor\" viewBox=\"0 0 24 24\">\n      <path d=\"m13.172 12-4.95-4.95 1.414-1.414L16 12l-6.364 6.364-1.414-1.414 4.95-4.95Z\"></path>\n    </svg>\n  </div>\n  <div class=\"swiper-button-next\">\n    <svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"currentColor\" viewBox=\"0 0 24 24\">\n      <path d=\"m13.172 12-4.95-4.95 1.414-1.414L16 12l-6.364 6.364-1.414-1.414 4.95-4.95Z\"></path>\n    </svg>\n  </div>\n</div>\n\n<!-- Google Font: Poppins -->\n<link href=\"https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap\" rel=\"stylesheet\">\n\n<!-- Swiper -->\n<link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css\" />\n<script src=\"https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js\"></script>\n\n<style>\n.reviews-banner-skinny {\n  background: #fff;\n  border-radius: 16px;\n  padding: 12px 16px;\n  margin: 20px auto;\n  max-width: 580px;\n  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);\n  font-family: 'Poppins', sans-serif;\n  position: relative;\n  font-size: 12px;\n  color: #000;\n}\n\n.review-item {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n}\n\n.review-photo img {\n  width: 48px;\n  height: 48px;\n  border-radius: 12px;\n  object-fit: cover;\n  flex-shrink: 0;\n  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);\n}\n\n.review-content {\n  flex: 1;\n  min-width: 0;\n}\n\n.review-header {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  margin-bottom: 4px;\n  gap: 8px;\n}\n\n.review-name {\n  font-size: 12px;\n  font-weight: 600;\n  color: #000;\n  margin: 0;\n}\n\n.review-stars span {\n  color: #28a745;\n  font-size: 12px;\n  letter-spacing: 1.5px;\n}\n\n.review-text {\n  margin: 0;\n  font-size: 12px;\n  line-height: 1.35;\n  color: #000;\n  font-weight: 400;\n}\n\n/* Flèches avec SVG */\n.swiper-button-prev,\n.swiper-button-next {\n  width: 40px;\n  height: 40px;\n  background: transparent;\n  position: absolute;\n  top: 50%;\n  transform: translateY(-50%);\n  z-index: 20;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n\n.swiper-button-prev { left: -50px; }\n.swiper-button-next { right: -50px; }\n\n.swiper-button-prev svg {\n  transform: rotate(180deg);\n}\n\n.swiper-button-prev svg,\n.swiper-button-next svg {\n  width: 40px;\n  height: 40px;\n  color: #000;\n}\n\n.swiper-button-prev:hover,\n.swiper-button-next:hover {\n  transform: translateY(-50%) scale(1.15);\n}\n\n/* Masquer les icônes par défaut de Swiper */\n.swiper-button-prev::after,\n.swiper-button-next::after {\n  display: none;\n}\n\n/* Mobile */\n@media (max-width: 480px) {\n  .reviews-banner-skinny { \n    padding: 10px 12px; \n    margin: 16px 10px; \n    border-radius: 14px; \n    font-size: 11.5px;\n  }\n  .review-photo img { width: 42px; height: 42px; border-radius: 10px; }\n  .review-name, .review-text, .review-stars span { font-size: 11.5px; }\n  .swiper-button-prev,\n  .swiper-button-next {\n    width: 32px;\n    height: 32px;\n  }\n  .swiper-button-prev { left: -40px; }\n  .swiper-button-next { right: -40px; }\n  .swiper-button-prev svg,\n  .swiper-button-next svg {\n    width: 32px;\n    height: 32px;\n  }\n}\n</style>\n\n<script>\ndocument.addEventListener(\"DOMContentLoaded\", function () {\n  const swiper = new Swiper(\".reviews-slider\", {\n    loop: true,\n    autoplay: { \n      delay: 4000, \n      disableOnInteraction: false \n    },\n    speed: 600,\n    navigation: {\n      nextEl: \".reviews-banner-skinny .swiper-button-next\",\n      prevEl: \".reviews-banner-skinny .swiper-button-prev\",\n    },\n    slidesPerView: 1,\n    spaceBetween: 0,\n    grabCursor: true,\n    allowTouchMove: true,\n  });\n  \n  // Debug: vérifier que Swiper est initialisé\n  console.log('Swiper initialized:', swiper);\n});\n</script>"
+          }
+        },
+        "custom_liquid_LiWgrf": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "{%- assign phone_number = \"+33767422570\" -%}\n<div class=\"phone-banner-compact\">\n  <div class=\"phone-banner-compact__wrapper\">\n    <div class=\"phone-banner-compact__info\">\n      <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\">\n        <path d=\"M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z\"></path>\n      </svg>\n      <div>\n        <span class=\"phone-banner-compact__label\">Besoin d'un aperçu du volant ?</span>\n        <a href=\"tel:{{ phone_number }}\" class=\"phone-banner-compact__number\">{{ phone_number }}</a>\n      </div>\n    </div>\n    <button class=\"phone-banner-compact__copy js-copy-phone-compact\" title=\"Copier le numéro\">\n      <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\">\n        <rect x=\"9\" y=\"9\" width=\"13\" height=\"13\" rx=\"2\" ry=\"2\"></rect>\n        <path d=\"M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1\"></path>\n      </svg>\n    </button>\n  </div>\n</div>\n\n<script>\ndocument.addEventListener('DOMContentLoaded', function() {\n  const copyBtn = document.querySelector('.js-copy-phone-compact');\n  if (copyBtn) {\n    copyBtn.addEventListener('click', function() {\n      navigator.clipboard.writeText('{{ phone_number }}').then(function() {\n        const originalHTML = copyBtn.innerHTML;\n        copyBtn.innerHTML = '<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\"><path d=\"M20 6L9 17l-5-5\"></path></svg>';\n        copyBtn.classList.add('copied');\n        setTimeout(function() {\n          copyBtn.innerHTML = originalHTML;\n          copyBtn.classList.remove('copied');\n        }, 2000);\n      });\n    });\n  }\n});\n</script>\n\n<style>\n.phone-banner-compact {\n  width: 100%;\n  max-width: 500px;\n  margin: 1.5rem auto;\n}\n\n.phone-banner-compact__wrapper {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  gap: 1rem;\n  padding: 1rem 1.25rem;\n  background: linear-gradient(45deg, #1e3a8a, #3b82f6, #1e3a8a, #3b82f6);\n  background-size: 300% 300%;\n  animation: gradient-shift 4s ease infinite;\n  border-radius: 12px;\n  box-shadow: 0 4px 12px rgba(30, 58, 138, 0.25);\n}\n\n.phone-banner-compact__info {\n  display: flex;\n  align-items: center;\n  gap: 0.875rem;\n  color: white;\n}\n\n.phone-banner-compact__info > svg {\n  flex-shrink: 0;\n}\n\n.phone-banner-compact__label {\n  display: block;\n  font-size: 0.9rem;\n  color: #e0e7ff;\n  font-weight: 600;\n  margin-bottom: 0.25rem;\n  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);\n}\n\n.phone-banner-compact__number {\n  display: block;\n  font-size: 1.25rem;\n  font-weight: 700;\n  color: white;\n  text-decoration: none;\n  letter-spacing: 0.025em;\n  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);\n}\n\n.phone-banner-compact__number:hover {\n  text-decoration: underline;\n}\n\n.phone-banner-compact__copy {\n  flex-shrink: 0;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 40px;\n  height: 40px;\n  background: rgba(255, 255, 255, 0.2);\n  border: none;\n  border-radius: 8px;\n  color: white;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  backdrop-filter: blur(10px);\n}\n\n.phone-banner-compact__copy:hover {\n  background: rgba(255, 255, 255, 0.3);\n  transform: scale(1.05);\n}\n\n.phone-banner-compact__copy.copied {\n  background: rgba(16, 185, 129, 0.9);\n}\n\n@media screen and (max-width: 640px) {\n  .phone-banner-compact {\n    margin: 1rem auto;\n  }\n  \n  .phone-banner-compact__wrapper {\n    padding: 0.875rem 1rem;\n  }\n  \n  .phone-banner-compact__label {\n    font-size: 0.85rem;\n  }\n  \n  .phone-banner-compact__number {\n    font-size: 1.125rem;\n  }\n}\n</style>"
+          }
+        },
+        "custom_liquid_EWAHka": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<!-- Clickroad — Stories avec animation \"Zoom depuis la bulle\" -->\n{%- assign s1_url = \"https://cdn.shopify.com/videos/c/o/v/2aa2b579a75b4686bada4306d5ca5134.mp4\" -%}\n{%- assign s1_txt = \"Presentation\" -%}\n{%- assign s1_img = \"https://cdn.shopify.com/s/files/1/0929/1530/2785/files/WhatsApp_Image_2026-03-29_at_19.29.32_1.jpg?v=1774806338\" -%}\n\n{%- assign s2_url = \"https://cdn.shopify.com/videos/c/o/v/e87c1bf1159748e69460b4bf16b27041.mp4\" -%}\n{%- assign s2_txt = \"FAQ\" -%}\n{%- assign s2_img = \"https://cdn.shopify.com/s/files/1/0929/1530/2785/files/WhatsApp_Image_2026-03-29_at_19.29.32.jpg?v=1774806337\" -%}\n\n{%- assign urls_arr = s1_url | append: \"||\" | append: s2_url | split: \"||\" -%}\n{%- assign txts_arr = s1_txt | append: \"||\" | append: s2_txt | split: \"||\" -%}\n{%- assign imgs_arr = s1_img | append: \"||\" | append: s2_img | split: \"||\" -%}"
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false,
+            "show_gift_card_recipient": true
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "title",
+        "custom_liquid_rQeeJg",
+        "custom_liquid_LiWgrf",
+        "custom_liquid_EWAHka",
+        "price",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons",
+        "description"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "color_scheme": "scheme-4",
+        "media_size": "large",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "gallery_layout": "thumbnail_slider",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "mobile_thumbnails": "show",
+        "hide_variants": true,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 12
+      }
+    },
+    "testimonials_carousel_bkQKaq": {
+      "type": "testimonials-carousel",
+      "blocks": {
+        "testimonial_D3cmdG": {
+          "type": "testimonial",
+          "settings": {
+            "customer_name": "Sofiane",
+            "rating": 5,
+            "testimonial_text": "Top",
+            "verified": true,
+            "show_image": false,
+            "product_name": ""
+          }
+        },
+        "testimonial_JRUwLa": {
+          "type": "testimonial",
+          "settings": {
+            "customer_name": "Denis",
+            "rating": 5,
+            "testimonial_text": "C’est incroyable, c’est magnifique merci beaucoup (livrée en Martinique)",
+            "verified": true,
+            "show_image": true,
+            "product_image": "shopify://shop_images/ihugyfut.png",
+            "product_name": ""
+          }
+        },
+        "testimonial_phPpw9": {
+          "type": "testimonial",
+          "settings": {
+            "customer_name": "Gabriel",
+            "rating": 4,
+            "testimonial_text": "je suis très ravi jai reçu mon nouveau volant en fibre de carbone pour ma RCZ le fabricant est très courtois et sympathique si vous voulez donner un nouveau look à votre peugeot RCZ faite lui confiance",
+            "verified": true,
+            "show_image": true,
+            "product_image": "shopify://shop_images/ihugyf.png",
+            "product_name": ""
+          }
+        },
+        "testimonial_b3DAXa": {
+          "type": "testimonial",
+          "settings": {
+            "customer_name": "Karim",
+            "rating": 5,
+            "testimonial_text": "La qualité du volant est très bon, il est très beau et s'adapte parfaitement, également le service fournisseur son très réactif et rapide.",
+            "verified": true,
+            "show_image": false,
+            "product_name": "Nom du produit"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_D3cmdG",
+        "testimonial_JRUwLa",
+        "testimonial_phPpw9",
+        "testimonial_b3DAXa"
+      ],
+      "settings": {
+        "title": "Ce que nos clients disent",
+        "autoplay": true,
+        "autoplay_speed": 5000,
+        "all_verified": true,
+        "verified_label": "Avis vérifié"
+      }
+    },
+    "image_texte_Q73pcQ": {
+      "type": "image-texte",
+      "settings": {
+        "section_bg_color": "#f8f8f8",
+        "section_padding_vertical_desktop": 40,
+        "section_padding_horizontal_desktop": 20,
+        "section_padding_vertical_mobile": 40,
+        "section_padding_horizontal_mobile": 20,
+        "mobile_gap": 20,
+        "media_type": "video",
+        "video_url": "https://cdn.shopify.com/videos/c/o/v/c45658011b7c40f183d2b37d3a3a9b2d.mp4",
+        "youtube_url": "https://www.youtube.com/embed/XXXXXXXXXXX",
+        "vimeo_url": "https://player.vimeo.com/video/XXXXXXXXX",
+        "alt_text": "Description du média",
+        "media_width_desktop": 40,
+        "media_position": "left",
+        "mobile_media_order": "media-first",
+        "card_bg_color": "#ffffff",
+        "card_padding_vertical": 20,
+        "card_padding_horizontal": 35,
+        "heading": "Personnalisation Ultime de votre Volant Renault, Unique à Chaque Conducteur !",
+        "title_bold": true,
+        "content": "Nos volants sont entièrement <strong>adaptables individuellement</strong> pour correspondre à votre style de conduite.",
+        "content_bold": false,
+        "embed_video": false,
+        "video_embed_code": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/XXXXXXXXXXX\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+        "title_color": "#45497a",
+        "title_font_size_desktop": 28,
+        "title_font_size_mobile": 24,
+        "title_letter_spacing_desktop": 0,
+        "title_letter_spacing_mobile": 0,
+        "text_color": "#4a4a4a",
+        "text_font_size_desktop": 16,
+        "text_font_size_mobile": 14,
+        "text_letter_spacing_desktop": 0,
+        "text_letter_spacing_mobile": 0,
+        "text_alignment_desktop": "center",
+        "text_alignment_mobile": "center",
+        "bullet_alignment": "center",
+        "bullets_bold": false,
+        "bullet1_html": "<svg width=\"24\" height=\"24\" viewbox=\"0 0 24 24\" style=\"fill: #4CAF50;\"><path d=\"M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z\"></path></svg>",
+        "bullet1_text": "<strong>Personnalisation complète</strong> des matériaux et finitions",
+        "bullet2_html": "<svg width=\"24\" height=\"24\" viewbox=\"0 0 24 24\" style=\"fill: #4CAF50;\"><path d=\"M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z\"></path></svg>",
+        "bullet2_text": "<strong>Large choix de revêtements</strong> : alcantara, cuir, carbone, etc",
+        "bullet3_html": "<svg width=\"24\" height=\"24\" viewbox=\"0 0 24 24\" style=\"fill: #4CAF50;\"><path d=\"M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z\"></path></svg>",
+        "bullet3_text": "Configuration sur-mesure pour votre modèle Renault"
+      }
+    },
+    "image_texte_xNWrnm": {
+      "type": "image-texte",
+      "settings": {
+        "section_bg_color": "#f8f8f8",
+        "section_padding_vertical_desktop": 40,
+        "section_padding_horizontal_desktop": 20,
+        "section_padding_vertical_mobile": 40,
+        "section_padding_horizontal_mobile": 20,
+        "mobile_gap": 20,
+        "media_type": "video",
+        "video_url": "https://cdn.shopify.com/videos/c/o/v/2bb04805a8fa4da6bc83e0aaceb3d55d.mp4",
+        "youtube_url": "https://www.youtube.com/embed/XXXXXXXXXXX",
+        "vimeo_url": "https://player.vimeo.com/video/XXXXXXXXX",
+        "alt_text": "Description du média",
+        "media_width_desktop": 40,
+        "media_position": "right",
+        "mobile_media_order": "media-first",
+        "card_bg_color": "#ffffff",
+        "card_padding_vertical": 20,
+        "card_padding_horizontal": 35,
+        "heading": "Installation Simplifiée et Personnalisée, Entre Autonomie et Expertise !",
+        "title_bold": true,
+        "content": "Un volant qui s'installe <strong>rapidement et facilement</strong> sur votre Renault, avec montage possible en autonomie ou par un professionnel, et <strong>support technique</strong> permanent.",
+        "content_bold": false,
+        "embed_video": false,
+        "video_embed_code": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/XXXXXXXXXXX\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+        "title_color": "#45497a",
+        "title_font_size_desktop": 29,
+        "title_font_size_mobile": 22,
+        "title_letter_spacing_desktop": 0,
+        "title_letter_spacing_mobile": 0,
+        "text_color": "#4a4a4a",
+        "text_font_size_desktop": 16,
+        "text_font_size_mobile": 14,
+        "text_letter_spacing_desktop": 0,
+        "text_letter_spacing_mobile": 0,
+        "text_alignment_desktop": "center",
+        "text_alignment_mobile": "center",
+        "bullet_alignment": "center",
+        "bullets_bold": false,
+        "bullet1_html": "<svg width=\"24\" height=\"24\" viewbox=\"0 0 24 24\" style=\"fill: #4CAF50;\"><path d=\"M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z\"></path></svg>",
+        "bullet1_text": "Kit complet <strong>adapté à l'auto-installation</strong>",
+        "bullet2_html": "<svg width=\"24\" height=\"24\" viewbox=\"0 0 24 24\" style=\"fill: #4CAF50;\"><path d=\"M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z\"></path></svg>",
+        "bullet2_text": "Support <strong>technique détaillé</strong> pour les bricoleurs",
+        "bullet3_html": "<svg width=\"24\" height=\"24\" viewbox=\"0 0 24 24\" style=\"fill: #4CAF50;\"><path d=\"M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z\"></path></svg>",
+        "bullet3_text": "Possibilité de montage par un <strong>professionnel proche de chez vous</strong>"
+      }
+    },
+    "image_texte_J3QAVV": {
+      "type": "image-texte",
+      "settings": {
+        "section_bg_color": "#f8f8f8",
+        "section_padding_vertical_desktop": 40,
+        "section_padding_horizontal_desktop": 20,
+        "section_padding_vertical_mobile": 40,
+        "section_padding_horizontal_mobile": 20,
+        "mobile_gap": 20,
+        "media_type": "image",
+        "image": "shopify://shop_images/eufyty.png",
+        "video_url": "https://cdn.shopify.com/videos/c/o/v/afd6123f22eb4e7a98a70ee0cbd9f1f9.mp4",
+        "youtube_url": "https://www.youtube.com/embed/XXXXXXXXXXX",
+        "vimeo_url": "https://player.vimeo.com/video/XXXXXXXXX",
+        "alt_text": "Description du média",
+        "media_width_desktop": 40,
+        "media_position": "left",
+        "mobile_media_order": "media-first",
+        "card_bg_color": "#ffffff",
+        "card_padding_vertical": 20,
+        "card_padding_horizontal": 35,
+        "heading": "Toutes les Fonctions Électroniques de votre Volant Préservées !",
+        "title_bold": true,
+        "content": "Un volant qui conserve <strong>l'intégralité des fonctions</strong> électroniques de votre Mercedes d'origine.",
+        "content_bold": false,
+        "embed_video": false,
+        "video_embed_code": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/XXXXXXXXXXX\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+        "title_color": "#45497a",
+        "title_font_size_desktop": 28,
+        "title_font_size_mobile": 24,
+        "title_letter_spacing_desktop": 0,
+        "title_letter_spacing_mobile": 0,
+        "text_color": "#4a4a4a",
+        "text_font_size_desktop": 16,
+        "text_font_size_mobile": 14,
+        "text_letter_spacing_desktop": 0,
+        "text_letter_spacing_mobile": 0,
+        "text_alignment_desktop": "center",
+        "text_alignment_mobile": "center",
+        "bullet_alignment": "center",
+        "bullets_bold": false,
+        "bullet1_html": "<svg width=\"24\" height=\"24\" viewbox=\"0 0 24 24\" style=\"fill: #4CAF50;\"><path d=\"M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z\"></path></svg>",
+        "bullet1_text": "Maintien des <strong>commandes au volant</strong> d'origine",
+        "bullet2_html": "<svg width=\"24\" height=\"24\" viewbox=\"0 0 24 24\" style=\"fill: #4CAF50;\"><path d=\"M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z\"></path></svg>",
+        "bullet2_text": "Compatibilité totale avec les <strong>systèmes embarqués</strong>",
+        "bullet3_html": "<svg width=\"24\" height=\"24\" viewbox=\"0 0 24 24\" style=\"fill: #4CAF50;\"><path d=\"M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z\"></path></svg>",
+        "bullet3_text": "Conservation des fonctionnalités de <strong>régulation et assistance</strong>"
+      }
+    },
+    "product_faq_EYPp3w": {
+      "type": "product-faq",
+      "blocks": {
+        "faq_cBDXnd": {
+          "type": "faq",
+          "settings": {
+            "title": "Airbag - Le volant est-il compatible avec le système d'airbag d'origine ?",
+            "answer": "<p>Oui, les volants sont entièrement compatibles avec le système d'airbag d'origine. Ils sont conçus pour s'adapter parfaitement au mécanisme d'airbag de votre voiture, garantissant ainsi votre sécurité sur la route tout en profitant d'un design unique. L'installation peut être réalisée par un professionnel pour assurer le bon fonctionnement du système de sécurité.</p>"
+          }
+        },
+        "faq_aPN6Je": {
+          "type": "faq",
+          "settings": {
+            "title": "Homologation - Le volant est-il homologué pour un usage sur route ?",
+            "answer": "<p>Oui, tous nos volants sont homologués pour un usage sur route ouverte. Ils respectent les normes et réglementations en vigueur pour être utilisés légalement sur les voies publiques. Chaque volant est livré avec son certificat d'homologation que vous pourrez présenter en cas de contrôle. Notre priorité est de vous proposer des produits à la fois esthétiques et conformes aux exigences légales.</p>"
+          }
+        },
+        "faq_kJYARQ": {
+          "type": "faq",
+          "settings": {
+            "title": "Livraison - Quels sont les délais et frais de livraison ?",
+            "answer": "<p>Un volant sur mesure prend entre 3 et 5 semaines à être conçu et livré dans le monde entier. La fabrication artisanale et le soin apporté à chaque détail nécessitent ce délai pour garantir une qualité irréprochable. Les frais de livraison sont offerts pour toutes les commandes, quel que soit le pays de destination. Chaque volant est soigneusement emballé pour assurer une protection optimale pendant le transport.</p>"
+          }
+        },
+        "faq_pHjYzB": {
+          "type": "faq",
+          "settings": {
+            "title": "Garantie - Quelle est la durée exacte de la garantie et que couvre-t-elle ?",
+            "answer": "<p>Tous nos volants bénéficient d'une garantie de 5 ans contre tout défaut de fabrication. Cette garantie couvre les problèmes liés à la structure du volant, aux coutures, aux matériaux et aux finitions. Elle ne couvre pas l'usure normale, les dommages dus à une mauvaise utilisation, les accidents ou les modifications apportées au produit. En cas de problème couvert par la garantie, nous assurons la réparation ou le remplacement du volant selon notre évaluation.</p>"
+          }
+        },
+        "faq_VWGLYK": {
+          "type": "faq",
+          "settings": {
+            "title": "Installation - L'installation nécessite-t-elle des compétences techniques particulières ?",
+            "answer": "<p>Le processus d'installation d'un volant personnalisé comporte plusieurs étapes techniques qui peuvent être réalisées par un amateur averti ou un professionnel :</p><ul><li>Mise en sécurité du véhicule (déconnexion de la batterie)</li><li>Démontage des éléments du volant d'origine (airbag, commandes, vis centrale)</li><li>Extraction du volant existant</li><li>Transfert des composants électroniques et commandes sur le nouveau volant</li><li>Mise en place du volant personnalisé</li><li>Fixation et reconnexion des différents éléments</li><li>Vérification du fonctionnement et remise en service</li></ul><p>Chaque volant est fourni avec son manuel d'installation détaillé. Pour plus de sécurité, il est recommandé de confier cette opération à un garage spécialisé qui maîtrise les systèmes d'airbag. Une assistance technique est également disponible si vous rencontrez des difficultés pendant le montage.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_cBDXnd",
+        "faq_aPN6Je",
+        "faq_kJYARQ",
+        "faq_pHjYzB",
+        "faq_VWGLYK"
+      ],
+      "settings": {
+        "heading": "Questions fréquentes",
+        "background": "#ffffff",
+        "text_color": "#333333",
+        "accent_color": "#2c5364"
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "settings": {
+        "heading": "Tu devrais aimer",
+        "heading_size": "h2",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "color_scheme": "scheme-1",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "columns_mobile": "2",
+        "padding_top": 36,
+        "padding_bottom": 28
+      }
+    }
+  },
+  "order": [
+    "blocks_dV4yzj",
+    "main",
+    "testimonials_carousel_bkQKaq",
+    "image_texte_Q73pcQ",
+    "image_texte_xNWrnm",
+    "image_texte_J3QAVV",
+    "product_faq_EYPp3w",
+    "related-products"
+  ]
+}

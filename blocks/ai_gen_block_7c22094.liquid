@@ -1,18 +1,18 @@
 {% doc %}
   @prompt
-    Generate a Shopify Liquid section called "customer-reassurance" for the store *Les As du Volant*.  
+    Generate a Shopify Liquid section called "customer-reassurance" for the store *Drive Custom*.  
     
     Requirements:  
     1. The section must start with a **highlighted text block** (like a card or banner) saying:  
     
-    **"On comprend que commander un volant sur internet peut faire hésiter. Pas de panique, c’est normal ! Chez Les As du Volant, on reste au plus proche de nos clients. Vous avez une question, un doute, besoin d’être rassuré ? Contactez-nous au +33 6 22 51 01 96, et nous vous rappelons rapidement pour répondre à toutes vos questions, avant ou après votre commande."**
+    **"We understand that ordering a steering wheel online can feel uncertain. That's completely normal! At Drive Custom, we stay close to our customers. Have a question, a doubt, or need reassurance? Contact us at +33 6 22 51 01 96, and we'll call you back promptly to answer any questions, before or after your order."**
     
     2. Below this intro block, display **4 reassurance points with icons and short text** in a responsive grid (2x2 on desktop, 1x4 stacked on mobile). Use simple SVG or emoji icons:  
     
-    - 💳 Paiement 100 % sécurisé (CB + PayPal, vous ne prenez aucun risque)  
-    - 🛡️ Garantie 5 ans (en cas de problème, vous êtes couvert)  
-    - 🔎 Suivi en temps réel (de la fabrication à la livraison)  
-    - 🎁 Housse offerte (incluse avec chaque volant)  
+    - 💳 100% Secure Payment (Debit/Credit Card + PayPal, you take zero risk)
+    - 🛡️ 5-Year Warranty (full coverage, you're covered)
+    - 🔎 Real-Time Tracking (from manufacturing through to delivery)
+    - 🎁 Free Cover Included (included with every steering wheel)
     
     3. The section should be styled cleanly with padding, rounded corners, and a modern look (neutral background, icons on the left, text on the right).  
     
@@ -23,7 +23,7 @@
        - Each reassurance point text  
     
     Output only the complete Liquid section code, no explanations.  
-    , rend les fonds plus design, je veux du motion design qui fait bouger les couleurs, non , remets comme avant, il faut que le numéro de telephone +33 6 22 51 01 96 ou +33 6 22 51 01 96 soit cliquable pour menvoyer un sms directement, je dois pouvoir mettre le texte que je veux, en gras
+    , make the background more design, I want motion design that makes colours move, no, put it back as before, the phone number +33 6 22 51 01 96 or +33 6 22 51 01 96 must be clickable to send me an SMS directly, I must be able to put any text I want, in bold
 {% enddoc %}
 {% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
 
@@ -187,7 +187,7 @@
       "type": "richtext",
       "id": "intro_text",
       "label": "Introduction text",
-      "default": "<p>On comprend que commander un volant sur internet peut faire hésiter. Pas de panique, c'est normal ! Chez Les As du Volant, on reste au plus proche de nos clients. Vous avez une question, un doute, besoin d'être rassuré ? Contactez-nous au <a href=\"sms:+33622510196\"><strong>+33 6 22 51 01 96</strong></a>, et nous vous rappelons rapidement pour répondre à toutes vos questions, avant ou après votre commande.</p>"
+      "default": "<p>We understand that ordering a steering wheel online can feel uncertain. That's completely normal! At Drive Custom, we stay close to our customers. Have a question, a doubt, or need reassurance? Contact us at <a href=\\"sms:+33622510196\\"><strong>+33 6 22 51 01 96</strong></a>, and we'll call you back promptly to answer any questions, before or after your order.</p>"
     },
     {
       "type": "color",
@@ -225,25 +225,25 @@
       "type": "richtext",
       "id": "point_1_text",
       "label": "Point 1 text",
-      "default": "<p><strong>Paiement 100 % sécurisé</strong> (CB + PayPal, vous ne prenez aucun risque)</p>"
+      "default": "<p><strong>100% Secure Payment</strong> (Debit/Credit Card + PayPal — you take zero risk)</p>"
     },
     {
       "type": "richtext",
       "id": "point_2_text",
       "label": "Point 2 text",
-      "default": "<p><strong>Garantie 5 ans</strong> (en cas de problème, vous êtes couvert)</p>"
+      "default": "<p><strong>5-Year Warranty</strong> (full coverage — we've got you covered)</p>"
     },
     {
       "type": "richtext",
       "id": "point_3_text",
       "label": "Point 3 text",
-      "default": "<p><strong>Suivi en temps réel</strong> (de la fabrication à la livraison)</p>"
+      "default": "<p><strong>Real-Time Tracking</strong> (from manufacturing through to delivery)</p>"
     },
     {
       "type": "richtext",
       "id": "point_4_text",
       "label": "Point 4 text",
-      "default": "<p><strong>Housse offerte</strong> (incluse avec chaque volant)</p>"
+      "default": "<p><strong>Free Cover Included</strong> (included with every steering wheel)</p>"
     },
     {
       "type": "color",

@@ -1,1 +1,62 @@
-{"sections":{"1759530911c6521cc4":{"type":"_blocks","blocks":{"ai_gen_block_41aa14c_G68Wja":{"type":"ai_gen_block_41aa14c","settings":{"layout":"image_text","gap":40,"section_padding":20,"image":"shopify:\/\/shop_images\/nano-banana-2025-10-03T22-33-51.png","image_border_radius":8,"heading":"Devenez ambassadeur Les As du Volant !","heading_size":32,"heading_weight":"600","heading_italic":false,"heading_color":"#000000","text_content":"<p><strong>Les As du Volant<\/strong>, spécialiste des <strong>volants personnalisés haut de gamme<\/strong>, est à la recherche d’esprits passionnés par l’automobile pour incarner son univers unique et raffiné. En rejoignant notre <strong>programme d’ambassadeurs<\/strong>, vous devenez le porte-parole d’une marque qui célèbre <strong>la passion, l’artisanat et l’expérience client exceptionnelle<\/strong>.<\/p><p>Profitez d’avantages exclusifs tels qu’une <strong>rémunération attractive<\/strong>, un <strong>accès anticipé à nos créations<\/strong> et une <strong>visibilité renforcée<\/strong> grâce à nos collaborations et contenus exclusifs.<\/p>","text_size":16,"text_weight":"400","text_italic":false,"text_color":"#333333","line_height":1.5,"text_alignment":"left","text_spacing":20,"button_text":"","button_link":"","button_text_size":14,"button_text_weight":"600","button_text_italic":false,"button_background_color":"#000000","button_text_color":"#ffffff","button_hover_background_color":"#333333","button_hover_text_color":"#ffffff","button_padding_vertical":12,"button_padding_horizontal":24,"button_border_radius":4,"background_color":"#ffffff","border_radius":0},"blocks":{}}},"block_order":["ai_gen_block_41aa14c_G68Wja"],"settings":{}},"main":{"type":"main-page","settings":{"padding_top":28,"padding_bottom":28}}},"order":["main","1759530911c6521cc4"]}
+{
+  "sections": {
+    "1759530911c6521cc4": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_41aa14c_G68Wja": {
+          "type": "ai_gen_block_41aa14c",
+          "settings": {
+            "layout": "image_text",
+            "gap": 40,
+            "section_padding": 20,
+            "image": "shopify://shop_images/nano-banana-2025-10-03T22-33-51.png",
+            "image_border_radius": 8,
+            "heading": "Become a Drive Custom Ambassador!",
+            "heading_size": 32,
+            "heading_weight": "600",
+            "heading_italic": false,
+            "heading_color": "#000000",
+            "text_content": "<p><strong>Drive Custom</strong>, the premium <strong>custom steering wheel specialist</strong>, is looking for automotive enthusiasts to represent its unique and refined world. By joining our <strong>ambassador programme</strong>, you become the voice of a brand that celebrates <strong>passion, craftsmanship and exceptional customer experience</strong>.</p><p>Enjoy exclusive benefits including <strong>attractive compensation</strong>, <strong>early access to our new creations</strong> and <strong>enhanced visibility</strong> through our collaborations and exclusive content.</p>",
+            "text_size": 16,
+            "text_weight": "400",
+            "text_italic": false,
+            "text_color": "#333333",
+            "line_height": 1.5,
+            "text_alignment": "left",
+            "text_spacing": 20,
+            "button_text": "",
+            "button_link": "",
+            "button_text_size": 14,
+            "button_text_weight": "600",
+            "button_text_italic": false,
+            "button_background_color": "#000000",
+            "button_text_color": "#ffffff",
+            "button_hover_background_color": "#333333",
+            "button_hover_text_color": "#ffffff",
+            "button_padding_vertical": 12,
+            "button_padding_horizontal": 24,
+            "button_border_radius": 4,
+            "background_color": "#ffffff",
+            "border_radius": 0
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_41aa14c_G68Wja"
+      ],
+      "settings": {}
+    },
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    }
+  },
+  "order": [
+    "main",
+    "1759530911c6521cc4"
+  ]
+}

@@ -255,7 +255,7 @@
             <div class="boku-mode-image-placeholder-{{ ai_gen_id }}">
               {{ 'product-1' | placeholder_svg_tag }}
               <div class="boku-mode-empty-state-{{ ai_gen_id }}">
-                Ajoutez une image pour le mode auto-lavage
+                Add an image for self-cleaning mode
               </div>
             </div>
           {% endif %}
@@ -284,7 +284,7 @@
             <div class="boku-mode-image-placeholder-{{ ai_gen_id }}">
               {{ 'product-1' | placeholder_svg_tag }}
               <div class="boku-mode-empty-state-{{ ai_gen_id }}">
-                Ajoutez une image pour le mode postérieur
+                Add an image for posterior mode
               </div>
             </div>
           {% endif %}
@@ -313,7 +313,7 @@
             <div class="boku-mode-image-placeholder-{{ ai_gen_id }}">
               {{ 'product-1' | placeholder_svg_tag }}
               <div class="boku-mode-empty-state-{{ ai_gen_id }}">
-                Ajoutez une image pour le mode féminin
+                Add an image for feminine mode
               </div>
             </div>
           {% endif %}
@@ -384,88 +384,88 @@
 
 {% schema %}
 {
-  "name": "BOKU Modes d'utilisation",
+  "name": "BOKU Usage modes",
   "tag": null,
   "class": "section-boku-modes",
   "settings": [
     {
       "type": "header",
-      "content": "En-tête"
+      "content": "Header"
     },
     {
       "type": "text",
       "id": "title",
-      "label": "Titre principal",
-      "default": "Un bouton pour les nettoyer tous"
+      "label": "Main title",
+      "default": "One button to clean them all"
     },
     {
       "type": "richtext",
       "id": "subtitle",
-      "label": "Sous-titre",
-      "default": "<p>Sélectionnez les différents modes d'utilisation grâce au bouton molette multifonctions</p>"
+      "label": "Subtitle",
+      "default": "<p>Select the different usage modes using the multifunction scroll button</p>"
     },
     {
       "type": "color",
       "id": "title_color",
-      "label": "Couleur du titre",
+      "label": "Title color",
       "default": "#000000"
     },
     {
       "type": "color",
       "id": "subtitle_color",
-      "label": "Couleur du sous-titre",
+      "label": "Subtitle color",
       "default": "#666666"
     },
     {
       "type": "color",
       "id": "background_color",
-      "label": "Couleur de fond",
+      "label": "Background color",
       "default": "#ffffff"
     },
     {
       "type": "header",
-      "content": "Boutons"
+      "content": "Buttons"
     },
     {
       "type": "color",
       "id": "button_color",
-      "label": "Couleur des boutons",
+      "label": "Buttons color",
       "default": "#003366"
     },
     {
       "type": "color",
       "id": "button_text_color",
-      "label": "Couleur du texte",
+      "label": "Text color",
       "default": "#ffffff"
     },
     {
       "type": "color",
       "id": "button_hover_color",
-      "label": "Couleur au survol",
+      "label": "Hover color",
       "default": "#004488"
     },
     {
       "type": "color",
       "id": "button_active_color",
-      "label": "Couleur bouton actif",
+      "label": "Active button color",
       "default": "#006eff"
     },
     {
       "type": "color",
       "id": "button_active_text_color",
-      "label": "Texte bouton actif",
+      "label": "Active button text",
       "default": "#ffffff"
     },
     {
       "type": "color",
       "id": "button_active_border_color",
-      "label": "Bordure bouton actif",
+      "label": "Active button border",
       "default": "#006eff"
     },
     {
       "type": "range",
       "id": "button_radius",
-      "label": "Arrondi des boutons",
+      "label": "Button radius",
       "min": 0,
       "max": 40,
       "step": 2,
@@ -474,13 +474,13 @@
     },
     {
       "type": "header",
-      "content": "Mode 1 - Auto-lavage"
+      "content": "Mode 1 - Self-cleaning"
     },
     {
       "type": "text",
       "id": "mode_1_button_label",
-      "label": "Texte du bouton",
-      "default": "Mode auto-lavage des buses"
+      "label": "Button text",
+      "default": "Nozzle self-cleaning mode"
     },
     {
       "type": "image_picker",
@@ -490,24 +490,24 @@
     {
       "type": "text",
       "id": "mode_1_title",
-      "label": "Titre",
-      "default": "Mode auto-lavage des buses"
+      "label": "Title",
+      "default": "Nozzle self-cleaning mode"
     },
     {
       "type": "richtext",
       "id": "mode_1_text",
       "label": "Description",
-      "default": "<p>Le mode auto-lavage nettoie automatiquement les buses après chaque utilisation pour une hygiène maximale. Activez-le d'un simple geste pour garder votre bidet toujours propre et prêt.</p>"
+      "default": "<p>Self-cleaning mode automatically cleans the nozzles after each use for maximum hygiene. Activate it with a simple gesture to keep your bidet always clean and ready.</p>"
     },
     {
       "type": "header",
-      "content": "Mode 2 - Lavage postérieur"
+      "content": "Mode 2 - Posterior wash"
     },
     {
       "type": "text",
       "id": "mode_2_button_label",
-      "label": "Texte du bouton",
-      "default": "Mode lavage postérieur"
+      "label": "Button text",
+      "default": "Posterior wash mode"
     },
     {
       "type": "image_picker",
@@ -517,24 +517,24 @@
     {
       "type": "text",
       "id": "mode_2_title",
-      "label": "Titre",
-      "default": "Mode lavage postérieur"
+      "label": "Title",
+      "default": "Posterior wash mode"
     },
     {
       "type": "richtext",
       "id": "mode_2_text",
       "label": "Description",
-      "default": "<p>Pour une hygiène postérieure optimale. Le jet précis et réglable nettoie en profondeur après les selles, pour une sensation de fraîcheur immédiate sans papier excessif.</p>"
+      "default": "<p>For optimal posterior hygiene. The precise adjustable jet cleans thoroughly after bowel movements, for an immediate fresh feeling without excessive paper.</p>"
     },
     {
       "type": "header",
-      "content": "Mode 3 - Lavage féminin"
+      "content": "Mode 3 - Feminine wash"
     },
     {
       "type": "text",
       "id": "mode_3_button_label",
-      "label": "Texte du bouton",
-      "default": "Mode lavage féminin"
+      "label": "Button text",
+      "default": "Feminine wash mode"
     },
     {
       "type": "image_picker",
@@ -544,35 +544,35 @@
     {
       "type": "text",
       "id": "mode_3_title",
-      "label": "Titre",
-      "default": "Mode lavage féminin"
+      "label": "Title",
+      "default": "Feminine wash mode"
     },
     {
       "type": "richtext",
       "id": "mode_3_text",
       "label": "Description",
-      "default": "<p>Spécialement conçu pour les femmes. Un lavage doux et efficace pour l'hygiène intime, parfait pendant les règles ou après les toilettes, pour plus de confort et de bien-être.</p>"
+      "default": "<p>Specially designed for women. A gentle and effective wash for intimate hygiene, perfect during periods or after using the toilet, for more comfort and well-being.</p>"
     },
     {
       "type": "header",
-      "content": "Contenu"
+      "content": "Content"
     },
     {
       "type": "color",
       "id": "content_title_color",
-      "label": "Couleur des titres",
+      "label": "Titles color",
       "default": "#000000"
     },
     {
       "type": "color",
       "id": "content_text_color",
-      "label": "Couleur du texte",
+      "label": "Text color",
       "default": "#333333"
     },
     {
       "type": "range",
       "id": "image_radius",
-      "label": "Arrondi des images",
+      "label": "Image radius",
       "min": 0,
       "max": 40,
       "step": 2,
@@ -581,36 +581,36 @@
     },
     {
       "type": "header",
-      "content": "Badge optionnel"
+      "content": "Optional badge"
     },
     {
       "type": "checkbox",
       "id": "show_badge",
-      "label": "Afficher le badge",
+      "label": "Show badge",
       "default": true
     },
     {
       "type": "text",
       "id": "badge_text",
-      "label": "Texte du badge",
-      "default": "+200% de bien-être aux WC"
+      "label": "Badge text",
+      "default": "+200% bathroom comfort"
     },
     {
       "type": "color",
       "id": "badge_color",
-      "label": "Couleur du badge",
+      "label": "Badge color",
       "default": "#006eff"
     },
     {
       "type": "color",
       "id": "badge_text_color",
-      "label": "Couleur du texte",
+      "label": "Text color",
       "default": "#ffffff"
     }
   ],
   "presets": [
     {
-      "name": "BOKU Modes d'utilisation"
+      "name": "BOKU Usage modes"
     }
   ]
 }

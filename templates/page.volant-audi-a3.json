@@ -22,24 +22,24 @@
             "padding_right": 80,
             "mobile_height": 70,
             "mobile_padding": 30,
-            "eyebrow_text": "VOLANT SUR MESURE",
+            "eyebrow_text": "CUSTOM STEERING WHEEL",
             "eyebrow_size": 13,
             "eyebrow_spacing": 0.2,
             "eyebrow_color": "#FFFFFF",
             "eyebrow_opacity": 0.9,
-            "headline_text": "Volant Personnalisé pour Audi A3",
+            "headline_text": "Custom Steering Wheel for Audi A3",
             "headline_size": 42,
             "headline_weight": "300",
             "headline_spacing": 0.1,
             "headline_line_height": 1.1,
             "headline_color": "#FFFFFF",
-            "primary_label": "VOIR LES RÉALISATIONS",
+            "primary_label": "SEE OUR WORK",
             "primary_link": "shopify://collections/volant-audi",
             "primary_bg": "#FFFFFF",
             "primary_text": "#000000",
             "primary_hover_bg": "#000000",
             "primary_hover_text": "#FFFFFF",
-            "secondary_label": "COMMANDER SUR MESURE",
+            "secondary_label": "ORDER CUSTOM",
             "secondary_link": "https://wa.me/33622510196",
             "secondary_bg": "#25D366",
             "secondary_text": "#FFFFFF",
@@ -53,7 +53,9 @@
           "blocks": {}
         }
       },
-      "block_order": ["hero_cta"],
+      "block_order": [
+        "hero_cta"
+      ],
       "settings": {}
     },
     "intro_modele": {
@@ -65,11 +67,11 @@
             "layout": "text_only",
             "gap": 40,
             "section_padding": 60,
-            "heading": "Personnalisez votre Volant Audi A3",
+            "heading": "Customise Your Audi A3 Steering Wheel",
             "heading_size": 32,
             "heading_weight": "600",
             "heading_color": "#000000",
-            "text_content": "<p>Offrez une seconde vie à votre Audi A3 avec un volant personnalisé haut de gamme. Chaque volant est fabriqué sur mesure, adapté parfaitement à votre modèle et à vos préférences de conduite.</p><p>Notre savoir-faire artisanal combine des matériaux premium — <strong>cuir pleine fleur, Alcantara®, carbone véritable</strong> — pour un résultat digne des plus grands constructeurs.</p>",
+            "text_content": "<p>Give your Audi A3 a new lease of life with a premium custom steering wheel. Each wheel is handcrafted to order, perfectly suited to your model and driving preferences.</p><p>Our artisanal expertise combines premium materials — <strong>full-grain leather, Alcantara®, genuine carbon fibre</strong> — for a result worthy of the finest manufacturers.</p>",
             "text_size": 16,
             "text_weight": "400",
             "text_color": "#333333",
@@ -82,7 +84,9 @@
           "blocks": {}
         }
       },
-      "block_order": ["intro_texte"],
+      "block_order": [
+        "intro_texte"
+      ],
       "settings": {}
     },
     "options_modele": {
@@ -102,7 +106,7 @@
             "gradient_direction": "top_left_to_bottom_right",
             "gradient_color_1": "#f5f5f5",
             "gradient_color_2": "#ffffff",
-            "eyebrow_text": "OPTIONS DE PERSONNALISATION",
+            "eyebrow_text": "CUSTOMISATION OPTIONS",
             "eyebrow_color": "#000000",
             "eyebrow_size": 14,
             "eyebrow_letter_spacing": 2,
@@ -118,29 +122,31 @@
             "text_color": "#333333",
             "step_1_enabled": true,
             "step_1_number": "",
-            "step_1_title": "CUIR PLEINE FLEUR",
-            "step_1_description": "Cuir italien haut de gamme, souple et durable. Disponible en noir, blanc, rouge, bleu, marron et plus.",
+            "step_1_title": "FULL-GRAIN LEATHER",
+            "step_1_description": "Premium Italian leather — soft, supple and durable. Available in black, white, red, blue, brown and more.",
             "step_1_icon": "award",
             "step_2_enabled": true,
             "step_2_number": "",
             "step_2_title": "ALCANTARA®",
-            "step_2_description": "Toucher suédé ultra-premium, idéal pour une adhérence parfaite. Fini sport et racing.",
+            "step_2_description": "Ultra-premium suede-like finish, ideal for perfect grip. Sporty, racing feel.",
             "step_2_icon": "star",
             "step_3_enabled": true,
             "step_3_number": "",
-            "step_3_title": "CARBONE",
-            "step_3_description": "Insertions en carbone véritable pour un look racing. Léger, résistant, spectaculaire.",
+            "step_3_title": "CARBON FIBRE",
+            "step_3_description": "Genuine carbon fibre inserts for a racing look. Lightweight, strong, spectacular.",
             "step_3_icon": "zap",
             "step_4_enabled": true,
             "step_4_number": "",
-            "step_4_title": "SURPIQÛRES",
-            "step_4_description": "Surpiqûres contrastées personnalisables. Double ligne, couleur au choix, motif racing.",
+            "step_4_title": "CONTRAST STITCHING",
+            "step_4_description": "Customisable contrast stitching. Double line, choice of colour, racing pattern.",
             "step_4_icon": "pen-tool"
           },
           "blocks": {}
         }
       },
-      "block_order": ["options_cartes"],
+      "block_order": [
+        "options_cartes"
+      ],
       "settings": {}
     },
     "cta_final": {
@@ -160,20 +166,20 @@
             "gradient_color_3": "#ffffff",
             "gradient_color_4": "#ffffff",
             "gradient_color_5": "#ffffff",
-            "headline": "Vous voulez un volant unique pour votre Audi A3 ?",
+            "headline": "Want a unique steering wheel for your Audi A3?",
             "headline_size": 36,
             "headline_weight": "400",
             "headline_letter_spacing": 1,
             "headline_color": "#000000",
             "headline_max_width": 720,
-            "subtext": "Décrivez-nous le volant de vos rêves, nous le créons sur mesure. Devis gratuit, réponse sous 24h.",
+            "subtext": "Describe the steering wheel of your dreams and we'll create it custom for you. Free quote, reply within 24 hours.",
             "subtext_size": 16,
             "subtext_color": "#333333",
             "subtext_max_width": 680,
-            "highlight": "Sur-mesure · Conseil expert · Livraison offerte",
+            "highlight": "Bespoke · Expert advice · Free delivery",
             "highlight_size": 13,
             "highlight_color": "#8e9ad6",
-            "button_text": "PARLER À UN EXPERT SUR WHATSAPP",
+            "button_text": "TALK TO AN EXPERT ON WHATSAPP",
             "button_link": "https://wa.me/33622510196",
             "show_whatsapp_icon": true,
             "button_background": "#25d366",
@@ -188,7 +194,9 @@
           "blocks": {}
         }
       },
-      "block_order": ["cta_bottom"],
+      "block_order": [
+        "cta_bottom"
+      ],
       "settings": {}
     }
   },

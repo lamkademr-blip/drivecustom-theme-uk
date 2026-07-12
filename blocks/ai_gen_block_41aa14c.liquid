@@ -149,7 +149,7 @@
       <div class="ai-image-placeholder-{{ ai_gen_id }}">
         {{ 'image' | placeholder_svg_tag }}
         <div class="ai-empty-state-{{ ai_gen_id }}">
-          Ajoutez une image
+          Add an image
         </div>
       </div>
     {% endif %}
@@ -174,24 +174,24 @@
 
 {% schema %}
 {
-  "name": "Image et texte",
+  "name": "Image and text",
   "settings": [
     {
       "type": "header",
-      "content": "Disposition"
+      "content": "Layout"
     },
     {
       "type": "select",
       "id": "layout",
-      "label": "Disposition",
+      "label": "Layout",
       "options": [
         {
           "value": "image_text",
-          "label": "Image à gauche, texte à droite"
+          "label": "Image left, text right"
         },
         {
           "value": "text_image",
-          "label": "Texte à gauche, image à droite"
+          "label": "Text left, image right"
         }
       ],
       "default": "image_text"
@@ -203,7 +203,7 @@
       "max": 100,
       "step": 5,
       "unit": "px",
-      "label": "Espacement entre image et texte",
+      "label": "Spacing between image and text",
       "default": 40
     },
     {
@@ -213,7 +213,7 @@
       "max": 100,
       "step": 5,
       "unit": "px",
-      "label": "Espacement intérieur",
+      "label": "Inner spacing",
       "default": 20
     },
     {
@@ -232,18 +232,18 @@
       "max": 40,
       "step": 2,
       "unit": "px",
-      "label": "Arrondi des coins",
+      "label": "Corner radius",
       "default": 8
     },
     {
       "type": "header",
-      "content": "Titre"
+      "content": "Title"
     },
     {
       "type": "text",
       "id": "heading",
       "label": "Titre",
-      "default": "Votre titre ici"
+      "default": "Your title here"
     },
     {
       "type": "range",
@@ -252,17 +252,17 @@
       "max": 60,
       "step": 2,
       "unit": "px",
-      "label": "Taille du titre",
+      "label": "Title size",
       "default": 32
     },
     {
       "type": "select",
       "id": "heading_weight",
-      "label": "Épaisseur du titre",
+      "label": "Title weight",
       "options": [
         {
           "value": "300",
-          "label": "Léger"
+          "label": "Light"
         },
         {
           "value": "400",
@@ -270,11 +270,11 @@
         },
         {
           "value": "600",
-          "label": "Gras"
+          "label": "Bold"
         },
         {
           "value": "700",
-          "label": "Très gras"
+          "label": "Extra bold"
         }
       ],
       "default": "600"
@@ -282,7 +282,7 @@
     {
       "type": "checkbox",
       "id": "heading_italic",
-      "label": "Titre en italique",
+      "label": "Title italic",
       "default": false
     },
     {
@@ -293,13 +293,13 @@
     },
     {
       "type": "header",
-      "content": "Texte"
+      "content": "Text"
     },
     {
       "type": "richtext",
       "id": "text_content",
-      "label": "Contenu du texte",
-      "default": "<p>Ajoutez votre texte descriptif ici. Vous pouvez utiliser ce bloc pour présenter vos produits, services ou toute autre information importante.</p>"
+      "label": "Text content",
+      "default": "<p>Add your descriptive text here. You can use this block to present your products, services or any other important information.</p>"
     },
     {
       "type": "range",
@@ -308,17 +308,17 @@
       "max": 24,
       "step": 1,
       "unit": "px",
-      "label": "Taille du texte",
+      "label": "Text size",
       "default": 16
     },
     {
       "type": "select",
       "id": "text_weight",
-      "label": "Épaisseur du texte",
+      "label": "Text weight",
       "options": [
         {
           "value": "300",
-          "label": "Léger"
+          "label": "Light"
         },
         {
           "value": "400",
@@ -326,7 +326,7 @@
         },
         {
           "value": "600",
-          "label": "Gras"
+          "label": "Bold"
         }
       ],
       "default": "400"
@@ -334,13 +334,13 @@
     {
       "type": "checkbox",
       "id": "text_italic",
-      "label": "Texte en italique",
+      "label": "Text italic",
       "default": false
     },
     {
       "type": "color",
       "id": "text_color",
-      "label": "Couleur du texte",
+      "label": "Text color",
       "default": "#333333"
     },
     {
@@ -349,25 +349,25 @@
       "min": 1,
       "max": 2,
       "step": 0.1,
-      "label": "Hauteur de ligne",
+      "label": "Line height",
       "default": 1.5
     },
     {
       "type": "select",
       "id": "text_alignment",
-      "label": "Alignement du texte",
+      "label": "Text alignment",
       "options": [
         {
           "value": "left",
-          "label": "Gauche"
+          "label": "Left"
         },
         {
           "value": "center",
-          "label": "Centre"
+          "label": "Center"
         },
         {
           "value": "right",
-          "label": "Droite"
+          "label": "Right"
         }
       ],
       "default": "left"
@@ -379,22 +379,22 @@
       "max": 50,
       "step": 5,
       "unit": "px",
-      "label": "Espacement entre éléments",
+      "label": "Element spacing",
       "default": 20
     },
     {
       "type": "header",
-      "content": "Bouton"
+      "content": "Button"
     },
     {
       "type": "text",
       "id": "button_text",
-      "label": "Texte du bouton"
+      "label": "Button text"
     },
     {
       "type": "url",
       "id": "button_link",
-      "label": "Lien du bouton"
+      "label": "Button link"
     },
     {
       "type": "range",
@@ -403,13 +403,13 @@
       "max": 20,
       "step": 1,
       "unit": "px",
-      "label": "Taille du texte du bouton",
+      "label": "Button text size",
       "default": 14
     },
     {
       "type": "select",
       "id": "button_text_weight",
-      "label": "Épaisseur du texte du bouton",
+      "label": "Button text weight",
       "options": [
         {
           "value": "400",
@@ -417,7 +417,7 @@
         },
         {
           "value": "600",
-          "label": "Gras"
+          "label": "Bold"
         }
       ],
       "default": "600"
@@ -425,31 +425,31 @@
     {
       "type": "checkbox",
       "id": "button_text_italic",
-      "label": "Texte du bouton en italique",
+      "label": "Button text italic",
       "default": false
     },
     {
       "type": "color",
       "id": "button_background_color",
-      "label": "Couleur de fond du bouton",
+      "label": "Button background color",
       "default": "#000000"
     },
     {
       "type": "color",
       "id": "button_text_color",
-      "label": "Couleur du texte du bouton",
+      "label": "Button text color",
       "default": "#ffffff"
     },
     {
       "type": "color",
       "id": "button_hover_background_color",
-      "label": "Couleur de fond au survol",
+      "label": "Hover background color",
       "default": "#333333"
     },
     {
       "type": "color",
       "id": "button_hover_text_color",
-      "label": "Couleur du texte au survol",
+      "label": "Hover text color",
       "default": "#ffffff"
     },
     {
@@ -459,7 +459,7 @@
       "max": 25,
       "step": 1,
       "unit": "px",
-      "label": "Espacement vertical du bouton",
+      "label": "Button vertical padding",
       "default": 12
     },
     {
@@ -469,7 +469,7 @@
       "max": 50,
       "step": 2,
       "unit": "px",
-      "label": "Espacement horizontal du bouton",
+      "label": "Button horizontal padding",
       "default": 24
     },
     {
@@ -479,12 +479,12 @@
       "max": 40,
       "step": 2,
       "unit": "px",
-      "label": "Arrondi des coins du bouton",
+      "label": "Button corner radius",
       "default": 4
     },
     {
       "type": "header",
-      "content": "Style général"
+      "content": "General style"
     },
     {
       "type": "color",
@@ -499,13 +499,13 @@
       "max": 40,
       "step": 2,
       "unit": "px",
-      "label": "Arrondi des coins de la section",
+      "label": "Section corner radius",
       "default": 0
     }
   ],
   "presets": [
     {
-      "name": "Image et texte"
+      "name": "Image and text"
     }
   ],
   "tag": null

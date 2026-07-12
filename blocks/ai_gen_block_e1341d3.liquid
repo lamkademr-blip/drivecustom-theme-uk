@@ -337,7 +337,7 @@
             {% endif %}
             <button
               class="ai-workshop-play-button-{{ ai_gen_id }}"
-              aria-label="Lire la vidéo"
+              aria-label="Play video"
               data-play-button
             >
               <svg class="ai-workshop-play-icon-{{ ai_gen_id }}" viewBox="0 0 24 24">
@@ -440,50 +440,50 @@
 
 {% schema %}
 {
-  "name": "Découvrez notre atelier",
+  "name": "Discover Our Workshop",
   "tag": null,
   "settings": [
     {
       "type": "header",
-      "content": "Contenu"
+      "content": "Content"
     },
     {
       "type": "inline_richtext",
       "id": "section_title",
-      "label": "Titre de la section",
-      "default": "Découvrez notre atelier"
+      "label": "Section Title",
+      "default": "Discover Our Workshop"
     },
     {
       "type": "richtext",
       "id": "description",
       "label": "Description",
-      "default": "<p>Dans notre petit atelier à Wattrelos, chaque volant est <strong>fabriqué à la main</strong> avec passion et précision.</p><p>Du choix des <strong>matériaux premium</strong> à l'assemblage final, tout est pensé pour vous offrir le meilleur grip et le meilleur feeling.</p><p><strong>Qualité artisanale – Made in France ❤️</strong></p>"
+      "default": "<p>In our workshop in <strong>Northern France</strong>, each steering wheel is <strong>handcrafted</strong> with passion and precision.</p><p>From choosing <strong>premium materials</strong> to final assembly, everything is designed to give you the best grip and feeling.</p><p><strong>Artisanal quality – Made in France ❤️</strong></p>"
     },
     {
       "type": "text",
       "id": "cta_text",
-      "label": "Texte du bouton",
-      "default": "Voir la vidéo complète"
+      "label": "Button Text",
+      "default": "Watch the full video"
     },
     {
       "type": "url",
       "id": "cta_link",
-      "label": "Lien du bouton"
+      "label": "Button Link"
     },
     {
       "type": "header",
-      "content": "Vidéo"
+      "content": "Video"
     },
     {
       "type": "text",
       "id": "video_url",
-      "label": "URL de la vidéo",
-      "info": "YouTube, Vimeo ou lien direct vers une vidéo"
+      "label": "Video URL",
+      "info": "YouTube, Vimeo or direct video link"
     },
     {
       "type": "image_picker",
       "id": "poster_image",
-      "label": "Image de couverture"
+      "label": "Cover Image"
     },
     {
       "type": "range",
@@ -492,7 +492,7 @@
       "max": 40,
       "step": 4,
       "unit": "px",
-      "label": "Arrondi des coins vidéo",
+      "label": "Video Corner Radius",
       "default": 20
     },
     {
@@ -502,7 +502,7 @@
       "max": 120,
       "step": 10,
       "unit": "px",
-      "label": "Taille bouton play mobile",
+      "label": "Play Button Size Mobile",
       "default": 70
     },
     {
@@ -512,7 +512,7 @@
       "max": 160,
       "step": 10,
       "unit": "px",
-      "label": "Taille bouton play desktop",
+      "label": "Play Button Size Desktop",
       "default": 100
     },
     {
@@ -522,25 +522,25 @@
     {
       "type": "color",
       "id": "background_color",
-      "label": "Couleur de fond",
+      "label": "Background Color",
       "default": "#ffffff"
     },
     {
       "type": "color",
       "id": "title_color",
-      "label": "Couleur du titre",
+      "label": "Title Color",
       "default": "#0f172a"
     },
     {
       "type": "color",
       "id": "text_color",
-      "label": "Couleur du texte",
+      "label": "Text Color",
       "default": "#475569"
     },
     {
       "type": "color",
       "id": "highlight_color",
-      "label": "Couleur des mots clés",
+      "label": "Keyword Color",
       "default": "#0066ff"
     },
     {
@@ -550,7 +550,7 @@
       "max": 48,
       "step": 2,
       "unit": "px",
-      "label": "Taille titre mobile",
+      "label": "Title Size Mobile",
       "default": 28
     },
     {
@@ -560,7 +560,7 @@
       "max": 64,
       "step": 2,
       "unit": "px",
-      "label": "Taille titre desktop",
+      "label": "Title Size Desktop",
       "default": 42
     },
     {
@@ -570,7 +570,7 @@
       "max": 20,
       "step": 1,
       "unit": "px",
-      "label": "Taille texte mobile",
+      "label": "Text Size Mobile",
       "default": 16
     },
     {
@@ -580,7 +580,7 @@
       "max": 24,
       "step": 1,
       "unit": "px",
-      "label": "Taille texte desktop",
+      "label": "Text Size Desktop",
       "default": 18
     },
     {
@@ -590,7 +590,7 @@
       "max": 20,
       "step": 1,
       "unit": "px",
-      "label": "Taille texte bouton",
+      "label": "Button Text Size",
       "default": 16
     },
     {
@@ -600,7 +600,7 @@
       "max": 24,
       "step": 2,
       "unit": "px",
-      "label": "Padding bouton mobile",
+      "label": "Button Padding Mobile",
       "default": 16
     },
     {
@@ -610,12 +610,12 @@
       "max": 28,
       "step": 2,
       "unit": "px",
-      "label": "Padding bouton desktop",
+      "label": "Button Padding Desktop",
       "default": 18
     },
     {
       "type": "header",
-      "content": "Espacement"
+      "content": "Spacing"
     },
     {
       "type": "range",
@@ -624,7 +624,7 @@
       "max": 80,
       "step": 4,
       "unit": "px",
-      "label": "Padding section mobile",
+      "label": "Section Padding Mobile",
       "default": 40
     },
     {
@@ -634,7 +634,7 @@
       "max": 120,
       "step": 8,
       "unit": "px",
-      "label": "Padding section desktop",
+      "label": "Section Padding Desktop",
       "default": 64
     },
     {
@@ -644,7 +644,7 @@
       "max": 1600,
       "step": 100,
       "unit": "px",
-      "label": "Largeur maximale",
+      "label": "Max Width",
       "default": 1200
     },
     {
@@ -660,7 +660,7 @@
   ],
   "presets": [
     {
-      "name": "Découvrez notre atelier"
+      "name": "Discover Our Workshop"
     }
   ]
 }

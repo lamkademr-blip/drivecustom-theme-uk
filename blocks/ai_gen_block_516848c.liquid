@@ -183,12 +183,12 @@
 
 {% schema %}
 {
-  "name": "CTA sur-mesure",
+  "name": "Custom CTA",
   "tag": null,
   "settings": [
     {
       "type": "header",
-      "content": "Disposition"
+      "content": "Layout"
     },
     {
       "type": "range",
@@ -197,7 +197,7 @@
       "max": 200,
       "step": 10,
       "unit": "px",
-      "label": "Espacement haut",
+      "label": "Top spacing",
       "default": 120
     },
     {
@@ -207,7 +207,7 @@
       "max": 200,
       "step": 10,
       "unit": "px",
-      "label": "Espacement bas",
+      "label": "Bottom spacing",
       "default": 120
     },
     {
@@ -217,7 +217,7 @@
       "max": 100,
       "step": 10,
       "unit": "px",
-      "label": "Espacement horizontal",
+      "label": "Horizontal spacing",
       "default": 60
     },
     {
@@ -227,7 +227,7 @@
       "max": 1200,
       "step": 20,
       "unit": "px",
-      "label": "Largeur maximale du contenu",
+      "label": "Maximum content width",
       "default": 800
     },
     {
@@ -237,72 +237,72 @@
       "max": 48,
       "step": 4,
       "unit": "px",
-      "label": "Espacement entre éléments",
+      "label": "Element spacing",
       "default": 24
     },
     {
       "type": "select",
       "id": "text_alignment",
-      "label": "Alignement du texte",
+      "label": "Text alignment",
       "options": [
         {
           "value": "left",
-          "label": "Gauche"
+          "label": "Left"
         },
         {
           "value": "center",
-          "label": "Centre"
+          "label": "Center"
         },
         {
           "value": "right",
-          "label": "Droite"
+          "label": "Right"
         }
       ],
       "default": "center"
     },
     {
       "type": "header",
-      "content": "Dégradé d'arrière-plan"
+      "content": "Background gradient"
     },
     {
       "type": "color",
       "id": "gradient_color_1",
-      "label": "Couleur 1 (haut)",
+      "label": "Color 1 (top)",
       "default": "#FFFFFF"
     },
     {
       "type": "color",
       "id": "gradient_color_2",
-      "label": "Couleur 2",
+      "label": "Color 2",
       "default": "#F6F7FA"
     },
     {
       "type": "color",
       "id": "gradient_color_3",
-      "label": "Couleur 3 (milieu)",
+      "label": "Color 3 (middle)",
       "default": "#E9ECF3"
     },
     {
       "type": "color",
       "id": "gradient_color_4",
-      "label": "Couleur 4",
+      "label": "Color 4",
       "default": "#1A2340"
     },
     {
       "type": "color",
       "id": "gradient_color_5",
-      "label": "Couleur 5 (bas)",
+      "label": "Color 5 (bottom)",
       "default": "#0B1220"
     },
     {
       "type": "header",
-      "content": "Titre principal"
+      "content": "Main title"
     },
     {
       "type": "text",
       "id": "headline",
-      "label": "Texte du titre",
-      "default": "Vous ne trouvez pas le volant parfait ?"
+      "label": "Title text",
+      "default": "Can't find the perfect steering wheel?"
     },
     {
       "type": "range",
@@ -311,17 +311,17 @@
       "max": 80,
       "step": 2,
       "unit": "px",
-      "label": "Taille du titre",
+      "label": "Title size",
       "default": 56
     },
     {
       "type": "select",
       "id": "headline_weight",
-      "label": "Épaisseur du titre",
+      "label": "Title weight",
       "options": [
         {
           "value": "300",
-          "label": "Léger"
+          "label": "Light"
         },
         {
           "value": "400",
@@ -329,11 +329,11 @@
         },
         {
           "value": "600",
-          "label": "Semi-gras"
+          "label": "Semi-bold"
         },
         {
           "value": "700",
-          "label": "Gras"
+          "label": "Bold"
         }
       ],
       "default": "300"
@@ -345,7 +345,7 @@
       "max": 4,
       "step": 0.5,
       "unit": "px",
-      "label": "Espacement des lettres",
+      "label": "Letter spacing",
       "default": 1
     },
     {
@@ -361,18 +361,18 @@
       "max": 1000,
       "step": 20,
       "unit": "px",
-      "label": "Largeur maximale",
+      "label": "Maximum width",
       "default": 720
     },
     {
       "type": "header",
-      "content": "Sous-texte"
+      "content": "Subtext"
     },
     {
       "type": "textarea",
       "id": "subtext",
-      "label": "Texte",
-      "default": "Certains projets ne rentrent pas dans un configurateur. Décrivez-nous votre volant idéal, nous le créons sur mesure."
+      "label": "Text",
+      "default": "Some projects don't fit in a configurator. Tell us about your ideal steering wheel, we'll create it custom."
     },
     {
       "type": "range",
@@ -381,13 +381,13 @@
       "max": 28,
       "step": 2,
       "unit": "px",
-      "label": "Taille",
+      "label": "Size",
       "default": 18
     },
     {
       "type": "color",
       "id": "subtext_color",
-      "label": "Couleur",
+      "label": "Color",
       "default": "#C5CCE6"
     },
     {
@@ -397,18 +397,18 @@
       "max": 1000,
       "step": 20,
       "unit": "px",
-      "label": "Largeur maximale",
+      "label": "Maximum width",
       "default": 680
     },
     {
       "type": "header",
-      "content": "Texte de mise en avant"
+      "content": "Highlight text"
     },
     {
       "type": "text",
       "id": "highlight",
-      "label": "Texte",
-      "default": "Sur-mesure total · Conseil expert · Réponse rapide"
+      "label": "Text",
+      "default": "Fully bespoke · Expert advice · Fast response"
     },
     {
       "type": "range",
@@ -417,46 +417,46 @@
       "max": 20,
       "step": 1,
       "unit": "px",
-      "label": "Taille",
+      "label": "Size",
       "default": 14
     },
     {
       "type": "color",
       "id": "highlight_color",
-      "label": "Couleur",
+      "label": "Color",
       "default": "#8E9AD6"
     },
     {
       "type": "header",
-      "content": "Bouton d'action"
+      "content": "Action button"
     },
     {
       "type": "text",
       "id": "button_text",
-      "label": "Texte du bouton",
-      "default": "PARLER À UN EXPERT SUR WHATSAPP"
+      "label": "Button text",
+      "default": "SPEAK TO AN EXPERT ON WHATSAPP"
     },
     {
       "type": "url",
       "id": "button_link",
-      "label": "Lien du bouton"
+      "label": "Button link"
     },
     {
       "type": "checkbox",
       "id": "show_whatsapp_icon",
-      "label": "Afficher l'icône WhatsApp",
+      "label": "Show WhatsApp icon",
       "default": true
     },
     {
       "type": "color",
       "id": "button_background",
-      "label": "Couleur de fond",
+      "label": "Background color",
       "default": "#25D366"
     },
     {
       "type": "color",
       "id": "button_text_color",
-      "label": "Couleur du texte",
+      "label": "Text color",
       "default": "#FFFFFF"
     },
     {
@@ -466,7 +466,7 @@
       "max": 50,
       "step": 2,
       "unit": "px",
-      "label": "Arrondi des coins",
+      "label": "Corner radius",
       "default": 0
     },
     {
@@ -476,7 +476,7 @@
       "max": 24,
       "step": 1,
       "unit": "px",
-      "label": "Taille du texte",
+      "label": "Text size",
       "default": 16
     },
     {
@@ -486,7 +486,7 @@
       "max": 30,
       "step": 2,
       "unit": "px",
-      "label": "Espacement vertical",
+      "label": "Vertical padding",
       "default": 18
     },
     {
@@ -496,7 +496,7 @@
       "max": 60,
       "step": 4,
       "unit": "px",
-      "label": "Espacement horizontal",
+      "label": "Horizontal spacing",
       "default": 40
     },
     {
@@ -505,7 +505,7 @@
       "min": 10,
       "max": 12,
       "step": 1,
-      "label": "Échelle au survol (10 = 1.0x, 11 = 1.1x)",
+      "label": "Hover scale (10 = 1.0x, 11 = 1.1x)",
       "default": 10
     },
     {
@@ -515,13 +515,13 @@
     {
       "type": "checkbox",
       "id": "enable_fade_in",
-      "label": "Activer l'animation d'apparition",
+      "label": "Enable fade-in animation",
       "default": true
     }
   ],
   "presets": [
     {
-      "name": "CTA sur-mesure"
+      "name": "Custom CTA"
     }
   ]
 }

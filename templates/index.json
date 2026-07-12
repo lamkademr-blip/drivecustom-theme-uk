@@ -10,7 +10,7 @@
         "change_slides_speed": 5,
         "image_behavior": "none",
         "show_text_below": true,
-        "accessibility_info": "Diaporama sur votre marque"
+        "accessibility_info": "Slideshow about your brand"
       }
     },
     "176899746855311c7e": {
@@ -38,13 +38,13 @@
             "eyebrow_spacing": 0.2,
             "eyebrow_color": "#FFFFFF",
             "eyebrow_opacity": 0.9,
-            "headline_text": "Prenez le contr\u00f4le de votre passion avec un volant personnalis\u00e9 !",
+            "headline_text": "Take Control of Your Passion with a Custom Steering Wheel!",
             "headline_size": 44,
             "headline_weight": "300",
             "headline_spacing": 0.1,
             "headline_line_height": 1.1,
             "headline_color": "#FFFFFF",
-            "primary_label": "CONSTRUISEZ LE VOTRE",
+            "primary_label": "BUILD YOURS",
             "primary_link": "shopify://collections/volant-bmw",
             "primary_bg": "#FFFFFF",
             "primary_text": "#000000",
@@ -72,7 +72,7 @@
     "titre_7xhXj8": {
       "type": "Titre",
       "settings": {
-        "title": "Pour Chaque Pilote, Un Volant d'Exception",
+        "title": "For Every Driver, An Exceptional Steering Wheel",
         "title_color": "#000000",
         "title_size": 36,
         "text_align": "center",
@@ -82,7 +82,7 @@
     },
     "blocks_fVR8CW": {
       "type": "_blocks",
-      "name": "D\u00e9couvrez notre atelier",
+      "name": "Discover Our Workshop",
       "settings": {}
     },
     "1768995084527ed5d7": {
@@ -97,27 +97,27 @@
             "cards_per_row_mobile": "2",
             "card_1_image": "shopify://shop_images/jukil.png",
             "card_1_brand": "AUDI",
-            "card_1_button_text": "voir",
+            "card_1_button_text": "VIEW",
             "card_1_link": "shopify://collections/volant-audi",
             "card_2_image": "shopify://shop_images/bvhjlgb.png",
             "card_2_brand": "BMW",
-            "card_2_button_text": "voir",
+            "card_2_button_text": "VIEW",
             "card_2_link": "shopify://collections/volant-bmw",
             "card_3_image": "shopify://shop_images/mbkio.png",
             "card_3_brand": "MERCEDES",
-            "card_3_button_text": "voir",
+            "card_3_button_text": "VIEW",
             "card_3_link": "shopify://collections/volant-mercedes",
             "card_4_image": "shopify://shop_images/prnssd.png",
             "card_4_brand": "PORSCHE",
-            "card_4_button_text": "voir",
+            "card_4_button_text": "VIEW",
             "card_4_link": "shopify://collections/volant-porsche",
             "card_5_image": "shopify://shop_images/mlzkzkkzkz.png",
             "card_5_brand": "volkswagen",
-            "card_5_button_text": "voir",
+            "card_5_button_text": "VIEW",
             "card_5_link": "shopify://collections/volant-volkswagen",
             "card_6_image": "shopify://shop_images/milosf.png",
             "card_6_brand": "tesla",
-            "card_6_button_text": "voir",
+            "card_6_button_text": "VIEW",
             "card_6_link": "shopify://collections/volant-tesla",
             "card_7_brand": "",
             "card_7_button_text": "VIEW WHEELS",
@@ -186,20 +186,20 @@
             "gradient_color_3": "#ffffff",
             "gradient_color_4": "#ffffff",
             "gradient_color_5": "#ffffff",
-            "headline": "Vous ne trouvez pas le volant pour votre v\u00e9hicule ?",
+            "headline": "Can't Find the Steering Wheel for Your Vehicle?",
             "headline_size": 40,
             "headline_weight": "400",
             "headline_letter_spacing": 1,
             "headline_color": "#000000",
             "headline_max_width": 720,
-            "subtext": "Certains projets ne rentrent pas dans un configurateur. D\u00e9crivez-nous votre volant id\u00e9al, nous le cr\u00e9ons sur mesure.",
+            "subtext": "Some projects don't fit in a configurator. Describe your ideal steering wheel, and we'll create it on demand.",
             "subtext_size": 18,
             "subtext_color": "#000000",
             "subtext_max_width": 680,
-            "highlight": "Sur-mesure total \u00b7 Conseil expert \u00b7 R\u00e9ponse rapide",
+            "highlight": "Fully custom · Expert advice · Fast response",
             "highlight_size": 14,
             "highlight_color": "#8e9ad6",
-            "button_text": "PARLER \u00c0 UN EXPERT SUR WHATSAPP",
+            "button_text": "SPEAK TO AN EXPERT ON WHATSAPP",
             "button_link": "https://wa.me/33622510196",
             "show_whatsapp_icon": true,
             "button_background": "#25d366",
@@ -236,7 +236,7 @@
             "gradient_direction": "top_left_to_bottom_right",
             "gradient_color_1": "#ffffff",
             "gradient_color_2": "#ffffff",
-            "eyebrow_text": "NOTRE ACCOMPAGNEMENT",
+            "eyebrow_text": "OUR SERVICE",
             "eyebrow_color": "#000000",
             "eyebrow_size": 17,
             "eyebrow_letter_spacing": 2,
@@ -252,23 +252,23 @@
             "text_color": "#000000",
             "step_1_enabled": true,
             "step_1_number": "1.",
-            "step_1_title": "PERSONNALISATION",
-            "step_1_description": "Cr\u00e9ez votre volant sur mesure, du design \u00e0 la prise en main, pour une exp\u00e9rience de conduite qui vous ressemble.",
+            "step_1_title": "CUSTOMISATION",
+            "step_1_description": "Create your custom steering wheel, from design to grip, for a driving experience that's uniquely yours.",
             "step_1_icon": "sliders",
             "step_2_enabled": true,
             "step_2_number": "2.",
-            "step_2_title": "FABRICATION",
-            "step_2_description": "Nos artisans con\u00e7oivent votre volant avec des mat\u00e9riaux premium et une finition impeccable, digne des plus grands pilotes.",
+            "step_2_title": "CRAFTING",
+            "step_2_description": "Our craftsmen build your wheel with premium materials and impeccable finishes, worthy of the finest racing drivers.",
             "step_2_icon": "edit",
             "step_3_enabled": true,
             "step_3_number": "3.",
-            "step_3_title": "LIVRAISON OFFERTE",
-            "step_3_description": "Votre volant personnalis\u00e9 livr\u00e9 gratuitement et soigneusement emball\u00e9 directement chez vous.",
+            "step_3_title": "FREE DELIVERY",
+            "step_3_description": "Your custom steering wheel delivered free and carefully packaged straight to your door.",
             "step_3_icon": "box",
             "step_4_enabled": true,
             "step_4_number": "4.",
-            "step_4_title": "GARANTIE 5 ANS",
-            "step_4_description": "Prenez la route en toute confiance avec une garantie compl\u00e8te contre tout d\u00e9faut de fabrication.",
+            "step_4_title": "5-YEAR WARRANTY",
+            "step_4_description": "Drive with complete peace of mind backed by a comprehensive warranty against manufacturing defects.",
             "step_4_icon": "shield"
           },
           "blocks": {}
@@ -277,32 +277,32 @@
           "type": "ai_gen_block_8c7fb54",
           "settings": {
             "show_badge": true,
-            "badge_text": "TOP QUALIT\u00c9",
-            "title": "Nos clients adorent",
-            "subtitle": "D\u00e9couvrez ce que nos clients disent de nos volants premium",
+            "badge_text": "TOP QUALITY",
+            "title": "Our customers love us",
+            "subtitle": "See what our customers say about our premium steering wheels",
             "heading_font": "assistant_n4",
             "testimonial_1_enabled": true,
-            "testimonial_1_text": "Franchement rien \u00e0 voir avec le volant d'origine, celui-l\u00e0 est une pure tuerie ! Le montage est super simple, en 40 minutes c'\u00e9tait pli\u00e9. Pour le prix la qualit\u00e9 est vraiment au rendez-vous, je recommande sans h\u00e9siter.",
+            "testimonial_1_text": "Honestly, nothing like the original wheel — this one is an absolute beast! Fitting was super simple, done in 40 minutes. The quality for the price is spot on, I recommend without hesitation.",
             "testimonial_1_name": "Louis Y.",
             "testimonial_1_email": "",
             "testimonial_2_enabled": true,
-            "testimonial_2_text": "J'ai l'impression d'avoir une nouvelle voiture, un truc de fou. Je la prends beaucoup plus souvent, et j'ai l'impression d'\u00eatre un meilleur pilote. Franchement, \u00e7a change tout, ma BM est redevenue une bombe.",
+            "testimonial_2_text": "Feels like I've got a brand new car, it's insane. I drive it way more often and feel like a better driver. Honestly, it changes everything — my BMW is a beast again.",
             "testimonial_2_name": "Reid N.",
             "testimonial_2_email": "",
             "testimonial_3_enabled": true,
-            "testimonial_3_text": "Franchement au top. J'ai pu rajouter le r\u00e9gulateur de vitesse et les palettes, la sensation de conduite est juste g\u00e9niale maintenant.",
+            "testimonial_3_text": "Honestly top notch. I was able to add cruise control and paddle shifters, the driving feel is just incredible now.",
             "testimonial_3_name": "Lina U.",
             "testimonial_3_email": "",
             "testimonial_4_enabled": true,
-            "testimonial_4_text": "Volant install\u00e9, et le rendu est juste magnifique ! La qualit\u00e9 est dingue, super prise en main. M\u00eame le mec du garage qui me l'a pos\u00e9 a dit que c'\u00e9tait du bon matos. Franchement, je suis trop content du resultat.",
+            "testimonial_4_text": "Wheel fitted and it looks stunning! The quality is insane, great grip. Even the garage mechanic who installed it said it was proper gear. Honestly, I'm over the moon with the result.",
             "testimonial_4_name": "Emile O.",
             "testimonial_4_email": "",
             "testimonial_5_enabled": true,
-            "testimonial_5_text": "Super rendu une fois mont\u00e9, la prise en main est top ;)",
+            "testimonial_5_text": "Looks great once fitted, grip is excellent ;)",
             "testimonial_5_name": "Aya V.",
             "testimonial_5_email": "",
             "testimonial_6_enabled": true,
-            "testimonial_6_text": "Qualit\u00e9 au top, montage nickel. \u00c7a donne un sacr\u00e9 coup de jeune \u00e0 ma BM, on dirait qu'elle a 10 ans de moins",
+            "testimonial_6_text": "Top quality, perfect installation. It gives my BMW a proper youth boost, looks 10 years younger.",
             "testimonial_6_name": "Kevin L.",
             "testimonial_6_email": ""
           },
@@ -319,7 +319,7 @@
       "type": "before",
       "settings": {
         "show_top_title": true,
-        "top_title": "Vivez un Changement Radical",
+        "top_title": "Experience the Transformation",
         "top_title_color": "#000000",
         "bf_image": "shopify://shop_images/Capture_d_ecran_2025-03-06_181933.png",
         "af_image": "shopify://shop_images/O1CN01vMxi3A24ubvEHDeER__2210127451_jpg.webp",
@@ -338,7 +338,7 @@
           "settings": {
             "video": "shopify://files/videos/WeChat_20250619223621.mp4",
             "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
-            "title": "L\u00e9o",
+            "title": "Léo",
             "stars_count": 5
           }
         },
@@ -483,8 +483,8 @@
           "settings": {
             "image": "shopify://shop_images/volant_audi_S5_carbone.png",
             "caption": "",
-            "heading": "Personnalisation Volant : Quelles Options Existent",
-            "text": "<ul><li>Insertions carbone ou jantes en alliage design</li><li>Palettes de changement de vitesses r\u00e9tro\u00e9clair\u00e9es</li><li>Surpiq\u00fbres contrast\u00e9es personnalisables</li><li>Boutons multim\u00e9dias compatibles avec les syst\u00e8mes MMI ou Virtual Cockpit</li></ul>",
+            "heading": "Steering Wheel Customisation: What Options Are Available",
+            "text": "<ul><li>Carbon fibre inserts or design alloy rims</li><li>Backlit paddle shifters</li><li>Custom contrast stitching</li><li>Multimedia buttons compatible with MMI or Virtual Cockpit systems</li></ul>",
             "button_label": "",
             "button_link": ""
           }
@@ -494,8 +494,8 @@
           "settings": {
             "image": "shopify://shop_images/ertr.jpg",
             "caption": "",
-            "heading": "Quelle Diff\u00e9rence entre un volant sport et un volant voiture basique ?",
-            "text": "<p>Avec son diam\u00e8tre r\u00e9duit et ses\u00a0<strong>poign\u00e9es alv\u00e9ol\u00e9es</strong>\u00a0, le volant voiture sport optimise la r\u00e9activit\u00e9. Les mat\u00e9riaux premium (cuir Nappa, alcantara) r\u00e9sistent \u00e0 l'usure tout en gardant un grip ferme \u2013 id\u00e9al pour les acc\u00e9l\u00e9rations en sortie de virage. Compatible avec la plupart des\u00a0<strong>bo\u00eetes automatiques\u00a0</strong>et manuelles.</p>",
+            "heading": "What's the Difference Between a Sports Steering Wheel and a Basic One?",
+            "text": "<p>With its reduced diameter and <strong>contoured grips</strong>, a sports steering wheel improves responsiveness. Premium materials (Nappa leather, Alcantara) resist wear while maintaining a firm grip — ideal for corner exit acceleration. Compatible with most <strong>automatic</strong> and manual gearboxes.</p>",
             "button_label": "",
             "button_link": ""
           }
@@ -527,14 +527,14 @@
         "heading_PbznYU": {
           "type": "heading",
           "settings": {
-            "heading": "Comment Savoir Si un Volant Convient \u00e0 Ma Voiture ?",
+            "heading": "How to Know If a Steering Wheel Fits Your Car?",
             "heading_size": "h1"
           }
         },
         "text_jKFxzy": {
           "type": "text",
           "settings": {
-            "text": "<p>V\u00e9rifiez l'ann\u00e9e de fabrication, le type de direction assist\u00e9e et la connectique de l'airbag. Nos kits incluent un adaptateur universel pour les BMW S\u00e9rie r\u00e9centes, Mercedes Classe A (apr\u00e8s 2018) et Volkswagen Golf VII+.</p>"
+            "text": "<p>Check the manufacturing year, power steering type, and airbag connector. Our kits include a universal adapter for recent BMW 3 Series, Mercedes A-Class (after 2018), and Volkswagen Golf VII+.</p>"
           }
         }
       },
@@ -557,14 +557,14 @@
         "heading_N9cCHb": {
           "type": "heading",
           "settings": {
-            "heading": "Quel est le meilleur volant voiture \u00e0 choisir ?",
+            "heading": "What Is the Best Steering Wheel for Your Car?",
             "heading_size": "h1"
           }
         },
         "text_cMCCTE": {
           "type": "text",
           "settings": {
-            "text": "<p>Choisir le <strong>meilleur volant voiture</strong> d\u00e9pend avant tout de ta marque, de ton mod\u00e8le et de ce que tu recherches : plus de sportivit\u00e9, un grip parfait avec de l'Alcantara ou du cuir perfor\u00e9, des palettes plus grandes, un m\u00e9plat racing ou encore le chauffage int\u00e9gr\u00e9 pour l'hiver. Chez Les As du Volant, on propose des volants personnalis\u00e9s haut de gamme compatibles plug & play pour les plus grandes marques allemandes.</p><h2>Le top des volants apr\u00e8smarket pour transformer ton habitacle</h2><p>Voici notre s\u00e9lection des meilleurs volants voiture du moment, test\u00e9s et approuv\u00e9s par des milliers de passionn\u00e9s :</p><ul><li><strong>Pour Audi</strong> : Le <a href=\"https://les-as-du-volant.com/products/volant-audi-a-trois\">volant Audi A3/RS3/S3</a> m\u00e9plat avec inserts carbone et surpiq\u00fbres contrast\u00e9es est un best-seller absolu. Grip incroyable et look ultra-sportif garanti ! Les propri\u00e9taires d'A1 ne sont pas en reste avec le <a href=\"https://les-as-du-volant.com/products/volant-audi-a-un\">volant Audi A1/S1</a>, plus compact mais tout aussi premium.</li><li><strong>Pour BMW</strong> : Le <a href=\"https://les-as-du-volant.com/products/volant-bmw-serie-un\">volant BMW S\u00e9rie 1</a> en Alcantara et palettes oversize transforme instantan\u00e9ment ta compacte en v\u00e9ritable M Performance.</li><li><strong>Pour Mercedes</strong> : Rien ne vaut le <a href=\"https://les-as-du-volant.com/products/volant-mercedes-classe-a\">volant Mercedes Classe A</a> avec son design AMG, ses touches haptiques et sa finition nappa irr\u00e9prochable pour un luxe sportif quotidien.</li><li><strong>Pour Volkswagen</strong> : Les fans de GTI/R swappent massivement sur le <a href=\"https://les-as-du-volant.com/products/volant-golf-sept\">volant Golf 7/7.5/8</a> m\u00e9plat R avec rep\u00e8re 12h et palettes allong\u00e9es \u2013 probablement le meilleur rapport qualit\u00e9/prix du march\u00e9.</li></ul><h2>Comment savoir quel volant est le meilleur pour TOI ?</h2><p>Le \"meilleur\" volant voiture, c'est celui qui correspond parfaitement \u00e0 ton usage :<br/>- Conduite quotidienne \u2192 privil\u00e9gie le cuir chauffant et les commandes multifonctions compl\u00e8tes.<br/>- Trackdays et routes sinueuses \u2192 opte pour l'Alcantara ou le carbone avec m\u00e9plat prononc\u00e9.<br/>- Look racing sans compromis \u2192 palettes oversize + LED shift lights si disponible.</p><p>Tous nos volants sont 100% compatibles avec les airbags d'origine, le virtual cockpit/iDrive/MBUX et se montent en 30-45 min avec nos tutos d\u00e9taill\u00e9s.</p><p>Pr\u00eat \u00e0 passer au niveau sup\u00e9rieur ? Parcourez notre s\u00e9lection et trouve le volant voiture qui va compl\u00e8tement m\u00e9tamorphoser ton int\u00e9rieur !</p>"
+            "text": "<p>Choosing the <strong>best car steering wheel</strong> depends on your make, model, and what you're after: more sportiness, the perfect grip with Alcantara or perforated leather, larger paddle shifters, a racing flat-bottom design, or integrated heating for winter. At Drive Custom, we offer premium custom steering wheels with plug & play compatibility for the leading German brands.</p><h2>Top Aftermarket Steering Wheels to Transform Your Interior</h2><p>Here is our selection of the best car steering wheels right now, tested and approved by thousands of enthusiasts:</p><ul><li><strong>For Audi</strong>: The <a href=\"https://drivecustom.co.uk/products/volant-audi-a-trois\">Audi A3/RS3/S3 steering wheel</a> with a flat-bottom design, carbon fibre inserts, and contrast stitching is an absolute best-seller. Incredible grip and an ultra-sporty look guaranteed! A1 owners are not left out with the <a href=\"https://drivecustom.co.uk/products/volant-audi-a-un\">Audi A1/S1 steering wheel</a>, more compact but just as premium.</li><li><strong>For BMW</strong>: The <a href=\"https://drivecustom.co.uk/products/volant-bmw-serie-un\">BMW 1 Series steering wheel</a> in Alcantara with oversized paddle shifters instantly transforms your compact into a true M Performance machine.</li><li><strong>For Mercedes</strong>: Nothing beats the <a href=\"https://drivecustom.co.uk/products/volant-mercedes-classe-a\">Mercedes A-Class steering wheel</a> with its AMG-inspired design, haptic controls, and flawless Nappa leather finish for daily sporty luxury.</li><li><strong>For Volkswagen</strong>: GTI/R fans are massively upgrading to the <a href=\"https://drivecustom.co.uk/products/volant-golf-sept\">Golf 7/7.5/8 steering wheel</a> with flat-bottom R design, 12 o'clock marker, and extended paddles — probably the best value for money on the market.</li></ul><h2>How to Know Which Steering Wheel Is Best for YOU?</h2><p>The \"best\" car steering wheel is the one that perfectly matches your driving needs:<br/>- Daily driving → go for heated leather and full multifunction controls.<br/>- Track days and winding roads → choose Alcantara or carbon fibre with a pronounced flat bottom.<br/>- No-compromise racing look → oversized paddles + LED shift lights if available.</p><p>All our steering wheels are 100% compatible with original airbags, virtual cockpit/iDrive/MBUX, and can be fitted in 30-45 minutes with our detailed tutorials.</p><p>Ready to take it to the next level? Browse our selection and find the car steering wheel that will completely transform your interior!</p>"
           }
         }
       },

@@ -82,7 +82,7 @@
 
 <div class="ai-breadcrumb-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
   <div class="ai-breadcrumb-container-{{ ai_gen_id }}">
-    <nav class="ai-breadcrumb-nav-{{ ai_gen_id }}" aria-label="Fil d'Ariane">
+    <nav class="ai-breadcrumb-nav-{{ ai_gen_id }}" aria-label="Breadcrumb">
       <div class="ai-breadcrumb-item-{{ ai_gen_id }}">
         <a href="/" class="ai-breadcrumb-link-{{ ai_gen_id }}">
           {% if block.settings.show_home_icon %}
@@ -170,29 +170,29 @@
 
 {% schema %}
 {
-  "name": "Fil d'Ariane",
+  "name": "Breadcrumb",
   "tag": null,
   "settings": [
     {
       "type": "header",
-      "content": "Contenu"
+      "content": "Content"
     },
     {
       "type": "text",
       "id": "home_text",
-      "label": "Texte d'accueil",
-      "default": "Accueil"
+      "label": "Home Text",
+      "default": "Home"
     },
     {
       "type": "checkbox",
       "id": "show_home_icon",
-      "label": "Afficher l'icône maison",
+      "label": "Show Home Icon",
       "default": true
     },
     {
       "type": "text",
       "id": "separator",
-      "label": "Séparateur",
+      "label": "Separator",
       "default": "/"
     },
     {
@@ -202,7 +202,7 @@
     {
       "type": "font_picker",
       "id": "font",
-      "label": "Police",
+      "label": "Font",
       "default": "assistant_n4"
     },
     {
@@ -212,7 +212,7 @@
       "max": 20,
       "step": 1,
       "unit": "px",
-      "label": "Taille de police",
+      "label": "Font Size",
       "default": 14
     },
     {
@@ -222,46 +222,46 @@
       "max": 20,
       "step": 2,
       "unit": "px",
-      "label": "Espacement",
+      "label": "Spacing",
       "default": 8
     },
     {
       "type": "header",
-      "content": "Couleurs"
+      "content": "Colors"
     },
     {
       "type": "color",
       "id": "background_color",
-      "label": "Arrière-plan",
+      "label": "Background",
       "default": "#ffffff"
     },
     {
       "type": "color",
       "id": "link_color",
-      "label": "Couleur des liens",
+      "label": "Link Color",
       "default": "#666666"
     },
     {
       "type": "color",
       "id": "link_hover_color",
-      "label": "Couleur au survol",
+      "label": "Hover Color",
       "default": "#000000"
     },
     {
       "type": "color",
       "id": "separator_color",
-      "label": "Couleur du séparateur",
+      "label": "Separator Color",
       "default": "#cccccc"
     },
     {
       "type": "color",
       "id": "current_color",
-      "label": "Couleur de la page actuelle",
+      "label": "Current Page Color",
       "default": "#000000"
     },
     {
       "type": "header",
-      "content": "Mise en page"
+      "content": "Layout"
     },
     {
       "type": "range",
@@ -270,7 +270,7 @@
       "max": 1600,
       "step": 100,
       "unit": "px",
-      "label": "Largeur du conteneur",
+      "label": "Container Width",
       "default": 1200
     },
     {
@@ -280,7 +280,7 @@
       "max": 60,
       "step": 4,
       "unit": "px",
-      "label": "Espacement haut",
+      "label": "Top Spacing",
       "default": 20
     },
     {
@@ -290,13 +290,13 @@
       "max": 60,
       "step": 4,
       "unit": "px",
-      "label": "Espacement bas",
+      "label": "Bottom Spacing",
       "default": 20
     }
   ],
   "presets": [
     {
-      "name": "Fil d'Ariane"
+      "name": "Breadcrumb"
     }
   ]
 }

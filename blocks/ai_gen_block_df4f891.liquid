@@ -94,7 +94,7 @@
       ],
     
       "schema_requirements": {
-        "name": "BOKU Modes d'Utilisation",
+        "name": "BOKU Usage Modes",
         "class": "section-boku-modes",
         "tag": "section",
     
@@ -102,13 +102,13 @@
           {
             "type": "text",
             "id": "title",
-            "label": "Titre principal",
-            "default": "Un bouton pour les nettoyer tous"
+            "label": "Main Title",
+            "default": "One button to clean them all"
           },
           {
             "type": "richtext",
             "id": "subtitle",
-            "label": "Sous-titre",
+            "label": "Subtitle",
             "default": "<p>Sélectionnez les différents modes d'utilisation grâce au bouton molette multifonctions.</p>"
           },
           {
@@ -464,25 +464,25 @@
 
 {% schema %}
 {
-  "name": "BOKU Modes d'Utilisation",
+  "name": "BOKU Usage Modes",
   "tag": null,
   "class": "block-boku-modes",
   "settings": [
     {
       "type": "header",
-      "content": "En-tête"
+      "content": "Header"
     },
     {
       "type": "text",
       "id": "title",
-      "label": "Titre principal",
-      "default": "Un bouton pour les nettoyer tous"
+      "label": "Main Title",
+      "default": "One button to clean them all"
     },
     {
       "type": "richtext",
       "id": "subtitle",
-      "label": "Sous-titre",
-      "default": "<p>Sélectionnez les différents modes d'utilisation grâce au bouton molette multifonctions.</p>"
+      "label": "Subtitle",
+      "default": "<p>Select the different usage modes using the multifunction dial button.</p>"
     },
     {
       "type": "range",
@@ -491,7 +491,7 @@
       "max": 60,
       "step": 2,
       "unit": "px",
-      "label": "Taille du titre",
+      "label": "Title Size",
       "default": 36
     },
     {
@@ -501,12 +501,12 @@
       "max": 24,
       "step": 1,
       "unit": "px",
-      "label": "Taille du sous-titre",
+      "label": "Subtitle Size",
       "default": 16
     },
     {
       "type": "header",
-      "content": "Boutons"
+      "content": "Buttons"
     },
     {
       "type": "range",
@@ -515,7 +515,7 @@
       "max": 20,
       "step": 1,
       "unit": "px",
-      "label": "Taille de police",
+      "label": "Font Size",
       "default": 14
     },
     {
@@ -525,7 +525,7 @@
       "max": 4,
       "step": 1,
       "unit": "px",
-      "label": "Épaisseur de bordure",
+      "label": "Border Thickness",
       "default": 2
     },
     {
@@ -535,31 +535,31 @@
       "max": 50,
       "step": 2,
       "unit": "px",
-      "label": "Arrondi des boutons",
+      "label": "Button Border Radius",
       "default": 8
     },
     {
       "type": "color",
       "id": "button_border_color",
-      "label": "Couleur de bordure",
+      "label": "Border Color",
       "default": "#003366"
     },
     {
       "type": "color",
       "id": "button_text_color",
-      "label": "Couleur du texte",
+      "label": "Text Color",
       "default": "#003366"
     },
     {
       "type": "color",
       "id": "button_active_bg",
-      "label": "Fond actif",
+      "label": "Active Background",
       "default": "#003366"
     },
     {
       "type": "color",
       "id": "button_active_text",
-      "label": "Texte actif",
+      "label": "Active Text",
       "default": "#ffffff"
     },
     {
@@ -569,20 +569,20 @@
     {
       "type": "text",
       "id": "mode_1_label",
-      "label": "Libellé du bouton",
-      "default": "Mode auto-lavage des buses"
+      "label": "Button Label",
+      "default": "Nozzle self-cleaning mode"
     },
     {
       "type": "text",
       "id": "mode_1_title",
-      "label": "Titre du mode",
-      "default": "Mode auto-lavage des buses"
+      "label": "Mode Title",
+      "default": "Nozzle self-cleaning mode"
     },
     {
       "type": "textarea",
       "id": "mode_1_description",
       "label": "Description",
-      "default": "Le mode auto-lavage nettoie automatiquement les buses après chaque utilisation pour une hygiène maximale. Activez-le d'un simple geste pour garder votre bidet toujours propre et prêt."
+      "default": "The self-cleaning mode automatically cleans the nozzles after each use for maximum hygiene. Activate it with a simple gesture to keep your bidet always clean and ready."
     },
     {
       "type": "image_picker",
@@ -592,7 +592,7 @@
     {
       "type": "url",
       "id": "mode_1_video_url",
-      "label": "URL vidéo (YouTube, Vimeo)"
+      "label": "Video URL (YouTube, Vimeo)"
     },
     {
       "type": "header",
@@ -601,20 +601,20 @@
     {
       "type": "text",
       "id": "mode_2_label",
-      "label": "Libellé du bouton",
-      "default": "Mode lavage postérieur"
+      "label": "Button Label",
+      "default": "Posterior wash mode"
     },
     {
       "type": "text",
       "id": "mode_2_title",
-      "label": "Titre du mode",
-      "default": "Mode lavage postérieur"
+      "label": "Mode Title",
+      "default": "Posterior wash mode"
     },
     {
       "type": "textarea",
       "id": "mode_2_description",
       "label": "Description",
-      "default": "Pour une hygiène postérieure optimale. Le jet précis et réglable nettoie en profondeur après les selles, pour une sensation de fraîcheur immédiate sans papier excessif."
+      "default": "For optimal posterior hygiene. The precise, adjustable jet cleans thoroughly after bowel movements for an immediate fresh feeling without excessive paper."
     },
     {
       "type": "image_picker",
@@ -624,7 +624,7 @@
     {
       "type": "url",
       "id": "mode_2_video_url",
-      "label": "URL vidéo (YouTube, Vimeo)"
+      "label": "Video URL (YouTube, Vimeo)"
     },
     {
       "type": "header",
@@ -633,20 +633,20 @@
     {
       "type": "text",
       "id": "mode_3_label",
-      "label": "Libellé du bouton",
-      "default": "Mode lavage féminin"
+      "label": "Button Label",
+      "default": "Feminine wash mode"
     },
     {
       "type": "text",
       "id": "mode_3_title",
-      "label": "Titre du mode",
-      "default": "Mode lavage féminin"
+      "label": "Mode Title",
+      "default": "Feminine wash mode"
     },
     {
       "type": "textarea",
       "id": "mode_3_description",
       "label": "Description",
-      "default": "Spécialement conçu pour les femmes. Un lavage doux et efficace pour l'hygiène intime, parfait pendant les règles ou après les toilettes, pour plus de confort et de bien-être."
+      "default": "Specially designed for women. A gentle yet effective wash for intimate hygiene, perfect during periods or after using the toilet, for more comfort and well-being."
     },
     {
       "type": "image_picker",
@@ -656,11 +656,11 @@
     {
       "type": "url",
       "id": "mode_3_video_url",
-      "label": "URL vidéo (YouTube, Vimeo)"
+      "label": "Video URL (YouTube, Vimeo)"
     },
     {
       "type": "header",
-      "content": "Style du contenu"
+      "content": "Content Style"
     },
     {
       "type": "range",
@@ -669,7 +669,7 @@
       "max": 40,
       "step": 2,
       "unit": "px",
-      "label": "Taille du titre de mode",
+      "label": "Mode Title Size",
       "default": 24
     },
     {
@@ -679,7 +679,7 @@
       "max": 20,
       "step": 1,
       "unit": "px",
-      "label": "Taille du texte de mode",
+      "label": "Mode Text Size",
       "default": 16
     },
     {
@@ -689,12 +689,12 @@
       "max": 40,
       "step": 2,
       "unit": "px",
-      "label": "Arrondi des médias",
+      "label": "Media Border Radius",
       "default": 12
     },
     {
       "type": "header",
-      "content": "Mise en page"
+      "content": "Layout"
     },
     {
       "type": "range",
@@ -703,13 +703,13 @@
       "max": 1400,
       "step": 50,
       "unit": "px",
-      "label": "Largeur du conteneur",
+      "label": "Container Width",
       "default": 1200
     },
     {
       "type": "range",
       "id": "desktop_width_percent",
-      "label": "Largeur desktop",
+      "label": "Desktop Width",
       "min": 50,
       "max": 100,
       "step": 5,
@@ -723,7 +723,7 @@
       "max": 100,
       "step": 4,
       "unit": "px",
-      "label": "Espacement haut",
+      "label": "Top Spacing",
       "default": 60
     },
     {
@@ -733,25 +733,25 @@
       "max": 100,
       "step": 4,
       "unit": "px",
-      "label": "Espacement bas",
+      "label": "Bottom Spacing",
       "default": 60
     },
     {
       "type": "color",
       "id": "background_color",
-      "label": "Couleur de fond",
+      "label": "Background Color",
       "default": "#ffffff"
     },
     {
       "type": "color",
       "id": "text_color",
-      "label": "Couleur du texte",
+      "label": "Text Color",
       "default": "#000000"
     }
   ],
   "presets": [
     {
-      "name": "BOKU Modes d'Utilisation"
+      "name": "BOKU Usage Modes"
     }
   ]
 }

@@ -1,19 +1,19 @@
 {% schema %}
 {
-  "name": "Titre Personnalisé",
+  "name": "Custom Title",
   "tag": "section",
   "class": "custom-title-section",
   "settings": [
     {
       "type": "text",
       "id": "title",
-      "label": "Texte du titre",
+      "label": "Title text",
       "default": "coucou la mif"
     },
     {
       "type": "color",
       "id": "title_color",
-      "label": "Couleur du texte",
+      "label": "Text color",
       "default": "#333333"
     },
     {
@@ -23,25 +23,25 @@
       "max": 60,
       "step": 1,
       "unit": "px",
-      "label": "Taille du texte",
+      "label": "Text size",
       "default": 36
     },
     {
       "type": "select",
       "id": "text_align",
-      "label": "Alignement du texte",
+      "label": "Text alignment",
       "options": [
         {
           "value": "left",
-          "label": "Gauche"
+          "label": "Left"
         },
         {
           "value": "center",
-          "label": "Centre"
+          "label": "Center"
         },
         {
           "value": "right",
-          "label": "Droite"
+          "label": "Right"
         }
       ],
       "default": "center"
@@ -53,7 +53,7 @@
       "max": 100,
       "step": 5,
       "unit": "px",
-      "label": "Espace au-dessus",
+      "label": "Space above",
       "default": 30
     },
     {
@@ -63,14 +63,14 @@
       "max": 100,
       "step": 5,
       "unit": "px",
-      "label": "Espace en-dessous",
+      "label": "Space below",
       "default": 30
     }
   ],
   "presets": [
     {
-      "name": "Titre Personnalisé",
-      "category": "Texte"
+      "name": "Custom Title",
+      "category": "Text"
     }
   ]
 }

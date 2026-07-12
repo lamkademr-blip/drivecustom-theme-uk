@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Créer le label
         const label = document.createElement('span');
-        label.textContent = 'Quantité: ';
+        label.textContent = 'Quantity: ';
         label.style.marginRight = '10px';
         label.style.fontSize = '14px';
         label.style.color = '#555';
