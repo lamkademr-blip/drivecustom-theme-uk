@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "slideshow_6GfCjf": {
@@ -45,7 +54,7 @@
             "headline_line_height": 1.1,
             "headline_color": "#FFFFFF",
             "primary_label": "BUILD YOURS",
-            "primary_link": "shopify://collections/volant-bmw",
+            "primary_link": "shopify://collections/bmw-steering-wheels",
             "primary_bg": "#FFFFFF",
             "primary_text": "#000000",
             "primary_hover_bg": "#000000",
@@ -102,15 +111,15 @@
             "card_2_image": "shopify://shop_images/bvhjlgb.png",
             "card_2_brand": "BMW",
             "card_2_button_text": "VIEW",
-            "card_2_link": "shopify://collections/volant-bmw",
+            "card_2_link": "shopify://collections/bmw-steering-wheels",
             "card_3_image": "shopify://shop_images/mbkio.png",
             "card_3_brand": "MERCEDES",
             "card_3_button_text": "VIEW",
-            "card_3_link": "shopify://collections/volant-mercedes",
+            "card_3_link": "shopify://collections/mercedes-steering-wheels",
             "card_4_image": "shopify://shop_images/prnssd.png",
             "card_4_brand": "PORSCHE",
             "card_4_button_text": "VIEW",
-            "card_4_link": "shopify://collections/volant-porsche",
+            "card_4_link": "shopify://collections/porsche-steering-wheels",
             "card_5_image": "shopify://shop_images/mlzkzkkzkz.png",
             "card_5_brand": "volkswagen",
             "card_5_button_text": "VIEW",

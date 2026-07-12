@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "video_paysage_iJzrhE": {
@@ -5,7 +14,7 @@
       "settings": {
         "video_source": "mp4",
         "video_id": "",
-        "video_url": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/28a7bb7644934cd69b5c3de197734b01.mp4",
+        "video_url": "https://cdn.shopify.com/videos/c/o/v/28a7bb7644934cd69b5c3de197734b01.mp4",
         "height": 500,
         "autoplay": true,
         "loop": true,
@@ -21,7 +30,7 @@
         "text_color": "#ffffff",
         "show_button": true,
         "button_text": "Volant BMW",
-        "button_link": "shopify:\/\/collections\/volant-bmw",
+        "button_link": "shopify://collections/bmw-steering-wheels",
         "button_style": "btn--primary"
       }
     },
@@ -55,7 +64,7 @@
         "brand_jTwtFa": {
           "type": "brand",
           "settings": {
-            "logo": "shopify:\/\/shop_images\/bmw_logo.png",
+            "logo": "shopify://shop_images/bmw_logo.png",
             "link": "",
             "brand_name": ""
           }
@@ -63,7 +72,7 @@
         "brand_TRLAGi": {
           "type": "brand",
           "settings": {
-            "logo": "shopify:\/\/shop_images\/mercedes_benz_logo.png",
+            "logo": "shopify://shop_images/mercedes_benz_logo.png",
             "link": "",
             "brand_name": ""
           }
@@ -71,7 +80,7 @@
         "brand_aWHUVg": {
           "type": "brand",
           "settings": {
-            "logo": "shopify:\/\/shop_images\/audi_logo.png",
+            "logo": "shopify://shop_images/audi_logo.png",
             "link": "",
             "brand_name": ""
           }
@@ -79,7 +88,7 @@
         "brand_QKAyHR": {
           "type": "brand",
           "settings": {
-            "logo": "shopify:\/\/shop_images\/volkswagen_logo.png",
+            "logo": "shopify://shop_images/volkswagen_logo.png",
             "link": "",
             "brand_name": ""
           }
@@ -87,7 +96,7 @@
         "brand_XeCagy": {
           "type": "brand",
           "settings": {
-            "logo": "shopify:\/\/shop_images\/seat_logo_30656faa-b740-4590-a6bd-1aa33a02cda6.png",
+            "logo": "shopify://shop_images/seat_logo_30656faa-b740-4590-a6bd-1aa33a02cda6.png",
             "link": "",
             "brand_name": ""
           }
@@ -95,7 +104,7 @@
         "brand_rLWJtC": {
           "type": "brand",
           "settings": {
-            "logo": "shopify:\/\/shop_images\/logo_renault.png",
+            "logo": "shopify://shop_images/logo_renault.png",
             "link": "",
             "brand_name": ""
           }
@@ -103,7 +112,7 @@
         "brand_4gWVwy": {
           "type": "brand",
           "settings": {
-            "logo": "shopify:\/\/shop_images\/renault_lamborghini.png",
+            "logo": "shopify://shop_images/renault_lamborghini.png",
             "link": "",
             "brand_name": ""
           }
@@ -136,7 +145,7 @@
         "collection_4TpBCe": {
           "type": "collection",
           "settings": {
-            "collection": "volant-bmw",
+            "collection": "bmw-steering-wheels",
             "custom_image": false,
             "custom_title": "",
             "custom_description": "",
@@ -146,7 +155,7 @@
         "collection_xYkTYj": {
           "type": "collection",
           "settings": {
-            "collection": "volant-mercedes",
+            "collection": "mercedes-steering-wheels",
             "custom_image": false,
             "custom_title": "",
             "custom_description": "",
@@ -176,7 +185,7 @@
         "collection_9jFDcc": {
           "type": "collection",
           "settings": {
-            "collection": "volant-seat",
+            "collection": "seat-steering-wheels",
             "custom_image": false,
             "custom_title": "",
             "custom_description": "",
@@ -196,7 +205,7 @@
         "collection_ynmKtA": {
           "type": "collection",
           "settings": {
-            "collection": "volant-renault",
+            "collection": "renault-steering-wheels",
             "custom_image": false,
             "custom_title": "",
             "custom_description": "",
@@ -206,7 +215,7 @@
         "collection_tDk6wd": {
           "type": "collection",
           "settings": {
-            "collection": "volant-nissan",
+            "collection": "nissan-steering-wheels",
             "custom_image": false,
             "custom_title": "",
             "custom_description": "",
@@ -250,7 +259,7 @@
       "type": "texte",
       "settings": {
         "heading": "CAN'T FIND THE CONFIGURATOR FOR YOUR STEERING WHEEL?",
-        "text": "<p>Don't worry, we can adapt to your specific needs and create a custom solution for you.<\/p>",
+        "text": "<p>Don't worry, we can adapt to your specific needs and create a custom solution for you.</p>",
         "button_label": "Contact us",
         "button_link": "",
         "transparent_background": true,
@@ -315,8 +324,8 @@
         "show_top_title": true,
         "top_title": "Experience a Radical Transformation",
         "top_title_color": "#000000",
-        "bf_image": "shopify:\/\/shop_images\/Capture_d_ecran_2025-03-06_181933.png",
-        "af_image": "shopify:\/\/shop_images\/O1CN01vMxi3A24ubvEHDeER__2210127451_jpg.webp",
+        "bf_image": "shopify://shop_images/Capture_d_ecran_2025-03-06_181933.png",
+        "af_image": "shopify://shop_images/O1CN01vMxi3A24ubvEHDeER__2210127451_jpg.webp",
         "show_badge": true,
         "grayscale_before": false,
         "show_content": false,
@@ -330,8 +339,8 @@
         "slide_6CtX3f": {
           "type": "slide",
           "settings": {
-            "video": "shopify:\/\/files\/videos\/20250111_d40d033aee3ad6ff_503663647922_225926425453483_published_mp4_264_hd_taobao.mp4",
-            "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+            "video": "shopify://files/videos/20250111_d40d033aee3ad6ff_503663647922_225926425453483_published_mp4_264_hd_taobao.mp4",
+            "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
             "title": "Léo",
             "stars_count": 5
           }
@@ -339,8 +348,8 @@
         "slide_LEEEqp": {
           "type": "slide",
           "settings": {
-            "video": "shopify:\/\/files\/videos\/20241203_9a4ba45a2893ccc8_496729253212_208372160804976_published_mp4_264_hd_taobao.mp4",
-            "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+            "video": "shopify://files/videos/20241203_9a4ba45a2893ccc8_496729253212_208372160804976_published_mp4_264_hd_taobao.mp4",
+            "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
             "title": "Martin",
             "stars_count": 5
           }
@@ -348,8 +357,8 @@
         "slide_y8Ei4y": {
           "type": "slide",
           "settings": {
-            "video": "shopify:\/\/files\/videos\/20250101_7171e93eb5e9f7c6_502073846694_222153605290460_published_mp4_264_hd_taobao.mp4",
-            "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+            "video": "shopify://files/videos/20250101_7171e93eb5e9f7c6_502073846694_222153605290460_published_mp4_264_hd_taobao.mp4",
+            "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
             "title": "Yassine",
             "stars_count": 5
           }
@@ -357,8 +366,8 @@
         "slide_tMNLje": {
           "type": "slide",
           "settings": {
-            "video": "shopify:\/\/files\/videos\/jytfdrtes.mp4",
-            "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+            "video": "shopify://files/videos/jytfdrtes.mp4",
+            "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
             "title": "Mickael",
             "stars_count": 5
           }
@@ -366,8 +375,8 @@
         "slide_Q6fFJt": {
           "type": "slide",
           "settings": {
-            "video": "shopify:\/\/files\/videos\/20241206_a0bac661b53089a3_497485307724_209432652406238_published_mp4_264_hd_taobao.mp4",
-            "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+            "video": "shopify://files/videos/20241206_a0bac661b53089a3_497485307724_209432652406238_published_mp4_264_hd_taobao.mp4",
+            "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
             "title": "Jason",
             "stars_count": 4
           }
@@ -475,10 +484,10 @@
         "row_UrUFrE": {
           "type": "row",
           "settings": {
-            "image": "shopify:\/\/shop_images\/volant_voiture.svg",
+            "image": "shopify://shop_images/volant_voiture.svg",
             "caption": "",
             "heading": "Steering Wheel Customisation: What Options Are Available",
-            "text": "<ul><li>Carbon fibre inserts or design alloy rims<\/li><li>Backlit paddle shifters<\/li><li>Custom contrast stitching<\/li><li>Multimedia buttons compatible with MMI or Virtual Cockpit systems<\/li><\/ul>",
+            "text": "<ul><li>Carbon fibre inserts or design alloy rims</li><li>Backlit paddle shifters</li><li>Custom contrast stitching</li><li>Multimedia buttons compatible with MMI or Virtual Cockpit systems</li></ul>",
             "button_label": "Texte du bouton",
             "button_link": ""
           }
@@ -486,10 +495,10 @@
         "row_WfFd7T": {
           "type": "row",
           "settings": {
-            "image": "shopify:\/\/shop_images\/volant_voiture_sport.svg",
+            "image": "shopify://shop_images/volant_voiture_sport.svg",
             "caption": "",
             "heading": "What's the Difference Between a Sport Steering Wheel and a Basic Steering Wheel?",
-            "text": "<p>With its reduced diameter and <strong>contoured grips<\/strong>, the sport steering wheel optimises responsiveness. Premium materials (Nappa leather, Alcantara) resist wear while maintaining a firm grip \u2014 ideal for corner exit acceleration. Compatible with most <strong>automatic<\/strong> and manual gearboxes.<\/p>",
+            "text": "<p>With its reduced diameter and <strong>contoured grips</strong>, the sport steering wheel optimises responsiveness. Premium materials (Nappa leather, Alcantara) resist wear while maintaining a firm grip — ideal for corner exit acceleration. Compatible with most <strong>automatic</strong> and manual gearboxes.</p>",
             "button_label": "Texte du bouton",
             "button_link": ""
           }
@@ -528,7 +537,7 @@
         "text_jKFxzy": {
           "type": "text",
           "settings": {
-            "text": "<p>Check the year of manufacture, type of power steering and airbag connector. Our kits include a universal adapter for recent BMW series, Mercedes A-Class (after 2018) and VW Golf VII+.<\/p>"
+            "text": "<p>Check the year of manufacture, type of power steering and airbag connector. Our kits include a universal adapter for recent BMW series, Mercedes A-Class (after 2018) and VW Golf VII+.</p>"
           }
         }
       },

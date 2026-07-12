@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "video_paysage_iJzrhE": {
@@ -21,7 +30,7 @@
         "text_color": "#ffffff",
         "show_button": true,
         "button_text": "BMW Steering Wheel",
-        "button_link": "shopify://collections/volant-bmw",
+        "button_link": "shopify://collections/bmw-steering-wheels",
         "button_style": "btn--primary"
       }
     },
@@ -136,7 +145,7 @@
         "collection_4TpBCe": {
           "type": "collection",
           "settings": {
-            "collection": "volant-bmw",
+            "collection": "bmw-steering-wheels",
             "custom_image": false,
             "custom_title": "",
             "custom_description": "",
@@ -146,7 +155,7 @@
         "collection_xYkTYj": {
           "type": "collection",
           "settings": {
-            "collection": "volant-mercedes",
+            "collection": "mercedes-steering-wheels",
             "custom_image": false,
             "custom_title": "",
             "custom_description": "",
@@ -176,7 +185,7 @@
         "collection_9jFDcc": {
           "type": "collection",
           "settings": {
-            "collection": "volant-seat",
+            "collection": "seat-steering-wheels",
             "custom_image": false,
             "custom_title": "",
             "custom_description": "",
@@ -196,7 +205,7 @@
         "collection_ynmKtA": {
           "type": "collection",
           "settings": {
-            "collection": "volant-renault",
+            "collection": "renault-steering-wheels",
             "custom_image": false,
             "custom_title": "",
             "custom_description": "",
@@ -206,7 +215,7 @@
         "collection_tDk6wd": {
           "type": "collection",
           "settings": {
-            "collection": "volant-nissan",
+            "collection": "nissan-steering-wheels",
             "custom_image": false,
             "custom_title": "",
             "custom_description": "",
