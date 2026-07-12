@@ -1,0 +1,238 @@
+{% comment %}
+  Section FAQ animée et modernisée pour les fiches produit
+  Thème Dawn - Les As du Volant
+{% endcomment %}
+
+{% schema %}
+{
+  "name": "FAQ Produit",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "Questions fréquentes",
+      "label": "Titre de la section"
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Couleur d'arrière-plan",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Couleur du texte",
+      "default": "#333333"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Couleur d'accentuation",
+      "default": "#2C5364"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq",
+      "name": "Question",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "default": "Question",
+          "label": "Question"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "default": "<p>Réponse à la question</p>",
+          "label": "Réponse"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQ Produit",
+      "blocks": [
+        {
+          "type": "faq",
+          "settings": {
+            "title": "Airbag - Le volant est-il compatible avec le système d'airbag d'origine ?",
+            "answer": "<p>Non, nos volants personnalisés ne sont pas compatibles avec le système d'airbag d'origine. Ils sont conçus pour remplacer complètement l'unité d'origine. Notez que le retrait du système d'airbag peut affecter la conformité de votre véhicule aux normes de sécurité routière. Pour cette raison, nous recommandons de vérifier la législation en vigueur dans votre pays.</p>"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "title": "Homologation - Ce volant est-il homologué pour un usage sur route ?",
+            "answer": "<p>Oui, tous nos volants sont homologués pour un usage sur route ouverte. Ils respectent les normes et réglementations en vigueur pour être utilisés légalement sur les voies publiques. Chaque volant est livré avec son certificat d'homologation que vous pourrez présenter en cas de contrôle. Notre priorité est de vous proposer des produits à la fois esthétiques et conformes aux exigences légales.</p>"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "title": "Livraison - Quels sont les délais et frais de livraison ?",
+            "answer": "<p><strong>Un volant sur mesure prend entre 3 et 5 semaines à être conçu et livré dans le monde entier.</strong> La fabrication artisanale et le soin apporté à chaque détail nécessitent ce délai pour garantir une qualité irréprochable. Les frais de livraison sont offerts pour toutes les commandes, quel que soit le pays de destination. Chaque volant est soigneusement emballé pour assurer une protection optimale pendant le transport.</p>"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "title": "Garantie - Quelle est la durée exacte de la garantie et que couvre-t-elle ?",
+            "answer": "<p>Tous nos volants bénéficient d'une garantie de 5 ans contre tout défaut de fabrication. Cette garantie couvre les problèmes liés à la structure du volant, aux coutures, aux matériaux et aux finitions. Elle ne couvre pas l'usure normale, les dommages dus à une mauvaise utilisation, les accidents ou les modifications apportées au produit. En cas de problème couvert par la garantie, nous assurons la réparation ou le remplacement du volant selon notre évaluation.</p>"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "title": "Installation - L'installation nécessite-t-elle des compétences techniques particulières ?",
+            "answer": "<p>L'installation de nos volants nécessite des connaissances de base en mécanique automobile et quelques outils spécifiques. Bien que la procédure ne soit pas extrêmement complexe, nous recommandons de faire appel à un professionnel pour garantir une installation correcte et sécurisée. Chaque volant est livré avec un guide d'installation détaillé. Pour certains modèles de véhicules, des adaptateurs spécifiques peuvent être nécessaires (non inclus) - n'hésitez pas à nous contacter pour vérifier la compatibilité avec votre véhicule.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<div class="page-width isolate product-faq-section-modern">
+  <div class="product-faq-title-modern">
+    {{ section.settings.heading }}
+  </div>
+  <div class="product-faq-container-modern">
+    {% for block in section.blocks %}
+      {% case block.type %}
+        {% when 'faq' %}
+          <details class="faq-item-modern">
+            <summary class="faq-question-modern">
+              <span>{{ block.settings.title }}</span>
+              <span class="faq-icon-modern">
+                <!-- Chevron SVG -->
+                <svg width="22" height="22" viewBox="0 0 20 20" fill="none">
+                  <path d="M6 8L10 12L14 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </span>
+            </summary>
+            <div class="faq-answer-modern">
+              {{ block.settings.answer }}
+            </div>
+          </details>
+      {% endcase %}
+    {% endfor %}
+  </div>
+</div>
+
+{% assign accent_color = section.settings.accent_color %}
+{% assign text_color = section.settings.text_color %}
+{% assign bg_color = section.settings.background %}
+
+<style>
+  .product-faq-section-modern {
+    padding: 50px 0 20px 0;
+    background: {{ bg_color }};
+  }
+  .product-faq-title-modern {
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 35px;
+    color: {{ text_color }};
+    position: relative;
+    letter-spacing: -.5px;
+  }
+  .product-faq-title-modern:after {
+    content: '';
+    position: absolute;
+    bottom: -13px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70px;
+    height: 3.5px;
+    background: linear-gradient(90deg, {{ accent_color }}, #35a3ff 80%);
+    border-radius: 2.5px;
+  }
+  .product-faq-container-modern {
+    max-width: 750px;
+    margin: 0 auto;
+  }
+  .faq-item-modern {
+    background: #fff;
+    border-radius: 18px;
+    margin-bottom: 20px;
+    box-shadow: 0 6px 32px -10px rgba(44,83,100,0.09);
+    transition: box-shadow .2s, border-color .3s;
+    border: 1.5px solid #f1f4f7;
+    overflow: hidden;
+  }
+  .faq-item-modern[open] {
+    box-shadow: 0 12px 38px -10px rgba(44,83,100,0.17);
+    border-color: {{ accent_color }};
+  }
+  .faq-question-modern {
+    padding: clamp(18px, 4vw, 26px);
+    cursor: pointer;
+    font-weight: 600;
+    font-size: clamp(1.07rem, 2.2vw, 1.24rem);
+    color: {{ text_color }};
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: none;
+    transition: background .13s;
+    outline: none;
+    border: none;
+    list-style: none;
+    user-select: none;
+  }
+  .faq-item-modern:hover .faq-question-modern,
+  .faq-question-modern:focus {
+    background: rgba(44, 83, 100, 0.035);
+  }
+  .faq-icon-modern {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 14px;
+    transition: transform .3s cubic-bezier(.45,1.5,.75,1.1), color .3s;
+    color: {{ accent_color }};
+  }
+  .faq-item-modern[open] .faq-icon-modern {
+    transform: rotate(180deg) scale(1.15);
+    color: #35a3ff;
+  }
+  .faq-answer-modern {
+    font-size: clamp(0.98rem, 2vw, 1.13rem);
+    padding: clamp(13px, 3vw, 24px) clamp(10px, 3vw, 26px) clamp(17px, 4vw, 24px) clamp(10px, 3vw, 26px);
+    color: #516070;
+    background: #fafdff;
+    border-top: 1px solid #eef1f6;
+    animation: faqFadeIn .45s;
+    line-height: 1.7;
+    border-radius: 0 0 18px 18px;
+  }
+  .faq-answer-modern p { margin-top: 0; margin-bottom: 0; }
+  .faq-answer-modern strong { color: {{ accent_color }}; }
+  @keyframes faqFadeIn {
+    from { opacity: 0; transform: translateY(18px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @media (max-width: 749px) {
+    .product-faq-section-modern { padding: 30px 0 5px 0; }
+    .product-faq-title-modern { font-size: clamp(1.19rem, 4.2vw, 1.7rem); margin-bottom: 21px; }
+    .product-faq-title-modern:after { width: 40px; height: 2.2px; bottom: -6px; }
+    .product-faq-container-modern { padding: 0 3vw; }
+    .faq-question-modern { font-size: clamp(0.99rem, 3.5vw, 1.11rem); }
+    .faq-answer-modern { font-size: clamp(0.92rem, 3vw, 1.05rem);}
+    .faq-item-modern { margin-bottom: 14px; border-radius: 10px;}
+    .faq-answer-modern { border-radius: 0 0 10px 10px; }
+  }
+  /* Masque les flèches du slider fantôme qui pourraient rester après la FAQ */
+  .product-faq-section-modern + .slider-buttons,
+  .product-faq-section-modern + .slider-button {
+    display: none !important;
+  }
+</style>

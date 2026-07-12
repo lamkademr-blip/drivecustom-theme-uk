@@ -1,0 +1,283 @@
+{% doc %}
+  @prompt
+    Generate a Shopify Liquid section called "customer-reassurance" for the store *Les As du Volant*.  
+    
+    Requirements:  
+    1. The section must start with a **highlighted text block** (like a card or banner) saying:  
+    
+    **"On comprend que commander un volant sur internet peut faire hésiter. Pas de panique, c’est normal ! Chez Les As du Volant, on reste au plus proche de nos clients. Vous avez une question, un doute, besoin d’être rassuré ? Contactez-nous au +33 6 22 51 01 96, et nous vous rappelons rapidement pour répondre à toutes vos questions, avant ou après votre commande."**
+    
+    2. Below this intro block, display **4 reassurance points with icons and short text** in a responsive grid (2x2 on desktop, 1x4 stacked on mobile). Use simple SVG or emoji icons:  
+    
+    - 💳 Paiement 100 % sécurisé (CB + PayPal, vous ne prenez aucun risque)  
+    - 🛡️ Garantie 5 ans (en cas de problème, vous êtes couvert)  
+    - 🔎 Suivi en temps réel (de la fabrication à la livraison)  
+    - 🎁 Housse offerte (incluse avec chaque volant)  
+    
+    3. The section should be styled cleanly with padding, rounded corners, and a modern look (neutral background, icons on the left, text on the right).  
+    
+    4. Add customization options in the section schema for:  
+       - Background color  
+       - Text color  
+       - Title text  
+       - Each reassurance point text  
+    
+    Output only the complete Liquid section code, no explanations.  
+    , rend les fonds plus design, je veux du motion design qui fait bouger les couleurs, non , remets comme avant, il faut que le numéro de telephone +33 6 22 51 01 96 ou +33 6 22 51 01 96 soit cliquable pour menvoyer un sms directement, je dois pouvoir mettre le texte que je veux, en gras
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-customer-reassurance-{{ ai_gen_id }} {
+    padding: 40px 20px;
+    background-color: {{ block.settings.background_color }};
+    color: {{ block.settings.text_color }};
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .ai-customer-reassurance-intro-{{ ai_gen_id }} {
+    background-color: {{ block.settings.intro_bg_color }};
+    padding: 30px;
+    border-radius: 12px;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .ai-customer-reassurance-intro-text-{{ ai_gen_id }} {
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0;
+    color: {{ block.settings.intro_text_color }};
+  }
+
+  .ai-customer-reassurance-intro-text-{{ ai_gen_id }} p {
+    margin: 0;
+  }
+
+  .ai-customer-reassurance-phone-link-{{ ai_gen_id }} {
+    color: {{ block.settings.phone_link_color }};
+    text-decoration: underline;
+    font-weight: 600;
+    transition: color 0.2s ease;
+  }
+
+  .ai-customer-reassurance-phone-link-{{ ai_gen_id }}:hover {
+    color: {{ block.settings.phone_link_hover_color }};
+  }
+
+  .ai-customer-reassurance-grid-{{ ai_gen_id }} {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .ai-customer-reassurance-item-{{ ai_gen_id }} {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 24px;
+    background-color: {{ block.settings.item_bg_color }};
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .ai-customer-reassurance-item-{{ ai_gen_id }}:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  }
+
+  .ai-customer-reassurance-icon-{{ ai_gen_id }} {
+    font-size: 24px;
+    flex-shrink: 0;
+  }
+
+  .ai-customer-reassurance-text-{{ ai_gen_id }} {
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 0;
+    color: {{ block.settings.item_text_color }};
+  }
+
+  .ai-customer-reassurance-text-{{ ai_gen_id }} p {
+    margin: 0;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-customer-reassurance-{{ ai_gen_id }} {
+      padding: 20px 16px;
+    }
+
+    .ai-customer-reassurance-intro-{{ ai_gen_id }} {
+      padding: 20px;
+      margin-bottom: 30px;
+    }
+
+    .ai-customer-reassurance-intro-text-{{ ai_gen_id }} {
+      font-size: 15px;
+    }
+
+    .ai-customer-reassurance-grid-{{ ai_gen_id }} {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .ai-customer-reassurance-item-{{ ai_gen_id }} {
+      padding: 20px;
+    }
+
+    .ai-customer-reassurance-icon-{{ ai_gen_id }} {
+      font-size: 20px;
+    }
+
+    .ai-customer-reassurance-text-{{ ai_gen_id }} {
+      font-size: 13px;
+    }
+  }
+{% endstyle %}
+
+<div class="ai-customer-reassurance-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-customer-reassurance-intro-{{ ai_gen_id }}">
+    <div class="ai-customer-reassurance-intro-text-{{ ai_gen_id }}">
+      {{ block.settings.intro_text }}
+    </div>
+  </div>
+
+  <div class="ai-customer-reassurance-grid-{{ ai_gen_id }}">
+    <div class="ai-customer-reassurance-item-{{ ai_gen_id }}">
+      <div class="ai-customer-reassurance-icon-{{ ai_gen_id }}">💳</div>
+      <div class="ai-customer-reassurance-text-{{ ai_gen_id }}">
+        {{ block.settings.point_1_text }}
+      </div>
+    </div>
+
+    <div class="ai-customer-reassurance-item-{{ ai_gen_id }}">
+      <div class="ai-customer-reassurance-icon-{{ ai_gen_id }}">🛡️</div>
+      <div class="ai-customer-reassurance-text-{{ ai_gen_id }}">
+        {{ block.settings.point_2_text }}
+      </div>
+    </div>
+
+    <div class="ai-customer-reassurance-item-{{ ai_gen_id }}">
+      <div class="ai-customer-reassurance-icon-{{ ai_gen_id }}">🔎</div>
+      <div class="ai-customer-reassurance-text-{{ ai_gen_id }}">
+        {{ block.settings.point_3_text }}
+      </div>
+    </div>
+
+    <div class="ai-customer-reassurance-item-{{ ai_gen_id }}">
+      <div class="ai-customer-reassurance-icon-{{ ai_gen_id }}">🎁</div>
+      <div class="ai-customer-reassurance-text-{{ ai_gen_id }}">
+        {{ block.settings.point_4_text }}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Customer reassurance",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Introduction"
+    },
+    {
+      "type": "richtext",
+      "id": "intro_text",
+      "label": "Introduction text",
+      "default": "<p>On comprend que commander un volant sur internet peut faire hésiter. Pas de panique, c'est normal ! Chez Les As du Volant, on reste au plus proche de nos clients. Vous avez une question, un doute, besoin d'être rassuré ? Contactez-nous au <a href=\"sms:+33622510196\"><strong>+33 6 22 51 01 96</strong></a>, et nous vous rappelons rapidement pour répondre à toutes vos questions, avant ou après votre commande.</p>"
+    },
+    {
+      "type": "color",
+      "id": "intro_bg_color",
+      "label": "Introduction background color",
+      "default": "#f8f9fa"
+    },
+    {
+      "type": "color",
+      "id": "intro_text_color",
+      "label": "Introduction text color",
+      "default": "#000000"
+    },
+    {
+      "type": "header",
+      "content": "Phone link style"
+    },
+    {
+      "type": "color",
+      "id": "phone_link_color",
+      "label": "Phone link color",
+      "default": "#0066cc"
+    },
+    {
+      "type": "color",
+      "id": "phone_link_hover_color",
+      "label": "Phone link hover color",
+      "default": "#004499"
+    },
+    {
+      "type": "header",
+      "content": "Reassurance points"
+    },
+    {
+      "type": "richtext",
+      "id": "point_1_text",
+      "label": "Point 1 text",
+      "default": "<p><strong>Paiement 100 % sécurisé</strong> (CB + PayPal, vous ne prenez aucun risque)</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "point_2_text",
+      "label": "Point 2 text",
+      "default": "<p><strong>Garantie 5 ans</strong> (en cas de problème, vous êtes couvert)</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "point_3_text",
+      "label": "Point 3 text",
+      "default": "<p><strong>Suivi en temps réel</strong> (de la fabrication à la livraison)</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "point_4_text",
+      "label": "Point 4 text",
+      "default": "<p><strong>Housse offerte</strong> (incluse avec chaque volant)</p>"
+    },
+    {
+      "type": "color",
+      "id": "item_bg_color",
+      "label": "Points background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "item_text_color",
+      "label": "Points text color",
+      "default": "#000000"
+    },
+    {
+      "type": "header",
+      "content": "Section style"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Section background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Section text color",
+      "default": "#000000"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Customer reassurance"
+    }
+  ]
+}
+{% endschema %}

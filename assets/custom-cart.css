@@ -1,0 +1,200 @@
+/* ===== CUSTOM CART STYLES — Les As du Volant ===== */
+/* Version nettoyée : supprimé les :contains() jQuery inutiles, les doublons et les sélecteurs trop agressifs */
+
+/* === BOUTON DE PAIEMENT === */
+button[name="checkout"],
+.cart__checkout,
+.cart-checkout {
+  background: linear-gradient(to right, #1e2b4e, #394775) !important;
+  color: white !important;
+  width: 100% !important;
+  padding: 15px !important;
+  border-radius: 8px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  border: none !important;
+  transition: all 0.3s ease !important;
+  margin-top: 10px !important;
+  cursor: pointer !important;
+}
+
+button[name="checkout"]:hover,
+.cart__checkout:hover,
+.cart-checkout:hover {
+  background: linear-gradient(to right, #394775, #1e2b4e) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* === SCROLLBAR POUR LISTES D'OPTIONS === */
+dl.product-options-list,
+.cart-item dl,
+.cart-item__details dl {
+  max-height: 120px !important;
+  overflow-y: auto !important;
+  scrollbar-width: thin !important;
+  scrollbar-color: #aaa #f5f5f5 !important;
+}
+
+dl.product-options-list::-webkit-scrollbar,
+.cart-item dl::-webkit-scrollbar,
+.cart-item__details dl::-webkit-scrollbar {
+  width: 6px !important;
+  background-color: #f5f5f5 !important;
+}
+
+dl.product-options-list::-webkit-scrollbar-thumb,
+.cart-item dl::-webkit-scrollbar-thumb,
+.cart-item__details dl::-webkit-scrollbar-thumb {
+  background-color: #aaa !important;
+  border-radius: 10px !important;
+}
+
+/* === EFFET HOVER BOUTON SUPPRIMER === */
+.cart-remove-button:hover,
+.cart-item__remove-button:hover,
+.cart-item__remove:hover,
+[data-cart-remove]:hover,
+.remove-from-cart-button:hover,
+.cart__remove:hover,
+.cart-item .text-link:hover {
+  background-color: #d32f2f !important;
+  transform: translateY(-2px) !important;
+}
+
+/* === SOUS-TOTAL ET TOTAUX === */
+.cart-subtotal,
+.cart__footer-item,
+.cart__total,
+.totals {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  width: 100% !important;
+  padding: 10px 0 !important;
+  margin-bottom: 10px !important;
+}
+
+.cart-subtotal-value,
+.cart__total-price,
+.totals__total-value {
+  font-weight: 700 !important;
+  font-size: 18px !important;
+  color: #d32f2f !important;
+  text-align: right !important;
+  margin-left: auto !important;
+}
+
+.cart-subtotal-title,
+.cart__total-title,
+.totals__total {
+  font-weight: 600 !important;
+  font-size: 16px !important;
+  text-transform: uppercase !important;
+  margin: 0 !important;
+}
+
+/* === MASQUER COLONNE TOTAL (chaque ligne) === */
+.cart-item__totals .price,
+.cart-item__price-wrapper .price,
+td[data-label="Total"],
+.line-item__price,
+.cart-item__line-price,
+.cart__item-total {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  width: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  position: absolute !important;
+  left: -9999px !important;
+}
+
+/* === COULEUR VERTE POUR PRIX === */
+.price,
+.price--end,
+.totals__total-value,
+.cart__total-price {
+  color: #2ecc71 !important;
+}
+
+/* === STYLE OPTIONS DE VARIANTE === */
+.product-option dd,
+.product-option__value,
+.cart-item__variant-option-value,
+[class*="variant-option"] span:last-child,
+[class*="line-item-property"] span:last-child {
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 700 !important;
+  color: #000 !important;
+}
+
+.product-option dt,
+.product-option__label,
+.cart-item__variant-option-label {
+  font-weight: normal !important;
+}
+
+/* === RÉDUCTION ESPACEMENTS HAUT DE PAGE PANIER === */
+body.template-cart .page-width,
+body.template-cart .section-padding,
+body.template-cart .isolate {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
+body.template-cart .title-wrapper-with-link {
+  margin-top: 20px !important;
+  padding-top: 20px !important;
+}
+
+/* === CHAMP CODE PROMO === */
+.cart-discount {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.cart-discount label {
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  color: #1e2b4e;
+}
+
+.cart-discount input[type="text"] {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  margin-bottom: 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.cart-discount button {
+  background: linear-gradient(to right, #1e2b4e, #394775);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cart-discount button:hover {
+  background: linear-gradient(to right, #394775, #1e2b4e);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#discount-feedback {
+  font-size: 14px;
+  margin-top: 8px;
+  color: red;
+}

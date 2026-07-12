@@ -1,0 +1,195 @@
+{% schema %}
+{
+  "name": "CTA Configurateur",
+  "tag": "section",
+  "class": "section cta-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Titre",
+      "default": "VOUS NE TROUVEZ PAS LE CONFIGURATEUR POUR VOTRE VOLANT ?"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Texte",
+      "default": "<p>Pas d'inquiétude, nous pouvons nous adapter à vos besoins spécifiques et créer une solution personnalisée pour vous.</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Texte du bouton",
+      "default": "Contactez-nous"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Lien du bouton"
+    },
+    {
+      "type": "header",
+      "content": "Fond et couleurs"
+    },
+    {
+      "type": "checkbox",
+      "id": "transparent_background",
+      "label": "Fond transparent",
+      "default": false,
+      "info": "Active pour rendre le fond de la section transparent"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Couleur de fond",
+      "default": "#f5f5f5",
+      "info": "Utilisé seulement si le fond transparent est désactivé"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Couleur du texte",
+      "default": "#333333"
+    },
+    {
+      "type": "color",
+      "id": "button_background",
+      "label": "Couleur de fond du bouton",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Couleur du texte du bouton",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 20,
+      "max": 100,
+      "step": 10,
+      "unit": "px",
+      "label": "Espace supérieur",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 20,
+      "max": 100,
+      "step": 10,
+      "unit": "px",
+      "label": "Espace inférieur",
+      "default": 60
+    }
+  ],
+  "presets": [
+    {
+      "name": "CTA Configurateur",
+      "category": "Texte"
+    }
+  ]
+}
+{% endschema %}
+
+<section class="section cta-configurateur" 
+         style="{% unless section.settings.transparent_background %}background-color: {{ section.settings.background_color }};{% else %}background-color: transparent;{% endunless %}
+                padding-top: {{ section.settings.padding_top }}px;
+                padding-bottom: {{ section.settings.padding_bottom }}px;">
+  <div class="page-width">
+    <div class="cta-white-rectangle">
+      <div class="cta-container">
+        {% if section.settings.heading != blank %}
+          <h3 class="cta-heading">{{ section.settings.heading }}</h3>
+        {% endif %}
+        
+        {% if section.settings.text != blank %}
+          <div class="cta-text">{{ section.settings.text }}</div>
+        {% endif %}
+        
+        {% if section.settings.button_label != blank %}
+          <div class="cta-button-wrapper">
+            <a href="{{ section.settings.button_link }}" class="cta-button"
+               style="background-color: {{ section.settings.button_background }};
+                      color: {{ section.settings.button_text_color }};">
+              {{ section.settings.button_label }}
+            </a>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .cta-configurateur {
+    text-align: center;
+  }
+  
+  .cta-white-rectangle {
+    background-color: white;
+    border-radius: 20px;
+    padding: 40px 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .cta-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .cta-heading {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    line-height: 1.3;
+    color: {{ section.settings.text_color }};
+  }
+  
+  .cta-text {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 30px;
+    color: {{ section.settings.text_color }};
+  }
+  
+  .cta-button-wrapper {
+    margin-top: 10px;
+  }
+  
+  .cta-button {
+    display: inline-block;
+    padding: 12px 30px;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 4px;
+    transition: opacity 0.2s ease;
+  }
+  
+  .cta-button:hover {
+    opacity: 0.9;
+  }
+  
+  @media screen and (max-width: 749px) {
+    .cta-white-rectangle {
+      border-radius: 15px;
+      padding: 30px 15px;
+    }
+    
+    .cta-heading {
+      font-size: 20px;
+    }
+    
+    .cta-text {
+      font-size: 15px;
+    }
+    
+    .cta-button {
+      padding: 10px 25px;
+    }
+  }
+</style>

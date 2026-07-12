@@ -1,0 +1,148 @@
+{% schema %}
+{
+  "name": "Bande défilante",
+  "settings": [
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Couleur du texte",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "range",
+      "id": "scroll_speed",
+      "min": 10,
+      "max": 100,
+      "step": 5,
+      "unit": "s",
+      "label": "Vitesse de défilement",
+      "default": 30
+    },
+    {
+      "type": "checkbox",
+      "id": "reverse_direction",
+      "label": "Inverser la direction",
+      "default": false
+    }
+  ],
+  "blocks": [
+    {
+      "type": "banner_item",
+      "name": "Élément de bande",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Texte",
+          "default": "Écologique"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icône"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Bande défilante",
+      "blocks": [
+        {
+          "type": "banner_item",
+          "settings": {
+            "text": "Écologique"
+          }
+        },
+        {
+          "type": "banner_item",
+          "settings": {
+            "text": "Économique"
+          }
+        },
+        {
+          "type": "banner_item",
+          "settings": {
+            "text": "Hygiénique"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+  .scrolling-banner {
+    width: 100%;
+    overflow: hidden;
+    background: linear-gradient(to right, #1A2141, #4E5988);
+    padding: 6px 0; /* Hauteur compacte comme demandé */
+  }
+
+  .banner-content {
+    display: flex;
+    white-space: nowrap;
+  }
+
+  .banner-item {
+    display: inline-flex;
+    align-items: center;
+    margin: 0 15px; /* Espacement réduit */
+    color: {{ section.settings.text_color }};
+    font-weight: 600;
+    font-size: 14px; /* Texte plus petit comme demandé */
+    flex-shrink: 0;
+  }
+
+  .banner-icon {
+    width: 20px; /* Icônes légèrement réduites */
+    height: 20px;
+    margin-right: 6px;
+    object-fit: contain;
+  }
+</style>
+
+<div class="scrolling-banner">
+  <div class="banner-content" id="bannerContent">
+    {% for i in (1..2) %}
+      {% for block in section.blocks %}
+        {% if block.type == "banner_item" %}
+          <div class="banner-item">
+            {% if block.settings.icon %}
+              <img src="{{ block.settings.icon | img_url: '50x50', crop: 'center' }}" class="banner-icon" alt="">
+            {% endif %}
+            {{ block.settings.text }}
+          </div>
+        {% endif %}
+      {% endfor %}
+    {% endfor %}
+  </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const bannerContent = document.getElementById('bannerContent');
+  let speed = {{ section.settings.scroll_speed }};
+  let direction = {{ section.settings.reverse_direction | json }} ? 1 : -1;
+
+  function animateBanner() {
+    const contentWidth = bannerContent.scrollWidth / 2;
+    let progress = 0;
+
+    function step() {
+      progress += direction * (contentWidth / (speed * 60));
+      if (direction === -1 && Math.abs(progress) >= contentWidth) {
+        progress = 0;
+      } else if (direction === 1 && progress >= 0) {
+        progress = -contentWidth;
+      }
+      bannerContent.style.transform = `translateX(${progress}px)`;
+      requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  animateBanner();
+});
+</script>

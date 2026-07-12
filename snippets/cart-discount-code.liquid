@@ -1,0 +1,28 @@
+<!-- DÉBUT : Snippet Code Promo -->
+<div class="cart-discount">
+  <label for="discount-code">Code promo</label>
+  <input type="text" id="discount-code" name="discount" placeholder="Entrez votre code" />
+  <button type="button" id="apply-discount">Appliquer</button>
+  <p id="discount-feedback" style="display: none;"></p>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const applyButton = document.getElementById('apply-discount');
+    if (!applyButton) return;
+
+    applyButton.addEventListener('click', function() {
+      const code = document.getElementById('discount-code').value.trim();
+      const feedback = document.getElementById('discount-feedback');
+
+      if (code) {
+        window.location.href = '/checkout?discount=' + encodeURIComponent(code);
+      } else {
+        feedback.textContent = 'Veuillez entrer un code promo.';
+        feedback.style.display = 'block';
+        feedback.style.color = 'red';
+      }
+    });
+  });
+</script>
+<!-- FIN : Snippet Code Promo -->

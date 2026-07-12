@@ -1,0 +1,468 @@
+{% doc %}
+  @prompt
+    ajouter une section en accordeon dans lesquels je mets les liens hypertextes de tt les produits ou collection que je veux
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-accordion-links-{{ ai_gen_id }} {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .ai-accordion-links__container-{{ ai_gen_id }} {
+    width: 100%;
+  }
+
+  .ai-accordion-links__item-{{ ai_gen_id }} {
+    border-bottom: 1px solid {{ block.settings.border_color }};
+  }
+
+  .ai-accordion-links__item-{{ ai_gen_id }}:first-child {
+    border-top: 1px solid {{ block.settings.border_color }};
+  }
+
+  .ai-accordion-links__header-{{ ai_gen_id }} {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: {{ block.settings.item_padding }}px;
+    background-color: {{ block.settings.header_bg_color }};
+    color: {{ block.settings.header_text_color }};
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    font-size: {{ block.settings.header_font_size }}px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+  }
+
+  .ai-accordion-links__header-{{ ai_gen_id }}:hover {
+    background-color: {{ block.settings.header_hover_bg_color }};
+  }
+
+  .ai-accordion-links__title-{{ ai_gen_id }} {
+    flex-grow: 1;
+  }
+
+  .ai-accordion-links__icon-{{ ai_gen_id }} {
+    width: 20px;
+    height: 20px;
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+    margin-left: 10px;
+  }
+
+  .ai-accordion-links__icon-{{ ai_gen_id }} svg {
+    width: 100%;
+    height: 100%;
+    stroke: {{ block.settings.header_text_color }};
+  }
+
+  .ai-accordion-links__header-{{ ai_gen_id }}[aria-expanded="true"] .ai-accordion-links__icon-{{ ai_gen_id }} {
+    transform: rotate(180deg);
+  }
+
+  .ai-accordion-links__content-{{ ai_gen_id }} {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    background-color: {{ block.settings.content_bg_color }};
+  }
+
+  .ai-accordion-links__content-{{ ai_gen_id }}.active {
+    max-height: 1000px;
+  }
+
+  .ai-accordion-links__links-{{ ai_gen_id }} {
+    padding: {{ block.settings.content_padding }}px;
+    display: flex;
+    flex-direction: column;
+    gap: {{ block.settings.link_spacing }}px;
+  }
+
+  .ai-accordion-links__link-{{ ai_gen_id }} {
+    color: {{ block.settings.link_color }};
+    text-decoration: none;
+    font-size: {{ block.settings.link_font_size }}px;
+    transition: color 0.2s ease;
+    display: block;
+  }
+
+  .ai-accordion-links__link-{{ ai_gen_id }}:hover {
+    color: {{ block.settings.link_hover_color }};
+    text-decoration: underline;
+  }
+
+  .ai-accordion-links__empty-{{ ai_gen_id }} {
+    padding: {{ block.settings.content_padding }}px;
+    color: #999;
+    font-style: italic;
+    font-size: 14px;
+  }
+{% endstyle %}
+
+<accordion-links-{{ ai_gen_id }} class="ai-accordion-links-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-accordion-links__container-{{ ai_gen_id }}">
+    {% for i in (1..5) %}
+      {% liquid
+        assign section_enabled_key = 'section_' | append: i | append: '_enabled'
+        assign section_title_key = 'section_' | append: i | append: '_title'
+        assign products_key = 'section_' | append: i | append: '_products'
+        assign collections_key = 'section_' | append: i | append: '_collections'
+
+        assign section_enabled = block.settings[section_enabled_key]
+        assign section_title = block.settings[section_title_key]
+        assign products = block.settings[products_key]
+        assign collections = block.settings[collections_key]
+      %}
+
+      {% if section_enabled %}
+        <div class="ai-accordion-links__item-{{ ai_gen_id }}">
+          <button
+            class="ai-accordion-links__header-{{ ai_gen_id }}"
+            aria-expanded="false"
+            data-accordion-index="{{ i }}"
+          >
+            <span class="ai-accordion-links__title-{{ ai_gen_id }}">{{ section_title }}</span>
+            <span class="ai-accordion-links__icon-{{ ai_gen_id }}">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </span>
+          </button>
+          <div class="ai-accordion-links__content-{{ ai_gen_id }}" data-accordion-content="{{ i }}">
+            <div class="ai-accordion-links__links-{{ ai_gen_id }}">
+              {% if collections != blank %}
+                {% for collection in collections %}
+                  <a href="{{ collection.url }}" class="ai-accordion-links__link-{{ ai_gen_id }}">
+                    {{ collection.title }}
+                  </a>
+                {% endfor %}
+              {% endif %}
+
+              {% if products != blank %}
+                {% for product in products %}
+                  <a href="{{ product.url }}" class="ai-accordion-links__link-{{ ai_gen_id }}">
+                    {{ product.title }}
+                  </a>
+                {% endfor %}
+              {% endif %}
+
+              {% if collections == blank and products == blank %}
+                <div class="ai-accordion-links__empty-{{ ai_gen_id }}">
+                  Ajoutez des produits ou des collections pour cette section
+                </div>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</accordion-links-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class AccordionLinks{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+      }
+
+      connectedCallback() {
+        this.headers = this.querySelectorAll('.ai-accordion-links__header-{{ ai_gen_id }}');
+        this.setupEventListeners();
+      }
+
+      setupEventListeners() {
+        this.headers.forEach((header) => {
+          header.addEventListener('click', () => {
+            const index = header.getAttribute('data-accordion-index');
+            const content = this.querySelector(`[data-accordion-content="${index}"]`);
+            const isExpanded = header.getAttribute('aria-expanded') === 'true';
+
+            if (isExpanded) {
+              header.setAttribute('aria-expanded', 'false');
+              content.classList.remove('active');
+            } else {
+              header.setAttribute('aria-expanded', 'true');
+              content.classList.add('active');
+            }
+          });
+        });
+      }
+    }
+
+    customElements.define('accordion-links-{{ ai_gen_id }}', AccordionLinks{{ ai_gen_id }});
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Accordéon de liens",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Style de l'en-tête"
+    },
+    {
+      "type": "color",
+      "id": "header_bg_color",
+      "label": "Couleur de fond",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "header_hover_bg_color",
+      "label": "Couleur de fond au survol",
+      "default": "#f5f5f5"
+    },
+    {
+      "type": "color",
+      "id": "header_text_color",
+      "label": "Couleur du texte",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "header_font_size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Taille de police",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "item_padding",
+      "min": 8,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "label": "Espacement",
+      "default": 16
+    },
+    {
+      "type": "header",
+      "content": "Style du contenu"
+    },
+    {
+      "type": "color",
+      "id": "content_bg_color",
+      "label": "Couleur de fond",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "content_padding",
+      "min": 8,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "label": "Espacement",
+      "default": 16
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Couleur de bordure",
+      "default": "#e0e0e0"
+    },
+    {
+      "type": "header",
+      "content": "Style des liens"
+    },
+    {
+      "type": "color",
+      "id": "link_color",
+      "label": "Couleur",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "link_hover_color",
+      "label": "Couleur au survol",
+      "default": "#006eff"
+    },
+    {
+      "type": "range",
+      "id": "link_font_size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Taille de police",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "link_spacing",
+      "min": 4,
+      "max": 20,
+      "step": 2,
+      "unit": "px",
+      "label": "Espacement entre les liens",
+      "default": 8
+    },
+    {
+      "type": "header",
+      "content": "Section 1"
+    },
+    {
+      "type": "checkbox",
+      "id": "section_1_enabled",
+      "label": "Activer la section 1",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "section_1_title",
+      "label": "Titre",
+      "default": "Nos produits"
+    },
+    {
+      "type": "collection_list",
+      "id": "section_1_collections",
+      "label": "Collections",
+      "limit": 10
+    },
+    {
+      "type": "product_list",
+      "id": "section_1_products",
+      "label": "Produits",
+      "limit": 10
+    },
+    {
+      "type": "header",
+      "content": "Section 2"
+    },
+    {
+      "type": "checkbox",
+      "id": "section_2_enabled",
+      "label": "Activer la section 2",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "section_2_title",
+      "label": "Titre",
+      "default": "Nos collections"
+    },
+    {
+      "type": "collection_list",
+      "id": "section_2_collections",
+      "label": "Collections",
+      "limit": 10
+    },
+    {
+      "type": "product_list",
+      "id": "section_2_products",
+      "label": "Produits",
+      "limit": 10
+    },
+    {
+      "type": "header",
+      "content": "Section 3"
+    },
+    {
+      "type": "checkbox",
+      "id": "section_3_enabled",
+      "label": "Activer la section 3",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "section_3_title",
+      "label": "Titre",
+      "default": "Catégorie 3"
+    },
+    {
+      "type": "collection_list",
+      "id": "section_3_collections",
+      "label": "Collections",
+      "limit": 10
+    },
+    {
+      "type": "product_list",
+      "id": "section_3_products",
+      "label": "Produits",
+      "limit": 10
+    },
+    {
+      "type": "header",
+      "content": "Section 4"
+    },
+    {
+      "type": "checkbox",
+      "id": "section_4_enabled",
+      "label": "Activer la section 4",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "section_4_title",
+      "label": "Titre",
+      "default": "Catégorie 4"
+    },
+    {
+      "type": "collection_list",
+      "id": "section_4_collections",
+      "label": "Collections",
+      "limit": 10
+    },
+    {
+      "type": "product_list",
+      "id": "section_4_products",
+      "label": "Produits",
+      "limit": 10
+    },
+    {
+      "type": "header",
+      "content": "Section 5"
+    },
+    {
+      "type": "checkbox",
+      "id": "section_5_enabled",
+      "label": "Activer la section 5",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "section_5_title",
+      "label": "Titre",
+      "default": "Catégorie 5"
+    },
+    {
+      "type": "collection_list",
+      "id": "section_5_collections",
+      "label": "Collections",
+      "limit": 10
+    },
+    {
+      "type": "product_list",
+      "id": "section_5_products",
+      "label": "Produits",
+      "limit": 10
+    },
+    {
+      "type": "range",
+      "id": "desktop_width_percent",
+      "label": "Largeur sur ordinateur",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100
+    }
+  ],
+  "presets": [
+    {
+      "name": "Accordéon de liens"
+    }
+  ]
+}
+{% endschema %}

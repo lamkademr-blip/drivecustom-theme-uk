@@ -1,0 +1,617 @@
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .boku-modes-{{ ai_gen_id }} {
+    display: block;
+    width: 100%;
+    padding: 60px 20px;
+    background-color: {{ block.settings.background_color }};
+  }
+
+  .boku-modes-container-{{ ai_gen_id }} {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .boku-modes-header-{{ ai_gen_id }} {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+
+  .boku-modes-title-{{ ai_gen_id }} {
+    font-size: 36px;
+    font-weight: 700;
+    color: {{ block.settings.title_color }};
+    margin: 0 0 16px;
+    line-height: 1.2;
+  }
+
+  .boku-modes-subtitle-{{ ai_gen_id }} {
+    font-size: 18px;
+    color: {{ block.settings.subtitle_color }};
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  .boku-modes-buttons-{{ ai_gen_id }} {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+  }
+
+  .boku-mode-button-{{ ai_gen_id }} {
+    padding: 16px 32px;
+    background-color: {{ block.settings.button_color }};
+    color: {{ block.settings.button_text_color }};
+    border: 2px solid {{ block.settings.button_color }};
+    border-radius: {{ block.settings.button_radius }}px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+  }
+
+  .boku-mode-button-{{ ai_gen_id }}:hover {
+    background-color: {{ block.settings.button_hover_color }};
+    border-color: {{ block.settings.button_hover_color }};
+    transform: translateY(-2px);
+  }
+
+  .boku-mode-button-{{ ai_gen_id }}.active {
+    background-color: {{ block.settings.button_active_color }};
+    border-color: {{ block.settings.button_active_border_color }};
+    color: {{ block.settings.button_active_text_color }};
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .boku-modes-content-{{ ai_gen_id }} {
+    position: relative;
+    min-height: 400px;
+  }
+
+  .boku-mode-content-{{ ai_gen_id }} {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+
+  .boku-mode-content-{{ ai_gen_id }}.active {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+    opacity: 1;
+  }
+
+  .boku-mode-image-{{ ai_gen_id }} {
+    width: 100%;
+    border-radius: {{ block.settings.image_radius }}px;
+    overflow: hidden;
+  }
+
+  .boku-mode-image-{{ ai_gen_id }} img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+
+  .boku-mode-image-placeholder-{{ ai_gen_id }} {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    background-color: #f4f4f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: {{ block.settings.image_radius }}px;
+    position: relative;
+  }
+
+  .boku-mode-image-placeholder-{{ ai_gen_id }} svg {
+    width: 100%;
+    height: 100%;
+    max-width: 300px;
+    max-height: 300px;
+  }
+
+  .boku-mode-empty-state-{{ ai_gen_id }} {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px 20px;
+    font-size: 14px;
+    color: #666;
+    text-align: center;
+    pointer-events: none;
+  }
+
+  .boku-mode-text-{{ ai_gen_id }} {
+    padding: 20px;
+  }
+
+  .boku-mode-text-title-{{ ai_gen_id }} {
+    font-size: 28px;
+    font-weight: 700;
+    color: {{ block.settings.content_title_color }};
+    margin: 0 0 20px;
+    line-height: 1.3;
+  }
+
+  .boku-mode-text-description-{{ ai_gen_id }} {
+    font-size: 16px;
+    color: {{ block.settings.content_text_color }};
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .boku-modes-badge-{{ ai_gen_id }} {
+    text-align: center;
+    margin-top: 40px;
+  }
+
+  .boku-badge-{{ ai_gen_id }} {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: {{ block.settings.badge_color }};
+    color: {{ block.settings.badge_text_color }};
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  @media screen and (max-width: 768px) {
+    .boku-modes-{{ ai_gen_id }} {
+      padding: 40px 16px;
+    }
+
+    .boku-modes-title-{{ ai_gen_id }} {
+      font-size: 28px;
+    }
+
+    .boku-modes-subtitle-{{ ai_gen_id }} {
+      font-size: 16px;
+    }
+
+    .boku-modes-buttons-{{ ai_gen_id }} {
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .boku-mode-button-{{ ai_gen_id }} {
+      width: 100%;
+      padding: 14px 24px;
+    }
+
+    .boku-mode-content-{{ ai_gen_id }}.active {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+
+    .boku-mode-text-{{ ai_gen_id }} {
+      padding: 0;
+    }
+
+    .boku-mode-text-title-{{ ai_gen_id }} {
+      font-size: 24px;
+    }
+
+    .boku-mode-text-description-{{ ai_gen_id }} {
+      font-size: 15px;
+    }
+  }
+{% endstyle %}
+
+<boku-modes-{{ ai_gen_id }} class="boku-modes-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="boku-modes-container-{{ ai_gen_id }}">
+    <div class="boku-modes-header-{{ ai_gen_id }}">
+      {% if block.settings.title != blank %}
+        <h2 class="boku-modes-title-{{ ai_gen_id }}">{{ block.settings.title }}</h2>
+      {% endif %}
+      {% if block.settings.subtitle != blank %}
+        <div class="boku-modes-subtitle-{{ ai_gen_id }}">{{ block.settings.subtitle }}</div>
+      {% endif %}
+    </div>
+
+    <div class="boku-modes-buttons-{{ ai_gen_id }}">
+      <button
+        class="boku-mode-button-{{ ai_gen_id }} active"
+        data-mode="auto-lavage"
+        aria-pressed="true"
+      >
+        {{ block.settings.mode_1_button_label }}
+      </button>
+      <button
+        class="boku-mode-button-{{ ai_gen_id }}"
+        data-mode="posterieur"
+        aria-pressed="false"
+      >
+        {{ block.settings.mode_2_button_label }}
+      </button>
+      <button
+        class="boku-mode-button-{{ ai_gen_id }}"
+        data-mode="feminin"
+        aria-pressed="false"
+      >
+        {{ block.settings.mode_3_button_label }}
+      </button>
+    </div>
+
+    <div class="boku-modes-content-{{ ai_gen_id }}">
+      <div class="boku-mode-content-{{ ai_gen_id }} active" data-mode="auto-lavage">
+        <div class="boku-mode-image-{{ ai_gen_id }}">
+          {% if block.settings.mode_1_image %}
+            <img
+              src="{{ block.settings.mode_1_image | image_url: width: 800 }}"
+              alt="{{ block.settings.mode_1_title | escape }}"
+              loading="lazy"
+              width="{{ block.settings.mode_1_image.width }}"
+              height="{{ block.settings.mode_1_image.height }}"
+            >
+          {% else %}
+            <div class="boku-mode-image-placeholder-{{ ai_gen_id }}">
+              {{ 'product-1' | placeholder_svg_tag }}
+              <div class="boku-mode-empty-state-{{ ai_gen_id }}">
+                Ajoutez une image pour le mode auto-lavage
+              </div>
+            </div>
+          {% endif %}
+        </div>
+        <div class="boku-mode-text-{{ ai_gen_id }}">
+          {% if block.settings.mode_1_title != blank %}
+            <h3 class="boku-mode-text-title-{{ ai_gen_id }}">{{ block.settings.mode_1_title }}</h3>
+          {% endif %}
+          {% if block.settings.mode_1_text != blank %}
+            <div class="boku-mode-text-description-{{ ai_gen_id }}">{{ block.settings.mode_1_text }}</div>
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="boku-mode-content-{{ ai_gen_id }}" data-mode="posterieur">
+        <div class="boku-mode-image-{{ ai_gen_id }}">
+          {% if block.settings.mode_2_image %}
+            <img
+              src="{{ block.settings.mode_2_image | image_url: width: 800 }}"
+              alt="{{ block.settings.mode_2_title | escape }}"
+              loading="lazy"
+              width="{{ block.settings.mode_2_image.width }}"
+              height="{{ block.settings.mode_2_image.height }}"
+            >
+          {% else %}
+            <div class="boku-mode-image-placeholder-{{ ai_gen_id }}">
+              {{ 'product-1' | placeholder_svg_tag }}
+              <div class="boku-mode-empty-state-{{ ai_gen_id }}">
+                Ajoutez une image pour le mode postérieur
+              </div>
+            </div>
+          {% endif %}
+        </div>
+        <div class="boku-mode-text-{{ ai_gen_id }}">
+          {% if block.settings.mode_2_title != blank %}
+            <h3 class="boku-mode-text-title-{{ ai_gen_id }}">{{ block.settings.mode_2_title }}</h3>
+          {% endif %}
+          {% if block.settings.mode_2_text != blank %}
+            <div class="boku-mode-text-description-{{ ai_gen_id }}">{{ block.settings.mode_2_text }}</div>
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="boku-mode-content-{{ ai_gen_id }}" data-mode="feminin">
+        <div class="boku-mode-image-{{ ai_gen_id }}">
+          {% if block.settings.mode_3_image %}
+            <img
+              src="{{ block.settings.mode_3_image | image_url: width: 800 }}"
+              alt="{{ block.settings.mode_3_title | escape }}"
+              loading="lazy"
+              width="{{ block.settings.mode_3_image.width }}"
+              height="{{ block.settings.mode_3_image.height }}"
+            >
+          {% else %}
+            <div class="boku-mode-image-placeholder-{{ ai_gen_id }}">
+              {{ 'product-1' | placeholder_svg_tag }}
+              <div class="boku-mode-empty-state-{{ ai_gen_id }}">
+                Ajoutez une image pour le mode féminin
+              </div>
+            </div>
+          {% endif %}
+        </div>
+        <div class="boku-mode-text-{{ ai_gen_id }}">
+          {% if block.settings.mode_3_title != blank %}
+            <h3 class="boku-mode-text-title-{{ ai_gen_id }}">{{ block.settings.mode_3_title }}</h3>
+          {% endif %}
+          {% if block.settings.mode_3_text != blank %}
+            <div class="boku-mode-text-description-{{ ai_gen_id }}">{{ block.settings.mode_3_text }}</div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+    {% if block.settings.show_badge and block.settings.badge_text != blank %}
+      <div class="boku-modes-badge-{{ ai_gen_id }}">
+        <span class="boku-badge-{{ ai_gen_id }}">{{ block.settings.badge_text }}</span>
+      </div>
+    {% endif %}
+  </div>
+</boku-modes-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class BokuModes{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+      }
+
+      connectedCallback() {
+        this.buttons = this.querySelectorAll('.boku-mode-button-{{ ai_gen_id }}');
+        this.contents = this.querySelectorAll('.boku-mode-content-{{ ai_gen_id }}');
+        this.setupEventListeners();
+      }
+
+      setupEventListeners() {
+        this.buttons.forEach((button) => {
+          button.addEventListener('click', () => {
+            const mode = button.getAttribute('data-mode');
+            this.switchMode(mode, button);
+          });
+        });
+      }
+
+      switchMode(mode, clickedButton) {
+        this.buttons.forEach((btn) => {
+          btn.classList.remove('active');
+          btn.setAttribute('aria-pressed', 'false');
+        });
+
+        clickedButton.classList.add('active');
+        clickedButton.setAttribute('aria-pressed', 'true');
+
+        this.contents.forEach((content) => {
+          if (content.getAttribute('data-mode') === mode) {
+            content.classList.add('active');
+          } else {
+            content.classList.remove('active');
+          }
+        });
+      }
+    }
+
+    customElements.define('boku-modes-{{ ai_gen_id }}', BokuModes{{ ai_gen_id }});
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "BOKU Modes d'utilisation",
+  "tag": null,
+  "class": "section-boku-modes",
+  "settings": [
+    {
+      "type": "header",
+      "content": "En-tête"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Titre principal",
+      "default": "Un bouton pour les nettoyer tous"
+    },
+    {
+      "type": "richtext",
+      "id": "subtitle",
+      "label": "Sous-titre",
+      "default": "<p>Sélectionnez les différents modes d'utilisation grâce au bouton molette multifonctions</p>"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Couleur du titre",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "subtitle_color",
+      "label": "Couleur du sous-titre",
+      "default": "#666666"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Couleur de fond",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Boutons"
+    },
+    {
+      "type": "color",
+      "id": "button_color",
+      "label": "Couleur des boutons",
+      "default": "#003366"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Couleur du texte",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_color",
+      "label": "Couleur au survol",
+      "default": "#004488"
+    },
+    {
+      "type": "color",
+      "id": "button_active_color",
+      "label": "Couleur bouton actif",
+      "default": "#006eff"
+    },
+    {
+      "type": "color",
+      "id": "button_active_text_color",
+      "label": "Texte bouton actif",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "button_active_border_color",
+      "label": "Bordure bouton actif",
+      "default": "#006eff"
+    },
+    {
+      "type": "range",
+      "id": "button_radius",
+      "label": "Arrondi des boutons",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 8
+    },
+    {
+      "type": "header",
+      "content": "Mode 1 - Auto-lavage"
+    },
+    {
+      "type": "text",
+      "id": "mode_1_button_label",
+      "label": "Texte du bouton",
+      "default": "Mode auto-lavage des buses"
+    },
+    {
+      "type": "image_picker",
+      "id": "mode_1_image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "mode_1_title",
+      "label": "Titre",
+      "default": "Mode auto-lavage des buses"
+    },
+    {
+      "type": "richtext",
+      "id": "mode_1_text",
+      "label": "Description",
+      "default": "<p>Le mode auto-lavage nettoie automatiquement les buses après chaque utilisation pour une hygiène maximale. Activez-le d'un simple geste pour garder votre bidet toujours propre et prêt.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Mode 2 - Lavage postérieur"
+    },
+    {
+      "type": "text",
+      "id": "mode_2_button_label",
+      "label": "Texte du bouton",
+      "default": "Mode lavage postérieur"
+    },
+    {
+      "type": "image_picker",
+      "id": "mode_2_image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "mode_2_title",
+      "label": "Titre",
+      "default": "Mode lavage postérieur"
+    },
+    {
+      "type": "richtext",
+      "id": "mode_2_text",
+      "label": "Description",
+      "default": "<p>Pour une hygiène postérieure optimale. Le jet précis et réglable nettoie en profondeur après les selles, pour une sensation de fraîcheur immédiate sans papier excessif.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Mode 3 - Lavage féminin"
+    },
+    {
+      "type": "text",
+      "id": "mode_3_button_label",
+      "label": "Texte du bouton",
+      "default": "Mode lavage féminin"
+    },
+    {
+      "type": "image_picker",
+      "id": "mode_3_image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "mode_3_title",
+      "label": "Titre",
+      "default": "Mode lavage féminin"
+    },
+    {
+      "type": "richtext",
+      "id": "mode_3_text",
+      "label": "Description",
+      "default": "<p>Spécialement conçu pour les femmes. Un lavage doux et efficace pour l'hygiène intime, parfait pendant les règles ou après les toilettes, pour plus de confort et de bien-être.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Contenu"
+    },
+    {
+      "type": "color",
+      "id": "content_title_color",
+      "label": "Couleur des titres",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "content_text_color",
+      "label": "Couleur du texte",
+      "default": "#333333"
+    },
+    {
+      "type": "range",
+      "id": "image_radius",
+      "label": "Arrondi des images",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "header",
+      "content": "Badge optionnel"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_badge",
+      "label": "Afficher le badge",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "badge_text",
+      "label": "Texte du badge",
+      "default": "+200% de bien-être aux WC"
+    },
+    {
+      "type": "color",
+      "id": "badge_color",
+      "label": "Couleur du badge",
+      "default": "#006eff"
+    },
+    {
+      "type": "color",
+      "id": "badge_text_color",
+      "label": "Couleur du texte",
+      "default": "#ffffff"
+    }
+  ],
+  "presets": [
+    {
+      "name": "BOKU Modes d'utilisation"
+    }
+  ]
+}
+{% endschema %}

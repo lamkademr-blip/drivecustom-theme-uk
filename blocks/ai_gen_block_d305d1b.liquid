@@ -1,0 +1,303 @@
+{% doc %}
+  @prompt
+    Tu es une IA chargée de générer un fil d’Ariane (breadcrumb) clair, structuré et cliquable.
+    
+    Tâche :
+    À partir des informations suivantes :
+    
+    
+    Génère un fil d’Ariane au format suivant :
+    
+    Accueil / Collection / Produit
+    
+    Accueil doit afficher le nom de la marque
+    
+    Collection doit afficher le nom de la collection du produit
+    
+    Produit doit afficher le nom du produit
+    
+    Chaque élément doit être présenté sous une forme cliquable (ex. en HTML ou Markdown selon mon choix).
+    
+    Utilise un style propre et minimalist, non,  pas lieer vers la collection all mais vers la collection de volant
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-breadcrumb-{{ ai_gen_id }} {
+    padding: {{ block.settings.padding_top }}px 0 {{ block.settings.padding_bottom }}px;
+    background-color: {{ block.settings.background_color }};
+  }
+
+  .ai-breadcrumb-container-{{ ai_gen_id }} {
+    max-width: {{ block.settings.container_width }}px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .ai-breadcrumb-nav-{{ ai_gen_id }} {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: {{ block.settings.spacing }}px;
+    font-size: {{ block.settings.font_size }}px;
+    font-family: {{ block.settings.font.family }}, {{ block.settings.font.fallback_families }};
+    font-weight: {{ block.settings.font.weight }};
+  }
+
+  .ai-breadcrumb-item-{{ ai_gen_id }} {
+    display: flex;
+    align-items: center;
+    gap: {{ block.settings.spacing }}px;
+  }
+
+  .ai-breadcrumb-link-{{ ai_gen_id }} {
+    color: {{ block.settings.link_color }};
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .ai-breadcrumb-link-{{ ai_gen_id }}:hover {
+    color: {{ block.settings.link_hover_color }};
+  }
+
+  .ai-breadcrumb-separator-{{ ai_gen_id }} {
+    color: {{ block.settings.separator_color }};
+    user-select: none;
+  }
+
+  .ai-breadcrumb-current-{{ ai_gen_id }} {
+    color: {{ block.settings.current_color }};
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-breadcrumb-{{ ai_gen_id }} {
+      padding: {{ block.settings.padding_top | times: 0.7 }}px 0 {{ block.settings.padding_bottom | times: 0.7 }}px;
+    }
+
+    .ai-breadcrumb-nav-{{ ai_gen_id }} {
+      font-size: {{ block.settings.font_size | times: 0.9 }}px;
+    }
+  }
+{% endstyle %}
+
+<div class="ai-breadcrumb-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-breadcrumb-container-{{ ai_gen_id }}">
+    <nav class="ai-breadcrumb-nav-{{ ai_gen_id }}" aria-label="Fil d'Ariane">
+      <div class="ai-breadcrumb-item-{{ ai_gen_id }}">
+        <a href="/" class="ai-breadcrumb-link-{{ ai_gen_id }}">
+          {% if block.settings.show_home_icon %}
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M2 6L8 1L14 6V13C14 13.5304 13.7893 14.0391 13.4142 14.4142C13.0391 14.7893 12.5304 15 12 15H4C3.46957 15 2.96086 14.7893 2.58579 14.4142C2.21071 14.0391 2 13.5304 2 13V6Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M6 15V8H10V15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          {% else %}
+            {{ block.settings.home_text }}
+          {% endif %}
+        </a>
+      </div>
+
+      {% if product %}
+        {% assign product_collection = null %}
+        
+        {% for collection in product.collections %}
+          {% if collection.handle contains 'volant' %}
+            {% assign product_collection = collection %}
+            {% break %}
+          {% endif %}
+        {% endfor %}
+
+        {% if product_collection == null %}
+          {% for collection in product.collections %}
+            {% unless collection.handle == 'all' %}
+              {% assign product_collection = collection %}
+              {% break %}
+            {% endunless %}
+          {% endfor %}
+        {% endif %}
+
+        {% if product_collection %}
+          <span class="ai-breadcrumb-separator-{{ ai_gen_id }}" aria-hidden="true">{{ block.settings.separator }}</span>
+          <div class="ai-breadcrumb-item-{{ ai_gen_id }}">
+            <a href="{{ product_collection.url }}" class="ai-breadcrumb-link-{{ ai_gen_id }}">
+              {{ product_collection.title }}
+            </a>
+          </div>
+        {% endif %}
+
+        <span class="ai-breadcrumb-separator-{{ ai_gen_id }}" aria-hidden="true">{{ block.settings.separator }}</span>
+        <div class="ai-breadcrumb-item-{{ ai_gen_id }}">
+          <span class="ai-breadcrumb-current-{{ ai_gen_id }}" aria-current="page">
+            {{ product.title }}
+          </span>
+        </div>
+
+      {% elsif collection %}
+        <span class="ai-breadcrumb-separator-{{ ai_gen_id }}" aria-hidden="true">{{ block.settings.separator }}</span>
+        <div class="ai-breadcrumb-item-{{ ai_gen_id }}">
+          <span class="ai-breadcrumb-current-{{ ai_gen_id }}" aria-current="page">
+            {{ collection.title }}
+          </span>
+        </div>
+
+      {% elsif page %}
+        <span class="ai-breadcrumb-separator-{{ ai_gen_id }}" aria-hidden="true">{{ block.settings.separator }}</span>
+        <div class="ai-breadcrumb-item-{{ ai_gen_id }}">
+          <span class="ai-breadcrumb-current-{{ ai_gen_id }}" aria-current="page">
+            {{ page.title }}
+          </span>
+        </div>
+
+      {% elsif article %}
+        {% if blog %}
+          <span class="ai-breadcrumb-separator-{{ ai_gen_id }}" aria-hidden="true">{{ block.settings.separator }}</span>
+          <div class="ai-breadcrumb-item-{{ ai_gen_id }}">
+            <a href="{{ blog.url }}" class="ai-breadcrumb-link-{{ ai_gen_id }}">
+              {{ blog.title }}
+            </a>
+          </div>
+        {% endif %}
+
+        <span class="ai-breadcrumb-separator-{{ ai_gen_id }}" aria-hidden="true">{{ block.settings.separator }}</span>
+        <div class="ai-breadcrumb-item-{{ ai_gen_id }}">
+          <span class="ai-breadcrumb-current-{{ ai_gen_id }}" aria-current="page">
+            {{ article.title }}
+          </span>
+        </div>
+      {% endif %}
+    </nav>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Fil d'Ariane",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Contenu"
+    },
+    {
+      "type": "text",
+      "id": "home_text",
+      "label": "Texte d'accueil",
+      "default": "Accueil"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_home_icon",
+      "label": "Afficher l'icône maison",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "separator",
+      "label": "Séparateur",
+      "default": "/"
+    },
+    {
+      "type": "header",
+      "content": "Style"
+    },
+    {
+      "type": "font_picker",
+      "id": "font",
+      "label": "Police",
+      "default": "assistant_n4"
+    },
+    {
+      "type": "range",
+      "id": "font_size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Taille de police",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "spacing",
+      "min": 4,
+      "max": 20,
+      "step": 2,
+      "unit": "px",
+      "label": "Espacement",
+      "default": 8
+    },
+    {
+      "type": "header",
+      "content": "Couleurs"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Arrière-plan",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "link_color",
+      "label": "Couleur des liens",
+      "default": "#666666"
+    },
+    {
+      "type": "color",
+      "id": "link_hover_color",
+      "label": "Couleur au survol",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "separator_color",
+      "label": "Couleur du séparateur",
+      "default": "#cccccc"
+    },
+    {
+      "type": "color",
+      "id": "current_color",
+      "label": "Couleur de la page actuelle",
+      "default": "#000000"
+    },
+    {
+      "type": "header",
+      "content": "Mise en page"
+    },
+    {
+      "type": "range",
+      "id": "container_width",
+      "min": 800,
+      "max": 1600,
+      "step": 100,
+      "unit": "px",
+      "label": "Largeur du conteneur",
+      "default": 1200
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 60,
+      "step": 4,
+      "unit": "px",
+      "label": "Espacement haut",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 60,
+      "step": 4,
+      "unit": "px",
+      "label": "Espacement bas",
+      "default": 20
+    }
+  ],
+  "presets": [
+    {
+      "name": "Fil d'Ariane"
+    }
+  ]
+}
+{% endschema %}

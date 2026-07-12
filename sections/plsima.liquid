@@ -1,0 +1,636 @@
+{% schema %}
+{
+  "name": "Collections en Vedette",
+  "tag": "section",
+  "class": "featured-collections-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Titre de section",
+      "default": "Nos collections"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "Taille du titre",
+      "options": [
+        {
+          "value": "h2",
+          "label": "Moyen"
+        },
+        {
+          "value": "h1",
+          "label": "Grand"
+        },
+        {
+          "value": "h3",
+          "label": "Petit"
+        }
+      ],
+      "default": "h2"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Style d'affichage",
+      "options": [
+        {
+          "value": "grid",
+          "label": "Grille"
+        },
+        {
+          "value": "carousel",
+          "label": "Carrousel"
+        },
+        {
+          "value": "masonry",
+          "label": "Mosaïque"
+        }
+      ],
+      "default": "grid"
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 1,
+      "max": 5,
+      "step": 1,
+      "label": "Colonnes sur desktop",
+      "default": 3
+    },
+    {
+      "type": "range",
+      "id": "columns_mobile",
+      "min": 1,
+      "max": 3,
+      "step": 1,
+      "label": "Colonnes sur mobile",
+      "default": 1
+    },
+    {
+      "type": "range",
+      "id": "gap",
+      "min": 8,
+      "max": 40,
+      "step": 4,
+      "unit": "px",
+      "label": "Espacement",
+      "default": 20
+    },
+    {
+      "type": "checkbox",
+      "id": "show_collection_title",
+      "label": "Afficher le titre des collections",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_collection_description",
+      "label": "Afficher la description des collections",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_view_all",
+      "label": "Afficher le bouton 'Voir tout'",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "view_all_text",
+      "label": "Texte du bouton",
+      "default": "Voir toutes les collections"
+    },
+    {
+      "type": "url",
+      "id": "view_all_link",
+      "label": "Lien du bouton (optionnel)"
+    },
+    {
+      "type": "range",
+      "id": "image_ratio",
+      "min": 0.5,
+      "max": 1.5,
+      "step": 0.1,
+      "label": "Ratio des images",
+      "default": 1.0,
+      "info": "1.0 = carré, 0.8 = portrait, 1.3 = paysage"
+    },
+    {
+      "type": "select",
+      "id": "image_overlay",
+      "label": "Style de superposition",
+      "options": [
+        {
+          "value": "none",
+          "label": "Aucune"
+        },
+        {
+          "value": "gradient",
+          "label": "Dégradé"
+        },
+        {
+          "value": "solid",
+          "label": "Couleur unie"
+        }
+      ],
+      "default": "gradient"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "label": "Opacité de la superposition",
+      "default": 30
+    },
+    {
+      "type": "color",
+      "id": "overlay_color",
+      "label": "Couleur de superposition",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Couleur du texte",
+      "default": "#ffffff"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_product_count",
+      "label": "Afficher le nombre de produits",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "button_bg_color",
+      "label": "Couleur de fond du bouton",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Couleur du texte du bouton",
+      "default": "#ffffff"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collection",
+      "name": "Collection",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Collection"
+        },
+        {
+          "type": "checkbox",
+          "id": "custom_image",
+          "label": "Utiliser une image personnalisée",
+          "default": false
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image personnalisée",
+          "info": "1200 x 1200px recommandé"
+        },
+        {
+          "type": "text",
+          "id": "custom_title",
+          "label": "Titre personnalisé (optionnel)"
+        },
+        {
+          "type": "textarea",
+          "id": "custom_description",
+          "label": "Description personnalisée (optionnel)"
+        },
+        {
+          "type": "select",
+          "id": "text_alignment",
+          "label": "Alignement du texte",
+          "options": [
+            {
+              "value": "center",
+              "label": "Centre"
+            },
+            {
+              "value": "left",
+              "label": "Gauche"
+            },
+            {
+              "value": "right",
+              "label": "Droite"
+            }
+          ],
+          "default": "center"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collections en Vedette",
+      "blocks": [
+        {
+          "type": "collection"
+        },
+        {
+          "type": "collection"
+        },
+        {
+          "type": "collection"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<section class="section featured-collections-section">
+  <div class="page-width">
+    {% if section.settings.title != blank %}
+      <div class="section-header text-center">
+        <{{ section.settings.heading_size }} class="section-title">{{ section.settings.title }}</{{ section.settings.heading_size }}>
+      </div>
+    {% endif %}
+    
+    <div class="featured-collections {{ section.settings.layout }}"
+         style="--desktop-columns: {{ section.settings.columns_desktop }};
+                --mobile-columns: {{ section.settings.columns_mobile }};
+                --gap: {{ section.settings.gap }}px;
+                --overlay-opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }};">
+      {% for block in section.blocks %}
+        {% if block.type == 'collection' and block.settings.collection != blank %}
+          {% assign collection = collections[block.settings.collection] %}
+          
+          <div class="collection-item" {{ block.shopify_attributes }}>
+            <a href="{{ collection.url }}" class="collection-item-link">
+              <div class="collection-image-wrapper" style="--image-ratio: {{ section.settings.image_ratio }};">
+                {% if block.settings.custom_image and block.settings.image != blank %}
+                  <div class="collection-image-container">
+                    {{ block.settings.image | image_url: width: 600 | image_tag:
+                      loading: 'lazy',
+                      class: 'collection-image',
+                      alt: collection.title
+                    }}
+                    
+                    {% if section.settings.image_overlay != 'none' %}
+                      <div class="collection-overlay overlay-{{ section.settings.image_overlay }}"
+                           style="background-color: {{ section.settings.overlay_color }};">
+                      </div>
+                    {% endif %}
+                  </div>
+                {% elsif collection.image != blank %}
+                  <div class="collection-image-container">
+                    {{ collection.image | image_url: width: 600 | image_tag:
+                      loading: 'lazy',
+                      class: 'collection-image',
+                      alt: collection.title
+                    }}
+                    
+                    {% if section.settings.image_overlay != 'none' %}
+                      <div class="collection-overlay overlay-{{ section.settings.image_overlay }}"
+                           style="background-color: {{ section.settings.overlay_color }};">
+                      </div>
+                    {% endif %}
+                  </div>
+                {% elsif collection.products.first != blank %}
+                  <div class="collection-image-container">
+                    {{ collection.products.first.featured_image | image_url: width: 600 | image_tag:
+                      loading: 'lazy',
+                      class: 'collection-image',
+                      alt: collection.title
+                    }}
+                    
+                    {% if section.settings.image_overlay != 'none' %}
+                      <div class="collection-overlay overlay-{{ section.settings.image_overlay }}"
+                           style="background-color: {{ section.settings.overlay_color }};">
+                      </div>
+                    {% endif %}
+                  </div>
+                {% else %}
+                  <div class="collection-placeholder">
+                    {{ 'collection-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                  </div>
+                {% endif %}
+              </div>
+              
+              <div class="collection-info text-{{ block.settings.text_alignment }}"
+                   style="color: {{ section.settings.text_color }};">
+                {% if section.settings.show_collection_title %}
+                  <h3 class="collection-title">
+                    {% if block.settings.custom_title != blank %}
+                      {{ block.settings.custom_title }}
+                    {% else %}
+                      {{ collection.title }}
+                    {% endif %}
+                  </h3>
+                {% endif %}
+                
+                {% if section.settings.show_product_count %}
+                  <div class="collection-product-count">
+                    {{ collection.products_count }} produit{% if collection.products_count != 1 %}s{% endif %}
+                  </div>
+                {% endif %}
+                
+                {% if section.settings.show_collection_description and collection.description != blank %}
+                  <div class="collection-description">
+                    {% if block.settings.custom_description != blank %}
+                      <p>{{ block.settings.custom_description }}</p>
+                    {% else %}
+                      <p>{{ collection.description | strip_html | truncatewords: 15 }}</p>
+                    {% endif %}
+                  </div>
+                {% endif %}
+                
+                <div class="collection-button">
+                  <span>Découvrir</span>
+                </div>
+              </div>
+            </a>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+    
+    {% if section.settings.show_view_all and section.settings.view_all_text != blank %}
+      <div class="view-all-container">
+        <a href="{% if section.settings.view_all_link != blank %}{{ section.settings.view_all_link }}{% else %}/collections{% endif %}" 
+           class="btn view-all-button"
+           style="background-color: {{ section.settings.button_bg_color }}; color: {{ section.settings.button_text_color }};">
+          {{ section.settings.view_all_text }}
+        </a>
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+<style>
+  .featured-collections-section {
+    margin: 50px 0;
+  }
+  
+  .section-header {
+    margin-bottom: 30px;
+  }
+  
+  .section-title {
+    margin: 0;
+  }
+  
+  .featured-collections {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 calc(-1 * var(--gap) / 2);
+  }
+  
+  .featured-collections.grid {
+    display: grid;
+    grid-template-columns: repeat(var(--desktop-columns), 1fr);
+    gap: var(--gap);
+    margin: 0;
+  }
+  
+  .featured-collections.carousel {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Firefox */
+    margin: 0;
+    gap: var(--gap);
+    padding-bottom: 20px;
+  }
+  
+  .featured-collections.carousel::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Edge */
+  }
+  
+  .featured-collections.carousel .collection-item {
+    scroll-snap-align: start;
+    flex: 0 0 calc(100% / var(--desktop-columns) - var(--gap) * (var(--desktop-columns) - 1) / var(--desktop-columns));
+    padding: 0;
+  }
+  
+  .featured-collections.masonry {
+    display: grid;
+    grid-template-columns: repeat(var(--desktop-columns), 1fr);
+    gap: var(--gap);
+    margin: 0;
+  }
+  
+  .featured-collections.masonry .collection-item:nth-child(3n+1) {
+    grid-row: span 1;
+  }
+  
+  .featured-collections.masonry .collection-item:nth-child(3n+2) {
+    grid-row: span 1.3;
+  }
+  
+  .featured-collections.masonry .collection-item:nth-child(3n) {
+    grid-row: span 1.1;
+  }
+  
+  .collection-item {
+    margin-bottom: var(--gap);
+    position: relative;
+  }
+  
+  .collection-item-link {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+    height: 100%;
+  }
+  
+  .collection-image-wrapper {
+    position: relative;
+    overflow: hidden;
+    padding-bottom: calc(100% * var(--image-ratio));
+    border-radius: 8px;
+  }
+  
+  .collection-image-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .collection-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.75s ease;
+  }
+  
+  .collection-item-link:hover .collection-image {
+    transform: scale(1.05);
+  }
+  
+  .collection-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: var(--overlay-opacity);
+    transition: opacity 0.3s ease;
+  }
+  
+  .overlay-gradient {
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, var(--overlay-color) 100%);
+  }
+  
+  .collection-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    z-index: 1;
+  }
+  
+  .collection-title {
+    margin: 0 0 5px;
+    font-size: 1.4rem;
+    font-weight: 700;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+  }
+  
+  .collection-product-count {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    margin-bottom: 8px;
+  }
+  
+  .collection-description {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+  
+  .collection-button {
+    display: inline-block;
+    margin-top: 10px;
+    background-color: rgba(255,255,255,0.2);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    padding: 8px 15px;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  
+  .collection-item-link:hover .collection-button {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .collection-placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #f4f4f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .placeholder-svg {
+    width: 60%;
+    height: 60%;
+    opacity: 0.3;
+  }
+  
+  .view-all-container {
+    text-align: center;
+    margin-top: 30px;
+  }
+  
+  .view-all-button {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: opacity 0.2s ease;
+  }
+  
+  .view-all-button:hover {
+    opacity: 0.9;
+  }
+  
+  @media screen and (max-width: 990px) {
+    .collection-title {
+      font-size: 1.2rem;
+    }
+  }
+  
+  @media screen and (max-width: 749px) {
+    .featured-collections.grid {
+      grid-template-columns: repeat(var(--mobile-columns), 1fr);
+    }
+    
+    .featured-collections.carousel .collection-item {
+      flex: 0 0 calc(100% / var(--mobile-columns) - var(--gap) * (var(--mobile-columns) - 1) / var(--mobile-columns));
+    }
+    
+    .featured-collections.masonry {
+      grid-template-columns: repeat(var(--mobile-columns), 1fr);
+    }
+    
+    .featured-collections.masonry .collection-item:nth-child(n) {
+      grid-row: span 1;
+    }
+    
+    .collection-info {
+      padding: 15px;
+    }
+    
+    .collection-title {
+      font-size: 1.1rem;
+    }
+    
+    .collection-button {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Animation au défilement pour les collections
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+    
+    document.querySelectorAll('.collection-item').forEach(item => {
+      observer.observe(item);
+    });
+  });
+</script>

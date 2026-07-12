@@ -1,0 +1,628 @@
+{% comment %}
+  Section : Carrousel d'avis clients vérifiés avec défilement infini et images optionnelles
+{% endcomment %}
+
+<style>
+.testimonials-section {
+  margin: 60px 0;
+  overflow: hidden;
+}
+
+.testimonials-title {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.testimonials-container {
+  position: relative;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 40px;
+  overflow: hidden;
+}
+
+.testimonials-track-wrapper {
+  overflow: hidden;
+}
+
+.testimonials-track {
+  display: flex;
+  transition: transform 0.5s ease;
+  gap: 20px;
+}
+
+.testimonial-card {
+  flex: 0 0 400px;
+  min-width: 400px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+}
+
+/* Carte sans image - alignement centré */
+.testimonial-card--no-image {
+  justify-content: center;
+}
+
+.testimonial-card--no-image .testimonial-content {
+  text-align: center;
+}
+
+.testimonial-card--no-image .testimonial-rating {
+  justify-content: center;
+}
+
+.testimonial-card--no-image .testimonial-author {
+  justify-content: center;
+}
+
+.testimonial-product {
+  flex: 0 0 100px;
+  margin-right: 20px;
+}
+
+.testimonial-product-image-wrapper {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  background-color: #f5f5f5;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.testimonial-product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.testimonial-product-name {
+  margin-top: 5px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 1.2;
+}
+
+.testimonial-content {
+  flex: 1;
+}
+
+.testimonial-rating {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.testimonial-verified-badge {
+  display: inline-flex;
+  align-items: center;
+  background-color: #e6f7ee;
+  color: #0a7c42;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 12px;
+  margin-left: 8px;
+}
+
+.verified-icon {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  margin-right: 4px;
+  background-color: #0a7c42;
+  border-radius: 50%;
+  position: relative;
+}
+
+.verified-icon:after {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 5px;
+  width: 4px;
+  height: 7px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.star {
+  color: #D1D5DB;
+  font-size: 16px;
+  margin-right: 2px;
+}
+
+.star--filled {
+  color: #FFD700;
+}
+
+.testimonial-text {
+  font-style: italic;
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 10px;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.testimonial-author {
+  font-weight: 600;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+}
+
+.testimonial-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  border: none;
+  cursor: pointer;
+  z-index: 5;
+}
+
+.testimonial-nav--prev {
+  left: 0;
+}
+
+.testimonial-nav--next {
+  right: 0;
+}
+
+.testimonial-dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.testimonial-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #D1D5DB;
+  margin: 0 5px;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+}
+
+.testimonial-dot--active {
+  background: #3B82F6;
+}
+
+@media screen and (min-width: 768px) {
+  .testimonial-card {
+    flex: 0 0 450px;
+    min-width: 450px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .testimonials-container {
+    max-width: 1200px;
+  }
+  
+  .testimonial-card {
+    flex: 0 0 500px;
+    min-width: 500px;
+  }
+  
+  .testimonial-product {
+    flex: 0 0 120px;
+  }
+  
+  .testimonial-product-image-wrapper {
+    width: 120px;
+    height: 120px;
+  }
+}
+</style>
+
+<div class="testimonials-section">
+  <div class="page-width">
+    <h2 class="testimonials-title">{{ section.settings.title }}</h2>
+    
+    <div class="testimonials-container">
+      <div class="testimonials-track-wrapper">
+        <div class="testimonials-track" id="testimonials-track">
+          {% for block in section.blocks %}
+            {% assign has_image = false %}
+            {% if block.settings.product_image != blank and block.settings.show_image %}
+              {% assign has_image = true %}
+            {% endif %}
+            
+            <div class="testimonial-card {% unless has_image %}testimonial-card--no-image{% endunless %}" {{ block.shopify_attributes }} data-testimonial-index="{{ forloop.index0 }}">
+              {% if has_image %}
+                <div class="testimonial-product">
+                  <div class="testimonial-product-image-wrapper">
+                    <img 
+                      srcset="{{ block.settings.product_image | img_url: '200x200', crop: 'center' }} 1x, {{ block.settings.product_image | img_url: '400x400', crop: 'center' }} 2x"
+                      src="{{ block.settings.product_image | img_url: '200x200', crop: 'center' }}"
+                      alt="{{ block.settings.product_name }}"
+                      loading="lazy"
+                      class="testimonial-product-image"
+                    >
+                  </div>
+                  {% if block.settings.product_name != blank %}
+                    <p class="testimonial-product-name">{{ block.settings.product_name }}</p>
+                  {% endif %}
+                </div>
+              {% endif %}
+              
+              <div class="testimonial-content">
+                <div class="testimonial-rating">
+                  {% assign rating = block.settings.rating %}
+                  {% for i in (1..5) %}
+                    <span class="star{% if i <= rating %} star--filled{% endif %}">★</span>
+                  {% endfor %}
+                </div>
+                
+                <p class="testimonial-text">"{{ block.settings.testimonial_text }}"</p>
+                <p class="testimonial-author">
+                  {{ block.settings.customer_name }}
+                  {% if block.settings.verified or section.settings.all_verified %}
+                    <span class="testimonial-verified-badge">
+                      <span class="verified-icon"></span>
+                      {{ section.settings.verified_label | default: 'Avis vérifié' }}
+                    </span>
+                  {% endif %}
+                </p>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+      
+      <button type="button" class="testimonial-nav testimonial-nav--prev" aria-label="Avis précédents">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+      </button>
+      
+      <button type="button" class="testimonial-nav testimonial-nav--next" aria-label="Avis suivants">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </button>
+    </div>
+    
+    <div class="testimonial-dots" id="testimonial-dots"></div>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const track = document.getElementById('testimonials-track');
+  const cards = track.querySelectorAll('.testimonial-card');
+  const dotsContainer = document.getElementById('testimonial-dots');
+  const prevButton = document.querySelector('.testimonial-nav--prev');
+  const nextButton = document.querySelector('.testimonial-nav--next');
+  
+  // Si aucun avis, ne rien faire
+  if (cards.length === 0) return;
+  
+  // Variables
+  const cardWidth = cards[0].offsetWidth + 20; // Card width + gap
+  const cardCount = cards.length;
+  let currentIndex = 0;
+  let autoplayTimer;
+  const autoplayDelay = {{ section.settings.autoplay_speed | default: 5000 }};
+  const autoplayEnabled = {{ section.settings.autoplay | default: true }};
+  
+  // Cloner des cartes pour l'effet infini
+  function setupInfiniteScroll() {
+    // Ne rien faire s'il n'y a qu'une seule carte
+    if (cardCount <= 1) return;
+    
+    // Cloner quelques cartes au début et à la fin pour créer l'illusion d'un défilement infini
+    const visibleCards = calculateVisibleCards();
+    const cloneCount = Math.min(visibleCards, cardCount);
+    
+    // Ajouter des clones à la fin
+    for (let i = 0; i < cloneCount; i++) {
+      const clone = cards[i].cloneNode(true);
+      clone.setAttribute('aria-hidden', 'true');
+      clone.classList.add('testimonial-clone');
+      track.appendChild(clone);
+    }
+    
+    // Ajouter des clones au début
+    for (let i = cardCount - 1; i >= Math.max(0, cardCount - cloneCount); i--) {
+      const clone = cards[i].cloneNode(true);
+      clone.setAttribute('aria-hidden', 'true');
+      clone.classList.add('testimonial-clone');
+      track.insertBefore(clone, track.firstChild);
+    }
+    
+    // Positionner le track pour que la première carte originale soit visible
+    track.style.transform = `translateX(-${cloneCount * cardWidth}px)`;
+    currentIndex = 0;
+  }
+  
+  // Fonction pour calculer le nombre de cartes visibles
+  function calculateVisibleCards() {
+    const containerWidth = track.parentElement.offsetWidth;
+    return Math.max(1, Math.floor(containerWidth / cardWidth));
+  }
+  
+  // Créer les points de navigation
+  function createDots() {
+    dotsContainer.innerHTML = '';
+    
+    // Ne pas afficher de dots s'il n'y a qu'une carte
+    if (cardCount <= 1) return;
+    
+    for (let i = 0; i < cardCount; i++) {
+      const dot = document.createElement('button');
+      dot.classList.add('testimonial-dot');
+      if (i === 0) dot.classList.add('testimonial-dot--active');
+      dot.setAttribute('aria-label', `Page d'avis ${i + 1}`);
+      dot.addEventListener('click', () => {
+        goToSlide(i);
+      });
+      dotsContainer.appendChild(dot);
+    }
+  }
+  
+  // Mettre à jour la position du track avec animation
+  function updateTrackPosition(animate = true) {
+    const allCards = track.querySelectorAll('.testimonial-card');
+    const cloneCount = (allCards.length - cardCount) / 2;
+    
+    // Calcul de la nouvelle position
+    let newPosition = (currentIndex + cloneCount) * cardWidth;
+    
+    // Appliquer la transformation avec ou sans animation
+    if (animate) {
+      track.style.transition = 'transform 0.5s ease';
+    } else {
+      track.style.transition = 'none';
+    }
+    
+    track.style.transform = `translateX(-${newPosition}px)`;
+    
+    // Mettre à jour les dots
+    updateActiveDot();
+    
+    // Réinitialiser l'autoplay si activé
+    if (autoplayEnabled) {
+      resetAutoplay();
+    }
+  }
+  
+  // Mettre à jour le dot actif
+  function updateActiveDot() {
+    const dots = dotsContainer.querySelectorAll('.testimonial-dot');
+    const normalizedIndex = (currentIndex % cardCount + cardCount) % cardCount;
+    
+    dots.forEach((dot, index) => {
+      if (index === normalizedIndex) {
+        dot.classList.add('testimonial-dot--active');
+      } else {
+        dot.classList.remove('testimonial-dot--active');
+      }
+    });
+  }
+  
+  // Navigation vers la diapo suivante
+  function nextSlide() {
+    currentIndex++;
+    updateTrackPosition();
+    
+    // Gestion de la transition infinie
+    if (currentIndex >= cardCount) {
+      setTimeout(() => {
+        currentIndex = 0;
+        updateTrackPosition(false);
+      }, 500); // Attendre la fin de l'animation
+    }
+  }
+  
+  // Navigation vers la diapo précédente
+  function prevSlide() {
+    currentIndex--;
+    updateTrackPosition();
+    
+    // Gestion de la transition infinie
+    if (currentIndex < 0) {
+      setTimeout(() => {
+        currentIndex = cardCount - 1;
+        updateTrackPosition(false);
+      }, 500); // Attendre la fin de l'animation
+    }
+  }
+  
+  // Aller à une diapo spécifique
+  function goToSlide(index) {
+    currentIndex = index;
+    updateTrackPosition();
+  }
+  
+  // Autoplay
+  function startAutoplay() {
+    if (autoplayTimer) clearInterval(autoplayTimer);
+    autoplayTimer = setInterval(nextSlide, autoplayDelay);
+  }
+  
+  function resetAutoplay() {
+    if (autoplayEnabled) {
+      if (autoplayTimer) clearInterval(autoplayTimer);
+      autoplayTimer = setInterval(nextSlide, autoplayDelay);
+    }
+  }
+  
+  // Gestion des événements
+  prevButton.addEventListener('click', prevSlide);
+  nextButton.addEventListener('click', nextSlide);
+  
+  // Gestion de la transition infinie
+  track.addEventListener('transitionend', function() {
+    // Réactiver la transition si elle a été désactivée
+    if (track.style.transition === 'none') {
+      setTimeout(() => {
+        track.style.transition = 'transform 0.5s ease';
+      }, 10);
+    }
+  });
+  
+  // Initialisation
+  createDots();
+  setupInfiniteScroll();
+  
+  // Commencer l'autoplay si activé
+  if (autoplayEnabled && cardCount > 1) {
+    startAutoplay();
+  }
+  
+  // Pause de l'autoplay au survol
+  const container = document.querySelector('.testimonials-container');
+  container.addEventListener('mouseenter', () => {
+    if (autoplayTimer) clearInterval(autoplayTimer);
+  });
+  
+  container.addEventListener('mouseleave', () => {
+    if (autoplayEnabled && cardCount > 1) {
+      startAutoplay();
+    }
+  });
+  
+  // Responsive
+  window.addEventListener('resize', () => {
+    // Recalculer la taille des cartes
+    const newCardWidth = cards[0].offsetWidth + 20;
+    
+    // Si la taille a changé, réinitialiser le carrousel
+    if (newCardWidth !== cardWidth) {
+      location.reload(); // Solution simple pour reconfigurer le carrousel
+    }
+  });
+});
+</script>
+
+{% schema %}
+{
+  "name": "Avis en ligne",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Titre",
+      "default": "Ce que les clients en pensent"
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Activer le défilement automatique",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "autoplay_speed",
+      "min": 2000,
+      "max": 9000,
+      "step": 1000,
+      "unit": "ms",
+      "label": "Vitesse de défilement",
+      "default": 5000
+    },
+    {
+      "type": "checkbox",
+      "id": "all_verified",
+      "label": "Marquer tous les avis comme vérifiés",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "verified_label",
+      "label": "Texte du badge de vérification",
+      "default": "Avis vérifié"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Avis client",
+      "settings": [
+        {
+          "type": "text",
+          "id": "customer_name",
+          "label": "Nom du client",
+          "default": "Nom du client"
+        },
+        {
+          "type": "range",
+          "id": "rating",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "label": "Note (étoiles)",
+          "default": 5
+        },
+        {
+          "type": "textarea",
+          "id": "testimonial_text",
+          "label": "Texte de l'avis",
+          "default": "Partagez l'expérience de votre client avec votre produit."
+        },
+        {
+          "type": "checkbox",
+          "id": "verified",
+          "label": "Avis vérifié",
+          "info": "Affiche un badge d'avis vérifié",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "show_image",
+          "label": "Afficher l'image du produit",
+          "default": true
+        },
+        {
+          "type": "image_picker",
+          "id": "product_image",
+          "label": "Image du produit"
+        },
+        {
+          "type": "text",
+          "id": "product_name",
+          "label": "Nom du produit",
+          "default": "Nom du produit"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Avis en ligne",
+      "blocks": [
+        {
+          "type": "testimonial"
+        },
+        {
+          "type": "testimonial"
+        },
+        {
+          "type": "testimonial"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

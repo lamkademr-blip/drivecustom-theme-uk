@@ -1,0 +1,601 @@
+{
+  "sections": {
+    "slideshow_6GfCjf": {
+      "type": "slideshow",
+      "settings": {
+        "layout": "full_bleed",
+        "slide_height": "medium",
+        "slider_visual": "counter",
+        "auto_rotate": false,
+        "change_slides_speed": 5,
+        "image_behavior": "none",
+        "show_text_below": true,
+        "accessibility_info": "Diaporama sur votre marque"
+      }
+    },
+    "176899746855311c7e": {
+      "type": "_blocks",
+      "settings": {}
+    },
+    "1769011966061244b5": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_3d3f0ee_FwYpCE": {
+          "type": "ai_gen_block_3d3f0ee",
+          "settings": {
+            "background_image": "shopify://shop_images/kikoumpsz.png",
+            "overlay_direction": "right",
+            "overlay_opacity": 0.6,
+            "content_max_width": 600,
+            "padding_top": 80,
+            "padding_bottom": 80,
+            "padding_left": 80,
+            "padding_right": 80,
+            "mobile_height": 70,
+            "mobile_padding": 30,
+            "eyebrow_text": "",
+            "eyebrow_size": 12,
+            "eyebrow_spacing": 0.2,
+            "eyebrow_color": "#FFFFFF",
+            "eyebrow_opacity": 0.9,
+            "headline_text": "Prenez le contr\u00f4le de votre passion avec un volant personnalis\u00e9 !",
+            "headline_size": 44,
+            "headline_weight": "300",
+            "headline_spacing": 0.1,
+            "headline_line_height": 1.1,
+            "headline_color": "#FFFFFF",
+            "primary_label": "CONSTRUISEZ LE VOTRE",
+            "primary_link": "shopify://collections/volant-bmw",
+            "primary_bg": "#FFFFFF",
+            "primary_text": "#000000",
+            "primary_hover_bg": "#000000",
+            "primary_hover_text": "#FFFFFF",
+            "secondary_label": "WHATSAPP",
+            "secondary_link": "https://wa.me/33622510196",
+            "secondary_bg": "#25D366",
+            "secondary_text": "#FFFFFF",
+            "secondary_hover_bg": "#1DA851",
+            "secondary_hover_text": "#FFFFFF",
+            "button_font_size": 14,
+            "button_padding_vertical": 16,
+            "button_padding_horizontal": 32,
+            "button_border_radius": 0
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_3d3f0ee_FwYpCE"
+      ],
+      "settings": {}
+    },
+    "titre_7xhXj8": {
+      "type": "Titre",
+      "settings": {
+        "title": "Pour Chaque Pilote, Un Volant d'Exception",
+        "title_color": "#000000",
+        "title_size": 36,
+        "text_align": "center",
+        "padding_top": 30,
+        "padding_bottom": 30
+      }
+    },
+    "blocks_fVR8CW": {
+      "type": "_blocks",
+      "name": "D\u00e9couvrez notre atelier",
+      "settings": {}
+    },
+    "1768995084527ed5d7": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_c8229d6_k7aAcH": {
+          "type": "ai_gen_block_c8229d6",
+          "settings": {
+            "cards_per_row": 3,
+            "number_of_rows": 2,
+            "cards_per_row_tablet": 2,
+            "cards_per_row_mobile": "2",
+            "card_1_image": "shopify://shop_images/jukil.png",
+            "card_1_brand": "AUDI",
+            "card_1_button_text": "voir",
+            "card_1_link": "shopify://collections/volant-audi",
+            "card_2_image": "shopify://shop_images/bvhjlgb.png",
+            "card_2_brand": "BMW",
+            "card_2_button_text": "voir",
+            "card_2_link": "shopify://collections/volant-bmw",
+            "card_3_image": "shopify://shop_images/mbkio.png",
+            "card_3_brand": "MERCEDES",
+            "card_3_button_text": "voir",
+            "card_3_link": "shopify://collections/volant-mercedes",
+            "card_4_image": "shopify://shop_images/prnssd.png",
+            "card_4_brand": "PORSCHE",
+            "card_4_button_text": "voir",
+            "card_4_link": "shopify://collections/volant-porsche",
+            "card_5_image": "shopify://shop_images/mlzkzkkzkz.png",
+            "card_5_brand": "volkswagen",
+            "card_5_button_text": "voir",
+            "card_5_link": "shopify://collections/volant-volkswagen",
+            "card_6_image": "shopify://shop_images/milosf.png",
+            "card_6_brand": "tesla",
+            "card_6_button_text": "voir",
+            "card_6_link": "shopify://collections/volant-tesla",
+            "card_7_brand": "",
+            "card_7_button_text": "VIEW WHEELS",
+            "card_7_link": "",
+            "card_8_brand": "",
+            "card_8_button_text": "VIEW WHEELS",
+            "card_8_link": "",
+            "card_9_brand": "",
+            "card_9_button_text": "VIEW WHEELS",
+            "card_9_link": "",
+            "card_10_brand": "",
+            "card_10_button_text": "VIEW WHEELS",
+            "card_10_link": "",
+            "card_11_brand": "",
+            "card_11_button_text": "VIEW WHEELS",
+            "card_11_link": "",
+            "card_12_brand": "",
+            "card_12_button_text": "VIEW WHEELS",
+            "card_12_link": "",
+            "section_background": "#ffffff",
+            "card_gap": 8,
+            "overlay_opacity": 0.5,
+            "content_padding": 40,
+            "content_gap": 20,
+            "brand_font": "poppins_n5",
+            "brand_font_size": 36,
+            "brand_color": "#ffffff",
+            "brand_letter_spacing": 4,
+            "button_font_size": 13,
+            "button_font_weight": 500,
+            "button_letter_spacing": 1.5,
+            "button_padding_vertical": 14,
+            "button_padding_horizontal": 32,
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "button_hover_background": "#e5e5e5",
+            "button_hover_text_color": "#000000",
+            "button_border_radius": 0,
+            "button_border_width": 0,
+            "button_border_color": "#ffffff",
+            "button_hover_border_color": "#e5e5e5",
+            "desktop_width_percent": 100
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_c8229d6_k7aAcH"
+      ],
+      "settings": {}
+    },
+    "1769004103f9cfca36": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_516848c_DzVtbE": {
+          "type": "ai_gen_block_516848c",
+          "settings": {
+            "padding_top": 100,
+            "padding_bottom": 120,
+            "padding_horizontal": 60,
+            "content_max_width": 900,
+            "content_spacing": 24,
+            "text_alignment": "center",
+            "gradient_color_1": "#ffffff",
+            "gradient_color_2": "#ffffff",
+            "gradient_color_3": "#ffffff",
+            "gradient_color_4": "#ffffff",
+            "gradient_color_5": "#ffffff",
+            "headline": "Vous ne trouvez pas le volant pour votre v\u00e9hicule ?",
+            "headline_size": 40,
+            "headline_weight": "400",
+            "headline_letter_spacing": 1,
+            "headline_color": "#000000",
+            "headline_max_width": 720,
+            "subtext": "Certains projets ne rentrent pas dans un configurateur. D\u00e9crivez-nous votre volant id\u00e9al, nous le cr\u00e9ons sur mesure.",
+            "subtext_size": 18,
+            "subtext_color": "#000000",
+            "subtext_max_width": 680,
+            "highlight": "Sur-mesure total \u00b7 Conseil expert \u00b7 R\u00e9ponse rapide",
+            "highlight_size": 14,
+            "highlight_color": "#8e9ad6",
+            "button_text": "PARLER \u00c0 UN EXPERT SUR WHATSAPP",
+            "button_link": "https://wa.me/33622510196",
+            "show_whatsapp_icon": true,
+            "button_background": "#25d366",
+            "button_text_color": "#ffffff",
+            "button_border_radius": 0,
+            "button_font_size": 16,
+            "button_padding_vertical": 18,
+            "button_padding_horizontal": 40,
+            "button_hover_scale": 10,
+            "enable_fade_in": true
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_516848c_DzVtbE"
+      ],
+      "settings": {}
+    },
+    "1769002067fd8184ff": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_5b9c4c6_WRdrYK": {
+          "type": "ai_gen_block_5b9c4c6",
+          "settings": {
+            "columns_desktop": 4,
+            "columns_tablet": 2,
+            "columns_mobile": "1",
+            "alignment": "center",
+            "gap": 48,
+            "padding_top": 80,
+            "padding_bottom": 80,
+            "padding_horizontal": 60,
+            "gradient_direction": "top_left_to_bottom_right",
+            "gradient_color_1": "#ffffff",
+            "gradient_color_2": "#ffffff",
+            "eyebrow_text": "NOTRE ACCOMPAGNEMENT",
+            "eyebrow_color": "#000000",
+            "eyebrow_size": 17,
+            "eyebrow_letter_spacing": 2,
+            "icon_size": 64,
+            "icon_radius": 12,
+            "icon_background": "#006eff",
+            "icon_color": "#ffffff",
+            "title_size": 18,
+            "title_font_weight": "700",
+            "title_letter_spacing": 1,
+            "title_color": "#006eff",
+            "text_size": 14,
+            "text_color": "#000000",
+            "step_1_enabled": true,
+            "step_1_number": "1.",
+            "step_1_title": "PERSONNALISATION",
+            "step_1_description": "Cr\u00e9ez votre volant sur mesure, du design \u00e0 la prise en main, pour une exp\u00e9rience de conduite qui vous ressemble.",
+            "step_1_icon": "sliders",
+            "step_2_enabled": true,
+            "step_2_number": "2.",
+            "step_2_title": "FABRICATION",
+            "step_2_description": "Nos artisans con\u00e7oivent votre volant avec des mat\u00e9riaux premium et une finition impeccable, digne des plus grands pilotes.",
+            "step_2_icon": "edit",
+            "step_3_enabled": true,
+            "step_3_number": "3.",
+            "step_3_title": "LIVRAISON OFFERTE",
+            "step_3_description": "Votre volant personnalis\u00e9 livr\u00e9 gratuitement et soigneusement emball\u00e9 directement chez vous.",
+            "step_3_icon": "box",
+            "step_4_enabled": true,
+            "step_4_number": "4.",
+            "step_4_title": "GARANTIE 5 ANS",
+            "step_4_description": "Prenez la route en toute confiance avec une garantie compl\u00e8te contre tout d\u00e9faut de fabrication.",
+            "step_4_icon": "shield"
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_8c7fb54_kiwkJP": {
+          "type": "ai_gen_block_8c7fb54",
+          "settings": {
+            "show_badge": true,
+            "badge_text": "TOP QUALIT\u00c9",
+            "title": "Nos clients adorent",
+            "subtitle": "D\u00e9couvrez ce que nos clients disent de nos volants premium",
+            "heading_font": "assistant_n4",
+            "testimonial_1_enabled": true,
+            "testimonial_1_text": "Franchement rien \u00e0 voir avec le volant d'origine, celui-l\u00e0 est une pure tuerie ! Le montage est super simple, en 40 minutes c'\u00e9tait pli\u00e9. Pour le prix la qualit\u00e9 est vraiment au rendez-vous, je recommande sans h\u00e9siter.",
+            "testimonial_1_name": "Louis Y.",
+            "testimonial_1_email": "",
+            "testimonial_2_enabled": true,
+            "testimonial_2_text": "J'ai l'impression d'avoir une nouvelle voiture, un truc de fou. Je la prends beaucoup plus souvent, et j'ai l'impression d'\u00eatre un meilleur pilote. Franchement, \u00e7a change tout, ma BM est redevenue une bombe.",
+            "testimonial_2_name": "Reid N.",
+            "testimonial_2_email": "",
+            "testimonial_3_enabled": true,
+            "testimonial_3_text": "Franchement au top. J'ai pu rajouter le r\u00e9gulateur de vitesse et les palettes, la sensation de conduite est juste g\u00e9niale maintenant.",
+            "testimonial_3_name": "Lina U.",
+            "testimonial_3_email": "",
+            "testimonial_4_enabled": true,
+            "testimonial_4_text": "Volant install\u00e9, et le rendu est juste magnifique ! La qualit\u00e9 est dingue, super prise en main. M\u00eame le mec du garage qui me l'a pos\u00e9 a dit que c'\u00e9tait du bon matos. Franchement, je suis trop content du resultat.",
+            "testimonial_4_name": "Emile O.",
+            "testimonial_4_email": "",
+            "testimonial_5_enabled": true,
+            "testimonial_5_text": "Super rendu une fois mont\u00e9, la prise en main est top ;)",
+            "testimonial_5_name": "Aya V.",
+            "testimonial_5_email": "",
+            "testimonial_6_enabled": true,
+            "testimonial_6_text": "Qualit\u00e9 au top, montage nickel. \u00c7a donne un sacr\u00e9 coup de jeune \u00e0 ma BM, on dirait qu'elle a 10 ans de moins",
+            "testimonial_6_name": "Kevin L.",
+            "testimonial_6_email": ""
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_5b9c4c6_WRdrYK",
+        "ai_gen_block_8c7fb54_kiwkJP"
+      ],
+      "settings": {}
+    },
+    "before_GWCn4d": {
+      "type": "before",
+      "settings": {
+        "show_top_title": true,
+        "top_title": "Vivez un Changement Radical",
+        "top_title_color": "#000000",
+        "bf_image": "shopify://shop_images/Capture_d_ecran_2025-03-06_181933.png",
+        "af_image": "shopify://shop_images/O1CN01vMxi3A24ubvEHDeER__2210127451_jpg.webp",
+        "show_badge": true,
+        "grayscale_before": false,
+        "show_content": false,
+        "ba_heading": "",
+        "ba_content": ""
+      }
+    },
+    "slider_video_eanfLJ": {
+      "type": "slider-video",
+      "blocks": {
+        "slide_6CtX3f": {
+          "type": "slide",
+          "settings": {
+            "video": "shopify://files/videos/WeChat_20250619223621.mp4",
+            "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+            "title": "L\u00e9o",
+            "stars_count": 5
+          }
+        },
+        "slide_LEEEqp": {
+          "type": "slide",
+          "settings": {
+            "video": "shopify://files/videos/IMG_9905.MOV",
+            "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+            "title": "Martin",
+            "stars_count": 5
+          }
+        },
+        "slide_y8Ei4y": {
+          "type": "slide",
+          "settings": {
+            "video": "shopify://files/videos/IMG_0250.MOV",
+            "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+            "title": "Yassine",
+            "stars_count": 5
+          }
+        },
+        "slide_tMNLje": {
+          "type": "slide",
+          "settings": {
+            "video": "shopify://files/videos/WeChat_20250223154933.mp4",
+            "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+            "title": "Mickael",
+            "stars_count": 5
+          }
+        },
+        "slide_Q6fFJt": {
+          "type": "slide",
+          "settings": {
+            "video": "shopify://files/videos/WeChat_20250711201450_b41cf4f0-168d-43bd-bdb7-f1a1c328a0ac.mp4",
+            "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+            "title": "Jason",
+            "stars_count": 4
+          }
+        }
+      },
+      "block_order": [
+        "slide_6CtX3f",
+        "slide_LEEEqp",
+        "slide_y8Ei4y",
+        "slide_tMNLje",
+        "slide_Q6fFJt"
+      ],
+      "settings": {
+        "slider_view": 5,
+        "slider_view_mobile": 2.2,
+        "slider_gap": 10,
+        "slider_gap_mobile": 10,
+        "slider_rotate": 0,
+        "card_padding_vertical": 20,
+        "card_padding_vertical_mobile": 20,
+        "card_padding_horizontal": 20,
+        "card_padding_horizontal_mobile": 20,
+        "card_radius": 32,
+        "card_border_thickness": 0,
+        "card_shadow": false,
+        "card_ratio": "portrait",
+        "card_ratio_mobile": "portrait",
+        "card_overlay": 0.2,
+        "content_horizontal_position": "center",
+        "content_horizontal_position_mobile": "center",
+        "content_vertical_position": "end",
+        "content_vertical_position_mobile": "end",
+        "title_custom": false,
+        "title_font": "josefin_sans_n4",
+        "title_size": 16,
+        "title_size_mobile": 16,
+        "title_height": 100,
+        "stars_size": 16,
+        "stars_size_mobile": 16,
+        "stars_mt": 16,
+        "stars_mt_mobile": 16,
+        "hide_stars": false,
+        "use_action": true,
+        "action_size": 40,
+        "action_size_mobile": 40,
+        "action_icon_size": 24,
+        "action_icon_size_mobile": 24,
+        "action_border_thickness": 0,
+        "use_sound": false,
+        "sound_size": 40,
+        "sound_size_mobile": 40,
+        "sound_icon_size": 24,
+        "sound_icon_size_mobile": 24,
+        "sound_border_thickness": 0,
+        "arrow_size": 48,
+        "arrow_size_mobile": 48,
+        "arrow_icon_size": 8,
+        "arrow_icon_size_mobile": 8,
+        "arrow_border_thickness": 0,
+        "arrow_radius": 100,
+        "arrow_hover_effect": "color",
+        "arrow_show_desktop": true,
+        "arrow_show_mobile": false,
+        "card_border_color": "#000000",
+        "card_shadow_color": "#000000",
+        "card_overlay_color": "#000000",
+        "title_color": "#ffffff",
+        "stars_color": "#ffffff",
+        "action_color": "#ffffff",
+        "action_hover_color": "#ffffff",
+        "action_bg_color": "#ffffff",
+        "action_bg_hover_color": "#ffffff",
+        "action_border_color": "#ffffff",
+        "action_border_hover_color": "#ffffff",
+        "sound_icon_color": "#ffffff",
+        "sound_icon_hover_color": "#ffffff",
+        "sound_bg_color": "#ffffff",
+        "sound_bg_hover_color": "#ffffff",
+        "sound_border_color": "#ffffff",
+        "sound_border_hover_color": "#ffffff",
+        "arrow_color": "#ffffff",
+        "arrow_hover_color": "#434343",
+        "arrow_bg_color": "#434343",
+        "arrow_bg_hover_color": "#ffffff",
+        "arrow_border_color": "#000000",
+        "arrow_border_hover_color": "#000000",
+        "background_color": "#ffffff",
+        "background_gradient": "",
+        "border_color": "#000000",
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_horizontal": 0,
+        "padding_horizontal_mobile": 0,
+        "full_width": false,
+        "content_width": 120,
+        "border_thickness": 0,
+        "lazy": true
+      }
+    },
+    "multirow_EAck6W": {
+      "type": "multirow",
+      "blocks": {
+        "row_UrUFrE": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/volant_audi_S5_carbone.png",
+            "caption": "",
+            "heading": "Personnalisation Volant : Quelles Options Existent",
+            "text": "<ul><li>Insertions carbone ou jantes en alliage design</li><li>Palettes de changement de vitesses r\u00e9tro\u00e9clair\u00e9es</li><li>Surpiq\u00fbres contrast\u00e9es personnalisables</li><li>Boutons multim\u00e9dias compatibles avec les syst\u00e8mes MMI ou Virtual Cockpit</li></ul>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "row_WfFd7T": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/ertr.jpg",
+            "caption": "",
+            "heading": "Quelle Diff\u00e9rence entre un volant sport et un volant voiture basique ?",
+            "text": "<p>Avec son diam\u00e8tre r\u00e9duit et ses\u00a0<strong>poign\u00e9es alv\u00e9ol\u00e9es</strong>\u00a0, le volant voiture sport optimise la r\u00e9activit\u00e9. Les mat\u00e9riaux premium (cuir Nappa, alcantara) r\u00e9sistent \u00e0 l'usure tout en gardant un grip ferme \u2013 id\u00e9al pour les acc\u00e9l\u00e9rations en sortie de virage. Compatible avec la plupart des\u00a0<strong>bo\u00eetes automatiques\u00a0</strong>et manuelles.</p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "row_UrUFrE",
+        "row_WfFd7T"
+      ],
+      "settings": {
+        "image_height": "medium",
+        "desktop_image_width": "medium",
+        "heading_size": "h1",
+        "text_style": "body",
+        "button_style": "secondary",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "image_layout": "alternate-left",
+        "section_color_scheme": "",
+        "row_color_scheme": "",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "rich_text_PdbVCT": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_PbznYU": {
+          "type": "heading",
+          "settings": {
+            "heading": "Comment Savoir Si un Volant Convient \u00e0 Ma Voiture ?",
+            "heading_size": "h1"
+          }
+        },
+        "text_jKFxzy": {
+          "type": "text",
+          "settings": {
+            "text": "<p>V\u00e9rifiez l'ann\u00e9e de fabrication, le type de direction assist\u00e9e et la connectique de l'airbag. Nos kits incluent un adaptateur universel pour les BMW S\u00e9rie r\u00e9centes, Mercedes Classe A (apr\u00e8s 2018) et Volkswagen Golf VII+.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_PbznYU",
+        "text_jKFxzy"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "rich_text_4LAEJX": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_N9cCHb": {
+          "type": "heading",
+          "settings": {
+            "heading": "Quel est le meilleur volant voiture \u00e0 choisir ?",
+            "heading_size": "h1"
+          }
+        },
+        "text_cMCCTE": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Choisir le <strong>meilleur volant voiture</strong> d\u00e9pend avant tout de ta marque, de ton mod\u00e8le et de ce que tu recherches : plus de sportivit\u00e9, un grip parfait avec de l'Alcantara ou du cuir perfor\u00e9, des palettes plus grandes, un m\u00e9plat racing ou encore le chauffage int\u00e9gr\u00e9 pour l'hiver. Chez Les As du Volant, on propose des volants personnalis\u00e9s haut de gamme compatibles plug & play pour les plus grandes marques allemandes.</p><h2>Le top des volants apr\u00e8smarket pour transformer ton habitacle</h2><p>Voici notre s\u00e9lection des meilleurs volants voiture du moment, test\u00e9s et approuv\u00e9s par des milliers de passionn\u00e9s :</p><ul><li><strong>Pour Audi</strong> : Le <a href=\"https://les-as-du-volant.com/products/volant-audi-a-trois\">volant Audi A3/RS3/S3</a> m\u00e9plat avec inserts carbone et surpiq\u00fbres contrast\u00e9es est un best-seller absolu. Grip incroyable et look ultra-sportif garanti ! Les propri\u00e9taires d'A1 ne sont pas en reste avec le <a href=\"https://les-as-du-volant.com/products/volant-audi-a-un\">volant Audi A1/S1</a>, plus compact mais tout aussi premium.</li><li><strong>Pour BMW</strong> : Le <a href=\"https://les-as-du-volant.com/products/volant-bmw-serie-un\">volant BMW S\u00e9rie 1</a> en Alcantara et palettes oversize transforme instantan\u00e9ment ta compacte en v\u00e9ritable M Performance.</li><li><strong>Pour Mercedes</strong> : Rien ne vaut le <a href=\"https://les-as-du-volant.com/products/volant-mercedes-classe-a\">volant Mercedes Classe A</a> avec son design AMG, ses touches haptiques et sa finition nappa irr\u00e9prochable pour un luxe sportif quotidien.</li><li><strong>Pour Volkswagen</strong> : Les fans de GTI/R swappent massivement sur le <a href=\"https://les-as-du-volant.com/products/volant-golf-sept\">volant Golf 7/7.5/8</a> m\u00e9plat R avec rep\u00e8re 12h et palettes allong\u00e9es \u2013 probablement le meilleur rapport qualit\u00e9/prix du march\u00e9.</li></ul><h2>Comment savoir quel volant est le meilleur pour TOI ?</h2><p>Le \"meilleur\" volant voiture, c'est celui qui correspond parfaitement \u00e0 ton usage :<br/>- Conduite quotidienne \u2192 privil\u00e9gie le cuir chauffant et les commandes multifonctions compl\u00e8tes.<br/>- Trackdays et routes sinueuses \u2192 opte pour l'Alcantara ou le carbone avec m\u00e9plat prononc\u00e9.<br/>- Look racing sans compromis \u2192 palettes oversize + LED shift lights si disponible.</p><p>Tous nos volants sont 100% compatibles avec les airbags d'origine, le virtual cockpit/iDrive/MBUX et se montent en 30-45 min avec nos tutos d\u00e9taill\u00e9s.</p><p>Pr\u00eat \u00e0 passer au niveau sup\u00e9rieur ? Parcourez notre s\u00e9lection et trouve le volant voiture qui va compl\u00e8tement m\u00e9tamorphoser ton int\u00e9rieur !</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_N9cCHb",
+        "text_cMCCTE"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    }
+  },
+  "order": [
+    "slideshow_6GfCjf",
+    "176899746855311c7e",
+    "1769011966061244b5",
+    "titre_7xhXj8",
+    "blocks_fVR8CW",
+    "1768995084527ed5d7",
+    "1769004103f9cfca36",
+    "1769002067fd8184ff",
+    "before_GWCn4d",
+    "slider_video_eanfLJ",
+    "multirow_EAck6W",
+    "rich_text_PdbVCT",
+    "rich_text_4LAEJX"
+  ]
+}

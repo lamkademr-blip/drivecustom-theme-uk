@@ -1,0 +1,627 @@
+{% doc %}
+  @prompt
+    Crée une section personnalisée "Notes Olfactives" pour page produit de parfum niche luxe, style minimaliste comme sur jovoyparis.com (3 colonnes horizontales égales sur desktop, stack vertical sur mobile).
+    
+    Fonctionnalités exactes :
+    - Titre centré en majuscules : "NOTES OLFACTIVES" (police élégante, letter-spacing 1-2px, taille ~1.6-1.8rem, couleur #000 ou noir pur).
+    - 3 colonnes : "Notes de Tête" | "Notes de Cœur" | "Notes de Fond" (titres en majuscules, gras, ~1.1-1.2rem, centrés au-dessus).
+    - Dans chaque colonne :
+      - Une image ronde (border-radius 50%, taille 100-120px) centrée au-dessus (utilise image_picker dans schema pour chaque : tete_image, coeur_image, fond_image).
+      - Texte principal automatique depuis metafields : product.metafields.custom.notes_tete.value pour Tête, .notes_coeur.value pour Cœur, .notes_fond.value pour Fond (affiche "—" si vide).
+      - En dessous : liste de "chips" (petits tags arrondis gris clair #f8f8f8 fond, bordure #e5e5e5, texte #444, padding 0.4-0.6rem) pour notes secondaires. Utilise text setting avec virgules : tete_chips, coeur_chips, fond_chips (split par ',' dans Liquid).
+    - Layout : grid 3 colonnes (repeat(3, 1fr)), gap 2-2.5rem, max-width 1100-1200px centré.
+    - Responsive : passe en 1 colonne sur <768px avec gap plus grand.
+    - Style luxe minimal : fond blanc ou #fff/#f9f9f9 très léger, ombres subtiles sur images (box-shadow rgba(0,0,0,0.07)), padding généreux autour de la section (3-4rem top/bottom).
+    - CSS inline ou dans <style> pour compatibilité Custom Liquid / section.
+    - Schema complet avec presets "Notes Olfactives Parfum", headers pour chaque niveau, image_picker + text pour chips.
+    - Liquid robuste avec conditions pour n'afficher colonne que si metafield ou setting non vide.
+    - Pas de JS, tout CSS/Liquid pur.
+    
+    Génère le code complet .liquid prêt à coller dans une nouvelle section.
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-notes-olfactives-{{ ai_gen_id }} {
+    display: block;
+    background-color: {{ block.settings.background_color }};
+    padding: {{ block.settings.section_padding_top }}px 20px {{ block.settings.section_padding_bottom }}px;
+    width: 100%;
+  }
+
+  .ai-notes-olfactives-container-{{ ai_gen_id }} {
+    max-width: {{ block.settings.max_width }}px;
+    margin: 0 auto;
+  }
+
+  .ai-notes-olfactives-title-{{ ai_gen_id }} {
+    text-align: center;
+    font-size: {{ block.settings.title_size }}rem;
+    font-weight: 600;
+    letter-spacing: {{ block.settings.title_letter_spacing }}px;
+    text-transform: uppercase;
+    color: {{ block.settings.title_color }};
+    margin: 0 0 {{ block.settings.title_margin_bottom }}px;
+  }
+
+  .ai-notes-olfactives-grid-{{ ai_gen_id }} {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: {{ block.settings.grid_gap }}px;
+  }
+
+  .ai-notes-olfactives-column-{{ ai_gen_id }} {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .ai-notes-olfactives-column-title-{{ ai_gen_id }} {
+    font-size: {{ block.settings.column_title_size }}rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: {{ block.settings.column_title_color }};
+    margin: 0 0 {{ block.settings.column_title_margin }}px;
+  }
+
+  .ai-notes-olfactives-image-wrapper-{{ ai_gen_id }} {
+    width: {{ block.settings.image_size }}px;
+    height: {{ block.settings.image_size }}px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: {{ block.settings.image_margin_bottom }}px;
+    box-shadow: {{ block.settings.image_shadow }};
+  }
+
+  .ai-notes-olfactives-image-{{ ai_gen_id }} {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .ai-notes-olfactives-image-placeholder-{{ ai_gen_id }} {
+    width: 100%;
+    height: 100%;
+    background-color: #f4f4f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ai-notes-olfactives-image-placeholder-{{ ai_gen_id }} svg {
+    width: 50%;
+    height: 50%;
+    opacity: 0.3;
+  }
+
+  .ai-notes-olfactives-main-text-{{ ai_gen_id }} {
+    font-size: {{ block.settings.main_text_size }}rem;
+    color: {{ block.settings.main_text_color }};
+    margin: 0 0 {{ block.settings.main_text_margin }}px;
+    line-height: 1.5;
+  }
+
+  .ai-notes-olfactives-chips-{{ ai_gen_id }} {
+    display: flex;
+    flex-wrap: wrap;
+    gap: {{ block.settings.chips_gap }}px;
+    justify-content: center;
+  }
+
+  .ai-notes-olfactives-chip-{{ ai_gen_id }} {
+    background-color: {{ block.settings.chip_bg_color }};
+    border: 1px solid {{ block.settings.chip_border_color }};
+    color: {{ block.settings.chip_text_color }};
+    padding: {{ block.settings.chip_padding_vertical }}rem {{ block.settings.chip_padding_horizontal }}rem;
+    border-radius: {{ block.settings.chip_border_radius }}px;
+    font-size: {{ block.settings.chip_font_size }}rem;
+    line-height: 1.2;
+  }
+
+  @media screen and (max-width: 767px) {
+    .ai-notes-olfactives-grid-{{ ai_gen_id }} {
+      grid-template-columns: 1fr;
+      gap: {{ block.settings.mobile_gap }}px;
+    }
+
+    .ai-notes-olfactives-title-{{ ai_gen_id }} {
+      font-size: {{ block.settings.title_size | times: 0.85 }}rem;
+    }
+
+    .ai-notes-olfactives-column-title-{{ ai_gen_id }} {
+      font-size: {{ block.settings.column_title_size | times: 0.9 }}rem;
+    }
+
+    .ai-notes-olfactives-image-wrapper-{{ ai_gen_id }} {
+      width: {{ block.settings.image_size | times: 0.85 }}px;
+      height: {{ block.settings.image_size | times: 0.85 }}px;
+    }
+  }
+{% endstyle %}
+
+<notes-olfactives-{{ ai_gen_id }} class="ai-notes-olfactives-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-notes-olfactives-container-{{ ai_gen_id }}">
+    {% if block.settings.section_title != blank %}
+      <h2 class="ai-notes-olfactives-title-{{ ai_gen_id }}">{{ block.settings.section_title }}</h2>
+    {% endif %}
+
+    <div class="ai-notes-olfactives-grid-{{ ai_gen_id }}">
+      {% liquid
+        assign tete_metafield = product.metafields.custom.notes_tete.value
+        assign coeur_metafield = product.metafields.custom.notes_coeur.value
+        assign fond_metafield = product.metafields.custom.notes_fond.value
+        assign tete_chips = block.settings.tete_chips | split: ','
+        assign coeur_chips = block.settings.coeur_chips | split: ','
+        assign fond_chips = block.settings.fond_chips | split: ','
+      %}
+
+      {% if tete_metafield != blank or block.settings.tete_image != blank or block.settings.tete_chips != blank %}
+        <div class="ai-notes-olfactives-column-{{ ai_gen_id }}">
+          <h3 class="ai-notes-olfactives-column-title-{{ ai_gen_id }}">{{ block.settings.tete_title }}</h3>
+          
+          <div class="ai-notes-olfactives-image-wrapper-{{ ai_gen_id }}">
+            {% if block.settings.tete_image %}
+              <img
+                src="{{ block.settings.tete_image | image_url: width: 300 }}"
+                alt="{{ block.settings.tete_title | escape }}"
+                class="ai-notes-olfactives-image-{{ ai_gen_id }}"
+                loading="lazy"
+                width="300"
+                height="300"
+              >
+            {% else %}
+              <div class="ai-notes-olfactives-image-placeholder-{{ ai_gen_id }}">
+                {{ 'image' | placeholder_svg_tag }}
+              </div>
+            {% endif %}
+          </div>
+
+          {% if tete_metafield != blank %}
+            <p class="ai-notes-olfactives-main-text-{{ ai_gen_id }}">{{ tete_metafield }}</p>
+          {% else %}
+            <p class="ai-notes-olfactives-main-text-{{ ai_gen_id }}">—</p>
+          {% endif %}
+
+          {% if block.settings.tete_chips != blank %}
+            <div class="ai-notes-olfactives-chips-{{ ai_gen_id }}">
+              {% for chip in tete_chips %}
+                {% assign chip_trimmed = chip | strip %}
+                {% if chip_trimmed != blank %}
+                  <span class="ai-notes-olfactives-chip-{{ ai_gen_id }}">{{ chip_trimmed }}</span>
+                {% endif %}
+              {% endfor %}
+            </div>
+          {% endif %}
+        </div>
+      {% endif %}
+
+      {% if coeur_metafield != blank or block.settings.coeur_image != blank or block.settings.coeur_chips != blank %}
+        <div class="ai-notes-olfactives-column-{{ ai_gen_id }}">
+          <h3 class="ai-notes-olfactives-column-title-{{ ai_gen_id }}">{{ block.settings.coeur_title }}</h3>
+          
+          <div class="ai-notes-olfactives-image-wrapper-{{ ai_gen_id }}">
+            {% if block.settings.coeur_image %}
+              <img
+                src="{{ block.settings.coeur_image | image_url: width: 300 }}"
+                alt="{{ block.settings.coeur_title | escape }}"
+                class="ai-notes-olfactives-image-{{ ai_gen_id }}"
+                loading="lazy"
+                width="300"
+                height="300"
+              >
+            {% else %}
+              <div class="ai-notes-olfactives-image-placeholder-{{ ai_gen_id }}">
+                {{ 'image' | placeholder_svg_tag }}
+              </div>
+            {% endif %}
+          </div>
+
+          {% if coeur_metafield != blank %}
+            <p class="ai-notes-olfactives-main-text-{{ ai_gen_id }}">{{ coeur_metafield }}</p>
+          {% else %}
+            <p class="ai-notes-olfactives-main-text-{{ ai_gen_id }}">—</p>
+          {% endif %}
+
+          {% if block.settings.coeur_chips != blank %}
+            <div class="ai-notes-olfactives-chips-{{ ai_gen_id }}">
+              {% for chip in coeur_chips %}
+                {% assign chip_trimmed = chip | strip %}
+                {% if chip_trimmed != blank %}
+                  <span class="ai-notes-olfactives-chip-{{ ai_gen_id }}">{{ chip_trimmed }}</span>
+                {% endif %}
+              {% endfor %}
+            </div>
+          {% endif %}
+        </div>
+      {% endif %}
+
+      {% if fond_metafield != blank or block.settings.fond_image != blank or block.settings.fond_chips != blank %}
+        <div class="ai-notes-olfactives-column-{{ ai_gen_id }}">
+          <h3 class="ai-notes-olfactives-column-title-{{ ai_gen_id }}">{{ block.settings.fond_title }}</h3>
+          
+          <div class="ai-notes-olfactives-image-wrapper-{{ ai_gen_id }}">
+            {% if block.settings.fond_image %}
+              <img
+                src="{{ block.settings.fond_image | image_url: width: 300 }}"
+                alt="{{ block.settings.fond_title | escape }}"
+                class="ai-notes-olfactives-image-{{ ai_gen_id }}"
+                loading="lazy"
+                width="300"
+                height="300"
+              >
+            {% else %}
+              <div class="ai-notes-olfactives-image-placeholder-{{ ai_gen_id }}">
+                {{ 'image' | placeholder_svg_tag }}
+              </div>
+            {% endif %}
+          </div>
+
+          {% if fond_metafield != blank %}
+            <p class="ai-notes-olfactives-main-text-{{ ai_gen_id }}">{{ fond_metafield }}</p>
+          {% else %}
+            <p class="ai-notes-olfactives-main-text-{{ ai_gen_id }}">—</p>
+          {% endif %}
+
+          {% if block.settings.fond_chips != blank %}
+            <div class="ai-notes-olfactives-chips-{{ ai_gen_id }}">
+              {% for chip in fond_chips %}
+                {% assign chip_trimmed = chip | strip %}
+                {% if chip_trimmed != blank %}
+                  <span class="ai-notes-olfactives-chip-{{ ai_gen_id }}">{{ chip_trimmed }}</span>
+                {% endif %}
+              {% endfor %}
+            </div>
+          {% endif %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</notes-olfactives-{{ ai_gen_id }}>
+
+{% schema %}
+{
+  "name": "Notes olfactives",
+  "tag": null,
+  "class": "notes-olfactives-block",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section principale"
+    },
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Titre de la section",
+      "default": "NOTES OLFACTIVES"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Couleur de fond",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "min": 800,
+      "max": 1400,
+      "step": 50,
+      "unit": "px",
+      "label": "Largeur maximale",
+      "default": 1150
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top",
+      "min": 20,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Espacement haut",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom",
+      "min": 20,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Espacement bas",
+      "default": 60
+    },
+    {
+      "type": "header",
+      "content": "Style du titre"
+    },
+    {
+      "type": "range",
+      "id": "title_size",
+      "min": 1,
+      "max": 3,
+      "step": 0.1,
+      "unit": "rem",
+      "label": "Taille du titre",
+      "default": 1.7
+    },
+    {
+      "type": "range",
+      "id": "title_letter_spacing",
+      "min": 0,
+      "max": 5,
+      "step": 0.5,
+      "unit": "px",
+      "label": "Espacement des lettres",
+      "default": 1.5
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Couleur du titre",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "title_margin_bottom",
+      "min": 20,
+      "max": 80,
+      "step": 5,
+      "unit": "px",
+      "label": "Marge inférieure",
+      "default": 50
+    },
+    {
+      "type": "header",
+      "content": "Grille"
+    },
+    {
+      "type": "range",
+      "id": "grid_gap",
+      "min": 15,
+      "max": 60,
+      "step": 5,
+      "unit": "px",
+      "label": "Espacement entre colonnes",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "mobile_gap",
+      "min": 30,
+      "max": 80,
+      "step": 5,
+      "unit": "px",
+      "label": "Espacement mobile",
+      "default": 50
+    },
+    {
+      "type": "header",
+      "content": "Titres des colonnes"
+    },
+    {
+      "type": "range",
+      "id": "column_title_size",
+      "min": 0.8,
+      "max": 1.5,
+      "step": 0.1,
+      "unit": "rem",
+      "label": "Taille",
+      "default": 1.1
+    },
+    {
+      "type": "color",
+      "id": "column_title_color",
+      "label": "Couleur",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "column_title_margin",
+      "min": 10,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "Marge inférieure",
+      "default": 20
+    },
+    {
+      "type": "header",
+      "content": "Images"
+    },
+    {
+      "type": "range",
+      "id": "image_size",
+      "min": 80,
+      "max": 150,
+      "step": 5,
+      "unit": "px",
+      "label": "Taille des images",
+      "default": 110
+    },
+    {
+      "type": "range",
+      "id": "image_margin_bottom",
+      "min": 10,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "Marge inférieure",
+      "default": 20
+    },
+    {
+      "type": "text",
+      "id": "image_shadow",
+      "label": "Ombre (CSS)",
+      "default": "0 2px 8px rgba(0, 0, 0, 0.07)"
+    },
+    {
+      "type": "header",
+      "content": "Texte principal"
+    },
+    {
+      "type": "range",
+      "id": "main_text_size",
+      "min": 0.8,
+      "max": 1.3,
+      "step": 0.1,
+      "unit": "rem",
+      "label": "Taille",
+      "default": 1
+    },
+    {
+      "type": "color",
+      "id": "main_text_color",
+      "label": "Couleur",
+      "default": "#333333"
+    },
+    {
+      "type": "range",
+      "id": "main_text_margin",
+      "min": 10,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "Marge inférieure",
+      "default": 16
+    },
+    {
+      "type": "header",
+      "content": "Chips (tags)"
+    },
+    {
+      "type": "range",
+      "id": "chip_font_size",
+      "min": 0.7,
+      "max": 1,
+      "step": 0.1,
+      "unit": "rem",
+      "label": "Taille de police",
+      "default": 0.9
+    },
+    {
+      "type": "color",
+      "id": "chip_bg_color",
+      "label": "Couleur de fond",
+      "default": "#f8f8f8"
+    },
+    {
+      "type": "color",
+      "id": "chip_border_color",
+      "label": "Couleur de bordure",
+      "default": "#e5e5e5"
+    },
+    {
+      "type": "color",
+      "id": "chip_text_color",
+      "label": "Couleur du texte",
+      "default": "#444444"
+    },
+    {
+      "type": "range",
+      "id": "chip_padding_vertical",
+      "min": 0.2,
+      "max": 0.8,
+      "step": 0.1,
+      "unit": "rem",
+      "label": "Padding vertical",
+      "default": 0.5
+    },
+    {
+      "type": "range",
+      "id": "chip_padding_horizontal",
+      "min": 0.5,
+      "max": 1.5,
+      "step": 0.1,
+      "unit": "rem",
+      "label": "Padding horizontal",
+      "default": 0.9
+    },
+    {
+      "type": "range",
+      "id": "chip_border_radius",
+      "min": 10,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "label": "Arrondi des bords",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "chips_gap",
+      "min": 4,
+      "max": 12,
+      "step": 2,
+      "unit": "px",
+      "label": "Espacement entre chips",
+      "default": 8
+    },
+    {
+      "type": "header",
+      "content": "Notes de tête"
+    },
+    {
+      "type": "text",
+      "id": "tete_title",
+      "label": "Titre",
+      "default": "NOTES DE TÊTE"
+    },
+    {
+      "type": "image_picker",
+      "id": "tete_image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "tete_chips",
+      "label": "Chips (séparés par virgules)"
+    },
+    {
+      "type": "header",
+      "content": "Notes de cœur"
+    },
+    {
+      "type": "text",
+      "id": "coeur_title",
+      "label": "Titre",
+      "default": "NOTES DE CŒUR"
+    },
+    {
+      "type": "image_picker",
+      "id": "coeur_image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "coeur_chips",
+      "label": "Chips (séparés par virgules)"
+    },
+    {
+      "type": "header",
+      "content": "Notes de fond"
+    },
+    {
+      "type": "text",
+      "id": "fond_title",
+      "label": "Titre",
+      "default": "NOTES DE FOND"
+    },
+    {
+      "type": "image_picker",
+      "id": "fond_image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "fond_chips",
+      "label": "Chips (séparés par virgules)"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Notes olfactives parfum"
+    }
+  ]
+}
+{% endschema %}

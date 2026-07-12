@@ -1,0 +1,528 @@
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-custom-cta-{{ ai_gen_id }} {
+    display: block;
+    width: 100%;
+    padding: {{ block.settings.padding_top }}px {{ block.settings.padding_horizontal }}px {{ block.settings.padding_bottom }}px {{ block.settings.padding_horizontal }}px;
+    background: linear-gradient(
+      to bottom,
+      {{ block.settings.gradient_color_1 }} 0%,
+      {{ block.settings.gradient_color_2 }} 25%,
+      {{ block.settings.gradient_color_3 }} 50%,
+      {{ block.settings.gradient_color_4 }} 75%,
+      {{ block.settings.gradient_color_5 }} 100%
+    );
+    text-align: {{ block.settings.text_alignment }};
+  }
+
+  .ai-custom-cta__container-{{ ai_gen_id }} {
+    max-width: {{ block.settings.content_max_width }}px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: {{ block.settings.text_alignment }};
+    gap: {{ block.settings.content_spacing }}px;
+  }
+
+  .ai-custom-cta__headline-{{ ai_gen_id }} {
+    font-size: {{ block.settings.headline_size }}px;
+    font-weight: {{ block.settings.headline_weight }};
+    letter-spacing: {{ block.settings.headline_letter_spacing }}px;
+    color: {{ block.settings.headline_color }};
+    max-width: {{ block.settings.headline_max_width }}px;
+    margin: 0;
+    line-height: 1.2;
+  }
+
+  .ai-custom-cta__subtext-{{ ai_gen_id }} {
+    font-size: {{ block.settings.subtext_size }}px;
+    color: {{ block.settings.subtext_color }};
+    max-width: {{ block.settings.subtext_max_width }}px;
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  .ai-custom-cta__highlight-{{ ai_gen_id }} {
+    font-size: {{ block.settings.highlight_size }}px;
+    color: {{ block.settings.highlight_color }};
+    margin: 0;
+    letter-spacing: 0.5px;
+  }
+
+  .ai-custom-cta__button-{{ ai_gen_id }} {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: {{ block.settings.button_padding_vertical }}px {{ block.settings.button_padding_horizontal }}px;
+    background-color: {{ block.settings.button_background }};
+    color: {{ block.settings.button_text_color }};
+    border-radius: {{ block.settings.button_border_radius }}px;
+    font-size: {{ block.settings.button_font_size }}px;
+    font-weight: 600;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    letter-spacing: 0.5px;
+  }
+
+  .ai-custom-cta__button-{{ ai_gen_id }}:hover {
+    {% if block.settings.button_hover_scale == 1 %}
+      transform: scale(1.05);
+    {% else %}
+      transform: scale({{ block.settings.button_hover_scale | divided_by: 10.0 }});
+    {% endif %}
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  }
+
+  .ai-custom-cta__button-icon-{{ ai_gen_id }} {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-custom-cta-{{ ai_gen_id }} {
+      padding: {{ block.settings.padding_top | times: 0.6 }}px {{ block.settings.padding_horizontal | times: 0.5 }}px {{ block.settings.padding_bottom | times: 0.6 }}px {{ block.settings.padding_horizontal | times: 0.5 }}px;
+    }
+
+    .ai-custom-cta__headline-{{ ai_gen_id }} {
+      font-size: {{ block.settings.headline_size | times: 0.6 }}px;
+    }
+
+    .ai-custom-cta__subtext-{{ ai_gen_id }} {
+      font-size: {{ block.settings.subtext_size | times: 0.9 }}px;
+    }
+
+    .ai-custom-cta__highlight-{{ ai_gen_id }} {
+      font-size: {{ block.settings.highlight_size | times: 0.9 }}px;
+    }
+
+    .ai-custom-cta__button-{{ ai_gen_id }} {
+      font-size: {{ block.settings.button_font_size | times: 0.9 }}px;
+      padding: {{ block.settings.button_padding_vertical | times: 0.8 }}px {{ block.settings.button_padding_horizontal | times: 0.8 }}px;
+    }
+  }
+
+  {% if block.settings.enable_fade_in %}
+    @keyframes ai-fade-up-{{ ai_gen_id }} {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .ai-custom-cta__container-{{ ai_gen_id }} > * {
+      opacity: 0;
+      animation: ai-fade-up-{{ ai_gen_id }} 0.8s ease-out forwards;
+    }
+
+    .ai-custom-cta__headline-{{ ai_gen_id }} {
+      animation-delay: 0.1s;
+    }
+
+    .ai-custom-cta__subtext-{{ ai_gen_id }} {
+      animation-delay: 0.3s;
+    }
+
+    .ai-custom-cta__highlight-{{ ai_gen_id }} {
+      animation-delay: 0.5s;
+    }
+
+    .ai-custom-cta__button-{{ ai_gen_id }} {
+      animation-delay: 0.7s;
+    }
+  {% endif %}
+{% endstyle %}
+
+<div class="ai-custom-cta-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-custom-cta__container-{{ ai_gen_id }}">
+    {% if block.settings.headline != blank %}
+      <h2 class="ai-custom-cta__headline-{{ ai_gen_id }}">
+        {{ block.settings.headline }}
+      </h2>
+    {% endif %}
+
+    {% if block.settings.subtext != blank %}
+      <p class="ai-custom-cta__subtext-{{ ai_gen_id }}">
+        {{ block.settings.subtext }}
+      </p>
+    {% endif %}
+
+    {% if block.settings.highlight != blank %}
+      <p class="ai-custom-cta__highlight-{{ ai_gen_id }}">
+        {{ block.settings.highlight }}
+      </p>
+    {% endif %}
+
+    {% if block.settings.button_text != blank %}
+      <a
+        href="{{ block.settings.button_link }}"
+        class="ai-custom-cta__button-{{ ai_gen_id }}"
+        {% if block.settings.button_link contains 'wa.me' %}
+          target="_blank"
+          rel="noopener noreferrer"
+        {% endif %}
+      >
+        {% if block.settings.show_whatsapp_icon %}
+          <svg class="ai-custom-cta__button-icon-{{ ai_gen_id }}" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+          </svg>
+        {% endif %}
+        {{ block.settings.button_text }}
+      </a>
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "CTA sur-mesure",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Disposition"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 40,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "label": "Espacement haut",
+      "default": 120
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 40,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "label": "Espacement bas",
+      "default": 120
+    },
+    {
+      "type": "range",
+      "id": "padding_horizontal",
+      "min": 20,
+      "max": 100,
+      "step": 10,
+      "unit": "px",
+      "label": "Espacement horizontal",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "content_max_width",
+      "min": 600,
+      "max": 1200,
+      "step": 20,
+      "unit": "px",
+      "label": "Largeur maximale du contenu",
+      "default": 800
+    },
+    {
+      "type": "range",
+      "id": "content_spacing",
+      "min": 16,
+      "max": 48,
+      "step": 4,
+      "unit": "px",
+      "label": "Espacement entre éléments",
+      "default": 24
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "label": "Alignement du texte",
+      "options": [
+        {
+          "value": "left",
+          "label": "Gauche"
+        },
+        {
+          "value": "center",
+          "label": "Centre"
+        },
+        {
+          "value": "right",
+          "label": "Droite"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "header",
+      "content": "Dégradé d'arrière-plan"
+    },
+    {
+      "type": "color",
+      "id": "gradient_color_1",
+      "label": "Couleur 1 (haut)",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "gradient_color_2",
+      "label": "Couleur 2",
+      "default": "#F6F7FA"
+    },
+    {
+      "type": "color",
+      "id": "gradient_color_3",
+      "label": "Couleur 3 (milieu)",
+      "default": "#E9ECF3"
+    },
+    {
+      "type": "color",
+      "id": "gradient_color_4",
+      "label": "Couleur 4",
+      "default": "#1A2340"
+    },
+    {
+      "type": "color",
+      "id": "gradient_color_5",
+      "label": "Couleur 5 (bas)",
+      "default": "#0B1220"
+    },
+    {
+      "type": "header",
+      "content": "Titre principal"
+    },
+    {
+      "type": "text",
+      "id": "headline",
+      "label": "Texte du titre",
+      "default": "Vous ne trouvez pas le volant parfait ?"
+    },
+    {
+      "type": "range",
+      "id": "headline_size",
+      "min": 24,
+      "max": 80,
+      "step": 2,
+      "unit": "px",
+      "label": "Taille du titre",
+      "default": 56
+    },
+    {
+      "type": "select",
+      "id": "headline_weight",
+      "label": "Épaisseur du titre",
+      "options": [
+        {
+          "value": "300",
+          "label": "Léger"
+        },
+        {
+          "value": "400",
+          "label": "Normal"
+        },
+        {
+          "value": "600",
+          "label": "Semi-gras"
+        },
+        {
+          "value": "700",
+          "label": "Gras"
+        }
+      ],
+      "default": "300"
+    },
+    {
+      "type": "range",
+      "id": "headline_letter_spacing",
+      "min": 0,
+      "max": 4,
+      "step": 0.5,
+      "unit": "px",
+      "label": "Espacement des lettres",
+      "default": 1
+    },
+    {
+      "type": "color",
+      "id": "headline_color",
+      "label": "Couleur du titre",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "range",
+      "id": "headline_max_width",
+      "min": 400,
+      "max": 1000,
+      "step": 20,
+      "unit": "px",
+      "label": "Largeur maximale",
+      "default": 720
+    },
+    {
+      "type": "header",
+      "content": "Sous-texte"
+    },
+    {
+      "type": "textarea",
+      "id": "subtext",
+      "label": "Texte",
+      "default": "Certains projets ne rentrent pas dans un configurateur. Décrivez-nous votre volant idéal, nous le créons sur mesure."
+    },
+    {
+      "type": "range",
+      "id": "subtext_size",
+      "min": 14,
+      "max": 28,
+      "step": 2,
+      "unit": "px",
+      "label": "Taille",
+      "default": 18
+    },
+    {
+      "type": "color",
+      "id": "subtext_color",
+      "label": "Couleur",
+      "default": "#C5CCE6"
+    },
+    {
+      "type": "range",
+      "id": "subtext_max_width",
+      "min": 400,
+      "max": 1000,
+      "step": 20,
+      "unit": "px",
+      "label": "Largeur maximale",
+      "default": 680
+    },
+    {
+      "type": "header",
+      "content": "Texte de mise en avant"
+    },
+    {
+      "type": "text",
+      "id": "highlight",
+      "label": "Texte",
+      "default": "Sur-mesure total · Conseil expert · Réponse rapide"
+    },
+    {
+      "type": "range",
+      "id": "highlight_size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Taille",
+      "default": 14
+    },
+    {
+      "type": "color",
+      "id": "highlight_color",
+      "label": "Couleur",
+      "default": "#8E9AD6"
+    },
+    {
+      "type": "header",
+      "content": "Bouton d'action"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Texte du bouton",
+      "default": "PARLER À UN EXPERT SUR WHATSAPP"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Lien du bouton"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_whatsapp_icon",
+      "label": "Afficher l'icône WhatsApp",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "button_background",
+      "label": "Couleur de fond",
+      "default": "#25D366"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Couleur du texte",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "range",
+      "id": "button_border_radius",
+      "min": 0,
+      "max": 50,
+      "step": 2,
+      "unit": "px",
+      "label": "Arrondi des coins",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "button_font_size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Taille du texte",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "button_padding_vertical",
+      "min": 10,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "label": "Espacement vertical",
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "button_padding_horizontal",
+      "min": 20,
+      "max": 60,
+      "step": 4,
+      "unit": "px",
+      "label": "Espacement horizontal",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "button_hover_scale",
+      "min": 10,
+      "max": 12,
+      "step": 1,
+      "label": "Échelle au survol (10 = 1.0x, 11 = 1.1x)",
+      "default": 10
+    },
+    {
+      "type": "header",
+      "content": "Animation"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_fade_in",
+      "label": "Activer l'animation d'apparition",
+      "default": true
+    }
+  ],
+  "presets": [
+    {
+      "name": "CTA sur-mesure"
+    }
+  ]
+}
+{% endschema %}

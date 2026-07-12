@@ -1,0 +1,819 @@
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-testimonials-section-{{ ai_gen_id }} {
+    display: block;
+    width: 100%;
+    background: linear-gradient(180deg, #ffffff 0%, #f9fbff 100%);
+    padding: 60px 20px;
+    overflow: hidden;
+  }
+
+  @media screen and (min-width: 768px) {
+    .ai-testimonials-section-{{ ai_gen_id }} {
+      padding: 80px 40px;
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+    .ai-testimonials-section-{{ ai_gen_id }} {
+      padding: 100px 60px;
+    }
+  }
+
+  .ai-testimonials-container-{{ ai_gen_id }} {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .ai-testimonials-header-{{ ai_gen_id }} {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .ai-testimonials-badge-{{ ai_gen_id }} {
+    display: inline-block;
+    background: linear-gradient(135deg, #0066ff 0%, #00aaff 100%);
+    color: #ffffff;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+  }
+
+  @media screen and (max-width: 767px) {
+    .ai-testimonials-badge-{{ ai_gen_id }} {
+      font-size: 11px;
+      padding: 6px 16px;
+    }
+  }
+
+  .ai-testimonials-title-{{ ai_gen_id }} {
+    font-family: {{ block.settings.heading_font.family }}, {{ block.settings.heading_font.fallback_families }};
+    font-weight: {{ block.settings.heading_font.weight }};
+    font-size: 36px;
+    line-height: 1.2;
+    color: #0f172a;
+    margin: 0 0 12px;
+  }
+
+  @media screen and (min-width: 768px) {
+    .ai-testimonials-title-{{ ai_gen_id }} {
+      font-size: 48px;
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+    .ai-testimonials-title-{{ ai_gen_id }} {
+      font-size: 56px;
+    }
+  }
+
+  .ai-testimonials-subtitle-{{ ai_gen_id }} {
+    font-family: Inter, system-ui, -apple-system, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #475569;
+    margin: 0;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @media screen and (min-width: 768px) {
+    .ai-testimonials-subtitle-{{ ai_gen_id }} {
+      font-size: 18px;
+    }
+  }
+
+  .ai-testimonials-carousel-wrapper-{{ ai_gen_id }} {
+    position: relative;
+    margin-bottom: 40px;
+  }
+
+  .ai-testimonials-carousel-{{ ai_gen_id }} {
+    overflow: hidden;
+    position: relative;
+  }
+
+  .ai-testimonials-track-{{ ai_gen_id }} {
+    display: flex;
+    transition: transform 0.3s ease-out;
+    gap: 20px;
+  }
+
+  @media screen and (max-width: 767px) {
+    .ai-testimonials-track-{{ ai_gen_id }} {
+      flex-direction: column;
+      gap: 16px;
+    }
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    .ai-testimonials-track-{{ ai_gen_id }} {
+      gap: 24px;
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+    .ai-testimonials-track-{{ ai_gen_id }} {
+      gap: 32px;
+    }
+  }
+
+  .ai-testimonials-card-{{ ai_gen_id }} {
+    background: #ffffff;
+    border: 1px solid rgba(0, 102, 255, 0.08);
+    border-radius: 20px;
+    padding: 24px;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease-out;
+    flex-shrink: 0;
+    width: 100%;
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    .ai-testimonials-card-{{ ai_gen_id }} {
+      width: calc(50% - 12px);
+      padding: 28px;
+      border-radius: 22px;
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+    .ai-testimonials-card-{{ ai_gen_id }} {
+      width: calc(33.333% - 22px);
+      padding: 32px;
+      border-radius: 24px;
+      box-shadow: 0 8px 24px rgba(0, 102, 255, 0.06);
+      backdrop-filter: blur(8px);
+    }
+
+    .ai-testimonials-card-{{ ai_gen_id }}:hover {
+      transform: scale(1.03);
+      box-shadow: 0 12px 32px rgba(0, 102, 255, 0.12);
+      border-color: rgba(0, 102, 255, 0.2);
+    }
+  }
+
+  .ai-testimonials-card-{{ ai_gen_id }}:active {
+    transform: scale(0.98);
+  }
+
+  .ai-testimonials-stars-{{ ai_gen_id }} {
+    background: linear-gradient(135deg, #0066ff 0%, #00aaff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+  }
+
+  @media screen and (min-width: 1024px) {
+    .ai-testimonials-stars-{{ ai_gen_id }} {
+      font-size: 28px;
+    }
+  }
+
+  .ai-testimonials-text-{{ ai_gen_id }} {
+    font-family: Inter, system-ui, -apple-system, sans-serif;
+    font-size: 17px;
+    line-height: 1.65;
+    color: #0f172a;
+    margin: 0 0 20px;
+    word-break: break-word;
+    flex-grow: 1;
+  }
+
+  @media screen and (min-width: 1024px) {
+    .ai-testimonials-text-{{ ai_gen_id }} {
+      font-size: 18px;
+    }
+  }
+
+  .ai-testimonials-text-{{ ai_gen_id }} strong,
+  .ai-testimonials-text-{{ ai_gen_id }} .highlight {
+    color: #0066ff;
+    font-weight: 700;
+  }
+
+  .ai-testimonials-author-{{ ai_gen_id }} {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .ai-testimonials-name-{{ ai_gen_id }} {
+    font-family: Inter, system-ui, -apple-system, sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #0066ff;
+    margin: 0;
+  }
+
+  @media screen and (min-width: 1024px) {
+    .ai-testimonials-name-{{ ai_gen_id }} {
+      font-size: 20px;
+    }
+  }
+
+  .ai-testimonials-email-{{ ai_gen_id }} {
+    font-family: Inter, system-ui, -apple-system, sans-serif;
+    font-size: 14px;
+    color: #6b7280;
+    margin: 0;
+  }
+
+  @media screen and (max-width: 479px) {
+    .ai-testimonials-email-{{ ai_gen_id }} {
+      display: none;
+    }
+  }
+
+  .ai-testimonials-nav-{{ ai_gen_id }} {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 32px;
+  }
+
+  @media screen and (min-width: 768px) {
+    .ai-testimonials-nav-{{ ai_gen_id }} {
+      display: flex;
+    }
+  }
+
+  .ai-testimonials-arrow-{{ ai_gen_id }} {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 1px solid rgba(0, 102, 255, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.25s ease-out;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+
+  .ai-testimonials-arrow-{{ ai_gen_id }}:hover {
+    background: linear-gradient(135deg, #0066ff 0%, #00aaff 100%);
+    border-color: transparent;
+    box-shadow: 0 4px 16px rgba(0, 102, 255, 0.2);
+  }
+
+  .ai-testimonials-arrow-{{ ai_gen_id }}:hover svg {
+    stroke: #ffffff;
+  }
+
+  .ai-testimonials-arrow-{{ ai_gen_id }} svg {
+    width: 20px;
+    height: 20px;
+    stroke: #0066ff;
+    transition: stroke 0.25s ease-out;
+  }
+
+  .ai-testimonials-arrow-{{ ai_gen_id }}:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+
+  .ai-testimonials-arrow-{{ ai_gen_id }}:disabled:hover {
+    background: #ffffff;
+    border-color: rgba(0, 102, 255, 0.15);
+  }
+
+  .ai-testimonials-arrow-{{ ai_gen_id }}:disabled:hover svg {
+    stroke: #0066ff;
+  }
+
+  .ai-testimonials-dots-{{ ai_gen_id }} {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 24px;
+  }
+
+  @media screen and (min-width: 768px) {
+    .ai-testimonials-dots-{{ ai_gen_id }} {
+      gap: 8px;
+    }
+  }
+
+  .ai-testimonials-dot-{{ ai_gen_id }} {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(0, 102, 255, 0.2);
+    border: none;
+    cursor: pointer;
+    transition: all 0.25s ease-out;
+    padding: 0;
+    min-width: 44px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ai-testimonials-dot-{{ ai_gen_id }}::before {
+    content: '';
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(0, 102, 255, 0.2);
+    transition: all 0.25s ease-out;
+  }
+
+  .ai-testimonials-dot-{{ ai_gen_id }}.active::before {
+    background: linear-gradient(135deg, #0066ff 0%, #00aaff 100%);
+    width: 16px;
+    height: 16px;
+  }
+
+  @media screen and (min-width: 768px) {
+    .ai-testimonials-dot-{{ ai_gen_id }} {
+      min-width: auto;
+      min-height: auto;
+      width: 10px;
+      height: 10px;
+    }
+
+    .ai-testimonials-dot-{{ ai_gen_id }}::before {
+      width: 10px;
+      height: 10px;
+    }
+
+    .ai-testimonials-dot-{{ ai_gen_id }}.active::before {
+      width: 12px;
+      height: 12px;
+    }
+  }
+{% endstyle %}
+
+<testimonials-carousel-{{ ai_gen_id }}
+  class="ai-testimonials-section-{{ ai_gen_id }}"
+  {{ block.shopify_attributes }}
+>
+  <div class="ai-testimonials-container-{{ ai_gen_id }}">
+    <div class="ai-testimonials-header-{{ ai_gen_id }}">
+      {% if block.settings.show_badge %}
+        <div class="ai-testimonials-badge-{{ ai_gen_id }}">{{ block.settings.badge_text }}</div>
+      {% endif %}
+      {% if block.settings.title != blank %}
+        <h2 class="ai-testimonials-title-{{ ai_gen_id }}">{{ block.settings.title }}</h2>
+      {% endif %}
+      {% if block.settings.subtitle != blank %}
+        <p class="ai-testimonials-subtitle-{{ ai_gen_id }}">{{ block.settings.subtitle }}</p>
+      {% endif %}
+    </div>
+
+    <div class="ai-testimonials-carousel-wrapper-{{ ai_gen_id }}">
+      <div class="ai-testimonials-carousel-{{ ai_gen_id }}">
+        <div class="ai-testimonials-track-{{ ai_gen_id }}" data-track>
+          {% for i in (1..6) %}
+            {% liquid
+              assign testimonial_enabled_key = 'testimonial_' | append: i | append: '_enabled'
+              assign testimonial_text_key = 'testimonial_' | append: i | append: '_text'
+              assign testimonial_name_key = 'testimonial_' | append: i | append: '_name'
+              assign testimonial_email_key = 'testimonial_' | append: i | append: '_email'
+
+              assign testimonial_enabled = block.settings[testimonial_enabled_key]
+              assign testimonial_text = block.settings[testimonial_text_key]
+              assign testimonial_name = block.settings[testimonial_name_key]
+              assign testimonial_email = block.settings[testimonial_email_key]
+            %}
+
+            {% if testimonial_enabled %}
+              <div class="ai-testimonials-card-{{ ai_gen_id }}">
+                <div>
+                  <div class="ai-testimonials-stars-{{ ai_gen_id }}">★ 5.00</div>
+                  {% if testimonial_text != blank %}
+                    <p class="ai-testimonials-text-{{ ai_gen_id }}">{{ testimonial_text }}</p>
+                  {% else %}
+                    <p class="ai-testimonials-text-{{ ai_gen_id }}">Ajoutez votre témoignage ici pour partager votre expérience avec nos produits premium.</p>
+                  {% endif %}
+                </div>
+                <div class="ai-testimonials-author-{{ ai_gen_id }}">
+                  {% if testimonial_name != blank %}
+                    <p class="ai-testimonials-name-{{ ai_gen_id }}">{{ testimonial_name }}</p>
+                  {% else %}
+                    <p class="ai-testimonials-name-{{ ai_gen_id }}">Client satisfait</p>
+                  {% endif %}
+                  {% if testimonial_email != blank %}
+                    <p class="ai-testimonials-email-{{ ai_gen_id }}">{{ testimonial_email }}</p>
+                  {% endif %}
+                </div>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+
+      <div class="ai-testimonials-nav-{{ ai_gen_id }}">
+        <button
+          class="ai-testimonials-arrow-{{ ai_gen_id }}"
+          data-prev
+          aria-label="Témoignage précédent"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="2.5"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M15.75 19.5L8.25 12l7.5-7.5"
+            />
+          </svg>
+        </button>
+        <button
+          class="ai-testimonials-arrow-{{ ai_gen_id }}"
+          data-next
+          aria-label="Témoignage suivant"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="2.5"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M8.25 4.5l7.5 7.5-7.5 7.5"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="ai-testimonials-dots-{{ ai_gen_id }}" data-dots></div>
+  </div>
+</testimonials-carousel-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class TestimonialsCarousel{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+        this.currentIndex = 0;
+        this.touchStartX = 0;
+        this.touchEndX = 0;
+        this.isMobile = window.innerWidth < 768;
+        this.isTablet = window.innerWidth >= 768 && window.innerWidth < 1024;
+      }
+
+      connectedCallback() {
+        this.track = this.querySelector('[data-track]');
+        this.cards = Array.from(this.track.children);
+        this.prevBtn = this.querySelector('[data-prev]');
+        this.nextBtn = this.querySelector('[data-next]');
+        this.dotsContainer = this.querySelector('[data-dots]');
+
+        if (!this.track || this.cards.length === 0) return;
+
+        this.setupCarousel();
+        this.setupEventListeners();
+        this.updateCarousel();
+
+        window.addEventListener('resize', () => {
+          const wasMobile = this.isMobile;
+          const wasTablet = this.isTablet;
+          this.isMobile = window.innerWidth < 768;
+          this.isTablet = window.innerWidth >= 768 && window.innerWidth < 1024;
+          
+          if (wasMobile !== this.isMobile || wasTablet !== this.isTablet) {
+            this.currentIndex = 0;
+            this.updateCarousel();
+          }
+        });
+      }
+
+      setupCarousel() {
+        this.createDots();
+      }
+
+      createDots() {
+        this.dotsContainer.innerHTML = '';
+        const totalDots = this.isMobile ? this.cards.length : this.cards.length;
+        
+        for (let i = 0; i < totalDots; i++) {
+          const dot = document.createElement('button');
+          dot.classList.add('ai-testimonials-dot-{{ ai_gen_id }}');
+          dot.setAttribute('aria-label', `Aller au témoignage ${i + 1}`);
+          if (i === 0) dot.classList.add('active');
+          dot.addEventListener('click', () => {
+            this.currentIndex = i;
+            this.updateCarousel();
+          });
+          this.dotsContainer.appendChild(dot);
+        }
+      }
+
+      setupEventListeners() {
+        if (this.prevBtn) {
+          this.prevBtn.addEventListener('click', () => this.prev());
+        }
+        if (this.nextBtn) {
+          this.nextBtn.addEventListener('click', () => this.next());
+        }
+
+        this.track.addEventListener('touchstart', (e) => {
+          this.touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        this.track.addEventListener('touchend', (e) => {
+          this.touchEndX = e.changedTouches[0].screenX;
+          this.handleSwipe();
+        }, { passive: true });
+      }
+
+      handleSwipe() {
+        const swipeThreshold = 50;
+        const diff = this.touchStartX - this.touchEndX;
+
+        if (Math.abs(diff) > swipeThreshold) {
+          if (diff > 0) {
+            this.next();
+          } else {
+            this.prev();
+          }
+        }
+      }
+
+      prev() {
+        if (this.currentIndex > 0) {
+          this.currentIndex--;
+          this.updateCarousel();
+        }
+      }
+
+      next() {
+        const maxIndex = this.getMaxIndex();
+        if (this.currentIndex < maxIndex) {
+          this.currentIndex++;
+          this.updateCarousel();
+        }
+      }
+
+      getMaxIndex() {
+        if (this.isMobile) {
+          return this.cards.length - 1;
+        } else if (this.isTablet) {
+          return Math.max(0, this.cards.length - 2);
+        } else {
+          return Math.max(0, this.cards.length - 3);
+        }
+      }
+
+      updateCarousel() {
+        if (this.isMobile) {
+          this.track.style.transform = `translateY(-${this.currentIndex * (this.cards[0].offsetHeight + 16)}px)`;
+        } else {
+          const cardWidth = this.cards[0].offsetWidth;
+          const gap = this.isTablet ? 24 : 32;
+          this.track.style.transform = `translateX(-${this.currentIndex * (cardWidth + gap)}px)`;
+        }
+
+        const dots = this.dotsContainer.querySelectorAll('.ai-testimonials-dot-{{ ai_gen_id }}');
+        dots.forEach((dot, index) => {
+          dot.classList.toggle('active', index === this.currentIndex);
+        });
+
+        if (this.prevBtn) {
+          this.prevBtn.disabled = this.currentIndex === 0;
+        }
+        if (this.nextBtn) {
+          this.nextBtn.disabled = this.currentIndex >= this.getMaxIndex();
+        }
+      }
+    }
+
+    customElements.define('testimonials-carousel-{{ ai_gen_id }}', TestimonialsCarousel{{ ai_gen_id }});
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Avis clients premium",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "En-tête"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_badge",
+      "label": "Afficher le badge",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "badge_text",
+      "label": "Texte du badge",
+      "default": "TOP QUALITÉ"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Titre",
+      "default": "Nos clients adorent"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Sous-titre",
+      "default": "Découvrez ce que nos clients disent de nos volants et pièces tuning premium"
+    },
+    {
+      "type": "font_picker",
+      "id": "heading_font",
+      "label": "Police du titre",
+      "default": "assistant_n4"
+    },
+    {
+      "type": "header",
+      "content": "Témoignage 1"
+    },
+    {
+      "type": "checkbox",
+      "id": "testimonial_1_enabled",
+      "label": "Activer",
+      "default": true
+    },
+    {
+      "type": "textarea",
+      "id": "testimonial_1_text",
+      "label": "Texte",
+      "default": "Volant INCROYABLE ! La qualité est TOP, finition parfaite. Mon setup simracing est maintenant au niveau professionnel. Je recommande à 100%."
+    },
+    {
+      "type": "text",
+      "id": "testimonial_1_name",
+      "label": "Nom",
+      "default": "Thomas M."
+    },
+    {
+      "type": "text",
+      "id": "testimonial_1_email",
+      "label": "Email"
+    },
+    {
+      "type": "header",
+      "content": "Témoignage 2"
+    },
+    {
+      "type": "checkbox",
+      "id": "testimonial_2_enabled",
+      "label": "Activer",
+      "default": true
+    },
+    {
+      "type": "textarea",
+      "id": "testimonial_2_text",
+      "label": "Texte",
+      "default": "Livraison rapide, emballage soigné. Le volant est MAGNIFIQUE, exactement comme sur les photos. Service client très réactif !"
+    },
+    {
+      "type": "text",
+      "id": "testimonial_2_name",
+      "label": "Nom",
+      "default": "Lucas D."
+    },
+    {
+      "type": "text",
+      "id": "testimonial_2_email",
+      "label": "Email"
+    },
+    {
+      "type": "header",
+      "content": "Témoignage 3"
+    },
+    {
+      "type": "checkbox",
+      "id": "testimonial_3_enabled",
+      "label": "Activer",
+      "default": true
+    },
+    {
+      "type": "textarea",
+      "id": "testimonial_3_text",
+      "label": "Texte",
+      "default": "Qualité premium à prix correct. Installation facile, rendu exceptionnel dans ma voiture. Les finitions sont impeccables, vraiment TOP !"
+    },
+    {
+      "type": "text",
+      "id": "testimonial_3_name",
+      "label": "Nom",
+      "default": "Alexandre R."
+    },
+    {
+      "type": "text",
+      "id": "testimonial_3_email",
+      "label": "Email"
+    },
+    {
+      "type": "header",
+      "content": "Témoignage 4"
+    },
+    {
+      "type": "checkbox",
+      "id": "testimonial_4_enabled",
+      "label": "Activer",
+      "default": true
+    },
+    {
+      "type": "textarea",
+      "id": "testimonial_4_text",
+      "label": "Texte",
+      "default": "Excellent rapport qualité-prix. Le grip est parfait, design racing authentique. Mon meilleur achat tuning cette année !"
+    },
+    {
+      "type": "text",
+      "id": "testimonial_4_name",
+      "label": "Nom",
+      "default": "Maxime B."
+    },
+    {
+      "type": "text",
+      "id": "testimonial_4_email",
+      "label": "Email"
+    },
+    {
+      "type": "header",
+      "content": "Témoignage 5"
+    },
+    {
+      "type": "checkbox",
+      "id": "testimonial_5_enabled",
+      "label": "Activer",
+      "default": true
+    },
+    {
+      "type": "textarea",
+      "id": "testimonial_5_text",
+      "label": "Texte",
+      "default": "Site sérieux, produits de qualité. Le volant transforme complètement l'intérieur de ma voiture. Très satisfait de mon achat !"
+    },
+    {
+      "type": "text",
+      "id": "testimonial_5_name",
+      "label": "Nom",
+      "default": "Julien P."
+    },
+    {
+      "type": "text",
+      "id": "testimonial_5_email",
+      "label": "Email"
+    },
+    {
+      "type": "header",
+      "content": "Témoignage 6"
+    },
+    {
+      "type": "checkbox",
+      "id": "testimonial_6_enabled",
+      "label": "Activer",
+      "default": true
+    },
+    {
+      "type": "textarea",
+      "id": "testimonial_6_text",
+      "label": "Texte",
+      "default": "Produit haut de gamme, finitions soignées. L'équipe est à l'écoute et de bon conseil. Je recommande vivement Les As du Volant !"
+    },
+    {
+      "type": "text",
+      "id": "testimonial_6_name",
+      "label": "Nom",
+      "default": "Kevin L."
+    },
+    {
+      "type": "text",
+      "id": "testimonial_6_email",
+      "label": "Email"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Avis clients premium"
+    }
+  ]
+}
+{% endschema %}

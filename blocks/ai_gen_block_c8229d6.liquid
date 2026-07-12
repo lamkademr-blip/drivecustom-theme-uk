@@ -1,0 +1,851 @@
+{% doc %}
+  @prompt
+    Créer une section hero pour un site e-commerce automobile premium.
+    La section contient 3 cartes verticales côte à côte, format portrait (ratio 3:4).
+    Chaque carte met en scène une voiture sportive haut de gamme, ambiance cinématographique, lumière sombre et contrastée, style luxe / performance.
+    
+    Sur chaque image :
+    
+    Nom de la marque en typographie blanche minimaliste, centré en bas
+    
+    Bouton rectangulaire blanc avec texte pour acceder aux collections
+    
+    Style global :
+    
+    Photographie réaliste, ultra détaillée
+    
+    Tons sombres, gris, noir, bleu
+    
+    Design premium, moderne, e-commerce haut de gamme
+    
+    Cohérence visuelle entre les trois cartes, je veux choisir le nombre de carte par ligne et le nombre de lignes
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% liquid
+  assign total_cards = block.settings.cards_per_row | times: block.settings.number_of_rows
+%}
+
+{% style %}
+  .ai-premium-hero-{{ ai_gen_id }} {
+    display: block;
+    width: 100%;
+    background-color: {{ block.settings.section_background }};
+    padding: 0;
+  }
+
+  .ai-premium-hero-container-{{ ai_gen_id }} {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .ai-premium-hero-grid-{{ ai_gen_id }} {
+    display: grid;
+    grid-template-columns: repeat({{ block.settings.cards_per_row }}, 1fr);
+    gap: {{ block.settings.card_gap }}px;
+    padding: 0;
+  }
+
+  .ai-premium-hero-card-{{ ai_gen_id }} {
+    position: relative;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+    background-color: #000000;
+  }
+
+  .ai-premium-hero-link-{{ ai_gen_id }} {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    position: relative;
+  }
+
+  .ai-premium-hero-image-wrapper-{{ ai_gen_id }} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .ai-premium-hero-image-{{ ai_gen_id }} {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .ai-premium-hero-placeholder-{{ ai_gen_id }} {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0f1419 100%);
+  }
+
+  .ai-premium-hero-overlay-{{ ai_gen_id }} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, {{ block.settings.overlay_opacity }}) 0%,
+      rgba(0, 0, 0, {{ block.settings.overlay_opacity | times: 0.6 }}) 40%,
+      rgba(0, 0, 0, 0) 100%
+    );
+    pointer-events: none;
+  }
+
+  .ai-premium-hero-content-{{ ai_gen_id }} {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: {{ block.settings.content_padding }}px;
+    display: flex;
+    flex-direction: column;
+    gap: {{ block.settings.content_gap }}px;
+    align-items: flex-start;
+  }
+
+  .ai-premium-hero-brand-{{ ai_gen_id }} {
+    font-family: {{ block.settings.brand_font.family }}, {{ block.settings.brand_font.fallback_families }};
+    font-weight: {{ block.settings.brand_font.weight }};
+    font-size: {{ block.settings.brand_font_size }}px;
+    color: {{ block.settings.brand_color }};
+    margin: 0;
+    letter-spacing: {{ block.settings.brand_letter_spacing }}px;
+    text-transform: uppercase;
+    line-height: 1.2;
+  }
+
+  .ai-premium-hero-button-{{ ai_gen_id }} {
+    display: inline-block;
+    padding: {{ block.settings.button_padding_vertical }}px {{ block.settings.button_padding_horizontal }}px;
+    background-color: {{ block.settings.button_background }};
+    color: {{ block.settings.button_text_color }};
+    text-decoration: none;
+    font-size: {{ block.settings.button_font_size }}px;
+    font-weight: {{ block.settings.button_font_weight }};
+    border-radius: {{ block.settings.button_border_radius }}px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: {{ block.settings.button_letter_spacing }}px;
+    border: {{ block.settings.button_border_width }}px solid {{ block.settings.button_border_color }};
+    pointer-events: auto;
+  }
+
+  .ai-premium-hero-button-{{ ai_gen_id }}:hover {
+    background-color: {{ block.settings.button_hover_background }};
+    color: {{ block.settings.button_hover_text_color }};
+    border-color: {{ block.settings.button_hover_border_color }};
+    transform: translateY(-2px);
+  }
+
+  @media screen and (max-width: 989px) {
+    .ai-premium-hero-grid-{{ ai_gen_id }} {
+      grid-template-columns: repeat({{ block.settings.cards_per_row_tablet }}, 1fr);
+    }
+
+    .ai-premium-hero-brand-{{ ai_gen_id }} {
+      font-size: {{ block.settings.brand_font_size | times: 0.85 }}px;
+    }
+
+    .ai-premium-hero-button-{{ ai_gen_id }} {
+      font-size: {{ block.settings.button_font_size | times: 0.9 }}px;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-premium-hero-grid-{{ ai_gen_id }} {
+      {% if block.settings.cards_per_row_mobile == 1 %}
+        grid-template-columns: 1fr;
+      {% else %}
+        grid-template-columns: repeat(2, 1fr);
+      {% endif %}
+      gap: {{ block.settings.card_gap | times: 0.5 }}px;
+    }
+
+    .ai-premium-hero-content-{{ ai_gen_id }} {
+      padding: {{ block.settings.content_padding | times: 0.75 }}px;
+      gap: {{ block.settings.content_gap | times: 0.75 }}px;
+    }
+
+    .ai-premium-hero-brand-{{ ai_gen_id }} {
+      font-size: {{ block.settings.brand_font_size | times: 0.7 }}px;
+      letter-spacing: {{ block.settings.brand_letter_spacing | times: 0.7 }}px;
+    }
+
+    .ai-premium-hero-button-{{ ai_gen_id }} {
+      font-size: {{ block.settings.button_font_size | times: 0.85 }}px;
+      padding: {{ block.settings.button_padding_vertical | times: 0.85 }}px {{ block.settings.button_padding_horizontal | times: 0.85 }}px;
+    }
+  }
+{% endstyle %}
+
+<premium-automotive-hero-{{ ai_gen_id }} class="ai-premium-hero-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-premium-hero-container-{{ ai_gen_id }}">
+    <div class="ai-premium-hero-grid-{{ ai_gen_id }}">
+      {% for i in (1..12) %}
+        {% if i <= total_cards %}
+          {% liquid
+            assign image_key = 'card_' | append: i | append: '_image'
+            assign brand_key = 'card_' | append: i | append: '_brand'
+            assign button_text_key = 'card_' | append: i | append: '_button_text'
+            assign link_key = 'card_' | append: i | append: '_link'
+
+            assign card_image = block.settings[image_key]
+            assign card_brand = block.settings[brand_key]
+            assign card_button_text = block.settings[button_text_key]
+            assign card_link = block.settings[link_key]
+          %}
+
+          <div class="ai-premium-hero-card-{{ ai_gen_id }}">
+            <a
+              href="{% if card_link %}{{ card_link }}{% else %}#{% endif %}"
+              class="ai-premium-hero-link-{{ ai_gen_id }}"
+              {% unless card_link %}aria-disabled="true"{% endunless %}
+            >
+              <div class="ai-premium-hero-image-wrapper-{{ ai_gen_id }}">
+                {% if card_image %}
+                  <img
+                    src="{{ card_image | image_url: width: 1000 }}"
+                    srcset="{{ card_image | image_url: width: 500 }} 500w,
+                            {{ card_image | image_url: width: 800 }} 800w,
+                            {{ card_image | image_url: width: 1000 }} 1000w"
+                    sizes="(max-width: 749px) {% if block.settings.cards_per_row_mobile == 1 %}100vw{% else %}50vw{% endif %}, (max-width: 989px) {% if block.settings.cards_per_row_tablet == 1 %}100vw{% elsif block.settings.cards_per_row_tablet == 2 %}50vw{% elsif block.settings.cards_per_row_tablet == 3 %}33vw{% else %}25vw{% endif %}, {% if block.settings.cards_per_row == 1 %}100vw{% elsif block.settings.cards_per_row == 2 %}50vw{% elsif block.settings.cards_per_row == 3 %}33vw{% else %}25vw{% endif %}"
+                    alt="{{ card_image.alt | escape }}"
+                    loading="lazy"
+                    width="{{ card_image.width }}"
+                    height="{{ card_image.height }}"
+                    class="ai-premium-hero-image-{{ ai_gen_id }}"
+                  >
+                {% else %}
+                  <div class="ai-premium-hero-placeholder-{{ ai_gen_id }}"></div>
+                {% endif %}
+
+                <div class="ai-premium-hero-overlay-{{ ai_gen_id }}"></div>
+              </div>
+
+              <div class="ai-premium-hero-content-{{ ai_gen_id }}">
+                {% if card_brand != blank %}
+                  <h2 class="ai-premium-hero-brand-{{ ai_gen_id }}">{{ card_brand }}</h2>
+                {% endif %}
+
+                {% if card_button_text != blank %}
+                  <span class="ai-premium-hero-button-{{ ai_gen_id }}">
+                    {{ card_button_text }}
+                  </span>
+                {% endif %}
+              </div>
+            </a>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</premium-automotive-hero-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class PremiumAutomotiveHero{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+      }
+
+      connectedCallback() {
+        this.links = this.querySelectorAll('.ai-premium-hero-link-{{ ai_gen_id }}');
+        this.setupAccessibility();
+      }
+
+      setupAccessibility() {
+        this.links.forEach((link) => {
+          if (link.getAttribute('aria-disabled') === 'true') {
+            link.addEventListener('click', (e) => {
+              e.preventDefault();
+            });
+          }
+        });
+      }
+    }
+
+    customElements.define('premium-automotive-hero-{{ ai_gen_id }}', PremiumAutomotiveHero{{ ai_gen_id }});
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Hero automobile premium",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Grille"
+    },
+    {
+      "type": "range",
+      "id": "cards_per_row",
+      "min": 1,
+      "max": 4,
+      "step": 1,
+      "label": "Cartes par ligne (ordinateur)",
+      "default": 3
+    },
+    {
+      "type": "range",
+      "id": "number_of_rows",
+      "min": 1,
+      "max": 4,
+      "step": 1,
+      "label": "Nombre de lignes",
+      "default": 1
+    },
+    {
+      "type": "range",
+      "id": "cards_per_row_tablet",
+      "min": 1,
+      "max": 3,
+      "step": 1,
+      "label": "Cartes par ligne (tablette)",
+      "default": 2
+    },
+    {
+      "type": "select",
+      "id": "cards_per_row_mobile",
+      "label": "Cartes par ligne (mobile)",
+      "options": [
+        {
+          "value": "1",
+          "label": "1"
+        },
+        {
+          "value": "2",
+          "label": "2"
+        }
+      ],
+      "default": "1"
+    },
+    {
+      "type": "header",
+      "content": "Carte 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "card_1_image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "card_1_brand",
+      "label": "Marque",
+      "default": "AUDI"
+    },
+    {
+      "type": "text",
+      "id": "card_1_button_text",
+      "label": "Texte du bouton",
+      "default": "VIEW WHEELS"
+    },
+    {
+      "type": "url",
+      "id": "card_1_link",
+      "label": "Lien"
+    },
+    {
+      "type": "header",
+      "content": "Carte 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "card_2_image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "card_2_brand",
+      "label": "Marque",
+      "default": "BMW"
+    },
+    {
+      "type": "text",
+      "id": "card_2_button_text",
+      "label": "Texte du bouton",
+      "default": "VIEW WHEELS"
+    },
+    {
+      "type": "url",
+      "id": "card_2_link",
+      "label": "Lien"
+    },
+    {
+      "type": "header",
+      "content": "Carte 3"
+    },
+    {
+      "type": "image_picker",
+      "id": "card_3_image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "card_3_brand",
+      "label": "Marque",
+      "default": "MERCEDES"
+    },
+    {
+      "type": "text",
+      "id": "card_3_button_text",
+      "label": "Texte du bouton",
+      "default": "VIEW WHEELS"
+    },
+    {
+      "type": "url",
+      "id": "card_3_link",
+      "label": "Lien"
+    },
+    {
+      "type": "header",
+      "content": "Carte 4"
+    },
+    {
+      "type": "image_picker",
+      "id": "card_4_image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "card_4_brand",
+      "label": "Marque"
+    },
+    {
+      "type": "text",
+      "id": "card_4_button_text",
+      "label": "Texte du bouton",
+      "default": "VIEW WHEELS"
+    },
+    {
+      "type": "url",
+      "id": "card_4_link",
+      "label": "Lien"
+    },
+    {
+      "type": "header",
+      "content": "Carte 5"
+    },
+    {
+      "type": "image_picker",
+      "id": "card_5_image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "card_5_brand",
+      "label": "Marque"
+    },
+    {
+      "type": "text",
+      "id": "card_5_button_text",
+      "label": "Texte du bouton",
+      "default": "VIEW WHEELS"
+    },
+    {
+      "type": "url",
+      "id": "card_5_link",
+      "label": "Lien"
+    },
+    {
+      "type": "header",
+      "content": "Carte 6"
+    },
+    {
+      "type": "image_picker",
+      "id": "card_6_image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "card_6_brand",
+      "label": "Marque"
+    },
+    {
+      "type": "text",
+      "id": "card_6_button_text",
+      "label": "Texte du bouton",
+      "default": "VIEW WHEELS"
+    },
+    {
+      "type": "url",
+      "id": "card_6_link",
+      "label": "Lien"
+    },
+    {
+      "type": "header",
+      "content": "Carte 7"
+    },
+    {
+      "type": "image_picker",
+      "id": "card_7_image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "card_7_brand",
+      "label": "Marque"
+    },
+    {
+      "type": "text",
+      "id": "card_7_button_text",
+      "label": "Texte du bouton",
+      "default": "VIEW WHEELS"
+    },
+    {
+      "type": "url",
+      "id": "card_7_link",
+      "label": "Lien"
+    },
+    {
+      "type": "header",
+      "content": "Carte 8"
+    },
+    {
+      "type": "image_picker",
+      "id": "card_8_image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "card_8_brand",
+      "label": "Marque"
+    },
+    {
+      "type": "text",
+      "id": "card_8_button_text",
+      "label": "Texte du bouton",
+      "default": "VIEW WHEELS"
+    },
+    {
+      "type": "url",
+      "id": "card_8_link",
+      "label": "Lien"
+    },
+    {
+      "type": "header",
+      "content": "Carte 9"
+    },
+    {
+      "type": "image_picker",
+      "id": "card_9_image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "card_9_brand",
+      "label": "Marque"
+    },
+    {
+      "type": "text",
+      "id": "card_9_button_text",
+      "label": "Texte du bouton",
+      "default": "VIEW WHEELS"
+    },
+    {
+      "type": "url",
+      "id": "card_9_link",
+      "label": "Lien"
+    },
+    {
+      "type": "header",
+      "content": "Carte 10"
+    },
+    {
+      "type": "image_picker",
+      "id": "card_10_image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "card_10_brand",
+      "label": "Marque"
+    },
+    {
+      "type": "text",
+      "id": "card_10_button_text",
+      "label": "Texte du bouton",
+      "default": "VIEW WHEELS"
+    },
+    {
+      "type": "url",
+      "id": "card_10_link",
+      "label": "Lien"
+    },
+    {
+      "type": "header",
+      "content": "Carte 11"
+    },
+    {
+      "type": "image_picker",
+      "id": "card_11_image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "card_11_brand",
+      "label": "Marque"
+    },
+    {
+      "type": "text",
+      "id": "card_11_button_text",
+      "label": "Texte du bouton",
+      "default": "VIEW WHEELS"
+    },
+    {
+      "type": "url",
+      "id": "card_11_link",
+      "label": "Lien"
+    },
+    {
+      "type": "header",
+      "content": "Carte 12"
+    },
+    {
+      "type": "image_picker",
+      "id": "card_12_image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "card_12_brand",
+      "label": "Marque"
+    },
+    {
+      "type": "text",
+      "id": "card_12_button_text",
+      "label": "Texte du bouton",
+      "default": "VIEW WHEELS"
+    },
+    {
+      "type": "url",
+      "id": "card_12_link",
+      "label": "Lien"
+    },
+    {
+      "type": "header",
+      "content": "Mise en page"
+    },
+    {
+      "type": "color",
+      "id": "section_background",
+      "label": "Couleur de fond",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "card_gap",
+      "min": 0,
+      "max": 60,
+      "step": 4,
+      "unit": "px",
+      "label": "Espacement entre les cartes",
+      "default": 24
+    },
+    {
+      "type": "header",
+      "content": "Overlay"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "min": 0,
+      "max": 1,
+      "step": 0.1,
+      "label": "Opacité de l'overlay",
+      "default": 0.5
+    },
+    {
+      "type": "header",
+      "content": "Contenu"
+    },
+    {
+      "type": "range",
+      "id": "content_padding",
+      "min": 20,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding du contenu",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "content_gap",
+      "min": 8,
+      "max": 40,
+      "step": 4,
+      "unit": "px",
+      "label": "Espacement du contenu",
+      "default": 20
+    },
+    {
+      "type": "header",
+      "content": "Style de la marque"
+    },
+    {
+      "type": "font_picker",
+      "id": "brand_font",
+      "label": "Police",
+      "default": "poppins_n5"
+    },
+    {
+      "type": "range",
+      "id": "brand_font_size",
+      "min": 20,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "label": "Taille de police",
+      "default": 36
+    },
+    {
+      "type": "color",
+      "id": "brand_color",
+      "label": "Couleur",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "range",
+      "id": "brand_letter_spacing",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "unit": "px",
+      "label": "Espacement des lettres",
+      "default": 4
+    },
+    {
+      "type": "header",
+      "content": "Style du bouton"
+    },
+    {
+      "type": "range",
+      "id": "button_font_size",
+      "min": 10,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Taille de police",
+      "default": 13
+    },
+    {
+      "type": "range",
+      "id": "button_font_weight",
+      "min": 400,
+      "max": 700,
+      "step": 100,
+      "label": "Épaisseur de police",
+      "default": 500
+    },
+    {
+      "type": "range",
+      "id": "button_letter_spacing",
+      "min": 0,
+      "max": 5,
+      "step": 0.5,
+      "unit": "px",
+      "label": "Espacement des lettres",
+      "default": 1.5
+    },
+    {
+      "type": "range",
+      "id": "button_padding_vertical",
+      "min": 8,
+      "max": 24,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding vertical",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "button_padding_horizontal",
+      "min": 16,
+      "max": 60,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding horizontal",
+      "default": 32
+    },
+    {
+      "type": "color",
+      "id": "button_background",
+      "label": "Couleur de fond",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Couleur du texte",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_background",
+      "label": "Couleur de fond au survol",
+      "default": "#E5E5E5"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_text_color",
+      "label": "Couleur du texte au survol",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "button_border_radius",
+      "min": 0,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "label": "Arrondi",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "button_border_width",
+      "min": 0,
+      "max": 4,
+      "step": 1,
+      "unit": "px",
+      "label": "Épaisseur de bordure",
+      "default": 0
+    },
+    {
+      "type": "color",
+      "id": "button_border_color",
+      "label": "Couleur de bordure",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_border_color",
+      "label": "Couleur de bordure au survol",
+      "default": "#E5E5E5"
+    },
+    {
+      "type": "range",
+      "id": "desktop_width_percent",
+      "label": "Largeur sur ordinateur",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero automobile premium"
+    }
+  ]
+}
+{% endschema %}

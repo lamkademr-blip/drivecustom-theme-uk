@@ -1,0 +1,562 @@
+{
+  "sections": {
+    "video_paysage_iJzrhE": {
+      "type": "video-paysage",
+      "settings": {
+        "video_source": "mp4",
+        "video_id": "",
+        "video_url": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/28a7bb7644934cd69b5c3de197734b01.mp4",
+        "height": 500,
+        "autoplay": true,
+        "loop": true,
+        "overlay_opacity": 50,
+        "overlay_color": "#000000",
+        "content_alignment": "text-center",
+        "content_position": "center",
+        "title_tag": "h1",
+        "title": "Les As du Volant - Prenez le contrôle de votre passion",
+        "title_color": "#ffffff",
+        "title_size": 40,
+        "text": "",
+        "text_color": "#ffffff",
+        "show_button": true,
+        "button_text": "Volant BMW",
+        "button_link": "shopify:\/\/collections\/volant-bmw",
+        "button_style": "btn--primary"
+      }
+    },
+    "slideshow_6GfCjf": {
+      "type": "slideshow",
+      "settings": {
+        "layout": "full_bleed",
+        "slide_height": "medium",
+        "slider_visual": "counter",
+        "auto_rotate": false,
+        "change_slides_speed": 5,
+        "image_behavior": "none",
+        "show_text_below": true,
+        "accessibility_info": "Diaporama sur votre marque"
+      }
+    },
+    "titre_7xhXj8": {
+      "type": "Titre",
+      "settings": {
+        "title": "Pour Chaque Pilote, Un Volant d'Exception",
+        "title_color": "#000000",
+        "title_size": 36,
+        "text_align": "center",
+        "padding_top": 30,
+        "padding_bottom": 30
+      }
+    },
+    "defilement_pcQgth": {
+      "type": "defilement",
+      "blocks": {
+        "brand_jTwtFa": {
+          "type": "brand",
+          "settings": {
+            "logo": "shopify:\/\/shop_images\/bmw_logo.png",
+            "link": "",
+            "brand_name": ""
+          }
+        },
+        "brand_TRLAGi": {
+          "type": "brand",
+          "settings": {
+            "logo": "shopify:\/\/shop_images\/mercedes_benz_logo.png",
+            "link": "",
+            "brand_name": ""
+          }
+        },
+        "brand_aWHUVg": {
+          "type": "brand",
+          "settings": {
+            "logo": "shopify:\/\/shop_images\/audi_logo.png",
+            "link": "",
+            "brand_name": ""
+          }
+        },
+        "brand_QKAyHR": {
+          "type": "brand",
+          "settings": {
+            "logo": "shopify:\/\/shop_images\/volkswagen_logo.png",
+            "link": "",
+            "brand_name": ""
+          }
+        },
+        "brand_XeCagy": {
+          "type": "brand",
+          "settings": {
+            "logo": "shopify:\/\/shop_images\/seat_logo_30656faa-b740-4590-a6bd-1aa33a02cda6.png",
+            "link": "",
+            "brand_name": ""
+          }
+        },
+        "brand_rLWJtC": {
+          "type": "brand",
+          "settings": {
+            "logo": "shopify:\/\/shop_images\/logo_renault.png",
+            "link": "",
+            "brand_name": ""
+          }
+        },
+        "brand_4gWVwy": {
+          "type": "brand",
+          "settings": {
+            "logo": "shopify:\/\/shop_images\/renault_lamborghini.png",
+            "link": "",
+            "brand_name": ""
+          }
+        }
+      },
+      "block_order": [
+        "brand_jTwtFa",
+        "brand_TRLAGi",
+        "brand_aWHUVg",
+        "brand_QKAyHR",
+        "brand_XeCagy",
+        "brand_rLWJtC",
+        "brand_4gWVwy"
+      ],
+      "settings": {
+        "scroll_speed": 60,
+        "transparent_background": true,
+        "background_color": "#ffffff",
+        "item_background_color": "#151515",
+        "section_padding": 40,
+        "logo_max_height": 60,
+        "item_spacing": 10,
+        "item_border_radius": 8,
+        "add_accent_border": true
+      }
+    },
+    "plsima_AET6En": {
+      "type": "plsima",
+      "blocks": {
+        "collection_4TpBCe": {
+          "type": "collection",
+          "settings": {
+            "collection": "volant-bmw",
+            "custom_image": false,
+            "custom_title": "",
+            "custom_description": "",
+            "text_alignment": "center"
+          }
+        },
+        "collection_xYkTYj": {
+          "type": "collection",
+          "settings": {
+            "collection": "volant-mercedes",
+            "custom_image": false,
+            "custom_title": "",
+            "custom_description": "",
+            "text_alignment": "center"
+          }
+        },
+        "collection_KYQc8E": {
+          "type": "collection",
+          "settings": {
+            "collection": "volant-audi",
+            "custom_image": false,
+            "custom_title": "",
+            "custom_description": "",
+            "text_alignment": "center"
+          }
+        },
+        "collection_4eqhDi": {
+          "type": "collection",
+          "settings": {
+            "collection": "volant-volkswagen",
+            "custom_image": false,
+            "custom_title": "",
+            "custom_description": "",
+            "text_alignment": "center"
+          }
+        },
+        "collection_9jFDcc": {
+          "type": "collection",
+          "settings": {
+            "collection": "volant-seat",
+            "custom_image": false,
+            "custom_title": "",
+            "custom_description": "",
+            "text_alignment": "center"
+          }
+        },
+        "collection_zTHBGa": {
+          "type": "collection",
+          "settings": {
+            "collection": "volant-lamborghini",
+            "custom_image": false,
+            "custom_title": "",
+            "custom_description": "",
+            "text_alignment": "center"
+          }
+        },
+        "collection_ynmKtA": {
+          "type": "collection",
+          "settings": {
+            "collection": "volant-renault",
+            "custom_image": false,
+            "custom_title": "",
+            "custom_description": "",
+            "text_alignment": "center"
+          }
+        },
+        "collection_tDk6wd": {
+          "type": "collection",
+          "settings": {
+            "collection": "volant-nissan",
+            "custom_image": false,
+            "custom_title": "",
+            "custom_description": "",
+            "text_alignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "collection_4TpBCe",
+        "collection_xYkTYj",
+        "collection_KYQc8E",
+        "collection_4eqhDi",
+        "collection_9jFDcc",
+        "collection_zTHBGa",
+        "collection_ynmKtA",
+        "collection_tDk6wd"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "layout": "grid",
+        "columns_desktop": 4,
+        "columns_mobile": 2,
+        "gap": 20,
+        "show_collection_title": true,
+        "show_collection_description": false,
+        "show_view_all": true,
+        "view_all_text": "Voir toutes les collections",
+        "view_all_link": "",
+        "image_ratio": 1,
+        "image_overlay": "gradient",
+        "overlay_opacity": 25,
+        "overlay_color": "#000000",
+        "text_color": "#ffffff",
+        "show_product_count": true,
+        "button_bg_color": "#000000",
+        "button_text_color": "#ffffff"
+      }
+    },
+    "texte_PKkatY": {
+      "type": "texte",
+      "settings": {
+        "heading": "VOUS NE TROUVEZ PAS LE CONFIGURATEUR POUR VOTRE VOLANT ?",
+        "text": "<p>Pas d'inquiétude, nous pouvons nous adapter à vos besoins spécifiques et créer une solution personnalisée pour vous.<\/p>",
+        "button_label": "Contactez-nous",
+        "button_link": "",
+        "transparent_background": true,
+        "background_color": "#f5f5f5",
+        "text_color": "#333333",
+        "button_background": "#000000",
+        "button_text_color": "#ffffff",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "process_3QzDGb": {
+      "type": "process",
+      "blocks": {
+        "step_1_GjYt8k": {
+          "type": "step_1",
+          "settings": {
+            "title": "1. PERSONNALISATION",
+            "description": "Créez votre volant sur mesure, du design à la prise en main, pour une expérience de conduite qui vous ressemble."
+          }
+        },
+        "step_2_d7FQfw": {
+          "type": "step_2",
+          "settings": {
+            "title": "2. FABRICATION",
+            "description": "Nos artisans conçoivent votre volant avec des matériaux premium et une finition impeccable, digne des plus grands pilotes."
+          }
+        },
+        "step_3_t4cBfi": {
+          "type": "step_3",
+          "settings": {
+            "title": "3. LIVRAISON OFFERTE",
+            "description": "Votre volant personnalisé livré gratuitement et soigneusement emballé directement chez vous."
+          }
+        },
+        "step_4_GX3PXt": {
+          "type": "step_4",
+          "settings": {
+            "title": "4. GARANTIE 5 ANS",
+            "description": "Prenez la route en toute confiance avec une garantie complète contre tout défaut de fabrication."
+          }
+        }
+      },
+      "block_order": [
+        "step_1_GjYt8k",
+        "step_2_d7FQfw",
+        "step_3_t4cBfi",
+        "step_4_GX3PXt"
+      ],
+      "settings": {
+        "title": "NOTRE ACCOMPAGNEMENT",
+        "gradient_preset": "transparent",
+        "text_color": "#121212",
+        "icon_color": "#36c2ec",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "before_GWCn4d": {
+      "type": "before",
+      "settings": {
+        "show_top_title": true,
+        "top_title": "Vivez un Changement Radical",
+        "top_title_color": "#000000",
+        "bf_image": "shopify:\/\/shop_images\/Capture_d_ecran_2025-03-06_181933.png",
+        "af_image": "shopify:\/\/shop_images\/O1CN01vMxi3A24ubvEHDeER__2210127451_jpg.webp",
+        "show_badge": true,
+        "grayscale_before": false,
+        "show_content": false,
+        "ba_heading": "",
+        "ba_content": ""
+      }
+    },
+    "slider_video_eanfLJ": {
+      "type": "slider-video",
+      "blocks": {
+        "slide_6CtX3f": {
+          "type": "slide",
+          "settings": {
+            "video": "shopify:\/\/files\/videos\/20250111_d40d033aee3ad6ff_503663647922_225926425453483_published_mp4_264_hd_taobao.mp4",
+            "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+            "title": "Léo",
+            "stars_count": 5
+          }
+        },
+        "slide_LEEEqp": {
+          "type": "slide",
+          "settings": {
+            "video": "shopify:\/\/files\/videos\/20241203_9a4ba45a2893ccc8_496729253212_208372160804976_published_mp4_264_hd_taobao.mp4",
+            "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+            "title": "Martin",
+            "stars_count": 5
+          }
+        },
+        "slide_y8Ei4y": {
+          "type": "slide",
+          "settings": {
+            "video": "shopify:\/\/files\/videos\/20250101_7171e93eb5e9f7c6_502073846694_222153605290460_published_mp4_264_hd_taobao.mp4",
+            "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+            "title": "Yassine",
+            "stars_count": 5
+          }
+        },
+        "slide_tMNLje": {
+          "type": "slide",
+          "settings": {
+            "video": "shopify:\/\/files\/videos\/jytfdrtes.mp4",
+            "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+            "title": "Mickael",
+            "stars_count": 5
+          }
+        },
+        "slide_Q6fFJt": {
+          "type": "slide",
+          "settings": {
+            "video": "shopify:\/\/files\/videos\/20241206_a0bac661b53089a3_497485307724_209432652406238_published_mp4_264_hd_taobao.mp4",
+            "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+            "title": "Jason",
+            "stars_count": 4
+          }
+        }
+      },
+      "block_order": [
+        "slide_6CtX3f",
+        "slide_LEEEqp",
+        "slide_y8Ei4y",
+        "slide_tMNLje",
+        "slide_Q6fFJt"
+      ],
+      "settings": {
+        "slider_view": 5,
+        "slider_view_mobile": 2.2,
+        "slider_gap": 10,
+        "slider_gap_mobile": 10,
+        "slider_rotate": 0,
+        "card_padding_vertical": 20,
+        "card_padding_vertical_mobile": 20,
+        "card_padding_horizontal": 20,
+        "card_padding_horizontal_mobile": 20,
+        "card_radius": 32,
+        "card_border_thickness": 0,
+        "card_shadow": false,
+        "card_ratio": "portrait",
+        "card_ratio_mobile": "portrait",
+        "card_overlay": 0.2,
+        "content_horizontal_position": "center",
+        "content_horizontal_position_mobile": "center",
+        "content_vertical_position": "end",
+        "content_vertical_position_mobile": "end",
+        "title_custom": false,
+        "title_font": "josefin_sans_n4",
+        "title_size": 16,
+        "title_size_mobile": 16,
+        "title_height": 100,
+        "stars_size": 16,
+        "stars_size_mobile": 16,
+        "stars_mt": 16,
+        "stars_mt_mobile": 16,
+        "hide_stars": false,
+        "use_action": true,
+        "action_size": 40,
+        "action_size_mobile": 40,
+        "action_icon_size": 24,
+        "action_icon_size_mobile": 24,
+        "action_border_thickness": 0,
+        "use_sound": false,
+        "sound_size": 40,
+        "sound_size_mobile": 40,
+        "sound_icon_size": 24,
+        "sound_icon_size_mobile": 24,
+        "sound_border_thickness": 0,
+        "arrow_size": 48,
+        "arrow_size_mobile": 48,
+        "arrow_icon_size": 8,
+        "arrow_icon_size_mobile": 8,
+        "arrow_border_thickness": 0,
+        "arrow_radius": 100,
+        "arrow_hover_effect": "color",
+        "arrow_show_desktop": true,
+        "arrow_show_mobile": false,
+        "card_border_color": "#000000",
+        "card_shadow_color": "#000000",
+        "card_overlay_color": "#000000",
+        "title_color": "#ffffff",
+        "stars_color": "#ffffff",
+        "action_color": "#ffffff",
+        "action_hover_color": "#ffffff",
+        "action_bg_color": "#ffffff",
+        "action_bg_hover_color": "#ffffff",
+        "action_border_color": "#ffffff",
+        "action_border_hover_color": "#ffffff",
+        "sound_icon_color": "#ffffff",
+        "sound_icon_hover_color": "#ffffff",
+        "sound_bg_color": "#ffffff",
+        "sound_bg_hover_color": "#ffffff",
+        "sound_border_color": "#ffffff",
+        "sound_border_hover_color": "#ffffff",
+        "arrow_color": "#ffffff",
+        "arrow_hover_color": "#434343",
+        "arrow_bg_color": "#434343",
+        "arrow_bg_hover_color": "#ffffff",
+        "arrow_border_color": "#000000",
+        "arrow_border_hover_color": "#000000",
+        "background_color": "#ffffff",
+        "background_gradient": "",
+        "border_color": "#000000",
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_horizontal": 0,
+        "padding_horizontal_mobile": 0,
+        "full_width": false,
+        "content_width": 120,
+        "border_thickness": 0,
+        "lazy": true
+      }
+    },
+    "multirow_EAck6W": {
+      "type": "multirow",
+      "blocks": {
+        "row_UrUFrE": {
+          "type": "row",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/volant_voiture.svg",
+            "caption": "",
+            "heading": "Personnalisation Volant : Quelles Options Existent",
+            "text": "<ul><li>Insertions carbone ou jantes en alliage design<\/li><li>Palettes de changement de vitesses rétroéclairées<\/li><li>Surpiqûres contrastées personnalisables<\/li><li>Boutons multimédias compatibles avec les systèmes MMI ou Virtual Cockpit<\/li><\/ul>",
+            "button_label": "Texte du bouton",
+            "button_link": ""
+          }
+        },
+        "row_WfFd7T": {
+          "type": "row",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/volant_voiture_sport.svg",
+            "caption": "",
+            "heading": "Quelle Différence entre un volant sport et un volant voiture basique ?",
+            "text": "<p>Avec son diamètre réduit et ses <strong>poignées alvéolées<\/strong> , le volant voiture sport optimise la réactivité. Les matériaux premium (cuir Nappa, alcantara) résistent à l'usure tout en gardant un grip ferme – idéal pour les accélérations en sortie de virage. Compatible avec la plupart des <strong>boîtes automatiques <\/strong>et manuelles.<\/p>",
+            "button_label": "Texte du bouton",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "row_UrUFrE",
+        "row_WfFd7T"
+      ],
+      "settings": {
+        "image_height": "medium",
+        "desktop_image_width": "medium",
+        "heading_size": "h1",
+        "text_style": "body",
+        "button_style": "secondary",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "image_layout": "alternate-left",
+        "section_color_scheme": "",
+        "row_color_scheme": "",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "rich_text_PdbVCT": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_PbznYU": {
+          "type": "heading",
+          "settings": {
+            "heading": "Comment Savoir Si un Volant Convient à Ma Voiture ?",
+            "heading_size": "h1"
+          }
+        },
+        "text_jKFxzy": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Vérifiez l'année de fabrication, le type de direction assistée et la connectique de l'airbag. Nos kits incluent un adaptateur universel pour les BMW Série récentes, Mercedes Classe A (après 2018) et Volkswagen Golf VII+.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_PbznYU",
+        "text_jKFxzy"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    }
+  },
+  "order": [
+    "video_paysage_iJzrhE",
+    "slideshow_6GfCjf",
+    "titre_7xhXj8",
+    "defilement_pcQgth",
+    "plsima_AET6En",
+    "texte_PKkatY",
+    "process_3QzDGb",
+    "before_GWCn4d",
+    "slider_video_eanfLJ",
+    "multirow_EAck6W",
+    "rich_text_PdbVCT"
+  ]
+}

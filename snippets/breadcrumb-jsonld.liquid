@@ -1,0 +1,54 @@
+{%- liquid
+  assign position = 1
+  assign shop_url = shop.url | default: canonical_url | default: request.origin
+  assign items = ''
+  assign items = items | append: '{"@type":"ListItem","position":1,"name":"Accueil","item":"' | append: shop_url | append: '"}'
+  assign position = 2
+
+  case request.page_type
+    when 'product'
+      assign product_collection = nil
+
+      for collection in product.collections
+        if collection.handle contains 'volant'
+          assign product_collection = collection
+          break
+        endif
+      endfor
+
+      if product_collection == nil
+        for collection in product.collections
+          unless collection.handle == 'all'
+            assign product_collection = collection
+            break
+          endunless
+        endfor
+      endif
+
+      if product_collection
+        assign items = items | append: ',{"@type":"ListItem","position":' | append: position | append: ',"name":"' | append: product_collection.title | escape | append: '","item":"' | append: shop_url | append: product_collection.url | append: '"}'
+        assign position = position | plus: 1
+      endif
+
+      assign items = items | append: ',{"@type":"ListItem","position":' | append: position | append: ',"name":"' | append: product.title | escape | append: '","item":"' | append: canonical_url | append: '"}'
+
+    when 'collection'
+      assign items = items | append: ',{"@type":"ListItem","position":' | append: position | append: ',"name":"' | append: collection.title | escape | append: '","item":"' | append: canonical_url | append: '"}'
+
+    when 'article'
+      assign items = items | append: ',{"@type":"ListItem","position":' | append: position | append: ',"name":"' | append: blog.title | escape | append: '","item":"' | append: shop_url | append: blog.url | append: '"}'
+      assign position = position | plus: 1
+      assign items = items | append: ',{"@type":"ListItem","position":' | append: position | append: ',"name":"' | append: article.title | escape | append: '","item":"' | append: canonical_url | append: '"}'
+
+    when 'page'
+      assign items = items | append: ',{"@type":"ListItem","position":' | append: position | append: ',"name":"' | append: page.title | escape | append: '","item":"' | append: canonical_url | append: '"}'
+
+  endcase
+%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{{ items }}]
+}
+</script>

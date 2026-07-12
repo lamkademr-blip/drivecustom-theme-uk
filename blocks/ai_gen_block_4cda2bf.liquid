@@ -1,0 +1,877 @@
+{% doc %}
+  @prompt
+    {
+      "task": "Créer une section 'Découvrez notre atelier' ou 'Behind the scenes – Fabrication des volants' pour site e-commerce tuning auto / simracing",
+      "objectif": "Mettre en valeur une vidéo carrée qui montre l'atelier de fabrication des volants : ambiance artisanale, passion, qualité premium. Design clean, professionnel, très simple à comprendre, vidéo auto-play pour capter l'attention immédiatement",
+      "priorité_absolue": "Responsive parfait, surtout mobile : vidéo carrée pleine largeur sur mobile, autoplay fluide, chargement rapide, expérience immersive sans friction",
+      "layout": {
+        "structure_principale": "section pleine largeur fond blanc léger",
+        "disposition": {
+          "desktop_tablette": "vidéo carrée à gauche (50-60%) + texte descriptif + bouton à droite (alignement vertical centré)",
+          "mobile": "stack vertical : titre centré → vidéo carrée pleine largeur → texte court dessous → bouton CTA centré"
+        },
+        "breakpoints": {
+          "desktop": "≥ 1024px → vidéo + texte côte à côte",
+          "tablette": "≥ 768px → vidéo + texte côte à côte ou vidéo dessus si espace réduit",
+          "mobile": "< 768px → tout empilé, vidéo 100% largeur (carrée), padding latéral 16-24px"
+        }
+      },
+      "style_global": {
+        "background_section": "blanc pur (#ffffff) ou très léger gradient #ffffff → #f8fbff en bas",
+        "theme_couleur_principal": ["#0066ff", "#0077ff", "#0099ff", "#4dabf7"],
+        "accents": "gradients bleu : linear-gradient(135deg, #0066ff, #00aaff)",
+        "texte_titre": "#0f172a, bold",
+        "texte_corps": "#475569",
+        "police_principale": "Inter, system-ui, sans-serif",
+        "coins_arrondis": "16-24px sur la vidéo et le bouton"
+      },
+      "elements": [
+        {
+          "type": "titre_section",
+          "contenu_suggéré": "Découvrez notre atelier",
+          "variante": "Où naissent vos volants sur mesure",
+          "style": "centré, 36-48px desktop / 28-36px mobile, margin-bottom 32-48px, mots clés en bleu gradient subtil"
+        },
+        {
+          "type": "video_container",
+          "aspect_ratio": "1:1 (carré)",
+          "style": "max-width 100%, border-radius 20px, overflow hidden, ombre douce (0 10px 30px rgba(0,102,255,0.08))",
+          "autoplay": true,
+          "muted": true,
+          "loop": true,
+          "playsinline": true,
+          "controls": "masqués par défaut (apparaissent au tap/hover), ou discrets (petits boutons en bas)",
+          "poster": "image fixe de l'atelier (main qui visse, volant en cours, ambiance propre et pro)",
+          "play_button_overlay": "optionnel – si pas d'autoplay direct : gros cercle bleu gradient centré (80-120px desktop / 60-90px mobile), icône play blanche, pulse léger",
+          "mobile": "vidéo carrée pleine largeur (height = width), autoplay dès que visible (intersection observer), muted obligatoire"
+        },
+        {
+          "type": "texte_description",
+          "contenu_suggéré": [
+            "Dans notre atelier à Wattrelos, chaque volant est assemblé à la main avec soin.",
+            "Matériaux premium, précision artisanale, feeling ultime pour votre simracing ou votre voiture.",
+            "Fabriqué avec passion en France ❤️"
+          ],
+          "style": "16-18px mobile / 18-20px desktop, line-height 1.7, mots clés bold ou #0066ff",
+          "position": "droite de la vidéo sur desktop, dessous sur mobile",
+          "max_width": "desktop : 420-500px, mobile : 100%"
+        },
+        {
+          "type": "bouton_cta",
+          "texte": "Voir plus de vidéos" ou "Contactez-nous pour votre volant",
+          "style": "gradient bleu (#0066ff → #00aaff), blanc bold, padding 16-20px 40px, border-radius 50px, ombre bleue douce, hover scale(1.05), mobile : large / plein largeur"
+        },
+        {
+          "extras_optionnels": [
+            "petite icône marteau/outil bleu à côté du titre",
+            "badge 'Made in Wattrelos' ou 'Artisanat français' discret en coin",
+            "animation au scroll : fade-in vidéo + texte slide-up doux"
+          ]
+        }
+      ],
+      "mobile_optimisations": [
+        "vidéo carrée : width 100%, height auto (maintient 1:1), centrée",
+        "autoplay + muted + loop pour immersion immédiate (respecte les règles navigateur mobile)",
+        "intersection observer pour autoplay seulement quand visible (économie data/batterie)",
+        "play button tappable min 60px si overlay",
+        "texte court : 3-5 lignes max",
+        "padding section : 32-48px vertical, gap 24-40px entre éléments",
+        "performance : lazy loading + poster optimisé"
+      ],
+      "ton": "artisanal, passionné, premium, fiable, local (Wattrelos / France), chaleureux et pro",
+      "palette_suggérée": [
+        "#ffffff",
+        "#f8fbff",
+        "#0066ff",
+        "#0077ff",
+        "#0099ff",
+        "#0f172a",
+        "#475569",
+        "#e0f0ff"
+      ],
+      "output_souhaité": "prompt détaillé pour maquette visuelle (desktop + mobile) + code HTML/CSS/Tailwind responsive mobile-first avec <video> tag (autoplay muted loop playsinline) ou iframe YouTube/Vimeo configuré autoplay"
+    }
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-workshop-section-{{ ai_gen_id }} {
+    display: block;
+    width: 100%;
+    background: {{ block.settings.background_color }};
+    padding: {{ block.settings.padding_mobile }}px 20px;
+  }
+
+  @media screen and (min-width: 768px) {
+    .ai-workshop-section-{{ ai_gen_id }} {
+      padding: {{ block.settings.padding_desktop }}px 40px;
+    }
+  }
+
+  .ai-workshop-container-{{ ai_gen_id }} {
+    max-width: {{ block.settings.max_width }}px;
+    margin: 0 auto;
+  }
+
+  .ai-workshop-title-{{ ai_gen_id }} {
+    text-align: center;
+    font-size: {{ block.settings.title_size_mobile }}px;
+    font-weight: 700;
+    color: {{ block.settings.title_color }};
+    margin: 0 0 {{ block.settings.title_margin_mobile }}px;
+    line-height: 1.2;
+  }
+
+  @media screen and (min-width: 768px) {
+    .ai-workshop-title-{{ ai_gen_id }} {
+      font-size: {{ block.settings.title_size_desktop }}px;
+      margin-bottom: {{ block.settings.title_margin_desktop }}px;
+    }
+  }
+
+  .ai-workshop-title-highlight-{{ ai_gen_id }} {
+    background: {{ block.settings.title_gradient }};
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .ai-workshop-content-{{ ai_gen_id }} {
+    display: flex;
+    flex-direction: column;
+    gap: {{ block.settings.gap_mobile }}px;
+    align-items: center;
+  }
+
+  @media screen and (min-width: 1024px) {
+    .ai-workshop-content-{{ ai_gen_id }} {
+      flex-direction: row;
+      gap: {{ block.settings.gap_desktop }}px;
+      align-items: center;
+    }
+  }
+
+  .ai-workshop-video-wrapper-{{ ai_gen_id }} {
+    width: 100%;
+    position: relative;
+    border-radius: {{ block.settings.video_border_radius }}px;
+    overflow: hidden;
+    box-shadow: {{ block.settings.video_shadow }};
+  }
+
+  @media screen and (min-width: 1024px) {
+    .ai-workshop-video-wrapper-{{ ai_gen_id }} {
+      width: {{ block.settings.video_width_desktop }}%;
+      flex-shrink: 0;
+    }
+  }
+
+  .ai-workshop-video-container-{{ ai_gen_id }} {
+    position: relative;
+    width: 100%;
+    padding-bottom: 100%;
+    background-color: #000000;
+  }
+
+  .ai-workshop-video-{{ ai_gen_id }} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .ai-workshop-video-placeholder-{{ ai_gen_id }} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 100%);
+  }
+
+  .ai-workshop-video-placeholder-{{ ai_gen_id }} svg {
+    width: 80px;
+    height: 80px;
+    opacity: 0.3;
+  }
+
+  .ai-workshop-play-overlay-{{ ai_gen_id }} {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: {{ block.settings.play_button_size_mobile }}px;
+    height: {{ block.settings.play_button_size_mobile }}px;
+    background: {{ block.settings.play_button_gradient }};
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 2;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 8px 24px rgba(0, 102, 255, 0.3);
+  }
+
+  @media screen and (min-width: 768px) {
+    .ai-workshop-play-overlay-{{ ai_gen_id }} {
+      width: {{ block.settings.play_button_size_desktop }}px;
+      height: {{ block.settings.play_button_size_desktop }}px;
+    }
+  }
+
+  .ai-workshop-play-overlay-{{ ai_gen_id }}:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+    box-shadow: 0 12px 32px rgba(0, 102, 255, 0.4);
+  }
+
+  .ai-workshop-play-overlay-{{ ai_gen_id }}.hidden {
+    display: none;
+  }
+
+  .ai-workshop-play-icon-{{ ai_gen_id }} {
+    width: 40%;
+    height: 40%;
+    fill: #ffffff;
+    margin-left: 8%;
+  }
+
+  .ai-workshop-text-content-{{ ai_gen_id }} {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: {{ block.settings.text_gap }}px;
+    align-items: center;
+    text-align: center;
+  }
+
+  @media screen and (min-width: 1024px) {
+    .ai-workshop-text-content-{{ ai_gen_id }} {
+      align-items: flex-start;
+      text-align: left;
+      max-width: 500px;
+    }
+  }
+
+  .ai-workshop-description-{{ ai_gen_id }} {
+    font-size: {{ block.settings.text_size_mobile }}px;
+    line-height: 1.7;
+    color: {{ block.settings.text_color }};
+    margin: 0;
+  }
+
+  @media screen and (min-width: 768px) {
+    .ai-workshop-description-{{ ai_gen_id }} {
+      font-size: {{ block.settings.text_size_desktop }}px;
+    }
+  }
+
+  .ai-workshop-description-{{ ai_gen_id }} strong {
+    color: {{ block.settings.text_highlight_color }};
+    font-weight: 600;
+  }
+
+  .ai-workshop-cta-{{ ai_gen_id }} {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: {{ block.settings.button_padding_mobile }}px {{ block.settings.button_padding_mobile | times: 2 }}px;
+    background: {{ block.settings.button_gradient }};
+    color: {{ block.settings.button_text_color }};
+    font-size: {{ block.settings.button_text_size }}px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: {{ block.settings.button_border_radius }}px;
+    box-shadow: {{ block.settings.button_shadow }};
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  @media screen and (min-width: 768px) {
+    .ai-workshop-cta-{{ ai_gen_id }} {
+      padding: {{ block.settings.button_padding_desktop }}px {{ block.settings.button_padding_desktop | times: 2.5 }}px;
+      width: auto;
+    }
+  }
+
+  .ai-workshop-cta-{{ ai_gen_id }}:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 32px rgba(0, 102, 255, 0.35);
+  }
+
+  .ai-workshop-badge-{{ ai_gen_id }} {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: {{ block.settings.badge_background }};
+    color: {{ block.settings.badge_text_color }};
+    font-size: 13px;
+    font-weight: 500;
+    border-radius: 20px;
+    border: 1px solid {{ block.settings.badge_border_color }};
+  }
+
+  @keyframes ai-workshop-pulse-{{ ai_gen_id }} {
+    0%, 100% {
+      transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+      transform: translate(-50%, -50%) scale(1.05);
+    }
+  }
+
+  {% if block.settings.enable_pulse %}
+    .ai-workshop-play-overlay-{{ ai_gen_id }} {
+      animation: ai-workshop-pulse-{{ ai_gen_id }} 2s ease-in-out infinite;
+    }
+  {% endif %}
+{% endstyle %}
+
+<workshop-video-{{ ai_gen_id }} class="ai-workshop-section-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-workshop-container-{{ ai_gen_id }}">
+    {% if block.settings.title != blank %}
+      <h2 class="ai-workshop-title-{{ ai_gen_id }}">
+        {{ block.settings.title }}
+        {% if block.settings.title_highlight != blank %}
+          <span class="ai-workshop-title-highlight-{{ ai_gen_id }}">{{ block.settings.title_highlight }}</span>
+        {% endif %}
+      </h2>
+    {% endif %}
+
+    <div class="ai-workshop-content-{{ ai_gen_id }}">
+      <div class="ai-workshop-video-wrapper-{{ ai_gen_id }}">
+        <div class="ai-workshop-video-container-{{ ai_gen_id }}">
+          {% if block.settings.video_url != blank %}
+            <video
+              class="ai-workshop-video-{{ ai_gen_id }}"
+              {% if block.settings.enable_autoplay %}autoplay{% endif %}
+              muted
+              loop
+              playsinline
+              {% if block.settings.poster_image %}
+                poster="{{ block.settings.poster_image | image_url: width: 1000 }}"
+              {% endif %}
+            >
+              <source src="{{ block.settings.video_url }}" type="video/mp4">
+            </video>
+            {% if block.settings.show_play_button %}
+              <button
+                class="ai-workshop-play-overlay-{{ ai_gen_id }} {% if block.settings.enable_autoplay %}hidden{% endif %}"
+                aria-label="Lire la vidéo"
+              >
+                <svg class="ai-workshop-play-icon-{{ ai_gen_id }}" viewBox="0 0 24 24">
+                  <path d="M8 5v14l11-7z"/>
+                </svg>
+              </button>
+            {% endif %}
+          {% else %}
+            <div class="ai-workshop-video-placeholder-{{ ai_gen_id }}">
+              {{ 'hero-apparel-1' | placeholder_svg_tag }}
+            </div>
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="ai-workshop-text-content-{{ ai_gen_id }}">
+        {% if block.settings.description != blank %}
+          <div class="ai-workshop-description-{{ ai_gen_id }}">
+            {{ block.settings.description }}
+          </div>
+        {% endif %}
+
+        {% if block.settings.show_badge %}
+          <div class="ai-workshop-badge-{{ ai_gen_id }}">
+            {{ block.settings.badge_text }}
+          </div>
+        {% endif %}
+
+        {% if block.settings.button_text != blank and block.settings.button_url != blank %}
+          <a href="{{ block.settings.button_url }}" class="ai-workshop-cta-{{ ai_gen_id }}">
+            {{ block.settings.button_text }}
+          </a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</workshop-video-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class WorkshopVideo{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+        this.video = null;
+        this.playButton = null;
+        this.observer = null;
+      }
+
+      connectedCallback() {
+        this.video = this.querySelector('.ai-workshop-video-{{ ai_gen_id }}');
+        this.playButton = this.querySelector('.ai-workshop-play-overlay-{{ ai_gen_id }}');
+
+        if (this.video && this.playButton) {
+          this.playButton.addEventListener('click', () => this.handlePlayClick());
+        }
+
+        if (this.video && {{ block.settings.enable_autoplay | json }} && {{ block.settings.enable_intersection_observer | json }}) {
+          this.setupIntersectionObserver();
+        }
+      }
+
+      handlePlayClick() {
+        if (this.video.paused) {
+          this.video.play();
+          this.playButton.classList.add('hidden');
+        } else {
+          this.video.pause();
+          this.playButton.classList.remove('hidden');
+        }
+      }
+
+      setupIntersectionObserver() {
+        const options = {
+          root: null,
+          rootMargin: '0px',
+          threshold: 0.5
+        };
+
+        this.observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              this.video.play();
+              if (this.playButton) {
+                this.playButton.classList.add('hidden');
+              }
+            } else {
+              this.video.pause();
+            }
+          });
+        }, options);
+
+        this.observer.observe(this.video);
+      }
+
+      disconnectedCallback() {
+        if (this.observer) {
+          this.observer.disconnect();
+        }
+      }
+    }
+
+    customElements.define('workshop-video-{{ ai_gen_id }}', WorkshopVideo{{ ai_gen_id }});
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Découvrez notre atelier",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Titre"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "label": "Titre principal",
+      "default": "Découvrez notre atelier"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "title_highlight",
+      "label": "Texte en surbrillance",
+      "default": "à Wattrelos"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Couleur du titre",
+      "default": "#0f172a"
+    },
+    {
+      "type": "color_background",
+      "id": "title_gradient",
+      "label": "Gradient surbrillance",
+      "default": "linear-gradient(135deg, #0066ff, #00aaff)"
+    },
+    {
+      "type": "range",
+      "id": "title_size_mobile",
+      "min": 24,
+      "max": 48,
+      "step": 2,
+      "unit": "px",
+      "label": "Taille mobile",
+      "default": 28
+    },
+    {
+      "type": "range",
+      "id": "title_size_desktop",
+      "min": 32,
+      "max": 64,
+      "step": 2,
+      "unit": "px",
+      "label": "Taille desktop",
+      "default": 42
+    },
+    {
+      "type": "range",
+      "id": "title_margin_mobile",
+      "min": 16,
+      "max": 64,
+      "step": 4,
+      "unit": "px",
+      "label": "Marge inférieure mobile",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "title_margin_desktop",
+      "min": 24,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "label": "Marge inférieure desktop",
+      "default": 48
+    },
+    {
+      "type": "header",
+      "content": "Vidéo"
+    },
+    {
+      "type": "text",
+      "id": "video_url",
+      "label": "URL de la vidéo",
+      "info": "Lien direct vers votre fichier vidéo MP4"
+    },
+    {
+      "type": "image_picker",
+      "id": "poster_image",
+      "label": "Image de couverture"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_autoplay",
+      "label": "Lecture automatique",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_intersection_observer",
+      "label": "Lecture au scroll (économie batterie)",
+      "default": true,
+      "info": "La vidéo se lance uniquement quand elle est visible"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_play_button",
+      "label": "Afficher le bouton play",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "video_width_desktop",
+      "min": 40,
+      "max": 70,
+      "step": 5,
+      "unit": "%",
+      "label": "Largeur vidéo desktop",
+      "default": 55
+    },
+    {
+      "type": "range",
+      "id": "video_border_radius",
+      "min": 0,
+      "max": 40,
+      "step": 4,
+      "unit": "px",
+      "label": "Arrondi des coins",
+      "default": 20
+    },
+    {
+      "type": "text",
+      "id": "video_shadow",
+      "label": "Ombre de la vidéo",
+      "default": "0 10px 30px rgba(0, 102, 255, 0.08)"
+    },
+    {
+      "type": "header",
+      "content": "Bouton play"
+    },
+    {
+      "type": "color_background",
+      "id": "play_button_gradient",
+      "label": "Gradient du bouton",
+      "default": "linear-gradient(135deg, #0066ff, #00aaff)"
+    },
+    {
+      "type": "range",
+      "id": "play_button_size_mobile",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Taille mobile",
+      "default": 70
+    },
+    {
+      "type": "range",
+      "id": "play_button_size_desktop",
+      "min": 80,
+      "max": 140,
+      "step": 10,
+      "unit": "px",
+      "label": "Taille desktop",
+      "default": 100
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_pulse",
+      "label": "Animation pulse",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Texte"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>Dans notre atelier à <strong>Wattrelos</strong>, chaque volant est assemblé à la main avec soin. Matériaux <strong>premium</strong>, précision artisanale, feeling ultime pour votre simracing ou votre voiture.</p>"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Couleur du texte",
+      "default": "#475569"
+    },
+    {
+      "type": "color",
+      "id": "text_highlight_color",
+      "label": "Couleur des mots en gras",
+      "default": "#0066ff"
+    },
+    {
+      "type": "range",
+      "id": "text_size_mobile",
+      "min": 14,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Taille mobile",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "text_size_desktop",
+      "min": 16,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Taille desktop",
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "text_gap",
+      "min": 16,
+      "max": 40,
+      "step": 4,
+      "unit": "px",
+      "label": "Espacement entre éléments",
+      "default": 24
+    },
+    {
+      "type": "header",
+      "content": "Badge"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_badge",
+      "label": "Afficher le badge",
+      "default": true
+    },
+    {
+      "type": "inline_richtext",
+      "id": "badge_text",
+      "label": "Texte du badge",
+      "default": "🇫🇷 Fabriqué avec passion en France"
+    },
+    {
+      "type": "color",
+      "id": "badge_background",
+      "label": "Fond du badge",
+      "default": "#e0f0ff"
+    },
+    {
+      "type": "color",
+      "id": "badge_text_color",
+      "label": "Couleur du texte",
+      "default": "#0066ff"
+    },
+    {
+      "type": "color",
+      "id": "badge_border_color",
+      "label": "Couleur de la bordure",
+      "default": "#96bdec"
+    },
+    {
+      "type": "header",
+      "content": "Bouton CTA"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Texte du bouton",
+      "default": "Contactez-nous pour votre volant"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "Lien du bouton"
+    },
+    {
+      "type": "color_background",
+      "id": "button_gradient",
+      "label": "Gradient du bouton",
+      "default": "linear-gradient(135deg, #0066ff, #00aaff)"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Couleur du texte",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "button_text_size",
+      "min": 14,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Taille du texte",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "button_padding_mobile",
+      "min": 12,
+      "max": 24,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding mobile",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "button_padding_desktop",
+      "min": 14,
+      "max": 28,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding desktop",
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "button_border_radius",
+      "min": 0,
+      "max": 50,
+      "step": 5,
+      "unit": "px",
+      "label": "Arrondi des coins",
+      "default": 50
+    },
+    {
+      "type": "text",
+      "id": "button_shadow",
+      "label": "Ombre du bouton",
+      "default": "0 8px 24px rgba(0, 102, 255, 0.25)"
+    },
+    {
+      "type": "header",
+      "content": "Mise en page"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Couleur de fond",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "padding_mobile",
+      "min": 24,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding vertical mobile",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_desktop",
+      "min": 40,
+      "max": 120,
+      "step": 8,
+      "unit": "px",
+      "label": "Padding vertical desktop",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "gap_mobile",
+      "min": 20,
+      "max": 60,
+      "step": 4,
+      "unit": "px",
+      "label": "Espacement mobile",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "gap_desktop",
+      "min": 32,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "label": "Espacement desktop",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "min": 1000,
+      "max": 1600,
+      "step": 100,
+      "unit": "px",
+      "label": "Largeur maximale",
+      "default": 1200
+    },
+    {
+      "type": "range",
+      "id": "desktop_width_percent",
+      "label": "Desktop width",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100
+    }
+  ],
+  "presets": [
+    {
+      "name": "Découvrez notre atelier"
+    }
+  ]
+}
+{% endschema %}

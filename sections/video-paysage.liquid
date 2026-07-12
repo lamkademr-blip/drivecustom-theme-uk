@@ -1,0 +1,441 @@
+{% schema %}
+{
+  "name": "Vidéo avec contenu",
+  "tag": "section",
+  "class": "section video-banner-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Vidéo"
+    },
+    {
+      "type": "select",
+      "id": "video_source",
+      "label": "Source de la vidéo",
+      "options": [
+        {
+          "value": "youtube",
+          "label": "YouTube"
+        },
+        {
+          "value": "vimeo",
+          "label": "Vimeo"
+        },
+        {
+          "value": "mp4",
+          "label": "Fichier MP4"
+        }
+      ],
+      "default": "youtube"
+    },
+    {
+      "type": "text",
+      "id": "video_id",
+      "label": "ID de la vidéo YouTube ou Vimeo",
+      "info": "Par exemple: 9YffrCViTVk pour YouTube ou 369893972 pour Vimeo",
+      "default": "dQw4w9WgXcQ"
+    },
+    {
+      "type": "text",
+      "id": "video_url",
+      "label": "URL de la vidéo MP4",
+      "info": "Utilisé si la source est 'Fichier MP4'",
+      "default": "https://cdn.shopify.com/s/files/1/0000/0000/files/example.mp4"
+    },
+    {
+      "type": "range",
+      "id": "height",
+      "min": 400,
+      "max": 1000,
+      "step": 50,
+      "unit": "px",
+      "label": "Hauteur de la vidéo",
+      "default": 600
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Lecture automatique",
+      "default": true,
+      "info": "La vidéo sera en sourdine si la lecture automatique est activée"
+    },
+    {
+      "type": "checkbox",
+      "id": "loop",
+      "label": "Lecture en boucle",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "label": "Opacité de l'overlay",
+      "default": 50
+    },
+    {
+      "type": "color",
+      "id": "overlay_color",
+      "label": "Couleur de l'overlay",
+      "default": "#000000"
+    },
+    {
+      "type": "header",
+      "content": "Contenu superposé"
+    },
+    {
+      "type": "select",
+      "id": "content_alignment",
+      "label": "Alignement du contenu",
+      "options": [
+        {
+          "value": "text-left",
+          "label": "Gauche"
+        },
+        {
+          "value": "text-center",
+          "label": "Centre"
+        },
+        {
+          "value": "text-right",
+          "label": "Droite"
+        }
+      ],
+      "default": "text-center"
+    },
+    {
+      "type": "select",
+      "id": "content_position",
+      "label": "Position verticale du contenu",
+      "options": [
+        {
+          "value": "flex-start",
+          "label": "Haut"
+        },
+        {
+          "value": "center",
+          "label": "Centre"
+        },
+        {
+          "value": "flex-end",
+          "label": "Bas"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "select",
+      "id": "title_tag",
+      "label": "Balise pour le titre",
+      "options": [
+        {
+          "value": "h1",
+          "label": "H1"
+        },
+        {
+          "value": "h2",
+          "label": "H2"
+        },
+        {
+          "value": "h3",
+          "label": "H3"
+        },
+        {
+          "value": "h4",
+          "label": "H4"
+        },
+        {
+          "value": "div",
+          "label": "DIV"
+        },
+        {
+          "value": "p",
+          "label": "Paragraphe"
+        }
+      ],
+      "default": "h2"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Titre",
+      "default": "Votre titre ici"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Couleur du titre",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "title_size",
+      "min": 14,
+      "max": 72,
+      "step": 1,
+      "unit": "px",
+      "label": "Taille du titre",
+      "default": 40
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Texte",
+      "default": "<p>Ajoutez votre texte ici</p>"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Couleur du texte",
+      "default": "#ffffff"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_button",
+      "label": "Afficher le bouton",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Texte du bouton",
+      "default": "En savoir plus"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Lien du bouton"
+    },
+    {
+      "type": "select",
+      "id": "button_style",
+      "label": "Style du bouton",
+      "options": [
+        {
+          "value": "btn--primary",
+          "label": "Principal"
+        },
+        {
+          "value": "btn--secondary",
+          "label": "Secondaire"
+        },
+        {
+          "value": "btn--white",
+          "label": "Blanc"
+        },
+        {
+          "value": "btn--outline",
+          "label": "Contour"
+        }
+      ],
+      "default": "btn--primary"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Vidéo avec contenu",
+      "category": "Vidéo"
+    }
+  ]
+}
+{% endschema %}
+
+<div class="video-banner-wrapper">
+  <div class="video-banner" style="height: {{ section.settings.height }}px;">
+    <div class="video-container">
+      {% case section.settings.video_source %}
+        {% when 'youtube' %}
+          <iframe 
+            src="https://www.youtube.com/embed/{{ section.settings.video_id }}?rel=0&showinfo=0&controls=0{% if section.settings.autoplay %}&autoplay=1&mute=1{% endif %}{% if section.settings.loop %}&loop=1&playlist={{ section.settings.video_id }}{% endif %}" 
+            frameborder="0" 
+            allowfullscreen 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+          </iframe>
+        {% when 'vimeo' %}
+          <iframe 
+            src="https://player.vimeo.com/video/{{ section.settings.video_id }}?background=1{% if section.settings.autoplay %}&autoplay=1&muted=1{% endif %}{% if section.settings.loop %}&loop=1{% endif %}" 
+            frameborder="0" 
+            allowfullscreen 
+            allow="autoplay; fullscreen">
+          </iframe>
+        {% when 'mp4' %}
+          <video 
+            {% if section.settings.autoplay %}autoplay muted{% endif %} 
+            {% if section.settings.loop %}loop{% endif %} 
+            playsinline>
+            <source src="{{ section.settings.video_url }}" type="video/mp4">
+            Votre navigateur ne prend pas en charge les vidéos HTML5.
+          </video>
+      {% endcase %}
+    </div>
+
+    <div class="video-overlay" style="background-color: {{ section.settings.overlay_color }}; opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }};"></div>
+
+    <div class="video-content {{ section.settings.content_alignment }}" style="justify-content: {{ section.settings.content_position }};">
+      <div class="content-wrapper">
+        {% if section.settings.title != blank %}
+          <{{ section.settings.title_tag }} class="video-title" style="color: {{ section.settings.title_color }}; font-size: {{ section.settings.title_size }}px;">
+            {{ section.settings.title }}
+          </{{ section.settings.title_tag }}>
+        {% endif %}
+
+        {% if section.settings.text != blank %}
+          <div class="video-text" style="color: {{ section.settings.text_color }};">
+            {{ section.settings.text }}
+          </div>
+        {% endif %}
+
+        {% if section.settings.show_button and section.settings.button_link != blank %}
+          <a href="{{ section.settings.button_link }}" class="btn {{ section.settings.button_style }}">
+            {{ section.settings.button_text }}
+          </a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .video-banner-wrapper {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .video-banner {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    overflow: hidden;
+  }
+
+  .video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .video-container iframe,
+  .video-container video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    min-width: 100%;
+    min-height: 100%;
+  }
+
+  .video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  .video-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    box-sizing: border-box;
+  }
+
+  .text-left {
+    text-align: left;
+    align-items: flex-start;
+  }
+
+  .text-center {
+    text-align: center;
+    align-items: center;
+  }
+
+  .text-right {
+    text-align: right;
+    align-items: flex-end;
+  }
+
+  .content-wrapper {
+    max-width: 800px;
+  }
+
+  .video-title {
+    margin-top: 0;
+    margin-bottom: 20px;
+    line-height: 1.2;
+    font-weight: 700;
+  }
+
+  .video-text {
+    margin-bottom: 30px;
+    font-size: 18px;
+    line-height: 1.5;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .btn--primary {
+    background-color: #007bff;
+    color: white;
+    border: 2px solid #007bff;
+  }
+
+  .btn--secondary {
+    background-color: #6c757d;
+    color: white;
+    border: 2px solid #6c757d;
+  }
+
+  .btn--white {
+    background-color: white;
+    color: #333;
+    border: 2px solid white;
+  }
+
+  .btn--outline {
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+  }
+
+  .btn:hover {
+    opacity: 0.85;
+  }
+
+  @media screen and (max-width: 768px) {
+    .video-title {
+      font-size: 30px !important;
+    }
+
+    .video-text {
+      font-size: 16px;
+    }
+  }
+</style>

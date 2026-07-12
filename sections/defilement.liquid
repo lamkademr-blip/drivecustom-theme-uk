@@ -1,0 +1,365 @@
+{% schema %}
+{
+  "name": "Carrousel de Marques",
+  "tag": "section",
+  "class": "brand-carousel-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Paramètres du carrousel"
+    },
+    {
+      "type": "range",
+      "id": "scroll_speed",
+      "label": "Vitesse de défilement",
+      "min": 10,
+      "max": 120,
+      "step": 5,
+      "default": 60,
+      "unit": "sec"
+    },
+    {
+      "type": "header",
+      "content": "Apparence"
+    },
+    {
+      "type": "checkbox",
+      "id": "transparent_background",
+      "label": "Fond transparent",
+      "default": false,
+      "info": "Active pour rendre le fond de la section transparent"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Couleur de fond",
+      "default": "#c5b7a6",
+      "info": "Utilisé seulement si le fond transparent est désactivé"
+    },
+    {
+      "type": "color",
+      "id": "item_background_color",
+      "label": "Couleur de fond des éléments",
+      "default": "#151515"
+    },
+    {
+      "type": "range",
+      "id": "section_padding",
+      "label": "Espacement (padding) vertical de la section",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "default": 40,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "logo_max_height",
+      "label": "Hauteur maximale des logos",
+      "min": 30,
+      "max": 150,
+      "step": 5,
+      "default": 60,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "item_spacing",
+      "label": "Espacement entre les logos",
+      "min": 0,
+      "max": 50,
+      "step": 2,
+      "default": 10,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "item_border_radius",
+      "label": "Rayon de bordure des éléments",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "default": 8,
+      "unit": "px"
+    },
+    {
+      "type": "checkbox",
+      "id": "add_accent_border",
+      "label": "Ajouter bordure d'accent (bleu et rouge)",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "brand",
+      "name": "Marque",
+      "limit": 20,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "logo",
+          "label": "Logo de la marque"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Lien (optionnel)"
+        },
+        {
+          "type": "text",
+          "id": "brand_name",
+          "label": "Nom de la marque",
+          "info": "Utilisé pour l'attribut alt de l'image et pour l'accessibilité"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Carrousel de Marques",
+      "blocks": [
+        {
+          "type": "brand"
+        },
+        {
+          "type": "brand"
+        },
+        {
+          "type": "brand"
+        },
+        {
+          "type": "brand"
+        },
+        {
+          "type": "brand"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<div class="brand-carousel-section" 
+     style="{% unless section.settings.transparent_background %}background-color: {{ section.settings.background_color }};{% else %}background-color: transparent;{% endunless %}
+            padding: {{ section.settings.section_padding }}px 0;">
+  <div class="page-width">
+    {% if section.blocks.size > 0 %}
+      <div class="brand-carousel-wrapper {% if section.settings.add_accent_border %}with-accent-border{% endif %}">
+        <div class="brand-carousel">
+          <div class="brand-track">
+            {% for block in section.blocks %}
+              {% if block.type == 'brand' %}
+                <div class="brand-item" {{ block.shopify_attributes }}
+                     style="background-color: {{ section.settings.item_background_color }}; 
+                            border-radius: {{ section.settings.item_border_radius }}px;
+                            margin-right: {{ section.settings.item_spacing }}px;">
+                  {% if block.settings.link != blank %}
+                    <a href="{{ block.settings.link }}" class="brand-link" title="{{ block.settings.brand_name | escape }}">
+                  {% endif %}
+                  
+                  {% if block.settings.logo != blank %}
+                    <div class="brand-logo-container">
+                      <img src="{{ block.settings.logo | img_url: 'master' }}"
+                           alt="{{ block.settings.brand_name | escape }}"
+                           loading="lazy"
+                           class="brand-logo"
+                           style="max-height: {{ section.settings.logo_max_height }}px;">
+                    </div>
+                  {% else %}
+                    <div class="brand-placeholder">
+                      <span>{{ block.settings.brand_name }}</span>
+                    </div>
+                  {% endif %}
+                  
+                  {% if block.settings.link != blank %}
+                    </a>
+                  {% endif %}
+                </div>
+              {% endif %}
+            {% endfor %}
+            
+            <!-- Duplication des logos pour le défilement continu -->
+            {% for block in section.blocks %}
+              {% if block.type == 'brand' %}
+                <div class="brand-item" {{ block.shopify_attributes }}
+                     style="background-color: {{ section.settings.item_background_color }}; 
+                            border-radius: {{ section.settings.item_border_radius }}px;
+                            margin-right: {{ section.settings.item_spacing }}px;">
+                  {% if block.settings.link != blank %}
+                    <a href="{{ block.settings.link }}" class="brand-link" title="{{ block.settings.brand_name | escape }}">
+                  {% endif %}
+                  
+                  {% if block.settings.logo != blank %}
+                    <div class="brand-logo-container">
+                      <img src="{{ block.settings.logo | img_url: 'master' }}"
+                           alt="{{ block.settings.brand_name | escape }}"
+                           loading="lazy"
+                           class="brand-logo"
+                           style="max-height: {{ section.settings.logo_max_height }}px;">
+                    </div>
+                  {% else %}
+                    <div class="brand-placeholder">
+                      <span>{{ block.settings.brand_name }}</span>
+                    </div>
+                  {% endif %}
+                  
+                  {% if block.settings.link != blank %}
+                    </a>
+                  {% endif %}
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    {% else %}
+      <div class="brand-carousel-placeholder">
+        <p class="empty-carousel-message">Ajoutez des marques en utilisant les blocs dans l'éditeur de thème.</p>
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+<style>
+  .brand-carousel-section {
+    overflow: hidden;
+  }
+  
+  .brand-carousel-wrapper {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    padding: 2px 0;
+  }
+  
+  .with-accent-border:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(to right, #0a2aad 0%, #0a2aad 50%, #e20f00 50%, #e20f00 100%);
+    z-index: 1;
+  }
+  
+  .with-accent-border:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(to right, #0a2aad 0%, #0a2aad 50%, #e20f00 50%, #e20f00 100%);
+    z-index: 1;
+  }
+  
+  .brand-carousel {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+  }
+  
+  .brand-track {
+    display: flex;
+    width: fit-content;
+    animation: scroll-brands {{ section.settings.scroll_speed }}s linear infinite;
+  }
+  
+  @keyframes scroll-brands {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  
+  .brand-item {
+    flex: 0 0 auto;
+    width: 270px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+  }
+  
+  /* Effet damier subtil sur les cases noires */
+  .brand-item:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.1) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.1) 75%, transparent 75%, transparent);
+    background-size: 10px 10px;
+    opacity: 0.1;
+    border-radius: inherit;
+    pointer-events: none;
+  }
+  
+  .brand-logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+  }
+  
+  .brand-logo {
+    width: auto;
+    max-width: 100%;
+    filter: brightness(1);
+    object-fit: contain;
+  }
+  
+  .brand-placeholder {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 500;
+    width: 100%;
+  }
+  
+  .brand-carousel-placeholder {
+    text-align: center;
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    border: 2px dashed rgba(255, 255, 255, 0.1);
+    color: #333;
+  }
+  
+  /* Responsive */
+  @media screen and (max-width: 749px) {
+    .brand-item {
+      width: 200px;
+      height: 120px;
+      padding: 15px;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Pause du défilement au survol
+    const track = document.querySelector('.brand-track');
+    if (track) {
+      track.addEventListener('mouseenter', function() {
+        this.style.animationPlayState = 'paused';
+      });
+      
+      track.addEventListener('mouseleave', function() {
+        this.style.animationPlayState = 'running';
+      });
+    }
+  });
+</script>

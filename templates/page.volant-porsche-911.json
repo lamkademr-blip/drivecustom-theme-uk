@@ -1,0 +1,202 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "hero_modele": {
+      "type": "_blocks",
+      "blocks": {
+        "hero_cta": {
+          "type": "ai_gen_block_3d3f0ee",
+          "settings": {
+            "overlay_direction": "right",
+            "overlay_opacity": 0.6,
+            "content_max_width": 600,
+            "padding_top": 100,
+            "padding_bottom": 100,
+            "padding_left": 80,
+            "padding_right": 80,
+            "mobile_height": 70,
+            "mobile_padding": 30,
+            "eyebrow_text": "VOLANT SUR MESURE",
+            "eyebrow_size": 13,
+            "eyebrow_spacing": 0.2,
+            "eyebrow_color": "#FFFFFF",
+            "eyebrow_opacity": 0.9,
+            "headline_text": "Volant Personnalisé pour Porsche 911",
+            "headline_size": 42,
+            "headline_weight": "300",
+            "headline_spacing": 0.1,
+            "headline_line_height": 1.1,
+            "headline_color": "#FFFFFF",
+            "primary_label": "VOIR LES RÉALISATIONS",
+            "primary_link": "shopify://collections/volant-porsche",
+            "primary_bg": "#FFFFFF",
+            "primary_text": "#000000",
+            "primary_hover_bg": "#000000",
+            "primary_hover_text": "#FFFFFF",
+            "secondary_label": "COMMANDER SUR MESURE",
+            "secondary_link": "https://wa.me/33622510196",
+            "secondary_bg": "#25D366",
+            "secondary_text": "#FFFFFF",
+            "secondary_hover_bg": "#1DA851",
+            "secondary_hover_text": "#FFFFFF",
+            "button_font_size": 14,
+            "button_padding_vertical": 16,
+            "button_padding_horizontal": 32,
+            "button_border_radius": 0
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": ["hero_cta"],
+      "settings": {}
+    },
+    "intro_modele": {
+      "type": "_blocks",
+      "blocks": {
+        "intro_texte": {
+          "type": "ai_gen_block_41aa14c",
+          "settings": {
+            "layout": "text_only",
+            "gap": 40,
+            "section_padding": 60,
+            "heading": "Personnalisez votre Volant Porsche 911",
+            "heading_size": 32,
+            "heading_weight": "600",
+            "heading_color": "#000000",
+            "text_content": "<p>Offrez une seconde vie à votre Porsche 911 avec un volant personnalisé haut de gamme. Chaque volant est fabriqué sur mesure, adapté parfaitement à votre modèle et à vos préférences de conduite.</p><p>Notre savoir-faire artisanal combine des matériaux premium — <strong>cuir pleine fleur, Alcantara®, carbone véritable</strong> — pour un résultat digne des plus grands constructeurs.</p>",
+            "text_size": 16,
+            "text_weight": "400",
+            "text_color": "#333333",
+            "line_height": 1.6,
+            "text_alignment": "center",
+            "text_spacing": 20,
+            "background_color": "#ffffff",
+            "border_radius": 0
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": ["intro_texte"],
+      "settings": {}
+    },
+    "options_modele": {
+      "type": "_blocks",
+      "blocks": {
+        "options_cartes": {
+          "type": "ai_gen_block_5b9c4c6",
+          "settings": {
+            "columns_desktop": 4,
+            "columns_tablet": 2,
+            "columns_mobile": "1",
+            "alignment": "center",
+            "gap": 48,
+            "padding_top": 60,
+            "padding_bottom": 60,
+            "padding_horizontal": 60,
+            "gradient_direction": "top_left_to_bottom_right",
+            "gradient_color_1": "#f5f5f5",
+            "gradient_color_2": "#ffffff",
+            "eyebrow_text": "OPTIONS DE PERSONNALISATION",
+            "eyebrow_color": "#000000",
+            "eyebrow_size": 14,
+            "eyebrow_letter_spacing": 2,
+            "icon_size": 48,
+            "icon_radius": 12,
+            "icon_background": "#006eff",
+            "icon_color": "#ffffff",
+            "title_size": 16,
+            "title_font_weight": "700",
+            "title_letter_spacing": 1,
+            "title_color": "#006eff",
+            "text_size": 14,
+            "text_color": "#333333",
+            "step_1_enabled": true,
+            "step_1_number": "",
+            "step_1_title": "CUIR PLEINE FLEUR",
+            "step_1_description": "Cuir italien haut de gamme, souple et durable. Disponible en noir, blanc, rouge, bleu, marron et plus.",
+            "step_1_icon": "award",
+            "step_2_enabled": true,
+            "step_2_number": "",
+            "step_2_title": "ALCANTARA®",
+            "step_2_description": "Toucher suédé ultra-premium, idéal pour une adhérence parfaite. Fini sport et racing.",
+            "step_2_icon": "star",
+            "step_3_enabled": true,
+            "step_3_number": "",
+            "step_3_title": "CARBONE",
+            "step_3_description": "Insertions en carbone véritable pour un look racing. Léger, résistant, spectaculaire.",
+            "step_3_icon": "zap",
+            "step_4_enabled": true,
+            "step_4_number": "",
+            "step_4_title": "SURPIQÛRES",
+            "step_4_description": "Surpiqûres contrastées personnalisables. Double ligne, couleur au choix, motif racing.",
+            "step_4_icon": "pen-tool"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": ["options_cartes"],
+      "settings": {}
+    },
+    "cta_final": {
+      "type": "_blocks",
+      "blocks": {
+        "cta_bottom": {
+          "type": "ai_gen_block_516848c",
+          "settings": {
+            "padding_top": 80,
+            "padding_bottom": 80,
+            "padding_horizontal": 60,
+            "content_max_width": 900,
+            "content_spacing": 24,
+            "text_alignment": "center",
+            "gradient_color_1": "#ffffff",
+            "gradient_color_2": "#ffffff",
+            "gradient_color_3": "#ffffff",
+            "gradient_color_4": "#ffffff",
+            "gradient_color_5": "#ffffff",
+            "headline": "Vous voulez un volant unique pour votre Porsche 911 ?",
+            "headline_size": 36,
+            "headline_weight": "400",
+            "headline_letter_spacing": 1,
+            "headline_color": "#000000",
+            "headline_max_width": 720,
+            "subtext": "Décrivez-nous le volant de vos rêves, nous le créons sur mesure. Devis gratuit, réponse sous 24h.",
+            "subtext_size": 16,
+            "subtext_color": "#333333",
+            "subtext_max_width": 680,
+            "highlight": "Sur-mesure · Conseil expert · Livraison offerte",
+            "highlight_size": 13,
+            "highlight_color": "#8e9ad6",
+            "button_text": "PARLER À UN EXPERT SUR WHATSAPP",
+            "button_link": "https://wa.me/33622510196",
+            "show_whatsapp_icon": true,
+            "button_background": "#25d366",
+            "button_text_color": "#ffffff",
+            "button_border_radius": 0,
+            "button_font_size": 15,
+            "button_padding_vertical": 18,
+            "button_padding_horizontal": 40,
+            "button_hover_scale": 10,
+            "enable_fade_in": true
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": ["cta_bottom"],
+      "settings": {}
+    }
+  },
+  "order": [
+    "hero_modele",
+    "intro_modele",
+    "options_modele",
+    "main",
+    "cta_final"
+  ]
+}

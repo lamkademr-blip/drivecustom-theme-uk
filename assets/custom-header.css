@@ -1,0 +1,61 @@
+header.header, 
+#shopify-section-header .header-wrapper,
+.shopify-section-header {
+  background-color: #ffffff !important;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05) !important;
+  position: relative !important;
+  padding: 10px 0 !important;
+  margin-top: 15px !important;     /* Espace en haut */
+  width: 95% !important;           /* Largeur réduite */
+  max-width: 1400px !important;    /* Limite la largeur maximale */
+  margin-left: auto !important;    /* Centre horizontalement */
+  margin-right: auto !important;   /* Centre horizontalement */
+  border-radius: 8px !important;   /* Coins arrondis */
+}
+
+/* Déplacer le bouton hamburger vers la droite */
+.header__menu-toggle,
+#shopify-section-header .header__menu-toggle,
+.header__icon--menu {
+  margin-left: 30px !important; /* Ajustez cette valeur selon vos besoins */
+  position: relative !important;
+}
+
+/* Si le sélecteur ci-dessus ne fonctionne pas, essayez celui-ci */
+button.header__icon--menu {
+  margin-left: 30px !important;
+}
+
+/* Déplacer les icônes (recherche, compte, panier) vers la droite */
+.header__icons,
+#shopify-section-header .header__icons {
+  margin-right: 30px !important; /* Ajoute un espace à droite */
+  position: relative !important;
+}
+
+/* Si vous avez besoin de plus d'espace entre ces éléments */
+.header__icon--account,
+.header__icon--search,
+.header__icon--cart {
+  margin-left: 30px !important; /* Espace entre chaque icône */
+}
+
+/* Pour s'assurer que le conteneur des icônes est bien aligné */
+.header__icons-wrapper {
+  justify-content: flex-end !important; /* Aligne à droite */
+  padding-right: 30px !important;
+}
+
+/* Modifier la couleur de fond de la page */
+body,
+html {
+  background-color: #f5f5f5 !important; /* Gris très clair */
+}
+
+/* Si vous voulez aussi modifier la couleur de fond du header */
+header.header, 
+#shopify-section-header .header-wrapper,
+.shopify-section-header {
+  background-color: #ffffff !important; /* Blanc */
+  /* Autres propriétés existantes */
+}

@@ -1,0 +1,340 @@
+{% schema %}
+{
+  "name": "Accompagnement",
+  "tag": "section",
+  "class": "accompagnement-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Titre de la section",
+      "default": "NOTRE ACCOMPAGNEMENT"
+    },
+    {
+      "type": "select",
+      "id": "gradient_preset",
+      "label": "Dégradé de fond",
+      "options": [
+        {
+          "value": "transparent",
+          "label": "Transparent"
+        },
+        {
+          "value": "none",
+          "label": "Aucun (blanc)"
+        },
+        {
+          "value": "blue_deep",
+          "label": "Bleu profond"
+        },
+        {
+          "value": "blue_purple",
+          "label": "Bleu-Violet"
+        }
+      ],
+      "default": "blue_deep"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Couleur du texte",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "icon_color",
+      "label": "Couleur des icônes",
+      "default": "#36c2ec"
+    },
+    {
+      "type": "header",
+      "content": "Espacement"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 20,
+      "max": 100,
+      "step": 10,
+      "unit": "px",
+      "label": "Espace supérieur",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 20,
+      "max": 100,
+      "step": 10,
+      "unit": "px",
+      "label": "Espace inférieur",
+      "default": 60
+    }
+  ],
+  "blocks": [
+    {
+      "type": "step_1",
+      "name": "Étape 1",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Titre",
+          "default": "1. CONFIGURATION"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Créez votre volant sur mesure, du design à la prise en main, pour une expérience de conduite qui vous ressemble."
+        }
+      ]
+    },
+    {
+      "type": "step_2",
+      "name": "Étape 2",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Titre",
+          "default": "2. FABRICATION"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Nos artisans conçoivent votre volant avec des matériaux premium et une finition impeccable, digne des plus grands pilotes."
+        }
+      ]
+    },
+    {
+      "type": "step_3",
+      "name": "Étape 3",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Titre",
+          "default": "3. LIVRAISON"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Votre volant personnalisé livré gratuitement et soigneusement emballé directement chez vous."
+        }
+      ]
+    },
+    {
+      "type": "step_4",
+      "name": "Étape 4",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Titre",
+          "default": "4. GARANTIE"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Prenez la route en toute confiance avec une garantie complète contre tout défaut de fabrication."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Accompagnement",
+      "blocks": [
+        {
+          "type": "step_1"
+        },
+        {
+          "type": "step_2"
+        },
+        {
+          "type": "step_3"
+        },
+        {
+          "type": "step_4"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<section class="accompagnement-section gradient-{{ section.settings.gradient_preset }}" 
+         style="padding-top: {{ section.settings.padding_top }}px;
+                padding-bottom: {{ section.settings.padding_bottom }}px;
+                {% if section.settings.gradient_preset == 'transparent' %}
+                background: transparent;
+                {% endif %}
+                color: {{ section.settings.text_color }};">
+  <div class="container-full-width">
+    {% if section.settings.title != blank %}
+      <h2 class="section-title">{{ section.settings.title }}</h2>
+    {% endif %}
+    
+    <div class="steps-container">
+      {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'step_1' %}
+            <div class="step-item" {{ block.shopify_attributes }}>
+              <div class="icon-container">
+                <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="{{ section.settings.icon_color }}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M9 2 L3 8 L9 14"></path>
+                  <path d="M15 2 L21 8 L15 14"></path>
+                  <line x1="3" y1="8" x2="21" y2="8"></line>
+                </svg>
+              </div>
+              <h3 class="step-title">{{ block.settings.title }}</h3>
+              <p class="step-description">{{ block.settings.description }}</p>
+            </div>
+          {% when 'step_2' %}
+            <div class="step-item" {{ block.shopify_attributes }}>
+              <div class="icon-container">
+                <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="{{ section.settings.icon_color }}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M17 3a2.85 2.85 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path>
+                </svg>
+              </div>
+              <h3 class="step-title">{{ block.settings.title }}</h3>
+              <p class="step-description">{{ block.settings.description }}</p>
+            </div>
+          {% when 'step_3' %}
+            <div class="step-item" {{ block.shopify_attributes }}>
+              <div class="icon-container">
+                <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="{{ section.settings.icon_color }}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+              </div>
+              <h3 class="step-title">{{ block.settings.title }}</h3>
+              <p class="step-description">{{ block.settings.description }}</p>
+            </div>
+          {% when 'step_4' %}
+            <div class="step-item" {{ block.shopify_attributes }}>
+              <div class="icon-container">
+                <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="{{ section.settings.icon_color }}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                </svg>
+              </div>
+              <h3 class="step-title">{{ block.settings.title }}</h3>
+              <p class="step-description">{{ block.settings.description }}</p>
+            </div>
+        {% endcase %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<style>
+  .accompagnement-section {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .container-full-width {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 5%;
+  }
+  
+  /* Dégradés prédéfinis */
+  .gradient-none {
+    background: #ffffff;
+  }
+  
+  .gradient-blue_deep {
+    background: radial-gradient(ellipse at top, #2e2f59, #1e2959 50%, #0a1726 100%);
+  }
+  
+  .gradient-blue_purple {
+    background: linear-gradient(135deg, #151c38, #2d244c);
+  }
+  
+  .section-title {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  .steps-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  .step-item {
+    flex: 1;
+    padding: 0 15px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .icon-container {
+    width: 45px;
+    height: 45px;
+    background-color: white;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .step-icon {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .step-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0 0 10px;
+    text-transform: uppercase;
+    font-style: italic;
+    text-align: center;
+  }
+  
+  .step-description {
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 0;
+    opacity: 0.8;
+    text-align: center;
+  }
+  
+  @media screen and (max-width: 991px) {
+    .steps-container {
+      flex-direction: column;
+    }
+    
+    .step-item {
+      margin-bottom: 30px;
+      width: 100%;
+    }
+  }
+  
+  @media screen and (max-width: 767px) {
+    .step-title {
+      font-size: 20px;
+    }
+  }
+</style>

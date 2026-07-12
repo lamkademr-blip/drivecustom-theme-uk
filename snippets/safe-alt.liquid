@@ -1,0 +1,7 @@
+{%- liquid
+  if image != blank and image.alt != blank
+    echo image.alt | escape
+  else
+    echo fallback | escape
+  endif
+-%}

@@ -1,0 +1,57 @@
+/* Masquer la barre rouge en haut */
+.main-cart-footer ~ div,
+.cart__header,
+.cart-header,
+div[style*="background-color: #ff"],
+div[style*="background: #ff"],
+.shopify-section--cart > div:first-child {
+  display: none !important;
+}
+
+/* Masquer le prix total qui apparaît en double */
+.cart__total:not(:first-of-type),
+.totals + .totals,
+.cart__footer-item:last-child:not(:only-child),
+.cart__footer > p:last-child:not(:only-child) {
+  display: none !important;
+}
+
+/* Ajuster le layout des articles du panier pour aligner le texte avec l'image */
+.cart-item {
+  display: flex !important;
+  align-items: flex-start !important;
+  flex-wrap: wrap !important;
+}
+
+.cart-item__media,
+.cart-item__image-container {
+  flex: 0 0 80px !important;
+  margin-right: 15px !important;
+}
+
+.cart-item__details,
+.cart-item__info {
+  flex: 1 !important;
+  padding-top: 0 !important;
+}
+
+.cart-item__totals {
+  flex: 0 0 100% !important;
+  text-align: right !important;
+  margin-top: 10px !important;
+}
+
+/* Appliquer Poppins en gras pour les titres de produits */
+.cart-item__name,
+.cart-item__title,
+.cart-item a {
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 700 !important;
+}
+
+/* Rendre les images carrées */
+.cart-item__image {
+  width: 80px !important;
+  height: 80px !important;
+  object-fit: cover !important;
+}

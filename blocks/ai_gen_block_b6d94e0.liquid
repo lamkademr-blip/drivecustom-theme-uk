@@ -1,0 +1,434 @@
+{% doc %}
+  @prompt
+    cree une section faisant defiler des images montrant le logo de nos partenaires, je veux que le titre soit en balise div, je veux que les logos soient de couleur deja et choisir l nombre de logo a defiler
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-partners-carousel-{{ ai_gen_id }} {
+    display: block;
+    width: 100%;
+    padding: {{ block.settings.section_padding }}px 0;
+    background-color: {{ block.settings.background_color }};
+    overflow: hidden;
+  }
+
+  .ai-partners-carousel__container-{{ ai_gen_id }} {
+    max-width: {{ block.settings.container_width }}px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .ai-partners-carousel__heading-{{ ai_gen_id }} {
+    text-align: center;
+    margin: 0 0 {{ block.settings.heading_spacing }}px;
+    color: {{ block.settings.heading_color }};
+    font-size: {{ block.settings.heading_size }}px;
+  }
+
+  .ai-partners-carousel__track-wrapper-{{ ai_gen_id }} {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .ai-partners-carousel__track-{{ ai_gen_id }} {
+    display: flex;
+    gap: {{ block.settings.logo_spacing }}px;
+    animation: ai-partners-scroll-{{ ai_gen_id }} {{ block.settings.scroll_speed }}s linear infinite;
+    will-change: transform;
+  }
+
+  .ai-partners-carousel__track-{{ ai_gen_id }}:hover {
+    animation-play-state: paused;
+  }
+
+  .ai-partners-carousel__logo-{{ ai_gen_id }} {
+    flex-shrink: 0;
+    width: {{ block.settings.logo_width }}px;
+    height: {{ block.settings.logo_height }}px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: {{ block.settings.logo_background }};
+    border-radius: {{ block.settings.logo_border_radius }}px;
+    padding: {{ block.settings.logo_padding }}px;
+    transition: transform 0.3s ease;
+  }
+
+  .ai-partners-carousel__logo-{{ ai_gen_id }}:hover {
+    transform: scale(1.05);
+  }
+
+  .ai-partners-carousel__logo-{{ ai_gen_id }} img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+  }
+
+  .ai-partners-carousel__logo-placeholder-{{ ai_gen_id }} {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f4f4f4;
+    border-radius: {{ block.settings.logo_border_radius }}px;
+  }
+
+  .ai-partners-carousel__logo-placeholder-{{ ai_gen_id }} svg {
+    width: 60%;
+    height: 60%;
+    opacity: 0.3;
+  }
+
+  @keyframes ai-partners-scroll-{{ ai_gen_id }} {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-50% - {{ block.settings.logo_spacing | divided_by: 2.0 }}px));
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-partners-carousel__logo-{{ ai_gen_id }} {
+      width: {{ block.settings.logo_width | times: 0.7 }}px;
+      height: {{ block.settings.logo_height | times: 0.7 }}px;
+    }
+
+    .ai-partners-carousel__heading-{{ ai_gen_id }} {
+      font-size: {{ block.settings.heading_size | times: 0.8 }}px;
+    }
+  }
+{% endstyle %}
+
+<partners-carousel-{{ ai_gen_id }} class="ai-partners-carousel-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-partners-carousel__container-{{ ai_gen_id }}">
+    {% if block.settings.heading != blank %}
+      <div class="ai-partners-carousel__heading-{{ ai_gen_id }}">{{ block.settings.heading }}</div>
+    {% endif %}
+
+    <div class="ai-partners-carousel__track-wrapper-{{ ai_gen_id }}">
+      <div class="ai-partners-carousel__track-{{ ai_gen_id }}">
+        {% for i in (1..block.settings.logo_count) %}
+          {% assign logo_key = 'logo_' | append: i %}
+          {% assign logo = block.settings[logo_key] %}
+          
+          {% if logo != blank %}
+            <div class="ai-partners-carousel__logo-{{ ai_gen_id }}">
+              <img
+                src="{{ logo | image_url: width: 400 }}"
+                alt="{{ logo.alt | escape }}"
+                loading="lazy"
+                width="{{ block.settings.logo_width }}"
+                height="{{ block.settings.logo_height }}"
+              >
+            </div>
+          {% else %}
+            <div class="ai-partners-carousel__logo-{{ ai_gen_id }}">
+              <div class="ai-partners-carousel__logo-placeholder-{{ ai_gen_id }}">
+                {{ 'image' | placeholder_svg_tag }}
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+
+        {% for i in (1..block.settings.logo_count) %}
+          {% assign logo_key = 'logo_' | append: i %}
+          {% assign logo = block.settings[logo_key] %}
+          
+          {% if logo != blank %}
+            <div class="ai-partners-carousel__logo-{{ ai_gen_id }}">
+              <img
+                src="{{ logo | image_url: width: 400 }}"
+                alt="{{ logo.alt | escape }}"
+                loading="lazy"
+                width="{{ block.settings.logo_width }}"
+                height="{{ block.settings.logo_height }}"
+              >
+            </div>
+          {% else %}
+            <div class="ai-partners-carousel__logo-{{ ai_gen_id }}">
+              <div class="ai-partners-carousel__logo-placeholder-{{ ai_gen_id }}">
+                {{ 'image' | placeholder_svg_tag }}
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</partners-carousel-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class PartnersCarousel{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+      }
+
+      connectedCallback() {
+        this.track = this.querySelector('.ai-partners-carousel__track-{{ ai_gen_id }}');
+        this.adjustScrollSpeed();
+      }
+
+      adjustScrollSpeed() {
+        if (!this.track) return;
+        
+        const trackWidth = this.track.scrollWidth / 2;
+        const speed = {{ block.settings.scroll_speed }};
+        
+        this.track.style.animationDuration = `${speed}s`;
+      }
+    }
+
+    customElements.define('partners-carousel-{{ ai_gen_id }}', PartnersCarousel{{ ai_gen_id }});
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Logos partenaires",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Contenu"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Titre",
+      "default": "Nos partenaires"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "min": 16,
+      "max": 48,
+      "step": 2,
+      "unit": "px",
+      "label": "Taille du titre",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "heading_spacing",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "label": "Espacement sous le titre",
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": "Configuration"
+    },
+    {
+      "type": "range",
+      "id": "logo_count",
+      "min": 1,
+      "max": 12,
+      "step": 1,
+      "label": "Nombre de logos",
+      "default": 6
+    },
+    {
+      "type": "header",
+      "content": "Logos"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo_1",
+      "label": "Logo 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo_2",
+      "label": "Logo 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo_3",
+      "label": "Logo 3"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo_4",
+      "label": "Logo 4"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo_5",
+      "label": "Logo 5"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo_6",
+      "label": "Logo 6"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo_7",
+      "label": "Logo 7"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo_8",
+      "label": "Logo 8"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo_9",
+      "label": "Logo 9"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo_10",
+      "label": "Logo 10"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo_11",
+      "label": "Logo 11"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo_12",
+      "label": "Logo 12"
+    },
+    {
+      "type": "header",
+      "content": "Style des logos"
+    },
+    {
+      "type": "range",
+      "id": "logo_width",
+      "min": 80,
+      "max": 300,
+      "step": 10,
+      "unit": "px",
+      "label": "Largeur des logos",
+      "default": 150
+    },
+    {
+      "type": "range",
+      "id": "logo_height",
+      "min": 40,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "label": "Hauteur des logos",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "logo_spacing",
+      "min": 10,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Espacement entre logos",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "logo_padding",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding des logos",
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "logo_border_radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "Arrondi des coins",
+      "default": 8
+    },
+    {
+      "type": "color",
+      "id": "logo_background",
+      "label": "Fond des logos",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Animation"
+    },
+    {
+      "type": "range",
+      "id": "scroll_speed",
+      "min": 10,
+      "max": 60,
+      "step": 5,
+      "unit": "s",
+      "label": "Vitesse de défilement",
+      "default": 30
+    },
+    {
+      "type": "header",
+      "content": "Couleurs"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Couleur de fond",
+      "default": "#f8f8f8"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Couleur du titre",
+      "default": "#000000"
+    },
+    {
+      "type": "header",
+      "content": "Espacement"
+    },
+    {
+      "type": "range",
+      "id": "section_padding",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding vertical",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "container_width",
+      "min": 800,
+      "max": 1600,
+      "step": 100,
+      "unit": "px",
+      "label": "Largeur du conteneur",
+      "default": 1200
+    },
+    {
+      "type": "range",
+      "id": "desktop_width_percent",
+      "label": "Largeur sur desktop",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100
+    }
+  ],
+  "presets": [
+    {
+      "name": "Logos partenaires"
+    }
+  ]
+}
+{% endschema %}

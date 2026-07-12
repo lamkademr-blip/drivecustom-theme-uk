@@ -1,0 +1,35 @@
+{{ 'custom-blocks.css' | asset_url | stylesheet_tag }}
+<div class="custom-blocks-section" style="max-width: var(--page-width); margin: 0 auto;">
+  {% content_for 'blocks' %}
+</div>
+
+{% schema %}
+{
+  "name": "AI Blocks",
+  "class": "section",
+  "tag": "section",
+  "settings": [],
+  "blocks": [
+    { "type": "ai_gen_block_3d3f0ee", "name": "Hero Overlay CTA" },
+    { "type": "ai_gen_block_41aa14c", "name": "Content + Image" },
+    { "type": "ai_gen_block_4cda2bf", "name": "Découvrez notre atelier" },
+    { "type": "ai_gen_block_516848c", "name": "Gradient Hero CTA" },
+    { "type": "ai_gen_block_5b9c4c6", "name": "How-it-works Steps" },
+    { "type": "ai_gen_block_7c22094", "name": "Contact Reassurance" },
+    { "type": "ai_gen_block_8c7fb54", "name": "Testimonials" },
+    { "type": "ai_gen_block_b6d94e0", "name": "Logo Carousel" },
+    { "type": "ai_gen_block_c8229d6", "name": "Brand Cards Grid" },
+    { "type": "ai_gen_block_d305d1b", "name": "Breadcrumbs" },
+    { "type": "ai_gen_block_df4f891", "name": "Features Tabs" },
+    { "type": "ai_gen_block_f0ed5da", "name": "Notes Olfactives" },
+    { "type": "ai_gen_block_7133efc", "name": "Mega Menu Footer" }
+  ],
+  "max_blocks": 20,
+  "presets": [
+    {
+      "name": "AI Blocks",
+      "blocks": []
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,364 @@
+{% comment %}
+  Renders a improved megamenu for the header with automotive styling.
+  Usage:
+  {% render 'header-mega-menu' %}
+{% endcomment %}
+<nav class="header__inline-menu custom-auto-menu">
+  <ul class="list-menu list-menu--inline" role="list">
+    {%- for link in section.settings.menu.links -%}
+      <li class="menu-item{% if link.current or link.child_active %} active-menu-item{% endif %}">
+        {%- if link.links != blank -%}
+          <header-menu>
+            <details id="Details-HeaderMenu-{{ forloop.index }}" class="mega-menu">
+              <summary
+                id="HeaderMenu-{{ link.handle }}"
+                class="header__menu-item list-menu__item link focus-inset custom-menu-link"
+              >
+                <span class="menu-icon">
+                  {% case link.title %}
+                    {% when 'Accueil' %}
+                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8 1L1 6V15H5V9H11V15H15V6L8 1Z" stroke="currentColor" stroke-width="1.5"/>
+                      </svg>
+                    {% when 'Contact' %}
+                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M13 3H3C2.44772 3 2 3.44772 2 4V12C2 12.5523 2.44772 13 3 13H13C13.5523 13 14 12.5523 14 12V4C14 3.44772 13.5523 3 13 3Z" stroke="currentColor" stroke-width="1.5"/>
+                        <path d="M2 4L8 8L14 4" stroke="currentColor" stroke-width="1.5"/>
+                      </svg>
+                    {% when contains 'Volant' %}
+                      {% if link.title contains 'BMW' %}
+                        <img src="{{ 'bmw-icon.png' | asset_url | default: 'https://cdn.shopify.com/s/files/1/0582/5421/7911/files/bmw-icon.png?v=1701264156' }}" width="16" height="16" alt="BMW" class="brand-icon">
+                      {% elsif link.title contains 'Audi' %}
+                        <img src="{{ 'audi-icon.png' | asset_url | default: 'https://cdn.shopify.com/s/files/1/0582/5421/7911/files/audi-icon.png?v=1701264156' }}" width="16" height="16" alt="Audi" class="brand-icon">
+                      {% elsif link.title contains 'Volkswagen' %}
+                        <img src="{{ 'vw-icon.png' | asset_url | default: 'https://cdn.shopify.com/s/files/1/0582/5421/7911/files/vw-icon.png?v=1701264156' }}" width="16" height="16" alt="VW" class="brand-icon">
+                      {% elsif link.title contains 'Ford' %}
+                        <img src="{{ 'ford-icon.png' | asset_url | default: 'https://cdn.shopify.com/s/files/1/0582/5421/7911/files/ford-icon.png?v=1701264156' }}" width="16" height="16" alt="Ford" class="brand-icon">
+                      {% elsif link.title contains 'Lamborghini' %}
+                        <img src="{{ 'lambo-icon.png' | asset_url | default: 'https://cdn.shopify.com/s/files/1/0582/5421/7911/files/lambo-icon.png?v=1701264156' }}" width="16" height="16" alt="Lambo" class="brand-icon">
+                      {% elsif link.title contains 'Nissan' %}
+                        <img src="{{ 'nissan-icon.png' | asset_url | default: 'https://cdn.shopify.com/s/files/1/0582/5421/7911/files/nissan-icon.png?v=1701264156' }}" width="16" height="16" alt="Nissan" class="brand-icon">
+                      {% else %}
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5"/>
+                          <circle cx="8" cy="8" r="1.5" stroke="currentColor" stroke-width="1.5"/>
+                          <path d="M8 1.5V6.5M8 9.5V14.5M1.5 8H6.5M9.5 8H14.5" stroke="currentColor" stroke-width="1.5"/>
+                        </svg>
+                      {% endif %}
+                    {% else %}
+                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5"/>
+                      </svg>
+                  {% endcase %}
+                </span>
+                <span
+                  class="menu-text{% if link.child_active %} header__active-menu-item{% endif %}"
+                >
+                  {{- link.title | escape -}}
+                </span>
+                {% if link.title contains 'Lamborghini' %}
+                  <span class="menu-badge premium-badge">Premium</span>
+                {% endif %}
+                <span class="menu-arrow">
+                  {{- 'icon-caret.svg' | inline_asset_content -}}
+                </span>
+              </summary>
+              <div
+                id="MegaMenu-Content-{{ forloop.index }}"
+                class="mega-menu__content color-{{ section.settings.menu_color_scheme }} gradient motion-reduce global-settings-popup custom-mega-content"
+                tabindex="-1"
+              >
+                <ul
+                  class="mega-menu__list page-width{% if link.levels == 1 %} mega-menu__list--condensed{% endif %} custom-mega-list"
+                  role="list"
+                >
+                  {%- for childlink in link.links -%}
+                    <li class="custom-mega-item">
+                      <a
+                        id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}"
+                        href="{{ childlink.url }}"
+                        class="mega-menu__link mega-menu__link--level-2 link{% if childlink.current %} mega-menu__link--active{% endif %} custom-mega-link"
+                        {% if childlink.current %}
+                          aria-current="page"
+                        {% endif %}
+                      >
+                        {{ childlink.title | escape }}
+                      </a>
+                      {%- if childlink.links != blank -%}
+                        <ul class="list-unstyled custom-submenu" role="list">
+                          {%- for grandchildlink in childlink.links -%}
+                            <li class="custom-submenu-item">
+                              <a
+                                id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}-{{ grandchildlink.handle }}"
+                                href="{{ grandchildlink.url }}"
+                                class="mega-menu__link link{% if grandchildlink.current %} mega-menu__link--active{% endif %} custom-submenu-link"
+                                {% if grandchildlink.current %}
+                                  aria-current="page"
+                                {% endif %}
+                              >
+                                {{ grandchildlink.title | escape }}
+                              </a>
+                            </li>
+                          {%- endfor -%}
+                        </ul>
+                      {%- endif -%}
+                    </li>
+                  {%- endfor -%}
+                </ul>
+              </div>
+            </details>
+          </header-menu>
+        {%- else -%}
+          <a
+            id="HeaderMenu-{{ link.handle }}"
+            href="{{ link.url }}"
+            class="header__menu-item list-menu__item link link--text focus-inset custom-menu-link"
+            {% if link.current %}
+              aria-current="page"
+            {% endif %}
+          >
+            <span class="menu-icon">
+              {% case link.title %}
+                {% when 'Accueil' %}
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8 1L1 6V15H5V9H11V15H15V6L8 1Z" stroke="currentColor" stroke-width="1.5"/>
+                  </svg>
+                {% when 'Contact' %}
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M13 3H3C2.44772 3 2 3.44772 2 4V12C2 12.5523 2.44772 13 3 13H13C13.5523 13 14 12.5523 14 12V4C14 3.44772 13.5523 3 13 3Z" stroke="currentColor" stroke-width="1.5"/>
+                    <path d="M2 4L8 8L14 4" stroke="currentColor" stroke-width="1.5"/>
+                  </svg>
+                {% when contains 'Volant' %}
+                  {% if link.title contains 'BMW' %}
+                    <img src="{{ 'bmw-icon.png' | asset_url | default: 'https://cdn.shopify.com/s/files/1/0582/5421/7911/files/bmw-icon.png?v=1701264156' }}" width="16" height="16" alt="BMW" class="brand-icon">
+                  {% elsif link.title contains 'Audi' %}
+                    <img src="{{ 'audi-icon.png' | asset_url | default: 'https://cdn.shopify.com/s/files/1/0582/5421/7911/files/audi-icon.png?v=1701264156' }}" width="16" height="16" alt="Audi" class="brand-icon">
+                  {% elsif link.title contains 'Volkswagen' %}
+                    <img src="{{ 'vw-icon.png' | asset_url | default: 'https://cdn.shopify.com/s/files/1/0582/5421/7911/files/vw-icon.png?v=1701264156' }}" width="16" height="16" alt="VW" class="brand-icon">
+                  {% elsif link.title contains 'Ford' %}
+                    <img src="{{ 'ford-icon.png' | asset_url | default: 'https://cdn.shopify.com/s/files/1/0582/5421/7911/files/ford-icon.png?v=1701264156' }}" width="16" height="16" alt="Ford" class="brand-icon">
+                  {% elsif link.title contains 'Lamborghini' %}
+                    <img src="{{ 'lambo-icon.png' | asset_url | default: 'https://cdn.shopify.com/s/files/1/0582/5421/7911/files/lambo-icon.png?v=1701264156' }}" width="16" height="16" alt="Lambo" class="brand-icon">
+                  {% elsif link.title contains 'Nissan' %}
+                    <img src="{{ 'nissan-icon.png' | asset_url | default: 'https://cdn.shopify.com/s/files/1/0582/5421/7911/files/nissan-icon.png?v=1701264156' }}" width="16" height="16" alt="Nissan" class="brand-icon">
+                  {% else %}
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5"/>
+                      <circle cx="8" cy="8" r="1.5" stroke="currentColor" stroke-width="1.5"/>
+                      <path d="M8 1.5V6.5M8 9.5V14.5M1.5 8H6.5M9.5 8H14.5" stroke="currentColor" stroke-width="1.5"/>
+                    </svg>
+                  {% endif %}
+                {% else %}
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5"/>
+                  </svg>
+              {% endcase %}
+            </span>
+            <span
+              class="menu-text{% if link.current %} header__active-menu-item{% endif %}"
+            >
+              {{- link.title | escape -}}
+            </span>
+            {% if link.title contains 'Lamborghini' %}
+              <span class="menu-badge premium-badge">Premium</span>
+            {% endif %}
+          </a>
+        {%- endif -%}
+      </li>
+    {%- endfor -%}
+  </ul>
+</nav>
+
+<style>
+/* Base auto menu styling */
+.custom-auto-menu {
+  --menu-hover-color: #e62e2d;
+  --menu-active-color: #e62e2d;
+  --menu-bg-color: rgba(245, 245, 245, 0.95);
+  --menu-icon-color: #333;
+  --menu-premium-color: #f8c100;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+/* Menu items */
+.custom-auto-menu .menu-item {
+  position: relative;
+  transition: all 0.3s ease;
+  border-bottom: 3px solid transparent;
+}
+
+.custom-auto-menu .menu-item:hover,
+.custom-auto-menu .active-menu-item {
+  border-bottom-color: var(--menu-active-color);
+}
+
+/* Menu links */
+.custom-auto-menu .custom-menu-link {
+  display: flex;
+  align-items: center;
+  padding: 0.8rem 1.5rem;
+  gap: 8px;
+}
+
+.custom-auto-menu .menu-icon {
+  color: var(--menu-icon-color);
+  display: flex;
+  align-items: center;
+}
+
+.custom-auto-menu .menu-text {
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.custom-auto-menu .menu-arrow {
+  margin-left: 4px;
+  transition: transform 0.3s ease;
+}
+
+.custom-auto-menu details[open] .menu-arrow {
+  transform: rotate(180deg);
+}
+
+/* Brand icons */
+.custom-auto-menu .brand-icon {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+}
+
+/* Premium badge */
+.custom-auto-menu .premium-badge {
+  background-color: var(--menu-premium-color);
+  border-radius: 4px;
+  color: #333;
+  font-size: 10px;
+  font-weight: bold;
+  padding: 2px 6px;
+  text-transform: uppercase;
+  margin-left: 6px;
+}
+
+/* Mega menu content */
+.custom-auto-menu .custom-mega-content {
+  background: var(--menu-bg-color);
+  border-top: 3px solid var(--menu-active-color);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.custom-auto-menu .custom-mega-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  padding: 1.5rem;
+}
+
+.custom-auto-menu .custom-mega-item {
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 5px;
+  padding: 1rem;
+  transition: all 0.3s ease;
+}
+
+.custom-auto-menu .custom-mega-item:hover {
+  background: white;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.custom-auto-menu .custom-mega-link {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  display: block;
+  color: #222;
+}
+
+.custom-auto-menu .custom-submenu {
+  margin-top: 0.7rem;
+  padding-left: 1rem;
+  border-left: 2px solid #eee;
+}
+
+.custom-auto-menu .custom-submenu-item {
+  margin-bottom: 0.5rem;
+}
+
+.custom-auto-menu .custom-submenu-link {
+  font-size: 0.9rem;
+  color: #666;
+  transition: all 0.2s ease;
+}
+
+.custom-auto-menu .custom-submenu-link:hover {
+  color: var(--menu-hover-color);
+  padding-left: 3px;
+}
+
+/* Racing Theme variant */
+.racing-theme .custom-auto-menu {
+  --menu-hover-color: #ff3a3a;
+  --menu-active-color: #ff3a3a;
+  --menu-bg-color: #1e1e1e;
+  --menu-icon-color: #ff3a3a;
+  --menu-premium-color: #f8c100;
+}
+
+.racing-theme .custom-auto-menu .menu-text,
+.racing-theme .custom-auto-menu .custom-menu-link {
+  color: white;
+}
+
+.racing-theme .custom-auto-menu .custom-mega-item {
+  background: rgba(40, 40, 40, 0.9);
+}
+
+.racing-theme .custom-auto-menu .custom-mega-link {
+  color: white;
+}
+
+.racing-theme .custom-auto-menu .custom-submenu {
+  border-left: 2px solid #333;
+}
+
+.racing-theme .custom-auto-menu .custom-submenu-link {
+  color: #aaa;
+}
+
+/* Luxury Theme variant */
+.luxury-theme .custom-auto-menu {
+  --menu-hover-color: #c8a45d;
+  --menu-active-color: #c8a45d;
+  --menu-bg-color: #f9f7f2;
+  --menu-icon-color: #c8a45d;
+  --menu-premium-color: #c8a45d;
+}
+
+.luxury-theme .custom-auto-menu .menu-item:hover,
+.luxury-theme .custom-auto-menu .active-menu-item {
+  background-color: rgba(200, 164, 93, 0.1);
+}
+
+.luxury-theme .custom-auto-menu .custom-mega-item {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(200, 164, 93, 0.2);
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 990px) {
+  .custom-auto-menu .custom-mega-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Animation for premium items */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.custom-auto-menu .premium-badge {
+  animation: pulse 1.5s infinite;
+}
+</style>

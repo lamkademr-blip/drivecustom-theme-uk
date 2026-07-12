@@ -1,0 +1,25 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-blog",
+      "settings": {
+        "layout": "collage",
+        "show_image": true,
+        "image_height": "medium",
+        "show_date": true,
+        "show_author": false,
+        "show_hero": true,
+        "hero_show_image": true,
+        "show_description": true,
+        "blog_description": "Actualités, conseils et inspirations pour personnaliser votre volant et votre habitacle.",
+        "blog_title_align": "center",
+        "show_toolbar": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}
