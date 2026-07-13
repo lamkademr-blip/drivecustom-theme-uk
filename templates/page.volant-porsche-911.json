@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -28,7 +37,7 @@
             "eyebrow_color": "#FFFFFF",
             "eyebrow_opacity": 0.9,
             "headline_text": "Custom Steering Wheel for Porsche 911",
-            "headline_size": 42,
+            "headline_size": 44,
             "headline_weight": "300",
             "headline_spacing": 0.1,
             "headline_line_height": 1.1,
@@ -104,10 +113,10 @@
             "padding_bottom": 60,
             "padding_horizontal": 60,
             "gradient_direction": "top_left_to_bottom_right",
-            "gradient_color_1": "#f5f5f5",
-            "gradient_color_2": "#ffffff",
+            "gradient_color_1": "#1a1a1a",
+            "gradient_color_2": "#0d0d0d",
             "eyebrow_text": "CUSTOMISATION OPTIONS",
-            "eyebrow_color": "#000000",
+            "eyebrow_color": "#ffffff",
             "eyebrow_size": 14,
             "eyebrow_letter_spacing": 2,
             "icon_size": 48,
@@ -149,6 +158,66 @@
       ],
       "settings": {}
     },
+    "service_modele": {
+      "type": "_blocks",
+      "blocks": {
+        "service_cartes": {
+          "type": "ai_gen_block_5b9c4c6",
+          "settings": {
+            "columns_desktop": 4,
+            "columns_tablet": 2,
+            "columns_mobile": "1",
+            "alignment": "center",
+            "gap": 48,
+            "padding_top": 80,
+            "padding_bottom": 80,
+            "padding_horizontal": 60,
+            "gradient_direction": "top_left_to_bottom_right",
+            "gradient_color_1": "#1a1a1a",
+            "gradient_color_2": "#0d0d0d",
+            "eyebrow_text": "OUR SERVICE",
+            "eyebrow_color": "#ffffff",
+            "eyebrow_size": 17,
+            "eyebrow_letter_spacing": 2,
+            "icon_size": 64,
+            "icon_radius": 12,
+            "icon_background": "#006eff",
+            "icon_color": "#ffffff",
+            "title_size": 18,
+            "title_font_weight": "700",
+            "title_letter_spacing": 1,
+            "title_color": "#006eff",
+            "text_size": 14,
+            "text_color": "#ffffff",
+            "step_1_enabled": true,
+            "step_1_number": "1.",
+            "step_1_title": "CUSTOMISATION",
+            "step_1_description": "Create your custom steering wheel, from design to grip, for a driving experience that's uniquely yours.",
+            "step_1_icon": "sliders",
+            "step_2_enabled": true,
+            "step_2_number": "2.",
+            "step_2_title": "CRAFTING",
+            "step_2_description": "Our craftsmen build your wheel with premium materials and impeccable finishes, worthy of the finest racing drivers.",
+            "step_2_icon": "edit",
+            "step_3_enabled": true,
+            "step_3_number": "3.",
+            "step_3_title": "FREE DELIVERY",
+            "step_3_description": "Your custom steering wheel delivered free and carefully packaged straight to your door.",
+            "step_3_icon": "box",
+            "step_4_enabled": true,
+            "step_4_number": "4.",
+            "step_4_title": "5-YEAR WARRANTY",
+            "step_4_description": "Drive with complete peace of mind backed by a comprehensive warranty against manufacturing defects.",
+            "step_4_icon": "shield"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "service_cartes"
+      ],
+      "settings": {}
+    },
     "cta_final": {
       "type": "_blocks",
       "blocks": {
@@ -161,20 +230,20 @@
             "content_max_width": 900,
             "content_spacing": 24,
             "text_alignment": "center",
-            "gradient_color_1": "#ffffff",
-            "gradient_color_2": "#ffffff",
-            "gradient_color_3": "#ffffff",
-            "gradient_color_4": "#ffffff",
-            "gradient_color_5": "#ffffff",
+            "gradient_color_1": "#1a1a1a",
+            "gradient_color_2": "#111111",
+            "gradient_color_3": "#0d0d0d",
+            "gradient_color_4": "#0a0a0a",
+            "gradient_color_5": "#0a0a0a",
             "headline": "Want a unique steering wheel for your Porsche 911?",
-            "headline_size": 36,
+            "headline_size": 40,
             "headline_weight": "400",
             "headline_letter_spacing": 1,
-            "headline_color": "#000000",
+            "headline_color": "#ffffff",
             "headline_max_width": 720,
             "subtext": "Describe the steering wheel of your dreams and we'll create it custom for you. Free quote, reply within 24 hours.",
             "subtext_size": 16,
-            "subtext_color": "#333333",
+            "subtext_color": "#ffffff",
             "subtext_max_width": 680,
             "highlight": "Bespoke · Expert advice · Free delivery",
             "highlight_size": 13,
@@ -204,6 +273,7 @@
     "hero_modele",
     "intro_modele",
     "options_modele",
+    "service_modele",
     "main",
     "cta_final"
   ]
