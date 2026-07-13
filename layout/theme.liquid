@@ -458,13 +458,298 @@
     </style>
     <meta name="google-site-verification" content="Pb3k7JZau00o9nTgyGyb5eRN624xtoN67TnawB_ifZk" />
     
+    <!-- ===== DRIVE CUSTOM — DARK THEME OVERRIDES ===== -->
+    <style>
+    /* ── Footer ── */
+    .footer,
+    .footer__content-top,
+    .footer__content-bottom,
+    .footer-block,
+    .footer-block__heading,
+    .footer-block__details-content,
+    .footer__payment,
+    .footer__copyright {
+      background-color: #0d0d0d !important;
+      color: #a0a0a0 !important;
+    }
+    .footer-block__heading {
+      color: #e5e5e5 !important;
+    }
+    .footer a {
+      color: #a0a0a0 !important;
+    }
+    .footer a:hover {
+      color: #ef4444 !important;
+    }
+    .footer__content-bottom {
+      border-top: 1px solid #222 !important;
+    }
+    
+    /* ── Product cards ── */
+    .card,
+    .card-wrapper,
+    .card__inner,
+    .card__information,
+    .collection-list .card,
+    .product-grid .card {
+      background-color: #141414 !important;
+      border: 1px solid #222 !important;
+      border-radius: 8px !important;
+    }
+    .card__information,
+    .card__heading a,
+    .card-information {
+      color: #e5e5e5 !important;
+    }
+    .card__heading a:hover {
+      color: #ef4444 !important;
+    }
+    .price .price-item {
+      color: #ef4444 !important;
+    }
+    .price-item--regular {
+      color: #ef4444 !important;
+    }
+    
+    /* ── Inputs / Forms ── */
+    input,
+    textarea,
+    select,
+    .field__input,
+    .select__select,
+    .quantity__input,
+    .customer input {
+      background-color: #1a1a1a !important;
+      color: #e5e5e5 !important;
+      border-color: #333 !important;
+    }
+    input::placeholder,
+    textarea::placeholder {
+      color: #666 !important;
+    }
+    .field__label {
+      color: #999 !important;
+    }
+    
+    /* ── Sections / Containers ── */
+    .section,
+    .section-padding,
+    .page-width,
+    .color-background-1,
+    .color-background-2,
+    .color-background-3,
+    .color-background-4,
+    .color-background-5 {
+      background-color: transparent !important;
+    }
+    .gradient {
+      background: #0a0a0a;
+    }
+    
+    /* ── Dividers & Borders ── */
+    hr,
+    .horizontal-divider,
+    .product__accordion,
+    .accordion,
+    .product-form__input .form__label {
+      border-color: #222 !important;
+    }
+    .accordion summary {
+      color: #e5e5e5 !important;
+    }
+    
+    /* ── Product page ── */
+    .product__title h1,
+    .product__title h2,
+    .product__description,
+    .product__description.rte {
+      color: #e5e5e5 !important;
+    }
+    .product-form__input .form__label {
+      color: #e5e5e5 !important;
+    }
+    .product__accordion .summary__title {
+      color: #e5e5e5 !important;
+    }
+    
+    /* ── Collection / Listing ── */
+    .collection-hero__title,
+    .collection-hero__description,
+    .collection-description {
+      color: #e5e5e5 !important;
+    }
+    .facet-filters,
+    .facet-filters__label,
+    .facet-filters__sort {
+      color: #e5e5e5 !important;
+    }
+    .active-facets button {
+      background-color: #1a1a1a !important;
+      color: #e5e5e5 !important;
+      border-color: #333 !important;
+    }
+    
+    /* ── Breadcrumbs ── */
+    .breadcrumb,
+    .breadcrumb__list,
+    .breadcrumb a {
+      color: #999 !important;
+    }
+    .breadcrumb a:hover {
+      color: #ef4444 !important;
+    }
+    
+    /* ── Announcement bar ── */
+    .announcement-bar,
+    .announcement-bar__message {
+      background-color: #111 !important;
+      color: #e5e5e5 !important;
+      border-bottom: 1px solid #222 !important;
+    }
+    
+    /* ── Predictive Search ── */
+    .predictive-search,
+    .predictive-search__results-group {
+      background-color: #1a1a1a !important;
+      color: #e5e5e5 !important;
+    }
+    .predictive-search__heading {
+      border-bottom-color: #333 !important;
+    }
+    .predictive-search__item {
+      border-bottom-color: #222 !important;
+    }
+    .predictive-search__item:hover {
+      background-color: #222 !important;
+    }
+    
+    /* ── Pagination ── */
+    .pagination__item {
+      color: #e5e5e5 !important;
+    }
+    .pagination__item:hover {
+      color: #ef4444 !important;
+    }
+    .pagination__item--current {
+      color: #ef4444 !important;
+      border-color: #dc2626 !important;
+    }
+    
+    /* ── Empty states ── */
+    .empty-cart,
+    .collection-hero__description p {
+      color: #e5e5e5 !important;
+    }
+    
+    /* ── Video / Reels section ── */
+    .reels-insta,
+    .section-reels,
+    [class*="reels"] {
+      background-color: #111 !important;
+    }
+    
+    /* ── Cart drawer ── */
+    .cart-drawer,
+    .cart-drawer__inner {
+      background-color: #0a0a0a !important;
+      color: #e5e5e5 !important;
+    }
+    .cart-drawer__inner .cart-item {
+      border-bottom: 1px solid #222 !important;
+    }
+    .drawer__inner {
+      background-color: #0a0a0a !important;
+    }
+    .drawer__close {
+      color: #e5e5e5 !important;
+    }
+    
+    /* ── Quantity selector ── */
+    .quantity {
+      background-color: #1a1a1a !important;
+      border-color: #333 !important;
+    }
+    .quantity__button {
+      color: #e5e5e5 !important;
+    }
+    .quantity__button:hover {
+      color: #ef4444 !important;
+    }
+    .quantity__input {
+      background-color: #1a1a1a !important;
+      color: #e5e5e5 !important;
+    }
+    
+    /* ── Variant picker ── */
+    .product-form__input input[type="radio"] + label {
+      background-color: #1a1a1a !important;
+      color: #e5e5e5 !important;
+      border-color: #333 !important;
+    }
+    .product-form__input input[type="radio"]:checked + label {
+      background-color: #dc2626 !important;
+      color: white !important;
+      border-color: #dc2626 !important;
+    }
+    
+    /* ── Price slider ── */
+    .price-slider,
+    .price-range input {
+      background-color: #1a1a1a !important;
+      color: #e5e5e5 !important;
+    }
+    
+    /* ── Modal / Overlay ── */
+    .media-modal,
+    .product-media-modal {
+      background-color: rgba(0, 0, 0, 0.95) !important;
+    }
+    
+    /* ── Scroll to top ── */
+    .scroll-to-top {
+      background-color: #dc2626 !important;
+      color: white !important;
+    }
+    
+    /* ── Text accent ── */
+    .text-accent,
+    .accent-text {
+      color: #ef4444 !important;
+    }
+    
+    /* ── Product badge / Sale ── */
+    .badge,
+    .badge--sale {
+      background-color: #dc2626 !important;
+      color: white !important;
+    }
+    .badge--sold-out {
+      background-color: #333 !important;
+      color: #999 !important;
+    }
+    
+    /* ── Quick add / Add to cart globally ── */
+    .product-form__submit:not([disabled]),
+    button.product-form__cart-submit:not([disabled]),
+    .quick-add__submit:not([disabled]) {
+      background-color: #dc2626 !important;
+      color: white !important;
+      border: none !important;
+    }
+    .product-form__submit:not([disabled]):hover,
+    button.product-form__cart-submit:not([disabled]):hover,
+    .quick-add__submit:not([disabled]):hover {
+      background-color: #b91c1c !important;
+    }
+    </style>
+    <!-- ===== END DARK THEME OVERRIDES ===== -->
+    
     <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
         t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "qpu7xrivej");
-          {{ 'custom-cart.css'}}
 </script>
     <style>
   /* Cache les flèches du slider sur la top bar en homepage */

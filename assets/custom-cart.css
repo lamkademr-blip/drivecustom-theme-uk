@@ -1,11 +1,10 @@
-/* ===== CUSTOM CART STYLES — Drive Custom ===== */
-/* Version nettoyée : supprimé les :contains() jQuery inutiles, les doublons et les sélecteurs trop agressifs */
+/* ===== CUSTOM CART STYLES — Drive Custom (Dark Theme) ===== */
 
-/* === BOUTON DE PAIEMENT === */
+/* === BOUTON DE PAIEMENT (Checkout) === */
 button[name="checkout"],
 .cart__checkout,
 .cart-checkout {
-  background: linear-gradient(to right, #1e2b4e, #394775) !important;
+  background: linear-gradient(to right, #dc2626, #b91c1c) !important;
   color: white !important;
   width: 100% !important;
   padding: 15px !important;
@@ -21,9 +20,9 @@ button[name="checkout"],
 button[name="checkout"]:hover,
 .cart__checkout:hover,
 .cart-checkout:hover {
-  background: linear-gradient(to right, #394775, #1e2b4e) !important;
+  background: linear-gradient(to right, #ef4444, #dc2626) !important;
   transform: translateY(-2px) !important;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3) !important;
 }
 
 /* === SCROLLBAR POUR LISTES D'OPTIONS === */
@@ -33,20 +32,20 @@ dl.product-options-list,
   max-height: 120px !important;
   overflow-y: auto !important;
   scrollbar-width: thin !important;
-  scrollbar-color: #aaa #f5f5f5 !important;
+  scrollbar-color: #dc2626 #1a1a1a !important;
 }
 
 dl.product-options-list::-webkit-scrollbar,
 .cart-item dl::-webkit-scrollbar,
 .cart-item__details dl::-webkit-scrollbar {
   width: 6px !important;
-  background-color: #f5f5f5 !important;
+  background-color: #1a1a1a !important;
 }
 
 dl.product-options-list::-webkit-scrollbar-thumb,
 .cart-item dl::-webkit-scrollbar-thumb,
 .cart-item__details dl::-webkit-scrollbar-thumb {
-  background-color: #aaa !important;
+  background-color: #dc2626 !important;
   border-radius: 10px !important;
 }
 
@@ -58,7 +57,8 @@ dl.product-options-list::-webkit-scrollbar-thumb,
 .remove-from-cart-button:hover,
 .cart__remove:hover,
 .cart-item .text-link:hover {
-  background-color: #d32f2f !important;
+  background-color: #dc2626 !important;
+  color: white !important;
   transform: translateY(-2px) !important;
 }
 
@@ -73,6 +73,7 @@ dl.product-options-list::-webkit-scrollbar-thumb,
   width: 100% !important;
   padding: 10px 0 !important;
   margin-bottom: 10px !important;
+  border-bottom: 1px solid #222 !important;
 }
 
 .cart-subtotal-value,
@@ -80,7 +81,7 @@ dl.product-options-list::-webkit-scrollbar-thumb,
 .totals__total-value {
   font-weight: 700 !important;
   font-size: 18px !important;
-  color: #d32f2f !important;
+  color: #ef4444 !important;
   text-align: right !important;
   margin-left: auto !important;
 }
@@ -92,6 +93,7 @@ dl.product-options-list::-webkit-scrollbar-thumb,
   font-size: 16px !important;
   text-transform: uppercase !important;
   margin: 0 !important;
+  color: #e5e5e5 !important;
 }
 
 /* === MASQUER COLONNE TOTAL (chaque ligne) === */
@@ -111,12 +113,12 @@ td[data-label="Total"],
   left: -9999px !important;
 }
 
-/* === COULEUR VERTE POUR PRIX === */
+/* === PRIX EN ROUGE === */
 .price,
 .price--end,
 .totals__total-value,
 .cart__total-price {
-  color: #2ecc71 !important;
+  color: #ef4444 !important;
 }
 
 /* === STYLE OPTIONS DE VARIANTE === */
@@ -127,13 +129,14 @@ td[data-label="Total"],
 [class*="line-item-property"] span:last-child {
   font-family: 'Poppins', sans-serif !important;
   font-weight: 700 !important;
-  color: #000 !important;
+  color: #e5e5e5 !important;
 }
 
 .product-option dt,
 .product-option__label,
 .cart-item__variant-option-label {
   font-weight: normal !important;
+  color: #999 !important;
 }
 
 /* === RÉDUCTION ESPACEMENTS HAUT DE PAGE PANIER === */
@@ -162,21 +165,23 @@ body.template-cart .title-wrapper-with-link {
   font-size: 14px;
   margin-bottom: 5px;
   text-transform: uppercase;
-  color: #1e2b4e;
+  color: #e5e5e5;
 }
 
 .cart-discount input[type="text"] {
   padding: 12px;
-  border: 1px solid #ccc;
+  border: 1px solid #333;
   border-radius: 6px;
   font-size: 14px;
   margin-bottom: 10px;
   width: 100%;
   box-sizing: border-box;
+  background-color: #1a1a1a;
+  color: #e5e5e5;
 }
 
 .cart-discount button {
-  background: linear-gradient(to right, #1e2b4e, #394775);
+  background: linear-gradient(to right, #dc2626, #b91c1c);
   color: white;
   border: none;
   border-radius: 8px;
@@ -188,13 +193,40 @@ body.template-cart .title-wrapper-with-link {
 }
 
 .cart-discount button:hover {
-  background: linear-gradient(to right, #394775, #1e2b4e);
+  background: linear-gradient(to right, #ef4444, #dc2626);
   transform: translateY(-2px);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
 }
 
 #discount-feedback {
   font-size: 14px;
   margin-top: 8px;
-  color: red;
+  color: #ef4444;
+}
+
+/* === FOND PANIER === */
+body.template-cart .cart__footer,
+body.template-cart .cart-items,
+.cart-item {
+  background-color: #111111 !important;
+  border-color: #222 !important;
+}
+
+.cart-item {
+  border-bottom: 1px solid #222 !important;
+}
+
+/* === LIENS PANIER === */
+.cart-item a,
+.cart__footer a {
+  color: #ef4444 !important;
+}
+
+/* === TABLEAU DES ITEMS === */
+.cart-items th {
+  color: #999 !important;
+  border-bottom: 2px solid #222 !important;
+  text-transform: uppercase !important;
+  font-size: 12px !important;
+  letter-spacing: 1px !important;
 }

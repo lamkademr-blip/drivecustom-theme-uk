@@ -1,61 +1,110 @@
+/* ===== CUSTOM HEADER — Drive Custom (Dark Theme) ===== */
+
+/* Header container — dark, centered, floating effect */
 header.header, 
 #shopify-section-header .header-wrapper,
 .shopify-section-header {
-  background-color: #ffffff !important;
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05) !important;
+  background-color: #111111 !important;
+  box-shadow: 0 2px 10px rgba(220, 38, 38, 0.15) !important;
   position: relative !important;
   padding: 10px 0 !important;
-  margin-top: 15px !important;     /* Espace en haut */
-  width: 95% !important;           /* Largeur réduite */
-  max-width: 1400px !important;    /* Limite la largeur maximale */
-  margin-left: auto !important;    /* Centre horizontalement */
-  margin-right: auto !important;   /* Centre horizontalement */
-  border-radius: 8px !important;   /* Coins arrondis */
+  margin-top: 15px !important;
+  width: 95% !important;
+  max-width: 1400px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  border-radius: 8px !important;
+  border: 1px solid #222222 !important;
+}
+
+/* Header text colors */
+header.header *,
+#shopify-section-header .header-wrapper *,
+.shopify-section-header * {
+  color: #e5e5e5;
+}
+
+/* Logo — make it brighter on dark bg */
+.header__heading-link img,
+.header__heading-logo {
+  filter: brightness(1.1);
 }
 
 /* Déplacer le bouton hamburger vers la droite */
 .header__menu-toggle,
 #shopify-section-header .header__menu-toggle,
 .header__icon--menu {
-  margin-left: 30px !important; /* Ajustez cette valeur selon vos besoins */
+  margin-left: 30px !important;
   position: relative !important;
 }
 
-/* Si le sélecteur ci-dessus ne fonctionne pas, essayez celui-ci */
 button.header__icon--menu {
   margin-left: 30px !important;
 }
 
-/* Déplacer les icônes (recherche, compte, panier) vers la droite */
+/* Déplacer les icônes vers la droite */
 .header__icons,
 #shopify-section-header .header__icons {
-  margin-right: 30px !important; /* Ajoute un espace à droite */
+  margin-right: 30px !important;
   position: relative !important;
 }
 
-/* Si vous avez besoin de plus d'espace entre ces éléments */
+/* Espacement icônes */
 .header__icon--account,
 .header__icon--search,
 .header__icon--cart {
-  margin-left: 30px !important; /* Espace entre chaque icône */
+  margin-left: 30px !important;
 }
 
-/* Pour s'assurer que le conteneur des icônes est bien aligné */
+/* Conteneur icônes aligné droite */
 .header__icons-wrapper {
-  justify-content: flex-end !important; /* Aligne à droite */
+  justify-content: flex-end !important;
   padding-right: 30px !important;
 }
 
-/* Modifier la couleur de fond de la page */
+/* Fond de page global — très foncé */
 body,
 html {
-  background-color: #f5f5f5 !important; /* Gris très clair */
+  background-color: #0a0a0a !important;
 }
 
-/* Si vous voulez aussi modifier la couleur de fond du header */
-header.header, 
-#shopify-section-header .header-wrapper,
-.shopify-section-header {
-  background-color: #ffffff !important; /* Blanc */
-  /* Autres propriétés existantes */
+/* Links dans le header */
+header.header a,
+#shopify-section-header .header-wrapper a {
+  color: #e5e5e5 !important;
+  transition: color 0.2s ease;
+}
+
+header.header a:hover,
+#shopify-section-header .header-wrapper a:hover {
+  color: #ef4444 !important;
+}
+
+/* Navigation links */
+.header__menu-item {
+  color: #e5e5e5 !important;
+}
+
+.header__menu-item:hover {
+  color: #ef4444 !important;
+}
+
+/* Header icons hover */
+.header__icon:hover {
+  color: #ef4444 !important;
+}
+
+/* Search input in header */
+.header__search input,
+.header__search form input {
+  background-color: #1a1a1a !important;
+  color: #e5e5e5 !important;
+  border-color: #333 !important;
+}
+
+/* Cart badge */
+.cart-count-bubble,
+.header__icon--cart .cart-count-bubble {
+  background-color: #dc2626 !important;
+  color: white !important;
 }
