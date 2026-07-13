@@ -223,7 +223,7 @@
           "type": "popup",
           "settings": {
             "text": "Compatibilité de votre volant audi",
-            "page": "audi-steering-wheel-compatibility"
+            "page": "compatibilite-volants-audi"
           }
         },
         "custom_liquid_76bQL9": {

@@ -30,7 +30,7 @@
         "text_color": "#ffffff",
         "show_button": true,
         "button_text": "BMW Steering Wheel",
-        "button_link": "shopify://collections/bmw-steering-wheels",
+        "button_link": "shopify://collections/volant-bmw",
         "button_style": "btn--primary"
       }
     },
@@ -145,7 +145,7 @@
         "collection_4TpBCe": {
           "type": "collection",
           "settings": {
-            "collection": "bmw-steering-wheels",
+            "collection": "volant-bmw",
             "custom_image": false,
             "custom_title": "",
             "custom_description": "",
@@ -155,7 +155,7 @@
         "collection_xYkTYj": {
           "type": "collection",
           "settings": {
-            "collection": "mercedes-steering-wheels",
+            "collection": "volant-mercedes",
             "custom_image": false,
             "custom_title": "",
             "custom_description": "",
@@ -185,7 +185,7 @@
         "collection_9jFDcc": {
           "type": "collection",
           "settings": {
-            "collection": "seat-steering-wheels",
+            "collection": "volant-seat",
             "custom_image": false,
             "custom_title": "",
             "custom_description": "",
@@ -205,7 +205,7 @@
         "collection_ynmKtA": {
           "type": "collection",
           "settings": {
-            "collection": "renault-steering-wheels",
+            "collection": "volant-renault",
             "custom_image": false,
             "custom_title": "",
             "custom_description": "",
@@ -215,7 +215,7 @@
         "collection_tDk6wd": {
           "type": "collection",
           "settings": {
-            "collection": "nissan-steering-wheels",
+            "collection": "volant-nissan",
             "custom_image": false,
             "custom_title": "",
             "custom_description": "",
