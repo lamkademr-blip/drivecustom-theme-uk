@@ -108,3 +108,32 @@ header.header a:hover,
   background-color: #dc2626 !important;
   color: white !important;
 }
+
+/* ===== SAFETY NET — Force dark backgrounds on all sections ===== */
+/* Catches any remaining white sections across the entire site */
+#shopify-section-template .color-background-1,
+#shopify-section-template .color-background-2,
+#shopify-section-template .color-background-3,
+#shopify-section-template .color-background-4,
+#shopify-section-template .color-background-5,
+.section-template .color-background-1,
+.section-template .color-background-2,
+.section-template .color-background-3,
+.section-template .color-background-4,
+.section-template .color-background-5,
+#shopify-section-template .gradient,
+.section-template .gradient {
+  background: #0d0d0d !important;
+}
+
+/* Force dark on any block that uses an AI-generated section */
+[class*="ai_gen_block_"],
+[class*="ai-custom-"] {
+  background-color: #0d0d0d !important;
+}
+
+/* Override inline gradient backgrounds in AI-generated blocks */
+[style*="linear-gradient"][style*="#ffffff"],
+[style*="background"][style*="#ffffff"] {
+  background: #0d0d0d !important;
+}

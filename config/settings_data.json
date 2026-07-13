@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "current": {
     "logo": "shopify://shop_images/logoo.png",
@@ -155,63 +164,6 @@
       }
     },
     "content_for_index": [],
-    "blocks": {
-      "5294968793578418440": {
-        "type": "shopify://apps/king-product-options-variant/blocks/app-embed/ce104259-52b1-4720-9ecf-76b34cae0401",
-        "disabled": false,
-        "settings": {}
-      },
-      "14060646107696862457": {
-        "type": "shopify://apps/judge-me-reviews/blocks/judgeme_core/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-        "disabled": false,
-        "settings": {}
-      },
-      "12657775114333427046": {
-        "type": "shopify://apps/essential-countdown-timer/blocks/app_embed/722378e8-5a70-4eae-aa89-9e44e8e9f6de",
-        "disabled": false,
-        "settings": {}
-      },
-      "8208493610395315515": {
-        "type": "shopify://apps/dondy-whatsapp-chat-marketing/blocks/app-block/7f5a70cb-e171-4cc7-ac02-e2220203abd6",
-        "disabled": true,
-        "settings": {}
-      },
-      "9365423049038898845": {
-        "type": "shopify://apps/tawk-to-live-chat/blocks/widget-embed-code/91169e75-f163-40ce-90e0-9059f3c9b772",
-        "disabled": true,
-        "settings": {}
-      },
-      "5550728556201851227": {
-        "type": "shopify://apps/geolocation-glc/blocks/selector/e347b539-0714-46e4-9e69-23a73992ae3a",
-        "disabled": true,
-        "settings": {}
-      },
-      "pagefly-page-builder": {
-        "type": "shopify://apps/pagefly-page-builder/blocks/app-embed/83e179f7-59a0-4589-8c66-c0dddf959200",
-        "disabled": true,
-        "settings": {}
-      },
-      "13672250894428551832": {
-        "type": "shopify://apps/qikify-slide-cart/blocks/app-embed/39da5d6e-3e04-4687-bc69-e23fafb93294",
-        "disabled": true,
-        "settings": {}
-      },
-      "11651401770006824842": {
-        "type": "shopify://apps/ymq-product-options-variants/blocks/app-embed/86b91121-1f62-4e27-9812-b70a823eb918",
-        "disabled": false,
-        "settings": {}
-      },
-      "585288358657334602": {
-        "type": "shopify://apps/cartly-cart-drawer/blocks/app-embed/156e4744-d777-4afa-8826-5d2f440b3936",
-        "disabled": false,
-        "settings": {}
-      },
-      "6987625696575125306": {
-        "type": "shopify://apps/weglot-translate-your-store/blocks/weglot/3097482a-fafe-42ff-bc33-ea19e35c4a20",
-        "disabled": false,
-        "settings": {}
-      }
-    },
     "color_schemes": {
       "scheme-1": {
         "settings": {
