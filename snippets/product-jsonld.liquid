@@ -1,0 +1,55 @@
+{% comment %}
+  Product structured data (JSON-LD) for rich snippets in Google Search.
+  Outputs: name, image, description, brand, sku, price, availability, review aggregate.
+{% endcomment %}
+
+{%- if request.page_type == 'product' -%}
+{%- liquid
+  assign current_variant = product.selected_or_first_available_variant
+  assign product_description = product.description | strip_html | strip_newlines | truncate: 5000 | escape
+  if product_description == blank or product_description.size < 10
+    assign product_description = product.title | escape
+  endif
+-%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": {{ product.title | json }},
+  "url": "{{ canonical_url }}",
+  "image": [
+    {%- for image in product.images limit: 5 -%}
+      "{{ image | image_url: width: 1200 }}"{% unless forloop.last %},{% endunless %}
+    {%- endfor -%}
+  ],
+  "description": {{ product_description | json }},
+  "brand": {
+    "@type": "Brand",
+    "name": {{ product.vendor | default: shop.name | json }}
+  },
+  {%- if current_variant.sku != blank -%}
+  "sku": {{ current_variant.sku | json }},
+  {%- endif -%}
+  {%- if current_variant.barcode != blank -%}
+  "gtin": {{ current_variant.barcode | json }},
+  {%- endif -%}
+  "offers": {
+    "@type": "AggregateOffer",
+    "lowPrice": {{ product.price_min | money_without_currency | strip | replace: ' ', '' | replace: ',', '.' }},
+    "highPrice": {{ product.price_max | money_without_currency | strip | replace: ' ', '' | replace: ',', '.' }},
+    "priceCurrency": {{ cart.currency.iso_code | json }},
+    "offerCount": {{ product.variants.size }},
+    "availability": "https://schema.org/{% if current_variant.available %}InStock{% else %}OutOfStock{% endif %}",
+    "url": "{{ canonical_url }}"
+  }
+  {%- if product.metafields.reviews.rating.value != blank -%}
+  ,"aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": {{ product.metafields.reviews.rating.value.rating }},
+    "bestRating": {{ product.metafields.reviews.rating.value.scale_max }},
+    "ratingCount": {{ product.metafields.reviews.rating_count }}
+  }
+  {%- endif -%}
+}
+</script>
+{%- endif -%}

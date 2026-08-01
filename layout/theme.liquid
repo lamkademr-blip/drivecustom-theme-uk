@@ -26,20 +26,21 @@
     </title>
 
     {% if template.name == 'index' %}
-      <meta name="description" content="Custom steering wheel made to order for Audi, BMW, Mercedes, Porsche, Tesla and all major brands. Leather, Alcantara, carbon fibre, sim racing. Premium handcrafted manufacturing, delivered in 5-7 days. 5-year warranty.">
+      <meta name="description" content="Design your custom steering wheel for Audi, BMW, Mercedes, Porsche, Tesla and more. Nappa leather, Alcantara, carbon fibre, LED race display. Made to order, tracked UK delivery in 2-5 weeks, 5-year warranty.">
     {% elsif page_description %}
       <meta name="description" content="{{ page_description | escape }}">
     {% endif %}
 
     {% render 'breadcrumb-jsonld' %}
+    {% render 'product-jsonld' %}
 
     {% render 'meta-tags' %}
 
     {% if template.name == 'index' %}
       <meta property="og:title" content="Custom Steering Wheel — Leather, Alcantara, Carbon Fibre | Drive Custom">
-      <meta property="og:description" content="Premium custom steering wheel for all brands: Audi, BMW, Mercedes, Porsche, Tesla. Leather, Alcantara, carbon fibre personalisation. Handcrafted, fast delivery, 5-year warranty.">
+      <meta property="og:description" content="Premium custom steering wheels for Audi, BMW, Mercedes, Porsche, Tesla and more. Nappa leather, Alcantara, carbon fibre personalisation. Made to order, 5-year warranty.">
       <meta name="twitter:title" content="Custom Steering Wheel — Leather, Alcantara, Carbon Fibre | Drive Custom">
-      <meta name="twitter:description" content="Premium custom steering wheel for all brands. Leather, Alcantara, carbon fibre personalisation. Handcrafted, 5-year warranty.">
+      <meta name="twitter:description" content="Premium custom steering wheels for all major brands. Nappa leather, Alcantara, carbon fibre personalisation. Made to order, 5-year warranty.">
     {% endif %}
 
     <script src="{{ 'constants.js' | asset_url }}" defer="defer"></script>
@@ -906,6 +907,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     </style>
 
+    {% render 'sticky-atc' %}
+    {% render 'whatsapp-tracking' %}
     </body>
 
   <script type="text/javascript">

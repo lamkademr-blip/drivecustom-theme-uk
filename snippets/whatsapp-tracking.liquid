@@ -1,0 +1,76 @@
+{% comment %}
+  WhatsApp click tracking — the store's #1 KPI (orders happen in WhatsApp,
+  not at checkout). Sends a "whatsapp_click" event:
+  - to GA4 via Measurement Protocol when settings.ga4_measurement_id is set,
+    reusing the _ga cookies dropped by Shopify's Google channel
+  - to the Meta pixel when present (trackCustom WhatsAppClick)
+  - to dataLayer (usable by GTM if ever installed)
+{% endcomment %}
+<script>
+(function() {
+  var MEASUREMENT_ID = {{ settings.ga4_measurement_id | json }};
+  var sent = {};
+
+  function cookie(name) {
+    var m = document.cookie.match(new RegExp('(?:^|; )' + name + '=([^;]*)'));
+    return m ? decodeURIComponent(m[1]) : '';
+  }
+
+  function clientId() {
+    var ga = cookie('_ga');
+    var m = ga.match(/\d+\.\d+$/);
+    if (m) return m[0];
+    return Math.floor(Math.random() * 1e9) + '.' + Math.floor(Date.now() / 1000);
+  }
+
+  function sessionParams() {
+    var st = cookie('_ga_' + MEASUREMENT_ID.replace('G-', ''));
+    var m = st.match(/^GS\d+\.\d+\.(\d+)\.(\d+)/);
+    return m ? { sid: m[1], sct: m[2] } : null;
+  }
+
+  function consentOk() {
+    try {
+      var cp = window.Shopify && window.Shopify.customerPrivacy;
+      if (cp && typeof cp.analyticsProcessingAllowed === 'function') {
+        return cp.analyticsProcessingAllowed() !== false;
+      }
+    } catch (e) {}
+    return true;
+  }
+
+  function sendGA4(href) {
+    if (!MEASUREMENT_ID || !consentOk()) return;
+    try {
+      var p = new URLSearchParams({
+        v: '2', tid: MEASUREMENT_ID, cid: clientId(),
+        en: 'whatsapp_click',
+        dl: location.href, dt: document.title,
+        'ep.link_url': href.slice(0, 400),
+        'ep.page_path': location.pathname
+      });
+      var s = sessionParams();
+      if (s) { p.set('sid', s.sid); p.set('sct', s.sct); p.set('seg', '1'); }
+      var url = 'https://www.google-analytics.com/g/collect?' + p.toString();
+      if (navigator.sendBeacon) { navigator.sendBeacon(url); }
+      else { (new Image()).src = url; }
+    } catch (e) {}
+  }
+
+  document.addEventListener('click', function(e) {
+    var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+    if (!a) return;
+    var href = a.getAttribute('href') || '';
+    if (!/wa\.me\/|api\.whatsapp\.com|^whatsapp:/.test(href)) return;
+    var key = href + '|' + Math.floor(Date.now() / 2000);
+    if (sent[key]) return;
+    sent[key] = true;
+    sendGA4(a.href || href);
+    try { if (typeof fbq === 'function') fbq('trackCustom', 'WhatsAppClick', { link_url: href }); } catch (e) {}
+    try {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ event: 'whatsapp_click', whatsapp_link: href, page_path: location.pathname });
+    } catch (e) {}
+  }, true);
+})();
+</script>

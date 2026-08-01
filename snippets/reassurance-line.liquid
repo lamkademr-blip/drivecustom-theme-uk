@@ -1,0 +1,29 @@
+{% comment %}
+  Compact reassurance line — rendered under the checkout button
+  (cart drawer + cart page).
+{% endcomment %}
+
+<style>
+  .reassurance-line {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 4px 8px;
+    margin-top: 12px;
+    font-size: 11px;
+    letter-spacing: 0.02em;
+    color: rgba(var(--color-foreground), 0.65);
+  }
+  .reassurance-line__dot {
+    color: #e74c3c;
+  }
+</style>
+
+<div class="reassurance-line">
+  <span>5-year warranty</span>
+  <span class="reassurance-line__dot" aria-hidden="true">·</span>
+  <span>Tracked &amp; insured delivery</span>
+  <span class="reassurance-line__dot" aria-hidden="true">·</span>
+  <span>Secure payment</span>
+</div>
