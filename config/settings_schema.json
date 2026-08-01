@@ -1465,5 +1465,26 @@
         "default": "scheme-1"
       }
     ]
+  },
+  {
+    "name": "Tracking",
+    "settings": [
+      {
+        "type": "header",
+        "content": "UK analytics IDs (leave blank to disable)"
+      },
+      {
+        "type": "text",
+        "id": "meta_pixel_id",
+        "label": "Meta (Facebook) Pixel ID",
+        "info": "Create a dedicated pixel for Drive Custom UK. Leave empty until then — do not reuse the French store pixel."
+      },
+      {
+        "type": "text",
+        "id": "ga4_measurement_id",
+        "label": "GA4 Measurement ID",
+        "info": "Used for WhatsApp click tracking (G-XXXXXXXXXX)."
+      }
+    ]
   }
 ]

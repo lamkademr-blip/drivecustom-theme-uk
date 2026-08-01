@@ -1,0 +1,12 @@
+{% comment %}
+  International SEO: hreflang cluster between the UK store (drivecustom.co.uk)
+  and the French sister store (les-as-du-volant.com).
+  Only emitted on the homepage: product/collection handles differ between the
+  two stores, so page-level alternates cannot be mapped reliably. Emitting
+  incorrect hreflang is worse than emitting none.
+  The FR theme must carry the mirror tags for the cluster to be valid.
+{% endcomment %}
+{%- if request.page_type == 'index' -%}
+  <link rel="alternate" hreflang="en-GB" href="https://drivecustom.co.uk/">
+  <link rel="alternate" hreflang="fr-FR" href="https://les-as-du-volant.com/">
+{%- endif -%}

@@ -378,7 +378,7 @@
     <link rel="icon" type="image/png" href="{{ 'dffxgchvyj.png' | asset_url }}">
     
     <style>
-      /* Style pour le message de livraison gratuite */
+      /* Free-delivery message styling */
       .cart__note p,
       .cart-note,
       .cart__policies,
@@ -436,7 +436,7 @@
         cursor: pointer !important;
       }
 
-      /* Animation pour mettre en évidence le message de livraison */
+      /* Pulse animation to highlight the delivery message */
       .cart__note p,
       .cart-note,
       .cart__policies,
@@ -757,6 +757,7 @@
     display: none !important;
   }
 </style>
+{%- if settings.meta_pixel_id != blank -%}
 <!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)
@@ -767,14 +768,15 @@ n.queue=[];t=b.createElement(e);t.async=!0;
 t.src=v;s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '821714487268965');
+fbq('init', '{{ settings.meta_pixel_id }}');
 fbq('track', 'PageView');
 </script>
 <noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=821714487268965&ev=PageView&noscript=1"
+src="https://www.facebook.com/tr?id={{ settings.meta_pixel_id }}&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
-<!-- Weglot removed — site français uniquement -->
+{%- endif -%}
+{% render 'hreflang' %}
   </head>
 
 <body class="gradient racing-theme{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
@@ -872,7 +874,7 @@ document.addEventListener('DOMContentLoaded', function() {
     </script>
 
     <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/33622510196" target="_blank" rel="noopener noreferrer"
+    <a href="https://wa.me/33767422570" target="_blank" rel="noopener noreferrer"
        class="whatsapp-float"
        aria-label="Contact us on WhatsApp">
       <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
