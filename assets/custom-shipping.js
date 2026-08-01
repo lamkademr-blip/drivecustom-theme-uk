@@ -1,32 +1,31 @@
-// Dans votre fichier custom-shipping.js
+// Shows a localised free-delivery message in #shipping-location-message.
 document.addEventListener('DOMContentLoaded', function() {
   const shippingMessage = document.getElementById('shipping-location-message');
-  
+
   if (shippingMessage) {
-    // Utiliser l'API de géolocalisation du navigateur (plus précise)
+    const FALLBACK = 'Free delivery across the UK';
+    // Use the browser geolocation API for a city-level message
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function(position) {
-        // Convertir les coordonnées en nom de ville
         const latitude = position.coords.latitude;
         const longitude = position.coords.longitude;
-        
-        // Utiliser l'API Nominatim d'OpenStreetMap pour obtenir le nom de la ville
+
+        // Reverse-geocode via OpenStreetMap Nominatim
         fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`)
           .then(response => response.json())
           .then(data => {
             if (data && data.address && data.address.city) {
-              shippingMessage.textContent = `Free shipping to ${data.address.city}`;
+              shippingMessage.textContent = `Free delivery to ${data.address.city}`;
             }
           })
           .catch(error => {
-            console.error('Erreur:', error);
+            console.error('Error:', error);
           });
       }, function() {
-        // En cas d'erreur, afficher un message par défaut
-        shippingMessage.textContent = "Livraison offerte partout en France";
+        shippingMessage.textContent = FALLBACK;
       });
     } else {
-      shippingMessage.textContent = "Livraison offerte partout en France";
+      shippingMessage.textContent = FALLBACK;
     }
   }
 });
