@@ -22,10 +22,6 @@
         "accessibility_info": "Slideshow about your brand"
       }
     },
-    "176899746855311c7e": {
-      "type": "_blocks",
-      "settings": {}
-    },
     "1769011966061244b5": {
       "type": "_blocks",
       "blocks": {
@@ -440,19 +436,78 @@
         "padding_top": 40,
         "padding_bottom": 52
       }
+    },
+    "faq_home": {
+      "type": "faq-home",
+      "blocks": {
+        "faq_q1": {
+          "type": "question",
+          "settings": {
+            "question": "Will a custom steering wheel fit my right-hand-drive car?",
+            "answer": "<p>Yes. The wheel is built on the original base for your exact make, model and year, and the base is identical for right-hand-drive cars — the column, airbag and controls all connect the same way. Tell us your registration or model when you order and we double-check compatibility before production starts.</p>"
+          }
+        },
+        "faq_q2": {
+          "type": "question",
+          "settings": {
+            "question": "How long does delivery to the UK take?",
+            "answer": "<p>Every wheel is made to order. Allow 2 to 5 weeks from order to your door, with tracked and insured delivery included. You receive the tracking number the moment it ships, and we keep you posted on WhatsApp along the way.</p>"
+          }
+        },
+        "faq_q3": {
+          "type": "question",
+          "settings": {
+            "question": "Will my airbag and steering-wheel buttons still work?",
+            "answer": "<p>Yes — your original airbag, horn and controls transfer onto the new wheel and work exactly as before. We recommend professional fitting so the safety system is reconnected correctly; most garages do it in under an hour.</p>"
+          }
+        },
+        "faq_q4": {
+          "type": "question",
+          "settings": {
+            "question": "Do I need to tell my insurer?",
+            "answer": "<p>As with any interior modification, we suggest letting your insurer know. The wheel keeps all original safety equipment, so for most policies a quick note is all that is needed.</p>"
+          }
+        },
+        "faq_q5": {
+          "type": "question",
+          "settings": {
+            "question": "How do I order a custom design?",
+            "answer": "<p>Message us on WhatsApp with your car model and the style you want — leather, Alcantara, carbon fibre, LED display, coloured stitching. We send you a design preview to approve before production, so there are no surprises.</p>"
+          }
+        },
+        "faq_q6": {
+          "type": "question",
+          "settings": {
+            "question": "What does the 5-year warranty cover?",
+            "answer": "<p>Manufacturing defects on the structure, stitching, materials and finish, for five years. If a covered fault appears, we repair or replace the wheel.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_q1",
+        "faq_q2",
+        "faq_q3",
+        "faq_q4",
+        "faq_q5",
+        "faq_q6"
+      ],
+      "settings": {
+        "heading": "Frequently asked questions",
+        "subheading": "Everything UK drivers ask us before ordering"
+      }
     }
   },
   "order": [
     "slideshow_6GfCjf",
-    "176899746855311c7e",
     "1769011966061244b5",
     "titre_7xhXj8",
     "1768995084527ed5d7",
-    "1769004103f9cfca36",
     "1769002067fd8184ff",
     "before_GWCn4d",
+    "1769004103f9cfca36",
     "multirow_EAck6W",
     "rich_text_PdbVCT",
-    "rich_text_4LAEJX"
+    "rich_text_4LAEJX",
+    "faq_home"
   ]
 }

@@ -77,14 +77,15 @@
 {% endschema %}
 
 <div class="page-width custom-title-section" style="padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px;">
-  <h2 style="
+  {%- comment -%} h1: this section carries the homepage's single H1 {%- endcomment -%}
+  <h1 style="
     color: {{ section.settings.title_color }};
     font-size: {{ section.settings.title_size }}px;
     text-align: {{ section.settings.text_align }};
     margin: 0;
   ">
     {{ section.settings.title }}
-  </h2>
+  </h1>
 </div>
 
 <style>

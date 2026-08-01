@@ -107,7 +107,7 @@
     border-radius: {{ card_radius }}px;
     border: {{ card_border_thickness }}px solid {{ card_border_color }};
     overflow: hidden;
-    /* FIX: Force un fond noir pour éviter le gris pendant le chargement */
+    /* FIX: force a black background to avoid grey while loading */
     background-color: #000; 
   }
 
@@ -129,7 +129,7 @@
     left: 0;
     background-color: {{ card_overlay_color | hex_to_rgba: card_overlay }};
     z-index: 0;
-    pointer-events: none; /* Permet de cliquer à travers l'overlay */
+    pointer-events: none; /* Allow clicks through the overlay */
   }
 
   .slider-video-{{ section.id }} video,
@@ -558,9 +558,9 @@
                   
                   {%- if block.settings.video == null and block.settings.video_url != null -%}
                     
-                    {% comment %} --- CORRECTION : LOGIQUE DE CHARGEMENT DIRECT POUR LA PREMIÈRE SLIDE --- {% endcomment %}
+                    {% comment %} --- Direct-load logic for the first slide --- {% endcomment %}
                     {% if forloop.first and i == 1 %}
-                      {% comment %} PREMIÈRE VIDEO : CHARGEMENT IMMÉDIAT (Pas de lazyload, src direct) {% endcomment %}
+                      {% comment %} First video: load immediately (no lazyload, direct src) {% endcomment %}
                       {%- if block.settings.video_url.type == 'youtube' -%}
                         <iframe
                           src="https://www.youtube.com/embed/{{ video_id }}?enablejsapi=1&mute=1&autoplay=1&controls=0&showinfo=0{{ loop }}"
@@ -582,7 +582,7 @@
                       {% endif %}
                     
                     {% else %}
-                      {% comment %} AUTRES VIDEOS : CHARGEMENT DIFFÉRÉ (Lazyload) {% endcomment %}
+                      {% comment %} Other videos: deferred loading (lazyload) {% endcomment %}
                       {%- if block.settings.video_url.type == 'youtube' -%}
                         <iframe
                           data-src="https://www.youtube.com/embed/{{ video_id }}?enablejsapi=1&mute=1&autoplay=0&controls=0&showinfo=0{{ loop }}"
@@ -606,9 +606,9 @@
 
                   {% else %}
                    
-                   {% comment %} --- VIDÉO SHOPIFY --- {% endcomment %}
+                   {% comment %} --- Shopify video --- {% endcomment %}
                    {% if forloop.first and i == 1 %}
-                      <!-- Chargement immédiat pour la première -->
+                      <!-- Load the first one immediately -->
                       <video src="{{ block.settings.video.sources[1].url }}" autoplay muted playsinline loop preload="auto"></video>
                    {% else %}
                       <!-- Lazyload pour les autres -->

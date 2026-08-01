@@ -12,14 +12,13 @@
   }
 
 {% comment %}
-  Ajoutez cette ligne au début de votre fichier main-cart-items.liquid pour vous assurer que 
-  le fichier CSS personnalisé est chargé
+  Loads the custom cart CSS for the cart page
 {% endcomment %}
 {{ 'custom-cart.css' | asset_url | stylesheet_tag }}
 
 {% comment %}
-  Si vous avez besoin d'ajouter une classe CSS à votre dl, recherchez cette partie dans le fichier
-  et ajoutez la classe "product-options-list" comme montré ci-dessous:
+  To add a CSS class to the dl, find this part of the file
+  and add the "product-options-list" class as shown below:
 {% endcomment %}
 
 {%- if item.product.has_only_default_variant == false

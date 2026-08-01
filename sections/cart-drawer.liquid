@@ -1,10 +1,10 @@
 {%- comment -%}
-Ajouter cette ligne au début de votre fichier cart-drawer.liquid pour s'assurer que le CSS personnalisé est chargé
+Loads the custom cart CSS for the drawer
 {%- endcomment -%}
 {{ 'custom-cart.css' | asset_url | stylesheet_tag }}
 {%- comment -%}
 Localisez le code dans votre fichier qui affiche chaque article du panier
-et modifiez-le pour qu'il ressemble à ceci (adaptez selon votre structure exacte):
+adjust to match your exact markup structure:
 {%- endcomment -%}
 
 {%- for item in cart.items -%}

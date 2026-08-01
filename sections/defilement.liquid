@@ -178,7 +178,7 @@
               {% endif %}
             {% endfor %}
             
-            <!-- Duplication des logos pour le défilement continu -->
+            <!-- Duplicate logos for the continuous marquee -->
             {% for block in section.blocks %}
               {% if block.type == 'brand' %}
                 <div class="brand-item" {{ block.shopify_attributes }}
@@ -350,7 +350,7 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-    // Pause du défilement au survol
+    // Pause the marquee on hover
     const track = document.querySelector('.brand-track');
     if (track) {
       track.addEventListener('mouseenter', function() {
