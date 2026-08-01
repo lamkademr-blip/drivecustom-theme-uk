@@ -82,7 +82,7 @@
           "type": "popup",
           "settings": {
             "text": "Compatibility for your Audi steering wheel",
-            "page": "compatibilite-volants-audi"
+            "page": "audi-steering-wheel-compatibility"
           }
         },
         "price": {

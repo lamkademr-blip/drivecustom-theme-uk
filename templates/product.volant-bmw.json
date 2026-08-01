@@ -91,7 +91,7 @@
           "type": "popup",
           "settings": {
             "text": "Compatibility guide for your steering wheel",
-            "page": "compatibilite-volants-bmw"
+            "page": "bmw-steering-wheel-compatibility"
           }
         },
         "price": {
