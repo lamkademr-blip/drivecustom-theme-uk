@@ -38,7 +38,7 @@
             <div style="text-align: center; margin-top: 10px;">
               <button id="read-more-btn-{{ collection.id }}" 
                       style="background: none; border: none; color: #000000; cursor: pointer; font-weight: bold; text-decoration: underline;">
-                Lire plus
+                Read more
               </button>
             </div>
             
@@ -52,11 +52,11 @@
                   if (fullDesc.style.display === 'none') {
                     shortDesc.style.display = 'none';
                     fullDesc.style.display = 'block';
-                    readMoreBtn.textContent = 'Voir moins';
+                    readMoreBtn.textContent = 'Show less';
                   } else {
                     shortDesc.style.display = 'block';
                     fullDesc.style.display = 'none';
-                    readMoreBtn.textContent = 'Lire plus';
+                    readMoreBtn.textContent = 'Read more';
                   }
                 });
               });
