@@ -195,6 +195,48 @@
     return n;
   }
 
+  /**
+   * Place the CTA just above the Add to cart button.
+   *
+   * The snippet renders the CTA AFTER button[name=add] on purpose: the
+   * options app injects its configurator right before that button at init,
+   * so anything placed before it in the markup would end up above the
+   * whole configurator. Once the configurator is rendered (the app may
+   * also move the button inside its <ymq-option> element), moving the CTA
+   * right before the button is safe. On pages where the app never renders
+   * (no option set assigned, app disabled), relocate after a timeout.
+   */
+  function placeAboveAtc() {
+    document.querySelectorAll('a.wheel-whatsapp-cta').forEach(function (cta) {
+      var scope = cta.closest('form');
+      var btn =
+        (scope && scope.querySelector('button[name="add"]')) ||
+        document.querySelector('button[name="add"]');
+      if (!btn || !btn.parentElement || btn.previousElementSibling === cta) return;
+      btn.parentElement.insertBefore(cta, btn);
+    });
+  }
+
+  (function () {
+    if (document.querySelector('.ymq-options-box')) return placeAboveAtc();
+    var done = false;
+    var finish = function () {
+      if (done) return;
+      done = true;
+      observer.disconnect();
+      clearTimeout(timer);
+      placeAboveAtc();
+      // The app can keep moving the button around right after its first
+      // render; placeAboveAtc is idempotent, so run one late pass.
+      setTimeout(placeAboveAtc, 1500);
+    };
+    var observer = new MutationObserver(function () {
+      if (document.querySelector('.ymq-options-box')) finish();
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
+    var timer = setTimeout(finish, 8000);
+  })();
+
   document.addEventListener('click', function (evt) {
     var cta = evt.target.closest('[data-whatsapp-cta]');
     if (!cta) return;

@@ -42,23 +42,3 @@
 .ymq-options-box select {
   color: #1a1a1a !important;
 }
-
-/* ── Button order: WhatsApp CTA above Add to cart ────────────────────────
-   DOM order is: <ymq-option> (injected by the options app just before
-   button[name=add]), then the submit button, then this CTA — the CTA must
-   stay AFTER the button in the markup or the app injects the configurator
-   below it. Flex order swaps the two visually: configurator, CTA, button. */
-.product-form__buttons {
-  display: flex;
-  flex-direction: column;
-}
-.product-form__buttons ymq-option {
-  order: 1;
-  width: 100%;
-}
-.product-form__buttons .wheel-whatsapp-cta {
-  order: 2;
-}
-.product-form__buttons .product-form__submit {
-  order: 3;
-}
