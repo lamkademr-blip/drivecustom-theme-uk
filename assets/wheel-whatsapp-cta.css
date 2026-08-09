@@ -19,3 +19,25 @@
   height: 2rem;
   flex-shrink: 0;
 }
+
+/* ── Configurator legibility on dark colour schemes ──────────────────────
+   The options app's own stylesheet hardcodes near-black text, assuming a
+   light page. The product section runs a dark scheme (background #0a0a0a),
+   so titles and labels vanished. Use the scheme's foreground token: light
+   on dark schemes, dark on light schemes — correct either way. Form fields
+   keep dark text: they sit on their own white field background. */
+.ymq-options-box,
+.ymq-options-box .ymq_lable,
+.ymq-option-title,
+#ymq-price-addons,
+#ymq-addons-price {
+  color: rgb(var(--color-foreground)) !important;
+}
+.ymq-options-box input[type="text"],
+.ymq-options-box input[type="number"],
+.ymq-options-box input[type="email"],
+.ymq-options-box input[type="tel"],
+.ymq-options-box textarea,
+.ymq-options-box select {
+  color: #1a1a1a !important;
+}
