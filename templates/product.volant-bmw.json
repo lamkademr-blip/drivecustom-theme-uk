@@ -112,42 +112,6 @@
         "padding_bottom": 12
       }
     },
-    "defilement_auto_MzH7fh": {
-      "type": "defilement-auto",
-      "blocks": {
-        "banner_item_4AgAap": {
-          "type": "banner_item",
-          "settings": {
-            "text": "Unique style",
-            "icon": "shopify://shop_images/l_ihuftd.png"
-          }
-        },
-        "banner_item_PVqzm9": {
-          "type": "banner_item",
-          "settings": {
-            "text": "Pure adrenaline",
-            "icon": "shopify://shop_images/nhugyuty.png"
-          }
-        },
-        "banner_item_W6rPMg": {
-          "type": "banner_item",
-          "settings": {
-            "text": "Perfect grip",
-            "icon": "shopify://shop_images/juyvtc.png"
-          }
-        }
-      },
-      "block_order": [
-        "banner_item_4AgAap",
-        "banner_item_PVqzm9",
-        "banner_item_W6rPMg"
-      ],
-      "settings": {
-        "text_color": "#ffffff",
-        "scroll_speed": 10,
-        "reverse_direction": false
-      }
-    },
     "17452778107ddc7743": {
       "type": "apps",
       "settings": {
@@ -230,7 +194,6 @@
   "order": [
     "blocks_QmkMq3",
     "main",
-    "defilement_auto_MzH7fh",
     "17452778107ddc7743",
     "product_faq_cTpGib",
     "related-products"
