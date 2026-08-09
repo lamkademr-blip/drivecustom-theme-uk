@@ -5,6 +5,12 @@
   assign items = items | append: '{"@type":"ListItem","position":1,"name":"Home","item":"' | append: shop_url | append: '"}'
   assign position = 2
 
+  comment
+    The "json" filter produces a valid JSON string WITH its quotes
+    (e.g. "BMW Steering Wheel"). Never chain "| escape" after an append:
+    it would apply to the whole accumulated string and break the JSON.
+  endcomment
+
   case request.page_type
     when 'product'
       assign product_collection = nil
@@ -26,22 +32,28 @@
       endif
 
       if product_collection
-        assign items = items | append: ',{"@type":"ListItem","position":' | append: position | append: ',"name":"' | append: product_collection.title | escape | append: '","item":"' | append: shop_url | append: product_collection.url | append: '"}'
+        assign coll_name = product_collection.title | json
+        assign items = items | append: ',{"@type":"ListItem","position":' | append: position | append: ',"name":' | append: coll_name | append: ',"item":"' | append: shop_url | append: product_collection.url | append: '"}'
         assign position = position | plus: 1
       endif
 
-      assign items = items | append: ',{"@type":"ListItem","position":' | append: position | append: ',"name":"' | append: product.title | escape | append: '","item":"' | append: canonical_url | append: '"}'
+      assign prod_name = product.title | json
+      assign items = items | append: ',{"@type":"ListItem","position":' | append: position | append: ',"name":' | append: prod_name | append: ',"item":"' | append: canonical_url | append: '"}'
 
     when 'collection'
-      assign items = items | append: ',{"@type":"ListItem","position":' | append: position | append: ',"name":"' | append: collection.title | escape | append: '","item":"' | append: canonical_url | append: '"}'
+      assign coll_name = collection.title | json
+      assign items = items | append: ',{"@type":"ListItem","position":' | append: position | append: ',"name":' | append: coll_name | append: ',"item":"' | append: canonical_url | append: '"}'
 
     when 'article'
-      assign items = items | append: ',{"@type":"ListItem","position":' | append: position | append: ',"name":"' | append: blog.title | escape | append: '","item":"' | append: shop_url | append: blog.url | append: '"}'
+      assign blog_name = blog.title | json
+      assign items = items | append: ',{"@type":"ListItem","position":' | append: position | append: ',"name":' | append: blog_name | append: ',"item":"' | append: shop_url | append: blog.url | append: '"}'
       assign position = position | plus: 1
-      assign items = items | append: ',{"@type":"ListItem","position":' | append: position | append: ',"name":"' | append: article.title | escape | append: '","item":"' | append: canonical_url | append: '"}'
+      assign article_name = article.title | json
+      assign items = items | append: ',{"@type":"ListItem","position":' | append: position | append: ',"name":' | append: article_name | append: ',"item":"' | append: canonical_url | append: '"}'
 
     when 'page'
-      assign items = items | append: ',{"@type":"ListItem","position":' | append: position | append: ',"name":"' | append: page.title | escape | append: '","item":"' | append: canonical_url | append: '"}'
+      assign page_name = page.title | json
+      assign items = items | append: ',{"@type":"ListItem","position":' | append: position | append: ',"name":' | append: page_name | append: ',"item":"' | append: canonical_url | append: '"}'
 
   endcase
 %}

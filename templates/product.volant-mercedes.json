@@ -88,7 +88,7 @@
         "custom_liquid_rf8TWw": {
           "type": "custom_liquid",
           "settings": {
-            "custom_liquid": "<modal-opener class=\"product-popup-modal__opener\" data-modal=\"#PopupModal-compatibilite\">\n  <button class=\"product-popup-modal__button link\" type=\"button\" aria-haspopup=\"dialog\">\n    Check compatibility for your steering wheel\n  </button>\n</modal-opener>\n\n<modal-dialog id=\"PopupModal-compatibilite\" class=\"product-popup-modal\">\n  <div class=\"product-popup-modal__content\">\n    <button class=\"product-popup-modal__close\" type=\"button\" aria-label=\"Close\">\n      ×\n    </button>\n    <h2>BMW Steering Wheel Compatibility</h2>\n    <p>The custom steering wheel for BMW F-Series (2012-2018) is compatible with...</p>\n  </div>\n</modal-dialog>"
+            "custom_liquid": "<modal-opener class=\"product-popup-modal__opener\" data-modal=\"#PopupModal-compatibilite\">\n  <button class=\"product-popup-modal__button link\" type=\"button\" aria-haspopup=\"dialog\">\n    Check compatibility for your steering wheel\n  </button>\n</modal-opener>\n\n<modal-dialog id=\"PopupModal-compatibilite\" class=\"product-popup-modal\">\n  <div class=\"product-popup-modal__content\">\n    <button class=\"product-popup-modal__close\" type=\"button\" aria-label=\"Close\">\n      ×\n    </button>\n    <h2>Mercedes Steering Wheel Compatibility</h2>\n    <p>Every wheel is built on the original Mercedes base for your exact model, so the airbag, buttons and paddles keep working exactly as before.</p>\n    <p>Not sure about your model? Send us your car's model and year on WhatsApp and we'll confirm compatibility before you order.</p>\n  </div>\n</modal-dialog>"
           }
         },
         "variant_picker": {

@@ -25,8 +25,8 @@
     {{ 'component-volume-pricing.css' | asset_url | stylesheet_tag }}
   {%- endif -%}
 
-{{ 'custom-product-layout.css' | asset_url | stylesheet_tag }}
-  
+{% comment %} custom-product-layout.css removed: the file no longer exists (404),
+  and a blocking body <link> to a 404 freezes layout on every visit {% endcomment %}
   {%- style -%}
     .section-{{ section.id }}-padding {
       padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
@@ -116,6 +116,7 @@
                     price_class: 'price--large'
                   -%}
                 </div>
+                <p class="price-anchoring">5-year warranty included · Tracked &amp; insured delivery · OEM base for your car</p>
                 {%- if product.quantity_price_breaks_configured? -%}
                   <div class="volume-pricing-note" id="Volume-Note-{{ section.id }}">
                     <span>{{ 'products.product.volume_pricing.note' | t }}</span>
