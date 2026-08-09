@@ -70,11 +70,6 @@
               assign quantity_rule_soldout = true
             endif
           -%}
-          {%- comment -%}
-            WhatsApp "Send your configuration" button — the primary CTA
-            (orders happen in WhatsApp). See snippets/wheel-whatsapp-cta.liquid.
-          {%- endcomment -%}
-          {% render 'wheel-whatsapp-cta', product: product, product_form_id: product_form_id %}
           <button
             id="ProductSubmitButton-{{ section_id }}"
             type="submit"
@@ -98,6 +93,14 @@
             </span>
             {%- render 'loading-spinner' -%}
           </button>
+          {%- comment -%}
+            WhatsApp "Send your configuration" button — the primary CTA
+            (orders happen in WhatsApp). Rendered AFTER the submit button:
+            the options app injects its configurator just before
+            button[name="add"], so anything placed before the button ends up
+            ABOVE the whole configurator. See snippets/wheel-whatsapp-cta.liquid.
+          {%- endcomment -%}
+          {% render 'wheel-whatsapp-cta', product: product, product_form_id: product_form_id %}
           {% comment %}
           {%- if show_dynamic_checkout -%}
             {{ form | payment_button }}
