@@ -166,9 +166,9 @@
       ],
       "settings": {
         "heading": "Frequently asked questions",
-        "background": "#ffffff",
-        "text_color": "#333333",
-        "accent_color": "#2c5364"
+        "background": "#000000",
+        "text_color": "#ffffff",
+        "accent_color": "#e74c3c"
       }
     },
     "related-products": {
