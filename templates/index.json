@@ -78,7 +78,7 @@
       "type": "Titre",
       "settings": {
         "title": "For Every Driver, An Exceptional Steering Wheel",
-        "title_color": "#000000",
+        "title_color": "#ffffff",
         "title_size": 36,
         "text_align": "center",
         "padding_top": 30,
@@ -137,7 +137,7 @@
             "card_12_brand": "",
             "card_12_button_text": "VIEW WHEELS",
             "card_12_link": "",
-            "section_background": "#ffffff",
+            "section_background": "#000000",
             "card_gap": 8,
             "overlay_opacity": 0.5,
             "content_padding": 40,
@@ -320,7 +320,7 @@
       "settings": {
         "show_top_title": true,
         "top_title": "Experience the Transformation",
-        "top_title_color": "#000000",
+        "top_title_color": "#ffffff",
         "bf_image": "shopify://shop_images/Capture_d_ecran_2025-03-06_181933.png",
         "af_image": "shopify://shop_images/O1CN01vMxi3A24ubvEHDeER__2210127451_jpg.webp",
         "show_badge": true,
