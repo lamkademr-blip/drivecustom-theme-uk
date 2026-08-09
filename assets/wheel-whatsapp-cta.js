@@ -196,44 +196,74 @@
   }
 
   /**
-   * Place the CTA just above the Add to cart button.
+   * Final order: configurator options, then the WhatsApp CTA, then Add to
+   * cart.
    *
    * The snippet renders the CTA AFTER button[name=add] on purpose: the
    * options app injects its configurator right before that button at init,
    * so anything placed before it in the markup would end up above the
-   * whole configurator. Once the configurator is rendered (the app may
-   * also move the button inside its <ymq-option> element), moving the CTA
-   * right before the button is safe. On pages where the app never renders
-   * (no option set assigned, app disabled), relocate after a timeout.
+   * whole configurator. Once the configurator exists, moving the CTA just
+   * before the button (or the <span> the app wraps it in) is safe.
+   * Idempotent, and re-applied whenever the app reshuffles the DOM
+   * (condition re-renders, variant changes).
    */
-  function placeAboveAtc() {
+  function ensureCtaOrder() {
     document.querySelectorAll('a.wheel-whatsapp-cta').forEach(function (cta) {
+      var container = cta.parentElement;
       var scope = cta.closest('form');
       var btn =
         (scope && scope.querySelector('button[name="add"]')) ||
         document.querySelector('button[name="add"]');
-      if (!btn || !btn.parentElement || btn.previousElementSibling === cta) return;
-      btn.parentElement.insertBefore(cta, btn);
+      if (!btn || !container) return;
+      // The options app wraps the button in a plain <span> that stays a
+      // direct child of the container; walk up to that direct child (the
+      // bare button when the app has not wrapped it) and slot the CTA
+      // right before it.
+      var unit = btn;
+      while (unit.parentElement && unit.parentElement !== container) {
+        unit = unit.parentElement;
+      }
+      if (unit.parentElement !== container) return;
+      if (unit.previousElementSibling !== cta) container.insertBefore(cta, unit);
     });
   }
 
   (function () {
-    if (document.querySelector('.ymq-options-box')) return placeAboveAtc();
+    var enforcing = false;
+    function enforce() {
+      if (enforcing) return;
+      enforcing = true;
+      requestAnimationFrame(function () {
+        ensureCtaOrder();
+        enforcing = false;
+      });
+    }
+    function start() {
+      ensureCtaOrder();
+      // The app reshuffles its DOM on re-renders (conditional options,
+      // variant changes); keep the order enforced. ensureCtaOrder is
+      // idempotent, so quiet frames cost nothing and cause no loops.
+      new MutationObserver(enforce).observe(document.body, {
+        childList: true,
+        subtree: true
+      });
+    }
+    if (document.querySelector('.ymq-options-box')) return start();
     var done = false;
     var finish = function () {
       if (done) return;
       done = true;
-      observer.disconnect();
+      waiter.disconnect();
       clearTimeout(timer);
-      placeAboveAtc();
-      // The app can keep moving the button around right after its first
-      // render; placeAboveAtc is idempotent, so run one late pass.
-      setTimeout(placeAboveAtc, 1500);
+      start();
     };
-    var observer = new MutationObserver(function () {
+    // Wait for the configurator before touching anything: relocating the
+    // CTA earlier would make the app inject the configurator below it.
+    var waiter = new MutationObserver(function () {
       if (document.querySelector('.ymq-options-box')) finish();
     });
-    observer.observe(document.body, { childList: true, subtree: true });
+    waiter.observe(document.body, { childList: true, subtree: true });
+    // Pages without an option set never render a configurator.
     var timer = setTimeout(finish, 8000);
   })();
 
