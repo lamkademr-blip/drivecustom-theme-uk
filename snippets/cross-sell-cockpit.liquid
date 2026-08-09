@@ -1,0 +1,211 @@
+{% comment %}
+  "Complete your cockpit" cross-sell — shows accessory products on steering
+  wheel pages. Uses Shopify's product recommendations API ("related" intent).
+{% endcomment %}
+
+{%- liquid
+  assign is_wheel = false
+  if product.title contains 'Steering Wheel' or product.title contains 'steering wheel'
+    assign is_wheel = true
+  endif
+  if product.type contains 'Steering' or product.type contains 'steering' or product.type contains 'Volant' or product.type contains 'volant'
+    assign is_wheel = true
+  endif
+  for col in product.collections
+    if col.handle contains 'steering-wheel' or col.handle contains 'volant'
+      assign is_wheel = true
+      break
+    endif
+  endfor
+-%}
+{%- if request.page_type == 'product' and is_wheel -%}
+<style>
+  .cross-sell-cockpit {
+    margin-top: 24px;
+    padding: 20px;
+    background: rgba(var(--color-foreground), 0.02);
+    border: 1px solid rgba(var(--color-foreground), 0.06);
+    border-radius: 8px;
+  }
+  .cross-sell-cockpit__title {
+    font-size: 16px;
+    font-weight: 600;
+    color: rgb(var(--color-foreground));
+    margin: 0 0 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .cross-sell-cockpit__title svg {
+    width: 20px;
+    height: 20px;
+    color: #e74c3c;
+  }
+  .cross-sell-cockpit__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  .cross-sell-card {
+    display: flex;
+    flex-direction: column;
+    background: rgb(var(--color-background));
+    border: 1px solid rgba(var(--color-foreground), 0.08);
+    border-radius: 6px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 0.2s;
+  }
+  .cross-sell-card:hover {
+    border-color: #e74c3c;
+  }
+  .cross-sell-card__img {
+    aspect-ratio: 1;
+    overflow: hidden;
+    background: rgba(var(--color-foreground), 0.03);
+  }
+  .cross-sell-card__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .cross-sell-card__info {
+    padding: 10px;
+  }
+  .cross-sell-card__name {
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.3;
+    margin: 0 0 4px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .cross-sell-card__price {
+    font-size: 13px;
+    font-weight: 600;
+    color: rgb(var(--color-foreground));
+    margin: 0;
+  }
+  .cross-sell-card__price s {
+    font-size: 11px;
+    font-weight: 400;
+    color: rgba(var(--color-foreground), 0.5);
+    margin-left: 4px;
+  }
+  .cross-sell-card__add {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    background: transparent;
+    border: none;
+    border-top: 1px solid rgba(var(--color-foreground), 0.06);
+    color: #e74c3c;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: background 0.2s;
+    min-height: 44px;
+    text-align: center;
+  }
+  .cross-sell-card__add:hover {
+    background: rgba(231, 76, 60, 0.08);
+  }
+  @media screen and (max-width: 749px) {
+    .cross-sell-cockpit { padding: 16px; margin-top: 20px; }
+    .cross-sell-cockpit__title { font-size: 14px; }
+    .cross-sell-card__info { padding: 8px; }
+  }
+</style>
+
+<div class="cross-sell-cockpit" id="CrossSellCockpit" style="display:none">
+  <h3 class="cross-sell-cockpit__title">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v8"/><path d="M8 12h8"/></svg>
+    Complete your cockpit
+  </h3>
+  <div class="cross-sell-cockpit__grid" id="CrossSellGrid"></div>
+</div>
+
+<script>
+(function() {
+  var container = document.getElementById('CrossSellCockpit');
+  var grid = document.getElementById('CrossSellGrid');
+  if (!container || !grid) return;
+
+  fetch('/recommendations/products.json?product_id={{ product.id }}&limit=4&intent=related')
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      if (!data.products || data.products.length === 0) return;
+
+      var accessories = data.products.filter(function(p) {
+        var t = (p.product_type || '').toLowerCase();
+        var title = (p.title || '').toLowerCase();
+        return t.indexOf('steering') === -1 && title.indexOf('steering wheel') === -1;
+      });
+
+      var toShow = accessories.length >= 2 ? accessories : data.products;
+      toShow = toShow.slice(0, 4);
+      if (toShow.length === 0) return;
+
+      var html = '';
+      toShow.forEach(function(p) {
+        var img = p.featured_image || (p.images && p.images[0]) || '';
+        var price = '£' + (p.price / 100).toFixed(2);
+        var comparePrice = '';
+        if (p.compare_at_price && p.compare_at_price > p.price) {
+          comparePrice = '<s>£' + (p.compare_at_price / 100).toFixed(2) + '</s>';
+        }
+        var variantId = p.variants && p.variants[0] ? p.variants[0].id : '';
+
+        html += '<div class="cross-sell-card">' +
+          '<a href="' + p.url + '" class="cross-sell-card__img">' +
+            (img ? '<img src="' + img + '" alt="' + (p.title || '').replace(/"/g, '&quot;') + '" loading="lazy" width="200" height="200">' : '') +
+          '</a>' +
+          '<div class="cross-sell-card__info">' +
+            '<p class="cross-sell-card__name"><a href="' + p.url + '" style="text-decoration:none;color:inherit">' + p.title + '</a></p>' +
+            '<p class="cross-sell-card__price">' + price + ' ' + comparePrice + '</p>' +
+          '</div>' +
+          '<button class="cross-sell-card__add" data-variant-id="' + variantId + '">+ Add</button>' +
+        '</div>';
+      });
+
+      grid.innerHTML = html;
+      container.style.display = 'block';
+
+      grid.querySelectorAll('.cross-sell-card__add').forEach(function(btn) {
+        btn.addEventListener('click', function(e) {
+          e.preventDefault();
+          var vid = this.getAttribute('data-variant-id');
+          if (!vid) return;
+          this.textContent = '...';
+          this.disabled = true;
+          fetch('/cart/add.js', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ id: parseInt(vid), quantity: 1 })
+          })
+          .then(function(r) { return r.json(); })
+          .then(function() {
+            btn.textContent = 'Added!';
+            setTimeout(function() {
+              btn.textContent = '+ Add';
+              btn.disabled = false;
+            }, 2000);
+          })
+          .catch(function() {
+            btn.textContent = 'Error';
+            setTimeout(function() {
+              btn.textContent = '+ Add';
+              btn.disabled = false;
+            }, 2000);
+          });
+        });
+      });
+    });
+})();
+</script>
+{%- endif -%}

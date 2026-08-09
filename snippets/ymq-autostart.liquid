@@ -1,0 +1,54 @@
+{%- comment -%}
+  Auto-scroll to the options configurator (#ymq-box) when the product page
+  is opened with ?start=config (ad/landing links) or the #config anchor.
+  The app injects itself after load: we wait for the element via
+  MutationObserver. Rendered only on product pages — no effect elsewhere.
+{%- endcomment -%}
+{%- if request.page_type == 'product' -%}
+<script>
+  (function () {
+    'use strict';
+    var params = new URLSearchParams(window.location.search);
+    if (params.get('start') !== 'config' && window.location.hash !== '#config') return;
+
+    var done = false;
+    function goTo(el) {
+      if (done || !el) return;
+      done = true;
+      /* Offset for the sticky header + breathing room */
+      var y = el.getBoundingClientRect().top + window.pageYOffset - 90;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+      el.style.transition = 'box-shadow 0.4s';
+      el.style.boxShadow = '0 0 0 2px #e74c3c';
+      setTimeout(function () { el.style.boxShadow = 'none'; }, 2200);
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ event: 'config_autostart', page_url: window.location.pathname });
+    }
+
+    function tryNow() {
+      var box = document.getElementById('ymq-box');
+      if (box) { goTo(box); return true; }
+      return false;
+    }
+
+    function start() {
+      if (tryNow()) return;
+      var obs = new MutationObserver(function () {
+        if (tryNow()) obs.disconnect();
+      });
+      obs.observe(document.body, { childList: true, subtree: true });
+      /* Fallback: if the app has not appeared within 8s, scroll to the product form */
+      setTimeout(function () {
+        obs.disconnect();
+        if (!done) goTo(document.querySelector('.product__info-wrapper') || document.querySelector('product-form'));
+      }, 8000);
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', start);
+    } else {
+      start();
+    }
+  })();
+</script>
+{%- endif -%}

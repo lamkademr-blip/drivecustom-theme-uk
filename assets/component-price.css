@@ -1,3 +1,12 @@
+/* "From" prefix on product-card prices (collections). */
+.price__from-label {
+  font-size: 0.8em;
+  font-weight: 400;
+  opacity: 0.75;
+  letter-spacing: normal;
+  margin-right: 0.2rem;
+}
+
 .price {
   font-size: 1.6rem;
   letter-spacing: 0.1rem;

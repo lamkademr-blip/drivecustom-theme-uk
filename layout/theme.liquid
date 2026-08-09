@@ -271,6 +271,14 @@
     {% endstyle %}
 
     {{ 'base.css' | asset_url | stylesheet_tag }}
+    {% comment %} Anti-CLS: header/menu styles load from the head — a blocking <link>
+      mid-body freezes the layout of everything after it until loaded {% endcomment %}
+    {{ 'component-list-menu.css' | asset_url | stylesheet_tag }}
+    {{ 'component-search.css' | asset_url | stylesheet_tag }}
+    {{ 'component-menu-drawer.css' | asset_url | stylesheet_tag }}
+    {{ 'component-mega-menu.css' | asset_url | stylesheet_tag }}
+    <link rel="preload" as="style" href="{{ 'wheel-whatsapp-cta.css' | asset_url }}">
+    <link rel="preload" as="style" href="{{ 'custom-blocks.css' | asset_url }}">
     <link rel="stylesheet" href="{{ 'component-cart-items.css' | asset_url }}" media="print" onload="this.media='all'">
 
     {%- if settings.cart_type == 'drawer' -%}
@@ -856,8 +864,7 @@ src="https://www.facebook.com/tr?id={{ settings.meta_pixel_id }}&ev=PageView&nos
       <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
     {{ 'custom-shipping.js' | asset_url | script_tag }}
-    {{ 'custom-cart.css' | asset_url | stylesheet_tag }}
-    {{ 'custom-header.css' | asset_url | stylesheet_tag }}
+    {% comment %} custom-cart.css / custom-header.css already loaded in the head — do not load twice {% endcomment %}
     {{ 'cart-abandonment-whatsapp.js' | asset_url | script_tag }}
     <script>
 document.addEventListener('DOMContentLoaded', function() {
@@ -909,6 +916,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     {% render 'sticky-atc' %}
     {% render 'whatsapp-tracking' %}
+    {% render 'config-tracking' %}
+    {% render 'cart-drawer-sync' %}
+    {% render 'ymq-autostart' %}
     </body>
 
   <script type="text/javascript">

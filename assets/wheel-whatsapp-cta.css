@@ -1,0 +1,21 @@
+/* WhatsApp "Send your configuration" button.
+   Inherits the theme's .button geometry (radius, padding, hover);
+   only the colours switch to WhatsApp conventions. */
+
+.wheel-whatsapp-cta {
+  --color-button: 37, 211, 102; /* WhatsApp green #25D366 */
+  --color-button-text: 255, 255, 255;
+  --alpha-button-background: 1;
+  gap: 0.8rem;
+  margin-bottom: 1rem; /* space before "Add to cart" */
+  /* Long label: allow wrapping onto two lines (mobile) */
+  padding: 0.8rem 1.5rem;
+  line-height: 1.3;
+  text-align: center;
+}
+
+.wheel-whatsapp-cta__icon {
+  width: 2rem;
+  height: 2rem;
+  flex-shrink: 0;
+}

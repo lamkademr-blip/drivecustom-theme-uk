@@ -1,0 +1,85 @@
+{% comment %}
+  Fix: the options app adds to cart through its own AJAX (XHR) and bypasses
+  the theme's rendering — the cart drawer stayed at "£0.00" until a reload.
+  Robust approach: on any add-to-cart click, poll /cart.js; as soon as the
+  cart actually changes, re-render the cart-drawer and cart-icon-bubble
+  sections (Section Rendering API) and open the drawer.
+  No fetch/XHR patching: third-party scripts cannot neutralise it.
+{% endcomment %}
+<script>
+(function () {
+  'use strict';
+
+  var polling = false;
+  var root = (window.Shopify && Shopify.routes && Shopify.routes.root) || '/';
+
+  function cartState() {
+    return fetch(root + 'cart.js?_t=' + Date.now(), { cache: 'no-store' }).then(function (r) { return r.json(); })
+      .then(function (c) { return c.item_count + '|' + c.total_price; });
+  }
+
+  function swapSection(wrapperId, html) {
+    var wrapper = document.getElementById(wrapperId);
+    if (!wrapper || !html) return false;
+    var tmp = document.createElement('div');
+    tmp.innerHTML = html;
+    var fresh = tmp.firstElementChild;
+    if (!fresh) return false;
+    wrapper.innerHTML = fresh.innerHTML;
+    return true;
+  }
+
+  function refreshDrawer() {
+    fetch(root + '?sections=cart-drawer,cart-icon-bubble&_t=' + Date.now(), { cache: 'no-store' })
+      .then(function (r) { return r.json(); })
+      .then(function (sections) {
+        swapSection('shopify-section-cart-drawer', sections['cart-drawer']);
+        if (!swapSection('shopify-section-cart-icon-bubble', sections['cart-icon-bubble'])) {
+          // Dawn renders the bubble in a #cart-icon-bubble element without a section wrapper
+          var bubble = document.getElementById('cart-icon-bubble');
+          if (bubble && sections['cart-icon-bubble']) {
+            var t = document.createElement('div');
+            t.innerHTML = sections['cart-icon-bubble'];
+            var freshB = t.firstElementChild;
+            if (freshB) bubble.innerHTML = freshB.innerHTML;
+          }
+        }
+        var drawer = document.querySelector('cart-drawer');
+        if (drawer) {
+          drawer.classList.remove('is-empty');
+          if (typeof drawer.open === 'function') drawer.open();
+        }
+      })
+      .catch(function () {});
+  }
+
+  function watchForCartChange() {
+    if (polling) return;
+    polling = true;
+    cartState().then(function (base) {
+      var tries = 0;
+      var iv = setInterval(function () {
+        tries++;
+        cartState().then(function (now) {
+          if (now !== base) {
+            clearInterval(iv);
+            polling = false;
+            refreshDrawer();
+          } else if (tries >= 15) {
+            clearInterval(iv);
+            polling = false;
+          }
+        }).catch(function () {
+          if (tries >= 15) { clearInterval(iv); polling = false; }
+        });
+      }, 600);
+    }).catch(function () { polling = false; });
+  }
+
+  document.addEventListener('click', function (e) {
+    if (e.target.closest && e.target.closest('button[name="add"], #StickyATCBtn, .quick-add__submit')) {
+      watchForCartChange();
+    }
+  }, true);
+})();
+</script>

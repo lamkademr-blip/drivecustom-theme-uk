@@ -1,0 +1,77 @@
+{% comment %}
+  CRO — GA4/GTM tracking of the configurator journey (options app).
+  Events pushed to dataLayer: config_start, config_option_select,
+  config_addons_change, config_atc.
+  Selectors are defensive: everything no-ops if the app markup is absent.
+{% endcomment %}
+
+{%- if request.page_type == 'product' -%}
+<script>
+(function() {
+  window.dataLayer = window.dataLayer || [];
+  var productTitle = {{ product.title | json }};
+  var started = false;
+  var lastAddons = 0;
+
+  function push(event, params) {
+    var payload = { event: event, product: productTitle };
+    if (params) { for (var k in params) payload[k] = params[k]; }
+    window.dataLayer.push(payload);
+  }
+  window.configTrackPush = push;
+
+  function groupTitle(el) {
+    var box = el.closest('.ymq-options-box');
+    var t = box && box.querySelector('.ymq-option-title');
+    return t ? t.textContent.trim().substring(0, 80) : '';
+  }
+
+  // Every interaction with a configurator option
+  document.addEventListener('change', function(e) {
+    var input = e.target;
+    if (!input.closest || !input.closest('.ymq-options-box')) return;
+    if (!started) { started = true; push('config_start'); }
+    var label = '';
+    if (input.type === 'radio' || input.type === 'checkbox') {
+      var lab = input.id ? document.querySelector('label[for="' + input.id + '"]') : null;
+      label = lab ? lab.textContent.trim().substring(0, 60) : String(input.value).substring(0, 60);
+    } else {
+      label = String(input.value).substring(0, 60);
+    }
+    push('config_option_select', {
+      option_group: groupTitle(input),
+      option_label: label,
+      option_price: parseFloat(input.getAttribute('data-price')) || 0
+    });
+  }, true);
+
+  // Addon total changes (the app writes into #ymq-addons-price)
+  var attempts = 0;
+  function watchAddons() {
+    var el = document.getElementById('ymq-addons-price');
+    if (!el) {
+      if (++attempts < 30) setTimeout(watchAddons, 1000);
+      return;
+    }
+    new MutationObserver(function() {
+      var v = parseFloat(el.textContent.replace(/[^\d.,]/g, '').replace(',', '.')) || 0;
+      if (v !== lastAddons) {
+        lastAddons = v;
+        push('config_addons_change', { addons_total: v });
+      }
+    }).observe(el, { childList: true, characterData: true, subtree: true });
+  }
+  watchAddons();
+
+  // Add to cart (main or sticky button)
+  document.addEventListener('click', function(e) {
+    var btn = e.target.closest && e.target.closest('button[name="add"], #StickyATCBtn');
+    if (!btn) return;
+    push('config_atc', {
+      addons_total: lastAddons,
+      source: btn.id === 'StickyATCBtn' ? 'sticky' : 'main'
+    });
+  }, true);
+})();
+</script>
+{%- endif -%}

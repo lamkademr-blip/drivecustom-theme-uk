@@ -3746,3 +3746,10 @@ button[name="add"]:hover,
   background: #0056b3 !important; /* Bleu plus foncé au hover */
   cursor: pointer !important;
 }
+/* Price anchoring (PDP) — value reminder directly under the price */
+.price-anchoring {
+  margin: 6px 0 0;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  color: rgba(var(--color-foreground), 0.65);
+}

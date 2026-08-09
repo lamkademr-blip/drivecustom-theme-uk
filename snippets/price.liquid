@@ -8,6 +8,8 @@
   - show_badges: {Boolean} Renders 'Sale' and 'Sold Out' tags if the product matches the condition (optional)
   - price_class: {String} Adds a price class to the price element (optional)
   - show_compare_at_price: {Boolean} Renders the compare at price if the product matches the condition (optional)
+  - show_from_label: {Boolean} Prefixes the price with "From" (product cards in
+    collections; no effect when the price already varies, Shopify adds it itself) (optional)
 
   Usage:
   {% render 'price', product: product %}
@@ -77,6 +79,9 @@
         {%- else -%}
           <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.regular_price' | t }}</span>
           <span class="price-item price-item--regular">
+            {%- if show_from_label and product.price_varies == false -%}
+              <span class="price__from-label">From</span>
+            {% endif -%}
             {{ money_price }}
           </span>
         {%- endif -%}
