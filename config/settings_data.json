@@ -164,6 +164,13 @@
       }
     },
     "content_for_index": [],
+    "blocks": {
+      "5294968793578418440": {
+        "type": "shopify://apps/king-product-options/blocks/app-embed/ce104259-52b1-4720-9ecf-76b34cae0401",
+        "disabled": false,
+        "settings": {}
+      }
+    },
     "color_schemes": {
       "scheme-1": {
         "settings": {
@@ -418,7 +425,7 @@
     "custom_css": [
       ".footer__payment ul,.footer__payment-methods,.payment-icons,.shopify-payment-icons {list-style: none; padding-left: 0; margin-left: 0;}",
       ".footer__payment li,.footer__payment-methods li,.payment-icons li,.shopify-payment-icons li {list-style: none; margin-left: 0; padding-left: 0;}",
-      ".footer__payment ul,.footer__payment-methods,.payment-icons,.shopify-payment-icons {display: flex; flex-wrap: wrap;  gap: 8px;  list-style: none; padding-left: 0; margin-left: 0; align-items: center; justify-content: flex-start;}",
+      ".footer__payment ul,.footer__payment-methods,.payment-icons,.shopify-payment-icons {display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding-left: 0; margin-left: 0; align-items: center; justify-content: flex-start;}",
       ".footer__payment li,.footer__payment-methods li,.payment-icons li,.shopify-payment-icons li {list-style: none; margin: 0; padding: 0;}"
     ]
   }
