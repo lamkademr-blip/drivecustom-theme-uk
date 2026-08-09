@@ -9,41 +9,6 @@
  */
 {
   "sections": {
-    "1768604371e3d27157": {
-      "type": "_blocks",
-      "blocks": {
-        "ai_gen_block_b6d94e0_erUb4h": {
-          "type": "ai_gen_block_b6d94e0",
-          "settings": {
-            "heading": "<strong>Our partners</strong>",
-            "heading_size": 32,
-            "heading_spacing": 40,
-            "logo_count": 4,
-            "logo_1": "shopify://shop_images/logo_bacust.png",
-            "logo_2": "shopify://shop_images/Logo_ns_custom.png",
-            "logo_3": "shopify://shop_images/shiftech.png",
-            "logo_4": "shopify://shop_images/Capture_d_ecran_2026-01-29_191939.png",
-            "logo_width": 190,
-            "logo_height": 80,
-            "logo_spacing": 60,
-            "logo_padding": 8,
-            "logo_border_radius": 14,
-            "logo_background": "#ffffff",
-            "scroll_speed": 10,
-            "background_color": "#ffffff",
-            "heading_color": "#000000",
-            "section_padding": 60,
-            "container_width": 1200,
-            "desktop_width_percent": 100
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "ai_gen_block_b6d94e0_erUb4h"
-      ],
-      "settings": {}
-    },
     "blocks_QmkMq3": {
       "type": "_blocks",
       "blocks": {
@@ -263,7 +228,6 @@
     }
   },
   "order": [
-    "1768604371e3d27157",
     "blocks_QmkMq3",
     "main",
     "defilement_auto_MzH7fh",

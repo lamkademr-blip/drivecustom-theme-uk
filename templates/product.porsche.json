@@ -12,32 +12,6 @@
     "17634983328a593803": {
       "type": "_blocks",
       "blocks": {
-        "ai_gen_block_b6d94e0_gKqyWK": {
-          "type": "ai_gen_block_b6d94e0",
-          "name": "Logos partenaires",
-          "settings": {
-            "heading": "<strong>Our partners</strong>",
-            "heading_size": 32,
-            "heading_spacing": 40,
-            "logo_count": 3,
-            "logo_1": "shopify://shop_images/shiftech.png",
-            "logo_2": "shopify://shop_images/Logo_ns_custom.png",
-            "logo_3": "shopify://shop_images/logo_bacust.png",
-            "logo_width": 190,
-            "logo_height": 90,
-            "logo_spacing": 40,
-            "logo_padding": 10,
-            "logo_border_radius": 8,
-            "logo_background": "#ffffff",
-            "scroll_speed": 10,
-            "background_color": "#ffffff",
-            "heading_color": "#000000",
-            "section_padding": 60,
-            "container_width": 1200,
-            "desktop_width_percent": 100
-          },
-          "blocks": {}
-        },
         "ai_gen_block_d305d1b_9XUi3U": {
           "type": "ai_gen_block_d305d1b",
           "settings": {
@@ -60,7 +34,6 @@
         }
       },
       "block_order": [
-        "ai_gen_block_b6d94e0_gKqyWK",
         "ai_gen_block_d305d1b_9XUi3U"
       ],
       "settings": {}

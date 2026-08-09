@@ -12,33 +12,6 @@
     "blocks_wxTtGA": {
       "type": "_blocks",
       "blocks": {
-        "ai_gen_block_b6d94e0_zpRcMf": {
-          "type": "ai_gen_block_b6d94e0",
-          "name": "Logos partenaires",
-          "settings": {
-            "heading": "<strong>Our partners</strong>",
-            "heading_size": 32,
-            "heading_spacing": 40,
-            "logo_count": 4,
-            "logo_1": "shopify://shop_images/Capture_d_ecran_2026-01-29_191939.png",
-            "logo_2": "shopify://shop_images/shiftech.png",
-            "logo_3": "shopify://shop_images/Logo_ns_custom.png",
-            "logo_4": "shopify://shop_images/logo_bacust.png",
-            "logo_width": 150,
-            "logo_height": 80,
-            "logo_spacing": 40,
-            "logo_padding": 10,
-            "logo_border_radius": 8,
-            "logo_background": "#ffffff",
-            "scroll_speed": 30,
-            "background_color": "#ffffff",
-            "heading_color": "#000000",
-            "section_padding": 60,
-            "container_width": 1200,
-            "desktop_width_percent": 100
-          },
-          "blocks": {}
-        },
         "ai_gen_block_d305d1b_dWXbcJ": {
           "type": "ai_gen_block_d305d1b",
           "settings": {
@@ -61,7 +34,6 @@
         }
       },
       "block_order": [
-        "ai_gen_block_b6d94e0_zpRcMf",
         "ai_gen_block_d305d1b_dWXbcJ"
       ],
       "name": "Breadcrumb",
