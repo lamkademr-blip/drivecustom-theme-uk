@@ -786,6 +786,9 @@ src="https://www.facebook.com/tr?id={{ settings.meta_pixel_id }}&ev=PageView&nos
 <!-- End Meta Pixel Code -->
 {%- endif -%}
 {% render 'hreflang' %}
+{%- if request.page_type == 'page' and page.handle == 'faq' -%}
+  {% render 'faq-schema' %}
+{%- endif -%}
   </head>
 
 <body class="gradient racing-theme{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
