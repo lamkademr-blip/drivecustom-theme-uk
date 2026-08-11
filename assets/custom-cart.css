@@ -81,7 +81,7 @@ dl.product-options-list::-webkit-scrollbar-thumb,
 .totals__total-value {
   font-weight: 700 !important;
   font-size: 18px !important;
-  color: #ef4444 !important;
+  color: #ffffff !important;
   text-align: right !important;
   margin-left: auto !important;
 }
@@ -113,12 +113,12 @@ td[data-label="Total"],
   left: -9999px !important;
 }
 
-/* === PRIX EN ROUGE === */
+/* === PRIX EN BLANC === */
 .price,
 .price--end,
 .totals__total-value,
 .cart__total-price {
-  color: #ef4444 !important;
+  color: #ffffff !important;
 }
 
 /* === STYLE OPTIONS DE VARIANTE === */
