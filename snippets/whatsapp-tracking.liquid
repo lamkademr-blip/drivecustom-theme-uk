@@ -8,7 +8,7 @@
 {% endcomment %}
 <script>
 (function() {
-  var MEASUREMENT_ID = {{ settings.ga4_measurement_id | json }};
+  var MEASUREMENT_ID = {{ settings.ga4_measurement_id | default: 'G-DJLVTVZT9F' | json }};
   var sent = {};
 
   function cookie(name) {
