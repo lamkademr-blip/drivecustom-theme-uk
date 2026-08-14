@@ -16,7 +16,7 @@
 (function () {
   'use strict';
 
-  const WHATSAPP_NUMBER = '33767422570';
+  const WHATSAPP_NUMBER = '447480262039';
   const POPUP_DELAY_MS = 45000; // 45 secondes
   const STORAGE_KEY = 'lav_cart_whatsapp_shown';
   const SESSION_COOKIE = 'lav_cart_whatsapp_session';
