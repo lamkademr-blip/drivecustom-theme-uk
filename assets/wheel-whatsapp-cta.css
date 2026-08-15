@@ -42,3 +42,26 @@
 .ymq-options-box select {
   color: #1a1a1a !important;
 }
+
+/* ── Button order: configurator → WhatsApp CTA → Add to cart ─────────────
+   wheel-whatsapp-cta.js already moves the CTA before the button in the DOM
+   once the configurator has rendered, so document order is correct on its
+   own. These rules hold the same order before the script runs (no flash of
+   "Add to cart" on top). The options app wraps the submit button in a plain
+   <span>, so the WRAPPER is the flex item — ordering .product-form__submit
+   alone has no effect, hence the :has() selector. */
+.product-form__buttons {
+  display: flex;
+  flex-direction: column;
+}
+.product-form__buttons > ymq-option {
+  order: 1;
+  width: 100%;
+}
+.product-form__buttons > .wheel-whatsapp-cta {
+  order: 2;
+}
+.product-form__buttons > .product-form__submit,
+.product-form__buttons > :has(> .product-form__submit) {
+  order: 3;
+}

@@ -225,6 +225,17 @@
       }
       if (unit.parentElement !== container) return;
       if (unit.previousElementSibling !== cta) container.insertBefore(cta, unit);
+
+      // Belt and braces: the container is a flex column, and a stale
+      // stylesheet may still order .product-form__submit — which is NOT the
+      // flex item once the app wraps the button in a <span>, so the wrapper
+      // would fall back to order 0 and jump above the configurator. Pin the
+      // order on the actual flex items. Harmless if the container is not a
+      // flex context: document order already reads the same.
+      var options = container.querySelector(':scope > ymq-option');
+      if (options) options.style.order = '1';
+      cta.style.order = '2';
+      unit.style.order = '3';
     });
   }
 
