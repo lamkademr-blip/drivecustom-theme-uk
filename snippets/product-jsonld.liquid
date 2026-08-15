@@ -1,6 +1,7 @@
 {% comment %}
   Product structured data (JSON-LD) for rich snippets in Google Search.
-  Outputs: name, image, description, brand, sku, price, availability, review aggregate.
+  Outputs: name, image, description, brand, sku, price, availability.
+  Deliberately does NOT output aggregateRating — see the note next to the offers block.
 {% endcomment %}
 
 {%- if request.page_type == 'product' -%}
@@ -42,14 +43,18 @@
     "availability": "https://schema.org/{% if current_variant.available %}InStock{% else %}OutOfStock{% endif %}",
     "url": "{{ canonical_url }}"
   }
-  {%- if product.metafields.reviews.rating.value != blank -%}
-  ,"aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": {{ product.metafields.reviews.rating.value.rating }},
-    "bestRating": {{ product.metafields.reviews.rating.value.scale_max }},
-    "ratingCount": {{ product.metafields.reviews.rating_count }}
-  }
-  {%- endif -%}
+  {%- comment -%}
+    No aggregateRating is emitted on purpose.
+
+    Google's review snippet policy requires marked-up ratings to correspond to review
+    content that is visible on the same page. The reviews.rating metafields were carried
+    over from the French store during migration and no review app renders them here, so
+    emitting them would mark up ratings a visitor could never see — the textbook trigger
+    for a "spammy structured markup" manual action.
+
+    Only reinstate this once a review app is installed AND genuine reviews render on the
+    product page itself.
+  {%- endcomment -%}
 }
 </script>
 {%- endif -%}

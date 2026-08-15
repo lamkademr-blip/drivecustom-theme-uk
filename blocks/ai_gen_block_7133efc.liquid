@@ -95,13 +95,6 @@
     color: {{ block.settings.link_hover_color }};
     text-decoration: underline;
   }
-
-  .ai-accordion-links__empty-{{ ai_gen_id }} {
-    padding: {{ block.settings.content_padding }}px;
-    color: #999;
-    font-style: italic;
-    font-size: 14px;
-  }
 {% endstyle %}
 
 <accordion-links-{{ ai_gen_id }} class="ai-accordion-links-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
@@ -117,9 +110,17 @@
         assign section_title = block.settings[section_title_key]
         assign products = block.settings[products_key]
         assign collections = block.settings[collections_key]
+
+        # A column with nothing selected used to print a merchandising placeholder to
+        # customers. Skip the column entirely instead; it comes back on its own as soon
+        # as products or collections are picked in the theme editor.
+        assign has_links = false
+        if collections != blank or products != blank
+          assign has_links = true
+        endif
       %}
 
-      {% if section_enabled %}
+      {% if section_enabled and has_links %}
         <div class="ai-accordion-links__item-{{ ai_gen_id }}">
           <button
             class="ai-accordion-links__header-{{ ai_gen_id }}"
@@ -149,12 +150,6 @@
                     {{ product.title }}
                   </a>
                 {% endfor %}
-              {% endif %}
-
-              {% if collections == blank and products == blank %}
-                <div class="ai-accordion-links__empty-{{ ai_gen_id }}">
-                  Ajoutez des produits ou des collections pour cette section
-                </div>
               {% endif %}
             </div>
           </div>
