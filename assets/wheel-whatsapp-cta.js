@@ -99,6 +99,19 @@
   }
 
   /**
+   * Running surcharge total the options app publishes in its hidden
+   * properties[_YmqItemPrice] field — the very figure it charges in the
+   * cart. Returns null when the field is absent, so the caller falls back
+   * to the per-property "| 29.90 £" suffixes (which the UK option sets do
+   * not carry: without this the message quoted the bare wheel price).
+   */
+  function appAddonCents(form) {
+    var el = form.querySelector('[name="properties[_YmqItemPrice]"]');
+    if (!el || !el.value) return null;
+    return parsePriceCents(el.value);
+  }
+
+  /**
    * Strips the internal id the options app appends to some property names:
    * "10. Add a personalised airbag cover-28-6".
    *
@@ -136,7 +149,12 @@
     var unitCents = variant ? variant.price : parseInt(cta.dataset.priceCents, 10);
     var totalCents = 0;
     if (unitCents > 0) {
-      properties.forEach(function (opt) { unitCents += opt.cents; });
+      var appAddons = appAddonCents(form);
+      if (appAddons === null) {
+        properties.forEach(function (opt) { unitCents += opt.cents; });
+      } else {
+        unitCents += appAddons;
+      }
       totalCents = unitCents * qty;
       lines.push('Total: ' + formatPrice(totalCents, cta.dataset.currency || 'GBP'));
     }

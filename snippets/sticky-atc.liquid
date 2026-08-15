@@ -51,6 +51,16 @@
     margin: 0;
     line-height: 1.3;
   }
+  .sticky-atc__addons {
+    display: block;
+    font-size: 11px;
+    font-weight: 400;
+    color: rgba(var(--color-foreground), 0.6);
+    line-height: 1.2;
+  }
+  .sticky-atc__addons[hidden] {
+    display: none;
+  }
   .sticky-atc__btn {
     flex-shrink: 0;
     font-family: inherit;
@@ -131,7 +141,12 @@
   <div class="sticky-atc__inner">
     <div class="sticky-atc__info">
       <p class="sticky-atc__title">{{ product.title | escape }}</p>
-      <p class="sticky-atc__price">{{ product.selected_or_first_available_variant.price | money }}</p>
+      <p class="sticky-atc__price" id="StickyATCPrice"
+         data-base-cents="{{ product.selected_or_first_available_variant.price }}"
+         data-currency="{{ cart.currency.iso_code }}">
+        <span class="sticky-atc__total">{{ product.selected_or_first_available_variant.price | money }}</span>
+        <span class="sticky-atc__addons" hidden></span>
+      </p>
     </div>
     <a class="sticky-atc__wa"
        href="https://wa.me/447480262039?text={{ 'Hi Drive Custom, I would like to order this steering wheel: ' | append: product.title | url_encode }}"
@@ -194,6 +209,152 @@
   }, { passive: true });
   window.addEventListener('resize', checkVisibility);
   checkVisibility();
+})();
+
+/* Live price: variant price + paid options.
+
+   The options app renders no running total of its own, so without this the
+   bar keeps showing the bare wheel price while the customer stacks paid
+   options — and the cart then disagrees with what the bar promised.
+
+   Kept in its own IIFE so it still runs on pages where the buy button is
+   missing (the block above bails out early in that case). The surcharge
+   reading mirrors assets/wheel-whatsapp-cta.js — keep the two in step. */
+(function() {
+  var priceEl = document.getElementById('StickyATCPrice');
+  if (!priceEl) return;
+
+  var totalEl = priceEl.querySelector('.sticky-atc__total');
+  var addonsEl = priceEl.querySelector('.sticky-atc__addons');
+  var currency = priceEl.getAttribute('data-currency') || 'GBP';
+  var fallbackCents = parseInt(priceEl.getAttribute('data-base-cents'), 10) || 0;
+
+  function formatPrice(cents) {
+    var amount = cents / 100;
+    try {
+      return new Intl.NumberFormat('en-GB', { style: 'currency', currency: currency }).format(amount);
+    } catch (e) {
+      return amount.toFixed(2) + ' ' + currency;
+    }
+  }
+
+  /* "229.9", "1,229.90", "£1 229,90" → pence. Both thousands conventions are
+     handled on purpose: a bare replace(',', '.') turns "1,229.90" into 1.22
+     and would silently under-report every configuration over £1,000. */
+  function parseCents(text) {
+    var raw = String(text == null ? '' : text).replace(/[^\d.,]/g, '');
+    if (!raw) return 0;
+    if (raw.indexOf('.') > -1 && raw.indexOf(',') > -1) {
+      // The last separator is the decimal one; the other marks thousands.
+      raw = raw.lastIndexOf('.') > raw.lastIndexOf(',')
+        ? raw.replace(/,/g, '')
+        : raw.replace(/\./g, '').replace(',', '.');
+    } else if (raw.indexOf(',') > -1) {
+      raw = /,\d{3}(\D|$)/.test(raw) ? raw.replace(/,/g, '') : raw.replace(',', '.');
+    }
+    var value = parseFloat(raw);
+    return isNaN(value) ? 0 : Math.round(value * 100);
+  }
+
+  /* The real product form: the one carrying the submit button. A second,
+     hidden cart form (payment instalments) sits on the page with the same
+     property fields — falling back on the richest one keeps us off it. */
+  function productForm() {
+    var forms = document.querySelectorAll('form[action*="/cart/add"]');
+    var best = null;
+    var bestProps = -1;
+    for (var i = 0; i < forms.length; i++) {
+      if (forms[i].querySelector('.product-form__submit')) return forms[i];
+      var n = 0;
+      for (var j = 0; j < forms[i].elements.length; j++) {
+        if (/^properties\[/.test(forms[i].elements[j].name || '')) n++;
+      }
+      if (n > bestProps) { bestProps = n; best = forms[i]; }
+    }
+    return best;
+  }
+
+  /* Price of the variant currently selected, in pence. */
+  function variantCents(form) {
+    var data = document.querySelector('[data-whatsapp-variants]');
+    var idInput = form && form.querySelector('[name="id"]');
+    if (!data || !idInput) return fallbackCents;
+    try {
+      var variant = JSON.parse(data.textContent).variants[idInput.value];
+      return variant && variant.price > 0 ? variant.price : fallbackCents;
+    } catch (e) {
+      return fallbackCents;
+    }
+  }
+
+  /* Paid options total, in pence. The app publishes its running total in the
+     hidden properties[_YmqItemPrice] field — the very figure it charges in
+     the cart, so it wins whenever present. Option sets configured the other
+     way append the surcharge to the value itself ("Alcantara | 29.90 £");
+     those are summed as a fallback, never on top of _YmqItemPrice. */
+  function addonCents(form) {
+    if (!form) return 0;
+    var seen = {};
+    var sum = 0;
+    for (var i = 0; i < form.elements.length; i++) {
+      var el = form.elements[i];
+      var match = el.name && el.name.match(/^properties\[(.+)\]$/);
+      if (!match || !el.value) continue;
+      var name = match[1];
+      if (name === '_YmqItemPrice') return parseCents(el.value);
+      if (name.charAt(0) === '_' || seen[name]) continue;
+      if ((el.type === 'radio' || el.type === 'checkbox') && !el.checked) continue;
+      seen[name] = true;
+      var suffix = el.value.match(/\|\s*([\d\s.,]+\s*[€$£])\s*$/);
+      if (suffix) sum += parseCents(suffix[1]);
+    }
+    return sum;
+  }
+
+  function updatePrice() {
+    var form = productForm();
+    var addons = addonCents(form);
+    if (totalEl) totalEl.textContent = formatPrice(variantCents(form) + addons);
+    if (addonsEl) {
+      addonsEl.textContent = addons > 0 ? 'incl. ' + formatPrice(addons) + ' of options' : '';
+      addonsEl.hidden = addons <= 0;
+    }
+  }
+
+  // The app rewrites its hidden fields a tick after the click, so coalesce.
+  var pending = null;
+  function scheduleUpdate() {
+    clearTimeout(pending);
+    pending = setTimeout(updatePrice, 120);
+  }
+
+  function insideOptions(el) {
+    return el && el.closest && el.closest('ymq-option, .ymq-options-box');
+  }
+
+  document.addEventListener('click', function(e) {
+    if (insideOptions(e.target)) scheduleUpdate();
+  });
+  document.addEventListener('change', function(e) {
+    if (insideOptions(e.target) || e.target.name === 'id') scheduleUpdate();
+  });
+
+  /* Safety net for the writes that reach the hidden fields with no event we
+     can hook: conditional groups appearing, a shared ?cfg= being restored,
+     the app finishing its asynchronous render. The bar lives outside the
+     form, so redrawing the price cannot retrigger this observer. */
+  var form = productForm();
+  if (form) {
+    new MutationObserver(scheduleUpdate).observe(form, {
+      childList: true,
+      subtree: true,
+      attributes: true,
+      attributeFilter: ['value', 'checked']
+    });
+  }
+
+  updatePrice();
+  setTimeout(updatePrice, 1200);
 })();
 </script>
 {%- endif -%}
