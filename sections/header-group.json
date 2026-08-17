@@ -150,11 +150,11 @@
             "brand_url": "/collections/volkswagen-steering-wheels"
           }
         },
-        "brand_aston": {
+        "brand_jaguar": {
           "type": "brand",
           "settings": {
-            "brand_name": "Aston Martin",
-            "brand_url": "/collections/aston-martin-steering-wheels"
+            "brand_name": "Jaguar",
+            "brand_url": "/collections/custom-jaguar-steering-wheels"
           }
         },
         "brand_citroen": {
@@ -177,7 +177,7 @@
         "brand_renault",
         "brand_seat",
         "brand_volkswagen",
-        "brand_aston",
+        "brand_jaguar",
         "brand_citroen"
       ],
       "settings": {
