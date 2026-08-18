@@ -133,6 +133,38 @@
   </div>
 </div>
 
+{%- comment -%}
+  Mirrors the questions rendered just above. Note: Google stopped showing FAQ
+  rich results on 7 May 2026 and retired the docs on 15 June 2026, so this
+  earns no Search feature. It stays because it is valid schema.org, costs
+  nothing, and keeps the Q&A machine-readable for other consumers.
+{%- endcomment -%}
+{%- assign faq_blocks = section.blocks | where: 'type', 'faq' -%}
+{%- if faq_blocks.size > 0 -%}
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {%- assign is_first = true -%}
+        {%- for block in faq_blocks -%}
+          {%- if block.settings.title != blank and block.settings.answer != blank -%}
+            {%- unless is_first %},{% endunless -%}
+            {%- assign is_first = false -%}
+            {
+              "@type": "Question",
+              "name": {{ block.settings.title | strip_html | json }},
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": {{ block.settings.answer | strip_html | json }}
+              }
+            }
+          {%- endif -%}
+        {%- endfor -%}
+      ]
+    }
+  </script>
+{%- endif -%}
 {% assign accent_color = section.settings.accent_color %}
 {% assign text_color = section.settings.text_color %}
 {% assign bg_color = section.settings.background %}
