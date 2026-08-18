@@ -145,6 +145,59 @@
         "padding_top": 36,
         "padding_bottom": 28
       }
+    },
+    "product_faq_EYPp3w": {
+      "type": "product-faq",
+      "blocks": {
+        "faq_cBDXnd": {
+          "type": "faq",
+          "settings": {
+            "title": "Airbag — Will my original airbag still work?",
+            "answer": "<p>Yes. Every wheel is built on the original base for your exact model, so the factory airbag, horn and steering-wheel controls transfer straight over and work exactly as before. We recommend having the swap done by a professional so the safety system is reconnected correctly.</p>"
+          }
+        },
+        "faq_aPN6Je": {
+          "type": "faq",
+          "settings": {
+            "title": "Road use — Can I drive with a custom steering wheel in the UK?",
+            "answer": "<p>Our wheels keep your car's original airbag, horn and controls and are built on the OEM base, so the safety equipment your car came with stays in place. As with any interior modification, we suggest letting your insurer know — for most policies that is all that's needed.</p>"
+          }
+        },
+        "faq_kJYARQ": {
+          "type": "faq",
+          "settings": {
+            "title": "Delivery — How long does it take and what does it cost?",
+            "answer": "<p><strong>Each wheel is made to order and reaches you in 2 to 5 weeks.</strong> Delivery to the UK is included in the price — tracked, insured, and carefully packaged. You'll receive the tracking number as soon as your wheel ships.</p>"
+          }
+        },
+        "faq_pHjYzB": {
+          "type": "faq",
+          "settings": {
+            "title": "Warranty — What does the 5-year warranty cover?",
+            "answer": "<p>Every wheel comes with a 5-year warranty against manufacturing defects: structure, stitching, materials and finish. Normal wear, accident damage, misuse or later modifications aren't covered. If a covered fault appears, we repair or replace the wheel.</p>"
+          }
+        },
+        "faq_VWGLYK": {
+          "type": "faq",
+          "settings": {
+            "title": "Fitting — Do I need special skills to fit it?",
+            "answer": "<p>Fitting a custom wheel involves a few technical steps that a confident DIYer or any professional can handle:</p><ul><li>Disconnect the battery and let the system discharge</li><li>Remove the airbag, controls and centre bolt from the original wheel</li><li>Pull the original wheel</li><li>Transfer the electronics and controls to the new wheel</li><li>Fit, torque and reconnect everything</li><li>Check the horn, controls and airbag warning light</li></ul><p>Detailed instructions are included, and because the job involves the airbag we recommend a specialist garage — most independents do it in under an hour. Our team is on WhatsApp if you or your fitter have any questions.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_cBDXnd",
+        "faq_aPN6Je",
+        "faq_kJYARQ",
+        "faq_pHjYzB",
+        "faq_VWGLYK"
+      ],
+      "settings": {
+        "heading": "Frequently asked questions",
+        "background": "#000000",
+        "text_color": "#ffffff",
+        "accent_color": "#e74c3c"
+      }
     }
   },
   "order": [
@@ -152,6 +205,7 @@
     "main",
     "17732462714c7bcd30",
     "1773244891505c5bf1",
+    "product_faq_EYPp3w",
     "related-products"
   ]
 }
