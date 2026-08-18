@@ -272,46 +272,10 @@
             "step_4_icon": "shield"
           },
           "blocks": {}
-        },
-        "ai_gen_block_8c7fb54_kiwkJP": {
-          "type": "ai_gen_block_8c7fb54",
-          "settings": {
-            "show_badge": true,
-            "badge_text": "TOP QUALITY",
-            "title": "Our customers love us",
-            "subtitle": "See what our customers say about our premium steering wheels",
-            "heading_font": "assistant_n4",
-            "testimonial_1_enabled": true,
-            "testimonial_1_text": "Honestly, nothing like the original wheel — this one is an absolute beast! Fitting was super simple, done in 40 minutes. The quality for the price is spot on, I recommend without hesitation.",
-            "testimonial_1_name": "Louis Y.",
-            "testimonial_1_email": "",
-            "testimonial_2_enabled": true,
-            "testimonial_2_text": "Feels like I've got a brand new car, it's insane. I drive it way more often and feel like a better driver. Honestly, it changes everything — my BMW is a beast again.",
-            "testimonial_2_name": "Reid N.",
-            "testimonial_2_email": "",
-            "testimonial_3_enabled": true,
-            "testimonial_3_text": "Honestly top notch. I was able to add cruise control and paddle shifters, the driving feel is just incredible now.",
-            "testimonial_3_name": "Lina U.",
-            "testimonial_3_email": "",
-            "testimonial_4_enabled": true,
-            "testimonial_4_text": "Wheel fitted and it looks stunning! The quality is insane, great grip. Even the garage mechanic who installed it said it was proper gear. Honestly, I'm over the moon with the result.",
-            "testimonial_4_name": "Emile O.",
-            "testimonial_4_email": "",
-            "testimonial_5_enabled": true,
-            "testimonial_5_text": "Looks great once fitted, grip is excellent ;)",
-            "testimonial_5_name": "Aya V.",
-            "testimonial_5_email": "",
-            "testimonial_6_enabled": true,
-            "testimonial_6_text": "Top quality, perfect installation. It gives my BMW a proper youth boost, looks 10 years younger.",
-            "testimonial_6_name": "Kevin L.",
-            "testimonial_6_email": ""
-          },
-          "blocks": {}
         }
       },
       "block_order": [
-        "ai_gen_block_5b9c4c6_WRdrYK",
-        "ai_gen_block_8c7fb54_kiwkJP"
+        "ai_gen_block_5b9c4c6_WRdrYK"
       ],
       "settings": {}
     },
