@@ -182,12 +182,24 @@
 <div class="ai-hero-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
   <div class="ai-hero-background-{{ ai_gen_id }}">
     {% if block.settings.background_image %}
+      {%- assign hero_img = block.settings.background_image -%}
       <img
-        src="{{ block.settings.background_image | image_url: width: 2400 }}"
-        alt="{{ block.settings.background_image.alt | escape }}"
+        src="{{ hero_img | image_url: width: 1500 }}"
+        srcset="
+          {%- if hero_img.width >= 375 -%}{{ hero_img | image_url: width: 375 }} 375w,{%- endif -%}
+          {%- if hero_img.width >= 550 -%}{{ hero_img | image_url: width: 550 }} 550w,{%- endif -%}
+          {%- if hero_img.width >= 750 -%}{{ hero_img | image_url: width: 750 }} 750w,{%- endif -%}
+          {%- if hero_img.width >= 1100 -%}{{ hero_img | image_url: width: 1100 }} 1100w,{%- endif -%}
+          {%- if hero_img.width >= 1500 -%}{{ hero_img | image_url: width: 1500 }} 1500w,{%- endif -%}
+          {%- if hero_img.width >= 2000 -%}{{ hero_img | image_url: width: 2000 }} 2000w,{%- endif -%}
+          {{ hero_img | image_url }} {{ hero_img.width }}w
+        "
+        sizes="100vw"
+        alt="{{ hero_img.alt | escape }}"
         loading="eager"
-        width="{{ block.settings.background_image.width }}"
-        height="{{ block.settings.background_image.height }}"
+        fetchpriority="high"
+        width="{{ hero_img.width }}"
+        height="{{ hero_img.height }}"
       >
     {% else %}
       <div class="ai-hero-background-placeholder-{{ ai_gen_id }}">
