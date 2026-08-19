@@ -11,6 +11,17 @@
   if product_description == blank or product_description.size < 10
     assign product_description = product.title | escape
   endif
+
+  comment
+    Most of the catalogue carries the literal string "none" (or "<none>") in the SKU
+    field rather than leaving it empty. Passed straight through, that publishes the
+    same fake identifier on a hundred products, which is worse than publishing none.
+  endcomment
+  assign sku_value = current_variant.sku | strip
+  assign sku_probe = sku_value | downcase | remove: '<' | remove: '>'
+  if sku_probe == 'none' or sku_probe == 'n/a' or sku_probe == '-'
+    assign sku_value = ''
+  endif
 -%}
 <script type="application/ld+json">
 {
@@ -28,8 +39,8 @@
     "@type": "Brand",
     "name": {{ product.vendor | default: shop.name | json }}
   },
-  {%- if current_variant.sku != blank -%}
-  "sku": {{ current_variant.sku | json }},
+  {%- if sku_value != blank -%}
+  "sku": {{ sku_value | json }},
   {%- endif -%}
   {%- if current_variant.barcode != blank -%}
   "gtin": {{ current_variant.barcode | json }},
