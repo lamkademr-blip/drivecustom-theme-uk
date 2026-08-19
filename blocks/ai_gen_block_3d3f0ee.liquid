@@ -190,12 +190,13 @@
           {%- if hero_img.width >= 550 -%}{{ hero_img | image_url: width: 550 }} 550w,{%- endif -%}
           {%- if hero_img.width >= 750 -%}{{ hero_img | image_url: width: 750 }} 750w,{%- endif -%}
           {%- if hero_img.width >= 1100 -%}{{ hero_img | image_url: width: 1100 }} 1100w,{%- endif -%}
-          {%- if hero_img.width >= 1500 -%}{{ hero_img | image_url: width: 1500 }} 1500w,{%- endif -%}
-          {%- if hero_img.width >= 2000 -%}{{ hero_img | image_url: width: 2000 }} 2000w,{%- endif -%}
-          {{ hero_img | image_url }} {{ hero_img.width }}w
+          {%- comment -%} Capped at 1500w. The hero sits under a 60% overlay, so the
+            2000w (426 KB) and full-size (477 KB) candidates bought no visible detail
+            while being the two largest downloads on the homepage. {%- endcomment -%}
+          {{ hero_img | image_url: width: 1500 }} 1500w
         "
         sizes="100vw"
-        alt="{{ hero_img.alt | escape }}"
+        alt="{% if hero_img.alt != blank %}{{ hero_img.alt | escape }}{% else %}Custom Mercedes AMG steering wheel in carbon fibre and Alcantara, fitted in a C-Class{% endif %}"
         loading="eager"
         fetchpriority="high"
         width="{{ hero_img.width }}"

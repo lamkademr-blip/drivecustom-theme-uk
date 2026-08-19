@@ -12,10 +12,22 @@
   <div class="container before_after">
     <div class="image-container">
       <div class="before_img">
+        {%- assign bf = section.settings.bf_image -%}
         <img
           class="image-before slider-image"
-          src="{{ section.settings.bf_image | image_url }}"
-          alt="color photo"
+          src="{{ bf | image_url: width: 1200 }}"
+          srcset="
+            {%- if bf.width >= 400 -%}{{ bf | image_url: width: 400 }} 400w,{%- endif -%}
+            {%- if bf.width >= 600 -%}{{ bf | image_url: width: 600 }} 600w,{%- endif -%}
+            {%- if bf.width >= 900 -%}{{ bf | image_url: width: 900 }} 900w,{%- endif -%}
+            {{ bf | image_url: width: 1200 }} 1200w
+          "
+          sizes="(min-width: 1200px) 1200px, 100vw"
+          alt="Standard Mercedes steering wheel in black leather, before customisation"
+          loading="lazy"
+          decoding="async"
+          width="{{ bf.width }}"
+          height="{{ bf.height }}"
         >
         <span
           class="before_badge ba_badge"
@@ -24,10 +36,22 @@
         >
       </div>
       <div class="after_img">
+        {%- assign af = section.settings.af_image -%}
         <img
           class="image-after slider-image"
-          src="{{ section.settings.af_image | image_url }}"
-          alt="black and white"
+          src="{{ af | image_url: width: 1200 }}"
+          srcset="
+            {%- if af.width >= 400 -%}{{ af | image_url: width: 400 }} 400w,{%- endif -%}
+            {%- if af.width >= 600 -%}{{ af | image_url: width: 600 }} 600w,{%- endif -%}
+            {%- if af.width >= 900 -%}{{ af | image_url: width: 900 }} 900w,{%- endif -%}
+            {{ af | image_url: width: 1200 }} 1200w
+          "
+          sizes="(min-width: 1200px) 1200px, 100vw"
+          alt="Custom Mercedes steering wheel in carbon fibre and perforated leather with yellow stitching and AMG trim"
+          loading="lazy"
+          decoding="async"
+          width="{{ af.width }}"
+          height="{{ af.height }}"
         >
         <span class="after_badge ba_badge" style="{% unless section.settings.show_badge %}display: none;{% endunless %}"
           >After</span
