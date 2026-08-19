@@ -6,6 +6,38 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="theme-color" content="">
     <link rel="canonical" href="{{ canonical_url }}">
+
+    {%- comment -%} Shopify answers 200 to every ?page=N, even past the last real page:
+      /collections/audi-steering-wheels?page=9 renders the collection header, an empty
+      grid and a self-canonical, so the crawler has an unbounded supply of near-duplicate
+      URLs to spend its budget on. Anything past the last page is told not to index.
+      Same for the blog. The "Home page" collection goes too — it is a one-product copy
+      of the homepage that Shopify keeps in the sitemap and that has no SEO fields.
+      per_page must stay in step with products_per_page in templates/collection.json. {%- endcomment -%}
+    {%- liquid
+      assign robots_noindex = false
+      assign collection_per_page = 36
+      assign blog_per_page = 6
+
+      if request.page_type == 'collection'
+        if collection.handle == 'frontpage'
+          assign robots_noindex = true
+        elsif current_page > 1
+          assign last_page = collection.all_products_count | plus: collection_per_page | minus: 1 | divided_by: collection_per_page
+          if current_page > last_page
+            assign robots_noindex = true
+          endif
+        endif
+      elsif request.page_type == 'blog' and current_page > 1
+        assign last_page = blog.articles_count | plus: blog_per_page | minus: 1 | divided_by: blog_per_page
+        if current_page > last_page
+          assign robots_noindex = true
+        endif
+      endif
+    -%}
+    {%- if robots_noindex -%}
+      <meta name="robots" content="noindex, follow">
+    {%- endif -%}
     {%- if settings.favicon != blank -%}
       <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
     {%- endif -%}
