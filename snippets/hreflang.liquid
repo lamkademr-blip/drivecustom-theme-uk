@@ -5,7 +5,8 @@
   explicitly below (source of truth: hreflang-map.csv, mirrored in the FR
   theme's snippets/hreflang.liquid — the two files MUST stay symmetric or
   Google drops the whole cluster).
-  x-default points to the FR page (primary market).
+  x-default points to the UK page: English is the sensible fallback for a
+  visitor outside the francophone zone. The FR snippet MUST agree.
   Pages without a mapped equivalent emit nothing: wrong hreflang is worse
   than none. When adding a product/collection that exists on both stores,
   add its pair here AND in the FR snippet.
@@ -254,5 +255,5 @@
   -%}
   <link rel="alternate" hreflang="en-GB" href="https://drivecustom.co.uk{{ self_path }}">
   <link rel="alternate" hreflang="fr-FR" href="https://les-as-du-volant.com{{ alt_path }}">
-  <link rel="alternate" hreflang="x-default" href="https://les-as-du-volant.com{{ alt_path }}">
+  <link rel="alternate" hreflang="x-default" href="https://drivecustom.co.uk{{ self_path }}">
 {%- endif -%}
