@@ -730,17 +730,13 @@
       <script src="{{ 'product-model.js' | asset_url }}" defer></script>
     {%- endif -%}
 
-    {%- liquid
-      if product.selected_or_first_available_variant.featured_media
-        assign seo_media = product.selected_or_first_available_variant.featured_media
-      else
-        assign seo_media = product.featured_media
-      endif
-    -%}
-
-    <script type="application/ld+json">
-      {{ product | structured_data }}
-    </script>
+    {%- comment -%}
+      No Product JSON-LD here. It is emitted once from snippets/product-jsonld.liquid,
+      rendered in the head of layout/theme.liquid. Two Product blocks on one URL made
+      Google choose between two descriptions of the same item, and this one was the
+      weaker of the pair: a single image against five, and a single-variant Offer where
+      the snippet declares an AggregateOffer spanning the configured price range.
+    {%- endcomment -%}
   </div>
 </product-info>
 
