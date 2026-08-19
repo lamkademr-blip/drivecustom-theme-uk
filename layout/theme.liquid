@@ -16,7 +16,7 @@
 
     <title>
       {% if template.name == 'index' %}
-        Custom Steering Wheels UK — Carbon Fibre, Alcantara & LED | {{ shop.name }}
+        Custom Steering Wheels UK — Carbon Fibre & LED | {{ shop.name }}
       {% else %}
         {{ page_title }}
         {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
@@ -26,7 +26,7 @@
     </title>
 
     {% if template.name == 'index' %}
-      <meta name="description" content="Design your custom steering wheel for Audi, BMW, Mercedes, Porsche, Tesla and more. Nappa leather, Alcantara, carbon fibre, LED race display. Made to order, tracked UK delivery in 2-5 weeks, 5-year warranty.">
+      <meta name="description" content="Custom steering wheels for Audi, BMW, Mercedes, Porsche, Tesla and more. Nappa leather, Alcantara, carbon fibre, LED display. Tracked UK delivery.">
     {% elsif page_description %}
       <meta name="description" content="{{ page_description | escape }}">
     {% endif %}
