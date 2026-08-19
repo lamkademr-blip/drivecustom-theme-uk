@@ -25,11 +25,26 @@
       {% endif %}
     </title>
 
-    {% if template.name == 'index' %}
-      <meta name="description" content="Custom steering wheels for Audi, BMW, Mercedes, Porsche, Tesla and more. Nappa leather, Alcantara, carbon fibre, LED display. Tracked UK delivery.">
-    {% elsif page_description %}
-      <meta name="description" content="{{ page_description | escape }}">
-    {% endif %}
+    {%- comment -%} Cart, the blog index and the /policies/ pages have no description
+      field in the admin, so without a fallback here they ship no meta description
+      at all and Google writes its own snippet. {%- endcomment -%}
+    {%- liquid
+      assign meta_desc = ''
+      if template.name == 'index'
+        assign meta_desc = 'Custom steering wheels for Audi, BMW, Mercedes, Porsche, Tesla and more. Nappa leather, Alcantara, carbon fibre, LED display. Tracked UK delivery.'
+      elsif page_description != blank
+        assign meta_desc = page_description
+      elsif request.path contains '/policies/'
+        assign meta_desc = page_title | append: ' for Drive Custom UK — bespoke steering wheels and gloss black grilles, made to order with tracked UK delivery.'
+      elsif template.name == 'cart'
+        assign meta_desc = 'Your Drive Custom basket. Custom steering wheels and gloss black grilles, built to your spec for your car, with tracked UK delivery.'
+      elsif template.name == 'blog'
+        assign meta_desc = 'Guides to custom steering wheels in the UK: materials, fitment by model, LED displays, and the MOT, airbag and insurance questions owners ask.'
+      endif
+    -%}
+    {%- if meta_desc != blank -%}
+      <meta name="description" content="{{ meta_desc | escape }}">
+    {%- endif -%}
 
     {% render 'breadcrumb-jsonld' %}
     {% render 'product-jsonld' %}
