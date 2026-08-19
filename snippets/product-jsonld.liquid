@@ -19,7 +19,17 @@
   endcomment
   assign sku_value = current_variant.sku | strip
   assign sku_probe = sku_value | downcase | remove: '<' | remove: '>'
-  if sku_probe == 'none' or sku_probe == 'n/a' or sku_probe == '-'
+  if sku_probe == 'none' or sku_probe == 'n/a' or sku_probe == '-' or sku_probe == 'null'
+    assign sku_value = ''
+  endif
+
+  comment
+    The rest of the catalogue carries supplier variant codes in the marketplace
+    attribute format, e.g. "14:200004890#Style 2" or two of them joined by ";".
+    Those identify someone else's listing, not our product, and publishing them
+    exposes sourcing on a public page. Anything carrying that encoding is dropped.
+  endcomment
+  if sku_value contains ':' or sku_value contains '#' or sku_value contains ';'
     assign sku_value = ''
   endif
 -%}
